@@ -1,17 +1,23 @@
-[gd_scene load_steps=29 format=3 uid="uid://djrj5m0qgvpcn"]
+[gd_scene load_steps=44 format=3 uid="uid://djrj5m0qgvpcn"]
 
 [ext_resource type="Texture2D" uid="uid://dnxrxu217owfb" path="res://sprites/Decoration_pave_couleur test.png" id="1_7dyqr"]
+[ext_resource type="Texture2D" uid="uid://vhhxfxikeyec" path="res://sprites/Ruins_stele.png" id="3_apbid"]
 [ext_resource type="Shader" path="res://shaders/PostFX.gdshader" id="3_xwojd"]
 [ext_resource type="Texture2D" uid="uid://d0lt3lof2w31f" path="res://sprites/Voronoise.png" id="4_doukr"]
 [ext_resource type="Script" path="res://scripts/Squeesh.gd" id="4_k2sjl"]
-[ext_resource type="Shader" path="res://shaders/Pentacle.gdshader" id="4_qitc4"]
+[ext_resource type="Shader" path="res://shaders/PentacleSpatial.gdshader" id="4_qitc4"]
 [ext_resource type="Texture2D" uid="uid://ccpxgt35wqxh8" path="res://sprites/Shadow.png" id="5_v71ug"]
 [ext_resource type="Shader" path="res://shaders/SmokeFog.gdshader" id="5_vgngx"]
 [ext_resource type="Texture2D" uid="uid://clh6phtr8gpvp" path="res://sprites/Dog/Dog_face.png" id="6_j48sq"]
 [ext_resource type="Script" path="res://scripts/CloudUniform.gd" id="8_gi4av"]
-[ext_resource type="Texture2D" uid="uid://c0ixw6lrkf7a1" path="res://sprites/Ruins_arc_tmp.png" id="10_mstkh"]
+[ext_resource type="Texture2D" uid="uid://0xnpumhdc3b7" path="res://sprites/Ruins_arch.png" id="10_j8g35"]
 [ext_resource type="Shader" path="res://shaders/Portal.gdshader" id="11_j48y2"]
 [ext_resource type="Texture2D" uid="uid://ct30bbbeqqxqp" path="res://sprites/Ruins_arc_mask.png" id="12_ngccs"]
+[ext_resource type="Texture2D" uid="uid://cbxbr1lgi0ci3" path="res://sprites/Decoration_pillier_torches.png" id="14_jxi58"]
+[ext_resource type="Shader" path="res://shaders/FlameSpatial.gdshader" id="15_bwfm1"]
+[ext_resource type="Texture2D" uid="uid://cc06nqixdst0h" path="res://sprites/Decoration_pillier_torches_2.png" id="15_j7qps"]
+[ext_resource type="Texture2D" uid="uid://bjcl0740a7xel" path="res://sprites/Noise.png" id="16_nq3kr"]
+[ext_resource type="Shader" path="res://shaders/Gradient.gdshader" id="18_oh5xd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cid32"]
 shader = ExtResource("3_xwojd")
@@ -21,6 +27,12 @@ albedo_texture = ExtResource("1_7dyqr")
 uv1_scale = Vector3(1, 10, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_vvl1f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gio85"]
+transparency = 1
+albedo_texture = ExtResource("3_apbid")
+
+[sub_resource type="QuadMesh" id="QuadMesh_xvvyx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_45jgu"]
 render_priority = 0
@@ -61,7 +73,7 @@ shader_parameter/voronoise = ExtResource("4_doukr")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cawar"]
 transparency = 1
-albedo_texture = ExtResource("10_mstkh")
+albedo_texture = ExtResource("10_j8g35")
 
 [sub_resource type="QuadMesh" id="QuadMesh_ia88e"]
 
@@ -70,6 +82,31 @@ render_priority = 0
 shader = ExtResource("11_j48y2")
 shader_parameter/mask = ExtResource("12_ngccs")
 shader_parameter/noise = ExtResource("4_doukr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jh8cv"]
+transparency = 1
+albedo_texture = ExtResource("14_jxi58")
+
+[sub_resource type="QuadMesh" id="QuadMesh_djmlx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3cilr"]
+render_priority = 0
+shader = ExtResource("15_bwfm1")
+shader_parameter/iChannel1 = ExtResource("16_nq3kr")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ldnoq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2rd5"]
+transparency = 1
+albedo_texture = ExtResource("15_j7qps")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wnle0"]
+render_priority = 0
+shader = ExtResource("18_oh5xd")
+shader_parameter/colorA = Vector4(1, 0, 0, 1)
+shader_parameter/colorB = Vector4(0, 0, 0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_uo37s"]
 
 [node name="Seb" type="Node3D"]
 
@@ -92,6 +129,12 @@ grow_vertical = 2
 transform = Transform3D(1, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_cun3o")
 mesh = SubResource("QuadMesh_vvl1f")
+
+[node name="Stele" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(-2, 1.74846e-07, 7.64274e-15, 0, -8.74228e-08, 2, -1.74846e-07, -2, -8.74228e-08, 0, 0.032228, 0.783439)
+sorting_offset = -1.0
+material_override = SubResource("StandardMaterial3D_gio85")
+mesh = SubResource("QuadMesh_xvvyx")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_color = Color(0.494118, 0.756863, 0.388235, 1)
@@ -411,14 +454,67 @@ material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
 skeleton = NodePath("../..")
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Portal" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Portal"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.431654, 0)
 material_override = SubResource("StandardMaterial3D_cawar")
 mesh = SubResource("QuadMesh_ia88e")
 
-[node name="Shader" type="MeshInstance3D" parent="Node3D"]
+[node name="Shader" type="MeshInstance3D" parent="Portal"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.431654, -0.0311421)
 material_override = SubResource("ShaderMaterial_22ls7")
 mesh = SubResource("QuadMesh_ia88e")
+
+[node name="Piliers" type="Node3D" parent="."]
+
+[node name="Pillier1" type="MeshInstance3D" parent="Piliers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.861334, 0, 0.10543)
+material_override = SubResource("StandardMaterial3D_jh8cv")
+mesh = SubResource("QuadMesh_djmlx")
+
+[node name="Flame" type="MeshInstance3D" parent="Piliers/Pillier1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00843656, 0.162783, 0.0128758)
+material_override = SubResource("ShaderMaterial_3cilr")
+mesh = SubResource("QuadMesh_ldnoq")
+skeleton = NodePath("../../..")
+
+[node name="Pillier2" type="MeshInstance3D" parent="Piliers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4518, -0.0748691, 0.10543)
+material_override = SubResource("StandardMaterial3D_m2rd5")
+mesh = SubResource("QuadMesh_djmlx")
+
+[node name="Flame2" type="MeshInstance3D" parent="Piliers/Pillier2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000656247, 0.234039, 0.013299)
+material_override = SubResource("ShaderMaterial_3cilr")
+mesh = SubResource("QuadMesh_ldnoq")
+skeleton = NodePath("../../..")
+
+[node name="Porte" type="Node3D" parent="."]
+
+[node name="Pillier1" type="MeshInstance3D" parent="Porte"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.861334, 0, 0.10543)
+material_override = SubResource("StandardMaterial3D_jh8cv")
+mesh = SubResource("QuadMesh_djmlx")
+
+[node name="Flame" type="MeshInstance3D" parent="Porte/Pillier1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00843656, 0.162783, 0.0128758)
+material_override = SubResource("ShaderMaterial_3cilr")
+mesh = SubResource("QuadMesh_ldnoq")
+skeleton = NodePath("../../..")
+
+[node name="Pillier2" type="MeshInstance3D" parent="Porte"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4518, -0.0748691, 0.10543)
+material_override = SubResource("StandardMaterial3D_m2rd5")
+mesh = SubResource("QuadMesh_djmlx")
+
+[node name="Flame2" type="MeshInstance3D" parent="Porte/Pillier2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000656247, 0.234039, 0.013299)
+material_override = SubResource("ShaderMaterial_3cilr")
+mesh = SubResource("QuadMesh_ldnoq")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Porte"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16411, 0, 0)
+material_override = SubResource("ShaderMaterial_wnle0")
+mesh = SubResource("QuadMesh_uo37s")

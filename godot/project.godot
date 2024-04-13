@@ -22,6 +22,7 @@ gdscript/warnings/untyped_declaration=2
 [display]
 
 window/stretch/mode="viewport"
+
 [layer_names]
 
 3d_render/layer_1="path"
