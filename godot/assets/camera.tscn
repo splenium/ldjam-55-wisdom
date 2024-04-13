@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://btwjpu6wlqr7t"]
+[gd_scene load_steps=3 format=3 uid="uid://xo63y6uf3jic"]
 
 [ext_resource type="Shader" path="res://shaders/PostFX.gdshader" id="1_udbp2"]
 
@@ -11,6 +11,7 @@ transform = Transform3D(1, 0, 0, 0, 0.654714, 0.755876, 0, -0.755876, 0.654714, 
 [node name="PostFXCanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="PostFXCanvasLayer"]
+visible = false
 material = SubResource("ShaderMaterial_cid32")
 anchors_preset = 15
 anchor_right = 1.0

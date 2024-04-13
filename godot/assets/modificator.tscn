@@ -7,7 +7,7 @@
 size = Vector3(9.63379, 9.66547, 1)
 
 [node name="Modificator" type="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 4.2076, -58.29)
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 4.2076, -2.1822)
 script = ExtResource("1_qmciq")
 modificator = 2000
 
@@ -16,6 +16,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23291, -0.110207, 7.62939e
 shape = SubResource("BoxShape3D_43yud")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 texture = ExtResource("2_jcr0w")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
