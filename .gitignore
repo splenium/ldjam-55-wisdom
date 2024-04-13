@@ -3,7 +3,6 @@
 
 # Ignorés spécifiques à Godot
 .import/
-export.cfg
 
 # Traductions importées (générées automatiquement à partir de fichiers CSV)
 *.translation
