@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw1dx601ytshr"]
+
+[ext_resource type="Script" path="res://assets/player/player.gd" id="1_t0lkk"]
+[ext_resource type="Texture2D" uid="uid://7xim2ssd8xer" path="res://assets/placeholder/sheep.png" id="1_tya7d"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d7bsp"]
+radius = 16.0
+height = 54.0
+
+[node name="Player" type="Node2D"]
+position = Vector2(472, 507)
+script = ExtResource("1_t0lkk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_tya7d")
+
+[node name="Collider" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collider"]
+shape = SubResource("CapsuleShape2D_d7bsp")
+
+[connection signal="area_entered" from="Collider" to="." method="_on_collider_area_entered"]
