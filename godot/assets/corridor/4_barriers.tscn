@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://deiwxmhurtotx"]
+
+[ext_resource type="PackedScene" uid="uid://bmqknjxwuk38y" path="res://assets/corridor/barrier2.tscn" id="1_tv36i"]
+[ext_resource type="PackedScene" uid="uid://e3a16i5inl6b" path="res://assets/corridor/barrier1.tscn" id="2_ynbvt"]
+[ext_resource type="PackedScene" uid="uid://flggpcdj0a70" path="res://assets/corridor/barrier3.tscn" id="3_i8aeo"]
+
+[node name="Barriers" type="Node3D"]
+
+[node name="BorderLeftBarrier" parent="." instance=ExtResource("1_tv36i")]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.75, 0, 0)
+
+[node name="CenterLeftBarrier" parent="." instance=ExtResource("2_ynbvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
+
+[node name="CenterRightBarrier" parent="." instance=ExtResource("3_i8aeo")]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0.25, 0, 0)
+
+[node name="BorderRightBarrier" parent="." instance=ExtResource("2_ynbvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
