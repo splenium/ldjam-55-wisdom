@@ -1,17 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://d04qefeiw8i3a"]
+[gd_scene load_steps=3 format=3 uid="uid://d04qefeiw8i3a"]
 
-[ext_resource type="Script" path="res://assets/player/player.gd" id="1_1mhet"]
-[ext_resource type="Texture2D" uid="uid://7xim2ssd8xer" path="res://assets/placeholder/sheep.png" id="2_ap4l0"]
-[ext_resource type="PackedScene" uid="uid://cnm61dw75hodn" path="res://assets/sheep/sheep.tscn" id="2_qx3xs"]
-[ext_resource type="Script" path="res://assets/modificator/modificator.gd" id="3_lef8d"]
-[ext_resource type="Texture2D" uid="uid://ct1wmvl1jcrr2" path="res://assets/placeholder/Brickwall6_Texture.png" id="4_c37h3"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uupuj"]
-radius = 1.60828
-height = 5.64808
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_43yud"]
-size = Vector3(9.63379, 9.66547, 1)
+[ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="2_nl0qp"]
+[ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator.tscn" id="3_xk55x"]
 
 [node name="TheoScene" type="Node3D"]
 
@@ -19,40 +9,13 @@ size = Vector3(9.63379, 9.66547, 1)
 transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 16.7154, 15.2633)
 
 [node name="Sheeps" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.30273, -0.8096)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.53433)
 
-[node name="Sheep" parent="Sheeps" node_paths=PackedStringArray("target") instance=ExtResource("2_qx3xs")]
-axis_lock_angular_x = false
-axis_lock_angular_y = false
-axis_lock_angular_z = false
-target = NodePath("../../CharacterBody3D")
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("spawnPointSheep")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 0, 0)
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-axis_lock_angular_z = true
-script = ExtResource("1_1mhet")
+[node name="Player" parent="." node_paths=PackedStringArray("spawnPointSheep") instance=ExtResource("2_nl0qp")]
 spawnPointSheep = NodePath("../Sheeps")
-spawn_sheep_path = ExtResource("2_qx3xs")
 
-[node name="BasePlayer" type="Sprite3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25407, 0)
-texture = ExtResource("2_ap4l0")
+[node name="Modificator" parent="." instance=ExtResource("3_xk55x")]
+modificator = 600
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25407, 1.19209e-07)
-shape = SubResource("CapsuleShape3D_uupuj")
-
-[node name="Modificator" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 4.2076, -58.29)
-script = ExtResource("3_lef8d")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Modificator"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23291, -0.110207, 7.62939e-06)
-shape = SubResource("BoxShape3D_43yud")
-
-[node name="Sprite3D" type="Sprite3D" parent="Modificator"]
-texture = ExtResource("4_c37h3")
-
-[connection signal="body_entered" from="Modificator" to="Modificator" method="_on_body_entered"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 17, 0)

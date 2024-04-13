@@ -1,20 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw1dx601ytshr"]
+[gd_scene load_steps=14 format=3 uid="uid://cifvmg43nohbm"]
 
-[ext_resource type="Script" path="res://assets/player/player.gd" id="1_t0lkk"]
-[ext_resource type="Texture2D" uid="uid://7xim2ssd8xer" path="res://assets/placeholder/sheep.png" id="1_tya7d"]
+[ext_resource type="Script" path="res://assets/player/player.gd" id="1_bvcwl"]
+[ext_resource type="PackedScene" uid="uid://cnm61dw75hodn" path="res://assets/sheep/sheep.tscn" id="2_wb6fe"]
+[ext_resource type="Shader" path="res://shaders/Pentacle.gdshader" id="3_0fuc7"]
+[ext_resource type="Texture2D" uid="uid://ccpxgt35wqxh8" path="res://sprites/Shadow.png" id="4_mvkny"]
+[ext_resource type="Script" path="res://scripts/Squeesh.gd" id="5_foit1"]
+[ext_resource type="Texture2D" uid="uid://c5nev65l718qm" path="res://sprites/Test_dog_1_preversion.png" id="6_b8qbd"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d7bsp"]
-radius = 16.0
-height = 54.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4vrhb"]
+render_priority = 0
+shader = ExtResource("3_0fuc7")
 
-[node name="Player" type="CharacterBody2D"]
-position = Vector2(472, 507)
-collision_mask = 54
-script = ExtResource("1_t0lkk")
+[sub_resource type="QuadMesh" id="QuadMesh_djg34"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_tya7d")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_herls"]
+transparency = 1
+albedo_texture = ExtResource("4_mvkny")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_d7bsp")
+[sub_resource type="QuadMesh" id="QuadMesh_q0jki"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4iys"]
+transparency = 1
+albedo_texture = ExtResource("6_b8qbd")
+
+[sub_resource type="QuadMesh" id="QuadMesh_78yhd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uupuj"]
+radius = 1.60828
+height = 12.8617
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("follow_point")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("1_bvcwl")
+spawn_sheep_path = ExtResource("2_wb6fe")
+follow_point = NodePath("FollowPoint")
+
+[node name="CharacterAppearance" type="Node3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, -4.52974)
+
+[node name="Pentacle" type="MeshInstance3D" parent="CharacterAppearance"]
+transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 1, 0, 0.365113, 0.229218)
+material_override = SubResource("ShaderMaterial_4vrhb")
+mesh = SubResource("QuadMesh_djg34")
+skeleton = NodePath("../OffsetSqueesh/MainCharacter")
+
+[node name="Shadow" type="MeshInstance3D" parent="CharacterAppearance"]
+transform = Transform3D(0.408926, 0, 0, 0, -9.36146e-09, 1, 0, -0.214165, -4.37114e-08, 0, 0.0147998, 0.229218)
+material_override = SubResource("StandardMaterial3D_herls")
+mesh = SubResource("QuadMesh_q0jki")
+skeleton = NodePath("../OffsetSqueesh/MainCharacter")
+
+[node name="OffsetSqueesh" type="Node3D" parent="CharacterAppearance"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.143767, 0)
+script = ExtResource("5_foit1")
+speed = 4.0
+scaleFactor = 1.02
+
+[node name="MainCharacter" type="MeshInstance3D" parent="CharacterAppearance/OffsetSqueesh"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0.304022, 0.229218)
+material_override = SubResource("StandardMaterial3D_e4iys")
+mesh = SubResource("QuadMesh_78yhd")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.07403, 1.19209e-07)
+shape = SubResource("CapsuleShape3D_uupuj")
+
+[node name="FollowPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.02277, -25.1653)

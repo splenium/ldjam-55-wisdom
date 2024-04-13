@@ -1,19 +1,19 @@
 class_name PathGenerator extends Node3D
 
-var spawn_z := -40
-var despawn_z := 15
+@export var spawn_z := -40
+@export var despawn_z := 15
 var first_spawn_position := Vector3(0, 0, despawn_z)
-var path_width := 2.56
+@export var path_width := 10
 
-@export var speed := 20
+@export var speed := 4
 
 var paths: Array[Node3D] = []
+
 func _ready() -> void:
     var last_path: Node3D = null
     while (last_path == null || last_path.global_position.z > spawn_z):
         spawn_path()
         last_path = paths[paths.size() - 1]
-
 
 func _process(delta: float) -> void:
     shift_paths(delta)
@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
         paths.pop_front()
 
 func spawn_path() -> void:
-    var new_path := preload("res://assets/corridor/straight_path.tscn").instantiate()
+    var new_path := preload("res://assets/corridor/path_tile.tscn").instantiate()
     add_child(new_path)
     if paths.size() == 0:
       new_path.global_position = first_spawn_position

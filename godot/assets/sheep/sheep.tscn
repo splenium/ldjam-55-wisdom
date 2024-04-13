@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnm61dw75hodn"]
+[gd_scene load_steps=5 format=3 uid="uid://cnm61dw75hodn"]
 
 [ext_resource type="Script" path="res://assets/sheep/sheep.gd" id="1_q1yew"]
 [ext_resource type="Texture2D" uid="uid://7xim2ssd8xer" path="res://assets/placeholder/sheep.png" id="2_o0708"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_spqri"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_stp56"]
 radius = 1.08836
@@ -13,7 +15,10 @@ axis_lock_linear_y = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_spqri")
 gravity_scale = 0.0
+linear_damp_mode = 1
+linear_damp = 5.0
 script = ExtResource("1_q1yew")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

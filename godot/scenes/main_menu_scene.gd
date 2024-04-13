@@ -1,13 +1,6 @@
 extends Node2D
 
-@onready var overlay: FadeOverlay = %FadeOverlay
-@onready var continue_button: Button = %ContinueButton
+@export var game_scene: PackedScene;
 
-var new_game: bool = true
-
-func _ready() -> void:
-    overlay.visible = true
-
-#
-#func _on_fade_overlay_on_complete_fade_out() -> void:
-    #get_tree().change_scene_to_packed(next_scene)
+func _on_play_pressed() -> void:
+	get_tree().change_scene(game_scene);

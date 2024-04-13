@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfs460o38jl25"]
+
+[ext_resource type="Script" path="res://assets/corridor/path_spawn_line.gd" id="1_5fq36"]
+
+[sub_resource type="Curve3D" id="Curve3D_y558q"]
+bake_interval = 2.56
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -50, 0, -50, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="SpawnLine" type="Path3D"]
+curve = SubResource("Curve3D_y558q")
+script = ExtResource("1_5fq36")
+
+[node name="PositionOnLine" type="PathFollow3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 0, 0)
+progress = 70.7107
+loop = false

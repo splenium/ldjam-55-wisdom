@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmmr5jbylu08i"]
+[gd_scene load_steps=5 format=3 uid="uid://cmmr5jbylu08i"]
 
 [ext_resource type="Texture2D" uid="uid://d32xnrqw6osfg" path="res://sprites/ia_generated_sprite_splach_screen_logo.png" id="1_egva2"]
-[ext_resource type="FontFile" uid="uid://le2vdo2626vw" path="res://fonts/Montserrat-Medium.ttf" id="2_b778c"]
+[ext_resource type="FontFile" path="res://fonts/Montserrat-Medium.ttf" id="2_b778c"]
+[ext_resource type="FontFile" uid="uid://cf8dib6qt5m14" path="res://fonts/Deutsch.ttf" id="3_eswhe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cbnh2"]
-font = ExtResource("2_b778c")
+font = ExtResource("3_eswhe")
 font_size = 40
 
 [node name="GodotLogo" type="Node2D"]
