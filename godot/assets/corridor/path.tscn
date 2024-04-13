@@ -7,6 +7,7 @@
 [node name="Path" type="Node3D" node_paths=PackedStringArray("paths")]
 script = ExtResource("1_5xhq5")
 spawn_z = -15.0
+despawn_z = 25.0
 paths = [NodePath("StraightPath"), NodePath("StraightPath2")]
 
 [node name="Camera" parent="." instance=ExtResource("2_n1xcd")]

@@ -1,19 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://c686nh780bkhr"]
+[gd_scene load_steps=6 format=3 uid="uid://c686nh780bkhr"]
 
 [ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="1_dl0uc"]
 [ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_faqqn"]
 [ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator.tscn" id="3_m4l32"]
+[ext_resource type="Script" path="res://scenes/death_zone.gd" id="4_nj52x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y6wkv"]
 
 [node name="Level1" type="Node3D"]
 
 [node name="Player" parent="." node_paths=PackedStringArray("spawnPointSheep") instance=ExtResource("1_faqqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170473, -1.47619)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170473, -0.431916)
 spawnPointSheep = NodePath("../SpawnPoint")
 
 [node name="Path" parent="." instance=ExtResource("1_dl0uc")]
 unique_name_in_owner = true
 
 [node name="SpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.227706, 0)
 
 [node name="Modificator" parent="." instance=ExtResource("3_m4l32")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -0.0407465, 0.387622, -6.5318)
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.858046, 0.387622, -3.43839)
+modificator = 15
+
+[node name="Modificator2" parent="." instance=ExtResource("3_m4l32")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -0.846058, 0.387622, -6.41096)
+modificator = 5
+
+[node name="Modificator3" parent="." instance=ExtResource("3_m4l32")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -0.846058, 0.387622, -13.4967)
+modificator = 15
+
+[node name="DEATH" type="Area3D" parent="." node_paths=PackedStringArray("player")]
+collision_layer = 0
+script = ExtResource("4_nj52x")
+player = NodePath("../Player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH"]
+transform = Transform3D(10000, 0, 0, 0, 1, 0, 0, 0, 10000, 0, -4.28135, 0)
+shape = SubResource("BoxShape3D_y6wkv")
+
+[connection signal="body_entered" from="DEATH" to="DEATH" method="_on_body_entered"]
