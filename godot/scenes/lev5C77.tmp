@@ -1,18 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://c686nh780bkhr"]
+[gd_scene load_steps=9 format=3 uid="uid://c686nh780bkhr"]
 
 [ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="1_dl0uc"]
 [ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_faqqn"]
 [ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator.tscn" id="3_m4l32"]
 [ext_resource type="Script" path="res://scenes/death_zone.gd" id="4_nj52x"]
-[ext_resource type="PackedScene" uid="uid://2dtfpvve06kt" path="res://assets/ennemies/priest.tscn" id="5_mn6bn"]
+[ext_resource type="Script" path="res://assets/Ennemy/ennemy.gd" id="5_m3frw"]
+[ext_resource type="Texture2D" uid="uid://c56kbvrnjk0jb" path="res://sprites/Priest_face.png" id="6_wnsbw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y6wkv"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fodk2"]
+radius = 0.122824
+height = 0.339722
+
 [node name="Level1" type="Node3D"]
 
-[node name="Player" parent="." node_paths=PackedStringArray("spawnPointSheep") instance=ExtResource("1_faqqn")]
+[node name="Player" parent="." instance=ExtResource("1_faqqn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170473, -0.431916)
-spawnPointSheep = NodePath("../SpawnPoint")
+follow_point = null
+spawnPointSheep = null
 
 [node name="Path" parent="." instance=ExtResource("1_dl0uc")]
 unique_name_in_owner = true
@@ -35,7 +41,7 @@ modificator = 15
 [node name="DEATH" type="Area3D" parent="." node_paths=PackedStringArray("player")]
 collision_layer = 0
 script = ExtResource("4_nj52x")
-player = NodePath("")
+player = NodePath("../Player")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH"]
 transform = Transform3D(10000, 0, 0, 0, 1, 0, 0, 0, 10000, 0, -4.28135, 0)
@@ -44,6 +50,17 @@ shape = SubResource("BoxShape3D_y6wkv")
 [node name="Ennemies" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -442.515)
 
-[node name="Priest" parent="Ennemies" instance=ExtResource("5_mn6bn")]
+[node name="Priest" type="Area3D" parent="Ennemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.140052, 423.123)
+script = ExtResource("5_m3frw")
+speed = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ennemies/Priest"]
+shape = SubResource("CapsuleShape3D_fodk2")
+
+[node name="Sprite3D" type="Sprite3D" parent="Ennemies/Priest"]
+transform = Transform3D(0.01, 0, 0, 0, 0.00819152, 0.00573576, 0, -0.00573576, 0.00819152, 0, 0, 0)
+texture = ExtResource("6_wnsbw")
 
 [connection signal="body_entered" from="DEATH" to="DEATH" method="_on_body_entered"]
+[connection signal="body_entered" from="Ennemies/Priest" to="Ennemies/Priest" method="_on_body_entered"]

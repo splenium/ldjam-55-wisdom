@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://assets/corridor/path_generator.gd" id="1_5xhq5"]
 [ext_resource type="PackedScene" uid="uid://xo63y6uf3jic" path="res://assets/camera.tscn" id="2_n1xcd"]
-[ext_resource type="PackedScene" uid="uid://l77dlwbd0yc6" path="res://assets/corridor/path_tile.tscn" id="3_7ofc5"]
+[ext_resource type="PackedScene" uid="uid://c0rhyf1dgeapl" path="res://assets/corridor/path_tile.tscn" id="3_7ofc5"]
 
 [node name="Path" type="Node3D" node_paths=PackedStringArray("paths")]
 script = ExtResource("1_5xhq5")
