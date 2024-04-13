@@ -1,15 +1,27 @@
-[gd_scene load_steps=43 format=3 uid="uid://l77dlwbd0yc6"]
+[gd_scene load_steps=47 format=3 uid="uid://c0rhyf1dgeapl"]
 
-[ext_resource type="Texture2D" uid="uid://dnxrxu217owfb" path="res://sprites/Decoration_pave_couleur test.png" id="1_ih6u6"]
+[ext_resource type="Texture2D" uid="uid://evkwkhhr3slj" path="res://sprites/Textures_full.png" id="1_0ixj5"]
 [ext_resource type="Shader" path="res://shaders/SmokeFog.gdshader" id="2_hhxk4"]
+[ext_resource type="Texture2D" uid="uid://bq5hoa38fxad3" path="res://sprites/Textures_gauche.png" id="2_qimp5"]
 [ext_resource type="Texture2D" uid="uid://d0lt3lof2w31f" path="res://sprites/Voronoise.png" id="3_vgucn"]
+[ext_resource type="Texture2D" uid="uid://d3ycm1ipu73qj" path="res://sprites/Textures_droit.png" id="3_yrww0"]
 [ext_resource type="Script" path="res://scripts/CloudUniform.gd" id="4_wxg44"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hs0jf"]
-albedo_texture = ExtResource("1_ih6u6")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5c5ni"]
+transparency = 1
+albedo_texture = ExtResource("3_yrww0")
 uv1_scale = Vector3(1, 10, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_fp7ce"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hs0jf"]
+albedo_texture = ExtResource("1_0ixj5")
+uv1_scale = Vector3(1, 10, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4pfk1"]
+transparency = 1
+albedo_texture = ExtResource("2_qimp5")
+uv1_scale = Vector3(1, 10, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4hiu0"]
 render_priority = 0
@@ -221,12 +233,33 @@ shader_parameter/voronoise = ExtResource("3_vgucn")
 
 [node name="StraightPath" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.3, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 0, 0, 0)
+[node name="BorderLeft" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, -1.99, 0, 0)
+material_override = SubResource("StandardMaterial3D_5c5ni")
+mesh = SubResource("QuadMesh_fp7ce")
+
+[node name="Left" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, -1, 0, 0)
 material_override = SubResource("StandardMaterial3D_hs0jf")
 mesh = SubResource("QuadMesh_fp7ce")
 
+[node name="Center" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_hs0jf")
+mesh = SubResource("QuadMesh_fp7ce")
+
+[node name="Right" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 1, 0, 0)
+material_override = SubResource("StandardMaterial3D_hs0jf")
+mesh = SubResource("QuadMesh_fp7ce")
+
+[node name="BorderRight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 1.99, 0, 0)
+material_override = SubResource("StandardMaterial3D_4pfk1")
+mesh = SubResource("QuadMesh_fp7ce")
+
 [node name="Smoke" type="Node3D" parent="."]
+visible = false
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Smoke"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -0.408325, -1.90868, -0.758031)
@@ -509,6 +542,7 @@ script = ExtResource("4_wxg44")
 shader_seed = 14.365
 
 [node name="Light" type="Node3D" parent="."]
+visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.66195)
@@ -523,7 +557,7 @@ light_energy = 4.408
 light_size = 1.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1.3, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(3.4, 0, 0, 0, 0.3, 0, 0, 0, 10, 0, 0, 0)
 collision_layer = 64
 collision_mask = 5
 
