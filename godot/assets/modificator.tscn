@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://btd0ynwce5qb6"]
+
+[ext_resource type="Script" path="res://assets/modificator/modificator.gd" id="1_qmciq"]
+[ext_resource type="Texture2D" uid="uid://ct1wmvl1jcrr2" path="res://assets/placeholder/Brickwall6_Texture.png" id="2_jcr0w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_43yud"]
+size = Vector3(9.63379, 9.66547, 1)
+
+[node name="Modificator" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 4.2076, -58.29)
+script = ExtResource("1_qmciq")
+modificator = 2000
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23291, -0.110207, 7.62939e-06)
+shape = SubResource("BoxShape3D_43yud")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource("2_jcr0w")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
