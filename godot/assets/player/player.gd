@@ -4,6 +4,7 @@ class_name Player extends CharacterBody3D
 @export var sheepNumber: int = 1
 @export var spawnPointSheep: Node3D
 @export var spawn_sheep_path: PackedScene
+@export var follow_point: Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,6 +30,6 @@ func apply_sheep_modificator(modificator: int) -> void:
 	if sheepDifference > 0:
 		for i in range(0, sheepDifference):
 			var instance: Sheep = spawn_sheep_path.instantiate()
-			instance.target = self
-			self.spawnPointSheep.add_child(spawn_sheep_path.instantiate())
+			instance.target = follow_point
+			self.spawnPointSheep.add_child(instance)
 	pass
