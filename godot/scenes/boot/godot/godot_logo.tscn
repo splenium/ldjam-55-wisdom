@@ -5,7 +5,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_cbnh2"]
 font = ExtResource("2_b778c")
-font_size = 35
+font_size = 40
 
 [node name="GodotLogo" type="Node2D"]
 
