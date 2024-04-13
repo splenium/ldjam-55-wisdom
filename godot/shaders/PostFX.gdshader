@@ -62,14 +62,14 @@ vec3 rdrScene(vec2 uv)
 	for (float i = 0.; i < 8.; ++i)
 	{
 		vec2 p = uv-.5;
-		col += rdrChroma(p*mix(1.,1.2,i/8.)+.5)*mix(vec3(1.), vec3(1.,.7,.6), i/8.);
+		col += rdrChroma(p*mix(1.,1.1,i/8.)+.5)*mix(vec3(1.), vec3(1.,.7,.6), i/8.);
 	}
 	return col/8.;
 }
 
 void fragment() {
 	
-	vec3 col =  rdrChroma(SCREEN_UV);
+	vec3 col =  rdrScene(SCREEN_UV);
 	COLOR.rgb = col;
 }
 
