@@ -1,2 +1,17 @@
-# Godot 4+ specific ignores
+# Godot 4+ spécifique
 .godot/
+
+# Ignorés spécifiques à Godot
+.import/
+export.cfg
+
+# Traductions importées (générées automatiquement à partir de fichiers CSV)
+*.translation
+
+# Ignorés spécifiques à Mono
+.mono/
+data_*/
+mono_crash.*.json
+
+# Custom
+.export/
