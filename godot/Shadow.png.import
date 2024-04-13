@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/Shadow.png-ad0b0edbaedd91b6e1392cde1e58990b.c
 
 [params]
 
-compress/mode=0
+compress/mode=4
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

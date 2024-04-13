@@ -23,9 +23,11 @@ GameManager="*res://scripts/game_manager.gd"
 
 gdscript/warnings/untyped_declaration=2
 
-[display]
+[importer_defaults]
 
-window/stretch/mode="viewport"
+texture={
+"compress/mode": 1
+}
 
 [layer_names]
 

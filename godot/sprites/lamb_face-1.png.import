@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/lamb_face-1.png-e2ac843d1f2ac50f0e222c95d45d9
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/Dog_dos.png-2a2e95fc752eceb1774d0cc2725094e3.
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

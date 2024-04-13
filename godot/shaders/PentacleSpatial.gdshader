@@ -13,6 +13,7 @@ void fragment() {
 	vec2 uv = UV-.5;
 	vec3 col = pentacle(uv, iChannel0, iTime);
 	ALBEDO = col;
+	SPECULAR = 0.;
 }
 
 //void light() {
