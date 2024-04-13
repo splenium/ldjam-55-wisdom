@@ -4,6 +4,8 @@
 [ext_resource type="FontFile" uid="uid://le2vdo2626vw" path="res://fonts/Montserrat-Medium.ttf" id="2_b778c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cbnh2"]
+font = ExtResource("2_b778c")
+font_size = 35
 
 [node name="GodotLogo" type="Node2D"]
 
@@ -13,10 +15,10 @@ scale = Vector2(0.849102, 0.779766)
 texture = ExtResource("1_egva2")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -105.0
-offset_top = 15.0
-offset_right = 105.0
-offset_bottom = 56.0
+offset_left = -177.0
+offset_top = 4.0
+offset_right = 180.0
+offset_bottom = 65.0
 theme_override_fonts/font = ExtResource("2_b778c")
 theme_override_font_sizes/font_size = 20
 text = "ldjam-55-wisdom"
