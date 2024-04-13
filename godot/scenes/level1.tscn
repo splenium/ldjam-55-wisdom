@@ -31,9 +31,10 @@ modificator = 5
 transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -0.846058, 0.387622, -13.4967)
 modificator = 15
 
-[node name="DEATH" type="Area3D" parent="."]
+[node name="DEATH" type="Area3D" parent="." node_paths=PackedStringArray("player")]
 collision_layer = 0
 script = ExtResource("4_nj52x")
+player = NodePath("../Player")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH"]
 transform = Transform3D(10000, 0, 0, 0, 1, 0, 0, 0, 10000, 0, -4.28135, 0)
