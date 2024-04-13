@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c0rhyf1dgeapl"]
+[gd_scene load_steps=43 format=3 uid="uid://l77dlwbd0yc6"]
 
 [ext_resource type="Texture2D" uid="uid://dnxrxu217owfb" path="res://sprites/Decoration_pave_couleur test.png" id="1_ih6u6"]
 [ext_resource type="Shader" path="res://shaders/SmokeFog.gdshader" id="2_hhxk4"]

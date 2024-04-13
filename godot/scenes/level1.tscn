@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c686nh780bkhr"]
+
+[ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="1_dl0uc"]
+[ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_faqqn"]
+
+[node name="Level1" type="Node3D"]
+
+[node name="Player" parent="." node_paths=PackedStringArray("spawnPointSheep") instance=ExtResource("1_faqqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24388, -0.341024)
+spawnPointSheep = NodePath("../SpawnPoint")
+
+[node name="Path" parent="." instance=ExtResource("1_dl0uc")]
+
+[node name="SpawnPoint" type="Node3D" parent="."]
