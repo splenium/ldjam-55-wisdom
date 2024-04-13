@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://d04qefeiw8i3a"]
+[gd_scene load_steps=6 format=3 uid="uid://d04qefeiw8i3a"]
 
-[ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="1_dvap6"]
 [ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="2_nl0qp"]
 [ext_resource type="Script" path="res://assets/Ennemy/ennemy.gd" id="3_7ob2i"]
 [ext_resource type="Texture2D" uid="uid://c56kbvrnjk0jb" path="res://sprites/Priest_face.png" id="3_5586v"]
@@ -12,13 +11,13 @@ height = 8.21087
 
 [node name="TheoScene" type="Node3D"]
 
-[node name="Path" parent="." instance=ExtResource("1_dvap6")]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 16.7154, 15.2633)
 
 [node name="Sheeps" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.53433)
 
 [node name="Player" parent="." node_paths=PackedStringArray("spawnPointSheep") instance=ExtResource("2_nl0qp")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 15.545, 0)
 spawnPointSheep = NodePath("../Sheeps")
 
 [node name="Modificator" parent="." instance=ExtResource("3_xk55x")]
@@ -32,6 +31,9 @@ modificator = 2
 [node name="Modificator2" parent="." instance=ExtResource("3_xk55x")]
 transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 4.2076, -46.9008)
 modificator = 5
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 17, 0)
 
 [node name="Ennemies" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -442.515)

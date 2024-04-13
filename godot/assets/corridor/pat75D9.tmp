@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyajm1prw0hg3"]
+
+[ext_resource type="Script" path="res://assets/corridor/path_generator.gd" id="1_5xhq5"]
+[ext_resource type="PackedScene" path="res://assets/camera.tscn" id="2_n1xcd"]
+
+[node name="Path" type="Node3D"]
+script = ExtResource("1_5xhq5")
+speed = 1.0
+
+[node name="Camera" parent="." instance=ExtResource("2_n1xcd")]
+transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707106, 0.707106, 0, 1.2, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.49433, 0)
+light_color = Color(0.65098, 0.643137, 0.776471, 1)

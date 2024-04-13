@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody3D
 
-@export var speed: float = 15.0
+@export var speed: float = 4.0
 @export var sheepNumber: int = 1
 @export var spawnPointSheep: Node3D
 @export var spawn_sheep_path: PackedScene

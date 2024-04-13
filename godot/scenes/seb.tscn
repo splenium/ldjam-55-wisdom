@@ -148,6 +148,7 @@ light_energy = 4.408
 light_size = 1.0
 
 [node name="CharacterAppearance" type="Node3D" parent="."]
+visible = false
 
 [node name="Pentacle" type="MeshInstance3D" parent="CharacterAppearance"]
 transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 1, 0, 0.365113, 0.229218)
@@ -185,7 +186,6 @@ material_override = SubResource("StandardMaterial3D_bir3s")
 mesh = SubResource("QuadMesh_uxur8")
 skeleton = NodePath("../..")
 script = ExtResource("8_gi4av")
-seed = 6.575
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-8.00855, 0, 0, 0, 2.61477e-07, 1, 0, 5.98189, -4.37114e-08, 0, -0.385441, 0)
@@ -212,7 +212,6 @@ material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
 skeleton = NodePath("../..")
 script = ExtResource("8_gi4av")
-seed = 1.195
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -0.408325, -1.90868, -6.67052)

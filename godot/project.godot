@@ -39,6 +39,7 @@ window/stretch/mode="viewport"
 3d_physics/layer_5="ennemy_fire"
 2d_physics/layer_6="obstacle"
 3d_physics/layer_6="obstacle"
+3d_physics/layer_7="floor"
 
 [rendering]
 

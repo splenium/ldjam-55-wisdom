@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://cnm61dw75hodn"]
 
 [ext_resource type="Script" path="res://assets/sheep/sheep.gd" id="1_q1yew"]
-[ext_resource type="Texture2D" uid="uid://7xim2ssd8xer" path="res://assets/placeholder/sheep.png" id="2_o0708"]
+[ext_resource type="Texture2D" uid="uid://cwkbedkxxuq8l" path="res://sprites/lamb_dos-5.png" id="2_8opr0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_spqri"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_stp56"]
-radius = 1.08836
+radius = 2.0
 height = 5.56454
 
 [node name="Sheep" type="RigidBody3D"]
@@ -25,5 +25,5 @@ script = ExtResource("1_q1yew")
 shape = SubResource("CapsuleShape3D_stp56")
 
 [node name="SheepSprite" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 0, 0)
-texture = ExtResource("2_o0708")
+transform = Transform3D(0.25, 0, 0, 0, 0.204788, 0.143394, 0, -0.143394, 0.204788, 0, 0, 0)
+texture = ExtResource("2_8opr0")
