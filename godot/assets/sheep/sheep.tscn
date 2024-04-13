@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnm61dw75hodn"]
+
+[ext_resource type="Script" path="res://assets/sheep/sheep.gd" id="1_q1yew"]
+[ext_resource type="Texture2D" uid="uid://7xim2ssd8xer" path="res://assets/placeholder/sheep.png" id="2_o0708"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_stp56"]
+radius = 1.08836
+height = 5.56454
+
+[node name="Sheep" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87451, 3.14126)
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+script = ExtResource("1_q1yew")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_stp56")
+
+[node name="SheepSprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 0, 0)
+texture = ExtResource("2_o0708")
