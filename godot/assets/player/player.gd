@@ -54,16 +54,39 @@ func add_sheep(sheep: Sheep) -> void:
 func get_sheep_number() -> int:
 	# Take in account the player
 	return sheepList.size() + 1
+
+func get_only_sacrificial_sheep() -> int:
+	return sheepList.size()
 	
-func apply_sheep_modificator(modificator: int) -> void:
-	var sheepDifference: int = get_sheep_number() * modificator
-	if sheepDifference > 0:
-		for i in range(0, sheepDifference):
+func apply_sheep_addition(sheep_to_add: int) -> void:
+	var sheepDiff: int = sheep_to_add
+	apply_sheep_edition(sheepDiff)
+	pass
+	
+func apply_sheep_multiplicator(multiplicator: int) -> void:
+	var sheepDiff := 0
+	if multiplicator < 0:
+		sheepDiff = get_only_sacrificial_sheep() / multiplicator		
+	else:
+		sheepDiff = get_only_sacrificial_sheep() * multiplicator
+	apply_sheep_edition(sheepDiff)
+	pass
+	
+func apply_sheep_edition(sheepDiff: int) -> void:
+	if sheepDiff > 0:
+		for i in range(0, sheepDiff):
 			var sheep: Sheep = instantiate_sheep()
 			var middle_offset: float = ((spawn_sheep_line * spawn_x_offset) / 2)
 			sheep.position.x = sheep.position.x + (i % spawn_sheep_line) * spawn_x_offset - middle_offset
 			sheep.position.z += ceil(i / spawn_sheep_line) * spawn_y_offset
 			add_sheep(sheep)
+	elif sheepDiff < 0:
+		var numsToDelete: int = abs(sheepDiff)
+		if(abs(sheepDiff) >= get_only_sacrificial_sheep()):
+			remove_all_sheep()
+		else:
+			for i in range(0, abs(sheepDiff)):
+				remove_sheep(sheepList[0])
 	update_follow_point()
 	pass
 
@@ -73,4 +96,10 @@ func remove_sheep(sheep: Sheep) -> void:
 		sheepList.remove_at(idx)
 		sheep.queue_free()
 		update_follow_point()
+	pass
+
+func remove_all_sheep() -> void:
+	for sheep in sheepList:
+		sheep.queue_free()
+	sheepList.clear()
 	pass
