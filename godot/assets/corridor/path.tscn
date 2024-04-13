@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyajm1prw0hg3"]
+
+[ext_resource type="Script" path="res://assets/corridor/path_generator.gd" id="1_5xhq5"]
+
+[node name="Path" type="Node3D"]
+script = ExtResource("1_5xhq5")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.681603, 0.731723, 0, -0.731723, 0.681603, 0.371923, 6.88032, 10.7048)
