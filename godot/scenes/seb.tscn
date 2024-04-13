@@ -41,7 +41,7 @@ shader_parameter/voronoise = ExtResource("4_doukr")
 [node name="Seb" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.654714, 0.755876, 0, -0.755876, 0.654714, 0, 0.743, -0.822)
+transform = Transform3D(1, 0, 0, 0, 0.654714, 0.755876, 0, -0.755876, 0.654714, 0, 0.743, 0.953)
 
 [node name="PostFXCanvasLayer" type="CanvasLayer" parent="Camera3D"]
 
