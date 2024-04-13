@@ -1,12 +1,13 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://buyrdp78hirb6"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://buyrdp78hirb6"]
 
 [ext_resource type="FontFile" uid="uid://cf8dib6qt5m14" path="res://fonts/Deutsch.ttf" id="1_k005u"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hvgxq"]
 
 [resource]
 default_font = ExtResource("1_k005u")
 default_font_size = 45
 Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
 Button/fonts/font = ExtResource("1_k005u")
-Button/styles/normal = SubResource("StyleBoxEmpty_hvgxq")
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
