@@ -21,6 +21,8 @@ gdscript/warnings/untyped_declaration=2
 
 [layer_names]
 
+3d_render/layer_1="path"
+3d_render/layer_2="side_path"
 2d_physics/layer_1="player"
 3d_physics/layer_1="player"
 2d_physics/layer_2="bonus"
