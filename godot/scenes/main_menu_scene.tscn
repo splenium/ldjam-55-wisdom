@@ -1,8 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://dapwdbtp3twuv"]
+[gd_scene load_steps=15 format=3 uid="uid://dapwdbtp3twuv"]
 
 [ext_resource type="Script" path="res://scenes/main_menu_scene.gd" id="1_1foie"]
-[ext_resource type="FontFile" uid="uid://cf8dib6qt5m14" path="res://fonts/Deutsch.ttf" id="2_haxh6"]
-[ext_resource type="PackedScene" uid="uid://bw5x5al4cfjoj" path="res://scenes/benoit_scene.tscn" id="3_85x6c"]
+[ext_resource type="PackedScene" path="res://scenes/level1.tscn" id="2_a0bjr"]
 [ext_resource type="Shader" path="res://shaders/2DFire.gdshader" id="3_hi5lo"]
 [ext_resource type="Shader" path="res://shaders/Pentacle.gdshader" id="3_uarck"]
 [ext_resource type="Theme" uid="uid://buyrdp78hirb6" path="res://buttons.tres" id="3_usu6j"]
@@ -29,21 +28,18 @@ shader_parameter/gradient_tex = SubResource("GradientTexture2D_8shud")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wcc3m"]
 shader = ExtResource("3_uarck")
 
-[sub_resource type="Theme" id="Theme_8rlpk"]
-default_font = ExtResource("2_haxh6")
-default_font_size = 80
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_21wlp"]
 shader = ExtResource("5_gqdw8")
 
 [node name="MainMenuScene" type="Node2D"]
 script = ExtResource("1_1foie")
-game_scene = ExtResource("3_85x6c")
+game_scene = ExtResource("2_a0bjr")
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 3
 
 [node name="2DFireRight" type="ColorRect" parent="UI"]
+visible = false
 material = SubResource("ShaderMaterial_xxsex")
 anchors_preset = 11
 anchor_left = 1.0
@@ -59,6 +55,7 @@ rotation = -1.5708
 color = Color(0, 0, 0, 1)
 
 [node name="2DFireLeft" type="ColorRect" parent="UI"]
+visible = false
 material = SubResource("ShaderMaterial_xxsex")
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -70,6 +67,7 @@ rotation = 1.5708
 color = Color(0, 0, 0, 1)
 
 [node name="2DFireBottom" type="ColorRect" parent="UI"]
+visible = false
 material = SubResource("ShaderMaterial_xxsex")
 anchors_preset = 12
 anchor_top = 1.0
@@ -83,6 +81,7 @@ grow_vertical = 0
 color = Color(0, 0, 0, 1)
 
 [node name="2DFireUp" type="ColorRect" parent="UI"]
+visible = false
 material = SubResource("ShaderMaterial_xxsex")
 anchors_preset = 10
 anchor_right = 1.0
@@ -95,6 +94,7 @@ rotation = 3.14159
 color = Color(0, 0, 0, 1)
 
 [node name="Pantacles" type="ColorRect" parent="UI"]
+visible = false
 material = SubResource("ShaderMaterial_wcc3m")
 anchors_preset = 8
 anchor_left = 0.5
@@ -108,51 +108,6 @@ offset_bottom = 322.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
-
-[node name="VBoxContainerTitles" type="VBoxContainer" parent="UI"]
-visible = false
-top_level = true
-z_index = 1
-custom_minimum_size = Vector2(0, 324)
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 8.0
-grow_horizontal = 2
-alignment = 1
-
-[node name="TextEdit" type="TextEdit" parent="UI/VBoxContainerTitles"]
-z_index = 1
-z_as_relative = false
-layout_mode = 2
-theme = SubResource("Theme_8rlpk")
-
-[node name="VBoxContainerBoutons" type="VBoxContainer" parent="UI"]
-top_level = true
-z_index = 1
-custom_minimum_size = Vector2(0, 324)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -226.0
-offset_right = 229.0
-offset_bottom = 324.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Play" type="Button" parent="UI/VBoxContainerBoutons"]
-layout_mode = 2
-theme = ExtResource("3_usu6j")
-toggle_mode = true
-text = "Play"
-
-[node name="Credits" type="Button" parent="UI/VBoxContainerBoutons"]
-layout_mode = 2
-theme = ExtResource("3_usu6j")
-toggle_mode = true
-text = "Credits"
 
 [node name="DecorationSkullLeft" type="Sprite2D" parent="UI"]
 z_index = 1
@@ -250,8 +205,33 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="VBoxContainerBoutons" type="VBoxContainer" parent="UI"]
+top_level = true
+custom_minimum_size = Vector2(0, 324)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -226.0
+offset_right = 229.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Play" type="Button" parent="UI/VBoxContainerBoutons"]
+layout_mode = 2
+theme = ExtResource("3_usu6j")
+text = "Play"
+
+[node name="Credits" type="Button" parent="UI/VBoxContainerBoutons"]
+layout_mode = 2
+theme = ExtResource("3_usu6j")
+toggle_mode = true
+text = "Credits"
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_drnm6")
-autoplay = true
 
-[connection signal="pressed" from="UI/VBoxContainerBoutons/Play" to="UI/VBoxContainerBoutons" method="_on_play_pressed"]
+[connection signal="pressed" from="UI/VBoxContainerBoutons/Play" to="." method="_on_play_pressed"]

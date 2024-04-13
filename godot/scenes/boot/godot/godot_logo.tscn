@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmmr5jbylu08i"]
+[gd_scene load_steps=4 format=3 uid="uid://cmmr5jbylu08i"]
 
 [ext_resource type="Texture2D" uid="uid://d32xnrqw6osfg" path="res://sprites/ia_generated_sprite_splach_screen_logo.png" id="1_egva2"]
-[ext_resource type="FontFile" path="res://fonts/Montserrat-Medium.ttf" id="2_b778c"]
 [ext_resource type="FontFile" uid="uid://cf8dib6qt5m14" path="res://fonts/Deutsch.ttf" id="3_eswhe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cbnh2"]
@@ -11,7 +10,7 @@ font_size = 40
 [node name="GodotLogo" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2, -203)
+position = Vector2(10, -153)
 scale = Vector2(0.849102, 0.779766)
 texture = ExtResource("1_egva2")
 
@@ -20,7 +19,6 @@ offset_left = -177.0
 offset_top = 4.0
 offset_right = 180.0
 offset_bottom = 65.0
-theme_override_fonts/font = ExtResource("2_b778c")
 theme_override_font_sizes/font_size = 20
 text = "ldjam-55-wisdom"
 label_settings = SubResource("LabelSettings_cbnh2")
