@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://djrj5m0qgvpcn"]
+[gd_scene load_steps=29 format=3 uid="uid://djrj5m0qgvpcn"]
 
 [ext_resource type="Texture2D" uid="uid://dnxrxu217owfb" path="res://sprites/Decoration_pave_couleur test.png" id="1_7dyqr"]
 [ext_resource type="Shader" path="res://shaders/PostFX.gdshader" id="3_xwojd"]
@@ -9,6 +9,9 @@
 [ext_resource type="Shader" path="res://shaders/SmokeFog.gdshader" id="5_vgngx"]
 [ext_resource type="Texture2D" uid="uid://clh6phtr8gpvp" path="res://sprites/Dog/Dog_face.png" id="6_j48sq"]
 [ext_resource type="Script" path="res://scripts/CloudUniform.gd" id="8_gi4av"]
+[ext_resource type="Texture2D" uid="uid://c0ixw6lrkf7a1" path="res://sprites/Ruins_arc_tmp.png" id="10_mstkh"]
+[ext_resource type="Shader" path="res://shaders/Portal.gdshader" id="11_j48y2"]
+[ext_resource type="Texture2D" uid="uid://ct30bbbeqqxqp" path="res://sprites/Ruins_arc_mask.png" id="12_ngccs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cid32"]
 shader = ExtResource("3_xwojd")
@@ -55,6 +58,18 @@ render_priority = 0
 shader = ExtResource("5_vgngx")
 shader_parameter/seed = null
 shader_parameter/voronoise = ExtResource("4_doukr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cawar"]
+transparency = 1
+albedo_texture = ExtResource("10_mstkh")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ia88e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_22ls7"]
+render_priority = 0
+shader = ExtResource("11_j48y2")
+shader_parameter/mask = ExtResource("12_ngccs")
+shader_parameter/noise = ExtResource("4_doukr")
 
 [node name="Seb" type="Node3D"]
 
@@ -118,233 +133,292 @@ skeleton = NodePath("../../..")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.49433, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Clouds" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-8.00855, 0, 0, 0, 2.61477e-07, 1, 0, 5.98189, -4.37114e-08, 0, -0.591375, 0)
 visible = false
 material_override = SubResource("StandardMaterial3D_bir3s")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 script = ExtResource("8_gi4av")
 seed = 6.575
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-8.00855, 0, 0, 0, 2.61477e-07, 1, 0, 5.98189, -4.37114e-08, 0, -0.385441, 0)
 visible = false
 material_override = SubResource("StandardMaterial3D_hxkkb")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -0.408325, -1.90868, -3.1366)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -0.408325, -1.90868, -4.0648)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -0.408325, -1.90868, -5.47487)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 script = ExtResource("8_gi4av")
 seed = 1.195
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -0.408325, -1.90868, -6.67052)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -0.408325, -1.90868, -2.10736)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -0.408325, -1.90868, -1.17064)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -0.408325, -1.90868, -0.206318)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.26676, -1.90868, -3.1917)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.26676, -1.90868, -4.1199)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D13" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.26676, -1.90868, -5.52998)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D14" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.26676, -1.90868, -6.72562)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D15" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.26676, -1.90868, -2.16246)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D16" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.26676, -1.90868, -1.22574)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D17" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.26676, -1.90868, -0.261425)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D18" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.90411, -0.969262, -3.45164)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D19" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.90411, -0.969262, -4.37984)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D20" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.90411, -0.969262, -5.78992)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D21" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.90411, -0.969262, -6.98556)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D22" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.90411, -0.969262, -2.4224)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D23" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.90411, -0.969262, -1.48568)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D24" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.90411, -0.969262, -0.521364)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D25" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.90411, -0.969262, -3.45164)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D26" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.90411, -0.969262, -4.37984)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D27" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.90411, -0.969262, -5.78992)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D28" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.90411, -0.969262, -6.98556)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D29" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.90411, -0.969262, -2.4224)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D30" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.90411, -0.969262, -1.48568)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D31" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D31" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.90411, -0.969262, -0.521364)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D32" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, -3.65588)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D33" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D33" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, -4.58408)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D34" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D34" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, -5.99416)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D35" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D35" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, -7.1898)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D36" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D36" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, -2.62664)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D37" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D37" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, -1.68992)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D38" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D38" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, -0.725605)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D39" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D39" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, -3.65588)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D40" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D40" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, -4.58408)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D41" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D41" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, -5.99416)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D42" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D42" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, -7.1898)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D43" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D43" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, -2.62664)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D44" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D44" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, -1.68992)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D45" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D45" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, -0.725605)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Clouds"]
 transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -0.408325, -1.90868, 0.880663)
 material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
+skeleton = NodePath("../..")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.431654, 0)
+material_override = SubResource("StandardMaterial3D_cawar")
+mesh = SubResource("QuadMesh_ia88e")
+
+[node name="Shader" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.431654, -0.0311421)
+material_override = SubResource("ShaderMaterial_22ls7")
+mesh = SubResource("QuadMesh_ia88e")
