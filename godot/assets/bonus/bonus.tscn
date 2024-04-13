@@ -8,6 +8,7 @@ size = Vector2(1020, 1020)
 
 [node name="BonusCollider" type="Area2D"]
 position = Vector2(592, 0)
+collision_layer = 2
 script = ExtResource("1_oke5l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -21,4 +22,5 @@ texture = ExtResource("2_6borm")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

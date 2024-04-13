@@ -6,8 +6,8 @@ extends Node2D
 var new_game: bool = true
 
 func _ready() -> void:
-	overlay.visible = true
+    overlay.visible = true
 
 #
 #func _on_fade_overlay_on_complete_fade_out() -> void:
-	#get_tree().change_scene_to_packed(next_scene)
+    #get_tree().change_scene_to_packed(next_scene)
