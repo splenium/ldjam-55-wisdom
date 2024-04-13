@@ -30,8 +30,8 @@ albedo_texture = ExtResource("5_epfqi")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x71yx"]
 render_priority = 0
 shader = ExtResource("6_rn6x4")
-shader_parameter/colorA = Vector4(1, 0, 0, 1)
-shader_parameter/colorB = Vector4(0, 0, 0, 0)
+shader_parameter/colorA = Color(0.239216, 0.780392, 0.870588, 1)
+shader_parameter/colorB = Color(1, 1, 1, 0)
 
 [sub_resource type="QuadMesh" id="QuadMesh_ja0hs"]
 
@@ -47,7 +47,7 @@ shape = SubResource("BoxShape3D_43yud")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16113, 0, 0)
 
 [node name="Pillier1" type="MeshInstance3D" parent="Porte"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.861334, 0, 0.10543)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.719706, -3.72529e-09, 0.10543)
 material_override = SubResource("StandardMaterial3D_o141r")
 mesh = SubResource("QuadMesh_5ri7v")
 
@@ -58,7 +58,7 @@ mesh = SubResource("QuadMesh_ivoo2")
 skeleton = NodePath("../../..")
 
 [node name="Pillier2" type="MeshInstance3D" parent="Porte"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4518, -0.0748691, 0.10543)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6232, -0.0748691, 0.10543)
 material_override = SubResource("StandardMaterial3D_rc6yn")
 mesh = SubResource("QuadMesh_5ri7v")
 
@@ -68,39 +68,15 @@ material_override = SubResource("ShaderMaterial_je3x2")
 mesh = SubResource("QuadMesh_ivoo2")
 skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Porte"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16411, 0, 0)
+[node name="Gradient" type="MeshInstance3D" parent="Porte"]
+transform = Transform3D(1, 0, 0, 0, 0.780329, -2.98023e-08, 0, 0, 0.846185, -1.16411, -0.0590503, -0.119652)
 material_override = SubResource("ShaderMaterial_x71yx")
 mesh = SubResource("QuadMesh_ja0hs")
 
-[node name="Porte2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16113, 0, 0)
-
-[node name="Pillier1" type="MeshInstance3D" parent="Porte2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.861334, 0, 0.10543)
-material_override = SubResource("StandardMaterial3D_o141r")
-mesh = SubResource("QuadMesh_5ri7v")
-
-[node name="Flame" type="MeshInstance3D" parent="Porte2/Pillier1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00843656, 0.162783, 0.0128758)
-material_override = SubResource("ShaderMaterial_je3x2")
-mesh = SubResource("QuadMesh_ivoo2")
-skeleton = NodePath("../../..")
-
-[node name="Pillier2" type="MeshInstance3D" parent="Porte2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4518, -0.0748691, 0.10543)
-material_override = SubResource("StandardMaterial3D_rc6yn")
-mesh = SubResource("QuadMesh_5ri7v")
-
-[node name="Flame2" type="MeshInstance3D" parent="Porte2/Pillier2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000656247, 0.234039, 0.013299)
-material_override = SubResource("ShaderMaterial_je3x2")
-mesh = SubResource("QuadMesh_ivoo2")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Porte2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16411, 0, 0)
-material_override = SubResource("ShaderMaterial_x71yx")
-mesh = SubResource("QuadMesh_ja0hs")
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+modulate = Color(0, 0.670588, 1, 1)
+text = "x5"
+font_size = 100
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -25,6 +25,7 @@ texture(iChannel1, uv*.2+vec2(0., -iTime*.1+seed)).x);
 }
 
 void fragment() {
+	
 	COLOR.rgb = rdrFlame((UV - 0.5)*vec2(1.,-1.)*.25, 0., TIME);
 }
 
