@@ -111,7 +111,7 @@ shader_parameter/colorB = Vector4(0, 0, 0, 0)
 [node name="Seb" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.654714, 0.755876, 0, -0.755876, 0.654714, 0, 0.743, 0.793)
+transform = Transform3D(1, 0, 0, 0, 0.654714, 0.755876, 0, -0.755876, 0.654714, 0, 0.743, -0.857)
 
 [node name="PostFXCanvasLayer" type="CanvasLayer" parent="Camera3D"]
 
@@ -148,7 +148,6 @@ light_energy = 4.408
 light_size = 1.0
 
 [node name="CharacterAppearance" type="Node3D" parent="."]
-visible = false
 
 [node name="Pentacle" type="MeshInstance3D" parent="CharacterAppearance"]
 transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 1, 0, 0.365113, 0.229218)
