@@ -1,11 +1,11 @@
 class_name PathGenerator extends Node3D
 
-@export var spawn_z := -40
-@export var despawn_z := 15
+@export var spawn_z := -40.0
+@export var despawn_z := 15.0
 var first_spawn_position := Vector3(0, 0, despawn_z)
-@export var path_width := 10
+@export var path_width := 10.0
 
-@export var speed := 4
+@export var speed := 4.0
 
 var paths: Array[Node3D] = []
 
