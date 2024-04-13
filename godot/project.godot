@@ -22,3 +22,23 @@ gdscript/warnings/untyped_declaration=2
 [display]
 
 window/stretch/mode="viewport"
+[layer_names]
+
+3d_render/layer_1="path"
+3d_render/layer_2="side_path"
+2d_physics/layer_1="player"
+3d_physics/layer_1="player"
+2d_physics/layer_2="bonus"
+3d_physics/layer_2="bonus"
+2d_physics/layer_3="ennemy"
+3d_physics/layer_3="ennemy"
+2d_physics/layer_4="player_fire"
+3d_physics/layer_4="player_fire"
+2d_physics/layer_5="ennemy_fire"
+3d_physics/layer_5="ennemy_fire"
+2d_physics/layer_6="obstacle"
+3d_physics/layer_6="obstacle"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

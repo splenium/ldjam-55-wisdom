@@ -1,10 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://1ng00shtfg71"]
+[gd_scene load_steps=3 format=3 uid="uid://d04qefeiw8i3a"]
 
-[ext_resource type="PackedScene" uid="uid://dw1dx601ytshr" path="res://assets/player/player.tscn" id="1_yy15d"]
-[ext_resource type="PackedScene" uid="uid://bvi02yyoauoq6" path="res://assets/bonus/bonus.tscn" id="2_mlo10"]
+[ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="2_nl0qp"]
+[ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator.tscn" id="3_xk55x"]
 
-[node name="TheoScene" type="Node2D"]
+[node name="TheoScene" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("1_yy15d")]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 16.7154, 15.2633)
 
-[node name="BonusCollider" parent="." instance=ExtResource("2_mlo10")]
+[node name="Sheeps" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.53433)
+
+[node name="Player" parent="." node_paths=PackedStringArray("spawnPointSheep") instance=ExtResource("2_nl0qp")]
+spawnPointSheep = NodePath("../Sheeps")
+
+[node name="Modificator" parent="." instance=ExtResource("3_xk55x")]
+modificator = 600
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 17, 0)

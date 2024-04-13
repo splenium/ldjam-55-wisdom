@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://djrj5m0qgvpcn"]
+
+[ext_resource type="Texture2D" uid="uid://dnxrxu217owfb" path="res://sprites/Decoration_pave_couleur test.png" id="1_7dyqr"]
+[ext_resource type="Texture2D" uid="uid://c5nev65l718qm" path="res://sprites/Test_dog_1_preversion.png" id="2_d24bj"]
+[ext_resource type="Script" path="res://scripts/MainCharacter.gd" id="3_d25kw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cun3o"]
+albedo_texture = ExtResource("1_7dyqr")
+uv1_scale = Vector3(1, 10, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_vvl1f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eafp6"]
+transparency = 1
+albedo_texture = ExtResource("2_d24bj")
+
+[sub_resource type="QuadMesh" id="QuadMesh_crq23"]
+
+[node name="Seb" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.823473, 0.567355, 0, -0.567355, 0.823473, 0, 0.660558, 1.07309)
+
+[node name="Ground" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_cun3o")
+mesh = SubResource("QuadMesh_vvl1f")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.494118, 0.756863, 0.388235, 1)
+light_energy = 8.403
+light_size = 0.053
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.37535)
+light_color = Color(0.721569, 0.2, 0.705882, 1)
+light_energy = 4.408
+light_size = 1.0
+
+[node name="MainCharacter" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0.148799, 0.229218)
+material_override = SubResource("StandardMaterial3D_eafp6")
+mesh = SubResource("QuadMesh_crq23")
+
+[node name="Node" type="Node" parent="MainCharacter"]
+script = ExtResource("3_d25kw")
