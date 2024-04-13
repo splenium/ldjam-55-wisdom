@@ -1,4 +1,4 @@
-shader_type spatial;
+shader_type canvas_item;
 uniform sampler2D iChannel0;
 
 render_mode blend_add;
@@ -38,7 +38,7 @@ void fragment() {
     
     
     col += vec3(1.)*(1.-sat(penta*50.))*.2;
-	ALBEDO = col*2.;
+	COLOR.rgb = col*2.;
 }
 
 //void light() {
