@@ -1,22 +1,106 @@
-[gd_scene load_steps=4 format=3 uid="uid://btd0ynwce5qb6"]
+[gd_scene load_steps=15 format=3 uid="uid://btd0ynwce5qb6"]
 
 [ext_resource type="Script" path="res://assets/modificator/modificator.gd" id="1_qmciq"]
-[ext_resource type="Texture2D" uid="uid://ct1wmvl1jcrr2" path="res://assets/placeholder/Brickwall6_Texture.png" id="2_jcr0w"]
+[ext_resource type="Texture2D" uid="uid://cbxbr1lgi0ci3" path="res://sprites/Decoration_pillier_torches.png" id="2_bf6h4"]
+[ext_resource type="Shader" path="res://shaders/FlameSpatial.gdshader" id="3_m7rht"]
+[ext_resource type="Texture2D" uid="uid://bjcl0740a7xel" path="res://sprites/Noise.png" id="4_rejt5"]
+[ext_resource type="Texture2D" uid="uid://cc06nqixdst0h" path="res://sprites/Decoration_pillier_torches_2.png" id="5_epfqi"]
+[ext_resource type="Shader" path="res://shaders/Gradient.gdshader" id="6_rn6x4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_43yud"]
-size = Vector3(9.63379, 9.66547, 1)
+size = Vector3(1.23535, 1.11437, 0.416077)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o141r"]
+transparency = 1
+albedo_texture = ExtResource("2_bf6h4")
+
+[sub_resource type="QuadMesh" id="QuadMesh_5ri7v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_je3x2"]
+render_priority = 0
+shader = ExtResource("3_m7rht")
+shader_parameter/iChannel1 = ExtResource("4_rejt5")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ivoo2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rc6yn"]
+transparency = 1
+albedo_texture = ExtResource("5_epfqi")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x71yx"]
+render_priority = 0
+shader = ExtResource("6_rn6x4")
+shader_parameter/colorA = Vector4(1, 0, 0, 1)
+shader_parameter/colorB = Vector4(0, 0, 0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ja0hs"]
 
 [node name="Modificator" type="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 4.2076, -2.1822)
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 0, 0)
 script = ExtResource("1_qmciq")
 modificator = 2000
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23291, -0.110207, 7.62939e-06)
 shape = SubResource("BoxShape3D_43yud")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
-texture = ExtResource("2_jcr0w")
+[node name="Porte" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16113, 0, 0)
+
+[node name="Pillier1" type="MeshInstance3D" parent="Porte"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.861334, 0, 0.10543)
+material_override = SubResource("StandardMaterial3D_o141r")
+mesh = SubResource("QuadMesh_5ri7v")
+
+[node name="Flame" type="MeshInstance3D" parent="Porte/Pillier1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00843656, 0.162783, 0.0128758)
+material_override = SubResource("ShaderMaterial_je3x2")
+mesh = SubResource("QuadMesh_ivoo2")
+skeleton = NodePath("../../..")
+
+[node name="Pillier2" type="MeshInstance3D" parent="Porte"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4518, -0.0748691, 0.10543)
+material_override = SubResource("StandardMaterial3D_rc6yn")
+mesh = SubResource("QuadMesh_5ri7v")
+
+[node name="Flame2" type="MeshInstance3D" parent="Porte/Pillier2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000656247, 0.234039, 0.013299)
+material_override = SubResource("ShaderMaterial_je3x2")
+mesh = SubResource("QuadMesh_ivoo2")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Porte"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16411, 0, 0)
+material_override = SubResource("ShaderMaterial_x71yx")
+mesh = SubResource("QuadMesh_ja0hs")
+
+[node name="Porte2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16113, 0, 0)
+
+[node name="Pillier1" type="MeshInstance3D" parent="Porte2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.861334, 0, 0.10543)
+material_override = SubResource("StandardMaterial3D_o141r")
+mesh = SubResource("QuadMesh_5ri7v")
+
+[node name="Flame" type="MeshInstance3D" parent="Porte2/Pillier1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00843656, 0.162783, 0.0128758)
+material_override = SubResource("ShaderMaterial_je3x2")
+mesh = SubResource("QuadMesh_ivoo2")
+skeleton = NodePath("../../..")
+
+[node name="Pillier2" type="MeshInstance3D" parent="Porte2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4518, -0.0748691, 0.10543)
+material_override = SubResource("StandardMaterial3D_rc6yn")
+mesh = SubResource("QuadMesh_5ri7v")
+
+[node name="Flame2" type="MeshInstance3D" parent="Porte2/Pillier2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000656247, 0.234039, 0.013299)
+material_override = SubResource("ShaderMaterial_je3x2")
+mesh = SubResource("QuadMesh_ivoo2")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Porte2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16411, 0, 0)
+material_override = SubResource("ShaderMaterial_x71yx")
+mesh = SubResource("QuadMesh_ja0hs")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

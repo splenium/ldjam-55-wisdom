@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_bvcwl"]
 [ext_resource type="PackedScene" uid="uid://cnm61dw75hodn" path="res://assets/sheep/sheep.tscn" id="2_wb6fe"]
-[ext_resource type="Shader" path="res://shaders/Pentacle.gdshader" id="3_0fuc7"]
+[ext_resource type="Shader" path="res://shaders/PentacleSpatial.gdshader" id="3_n2842"]
 [ext_resource type="Texture2D" uid="uid://ccpxgt35wqxh8" path="res://sprites/Shadow.png" id="4_mvkny"]
 [ext_resource type="Script" path="res://scripts/Squeesh.gd" id="5_foit1"]
 [ext_resource type="Texture2D" uid="uid://clh6phtr8gpvp" path="res://sprites/Dog/Dog_face.png" id="6_vvrw0"]
@@ -11,24 +11,24 @@
 radius = 0.10516
 height = 0.385756
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0sv45"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1878v"]
 render_priority = 0
-shader = ExtResource("3_0fuc7")
+shader = ExtResource("3_n2842")
 
-[sub_resource type="QuadMesh" id="QuadMesh_p5l3c"]
+[sub_resource type="QuadMesh" id="QuadMesh_0m303"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tl6dj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rni1n"]
 transparency = 1
 albedo_color = Color(0.180392, 0.933333, 0, 0.576471)
 albedo_texture = ExtResource("4_mvkny")
 
-[sub_resource type="QuadMesh" id="QuadMesh_jfrtr"]
+[sub_resource type="QuadMesh" id="QuadMesh_j2fnt"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sbppw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vf0mc"]
 transparency = 1
 albedo_texture = ExtResource("6_vvrw0")
 
-[sub_resource type="QuadMesh" id="QuadMesh_0cq28"]
+[sub_resource type="QuadMesh" id="QuadMesh_a2hbl"]
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("follow_point")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
@@ -43,21 +43,21 @@ follow_point = NodePath("FollowPoint")
 shape = SubResource("CapsuleShape3D_uupuj")
 
 [node name="FollowPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.61643)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.526574)
 
 [node name="CharacterAppearance" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, -0.171149, -0.271427)
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, -0.19661, -0.113149)
 
 [node name="Pentacle" type="MeshInstance3D" parent="CharacterAppearance"]
 transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 1, 0, 0.365113, 0.229218)
-material_override = SubResource("ShaderMaterial_0sv45")
-mesh = SubResource("QuadMesh_p5l3c")
+material_override = SubResource("ShaderMaterial_1878v")
+mesh = SubResource("QuadMesh_0m303")
 skeleton = NodePath("../OffsetSqueesh/MainCharacter")
 
 [node name="Shadow" type="MeshInstance3D" parent="CharacterAppearance"]
 transform = Transform3D(0.408926, 0, 0, 0, -9.36146e-09, 1, 0, -0.214165, -4.37114e-08, 0, 0.0147998, 0.229218)
-material_override = SubResource("StandardMaterial3D_tl6dj")
-mesh = SubResource("QuadMesh_jfrtr")
+material_override = SubResource("StandardMaterial3D_rni1n")
+mesh = SubResource("QuadMesh_j2fnt")
 skeleton = NodePath("../OffsetSqueesh/MainCharacter")
 
 [node name="OffsetSqueesh" type="Node3D" parent="CharacterAppearance"]
@@ -68,6 +68,6 @@ scaleFactor = 1.02
 
 [node name="MainCharacter" type="MeshInstance3D" parent="CharacterAppearance/OffsetSqueesh"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0.304022, 0.229218)
-material_override = SubResource("StandardMaterial3D_sbppw")
-mesh = SubResource("QuadMesh_0cq28")
+material_override = SubResource("StandardMaterial3D_vf0mc")
+mesh = SubResource("QuadMesh_a2hbl")
 skeleton = NodePath("../../..")
