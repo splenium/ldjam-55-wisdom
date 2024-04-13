@@ -1,14 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://c686nh780bkhr"]
+[gd_scene load_steps=4 format=3 uid="uid://c686nh780bkhr"]
 
 [ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="1_dl0uc"]
 [ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_faqqn"]
+[ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator.tscn" id="3_m4l32"]
 
 [node name="Level1" type="Node3D"]
 
 [node name="Player" parent="." node_paths=PackedStringArray("spawnPointSheep") instance=ExtResource("1_faqqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24388, -0.341024)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170473, -1.47619)
 spawnPointSheep = NodePath("../SpawnPoint")
 
 [node name="Path" parent="." instance=ExtResource("1_dl0uc")]
+unique_name_in_owner = true
 
 [node name="SpawnPoint" type="Node3D" parent="."]
+
+[node name="Modificator" parent="." instance=ExtResource("3_m4l32")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -0.0407465, 0.387622, -6.5318)

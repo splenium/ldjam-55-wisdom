@@ -5,8 +5,6 @@ class_name PathGenerator extends Node3D
 var first_spawn_position := Vector3(0, 0, despawn_z)
 @export var path_width := 10.0
 
-@export var speed := 4.0
-
 @export var paths: Array[Node3D] = []
 
 func _ready() -> void:
@@ -35,4 +33,4 @@ func spawn_path() -> void:
 
 func shift_paths(delta: float) -> void:
 	for path in paths:
-		path.global_position += Vector3(0, 0, delta * speed)
+		path.global_position += Vector3(0, 0, delta * GameManager.world_speed)
