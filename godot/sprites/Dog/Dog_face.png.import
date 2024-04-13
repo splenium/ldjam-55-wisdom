@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://clh6phtr8gpvp"
-path.s3tc="res://.godot/imported/Dog_face.png-dd2600147a2c935b8f74f99331816c06.s3tc.ctex"
+path="res://.godot/imported/Dog_face.png-dd2600147a2c935b8f74f99331816c06.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://sprites/Dog/Dog_face.png"
-dest_files=["res://.godot/imported/Dog_face.png-dd2600147a2c935b8f74f99331816c06.s3tc.ctex"]
+dest_files=["res://.godot/imported/Dog_face.png-dd2600147a2c935b8f74f99331816c06.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

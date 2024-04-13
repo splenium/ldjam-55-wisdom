@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/flame.png-e8294b0bdb4404b302b1aa373665bd06.ct
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

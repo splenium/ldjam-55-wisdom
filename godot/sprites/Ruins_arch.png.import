@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0xnpumhdc3b7"
-path.s3tc="res://.godot/imported/Ruins_arch.png-02247dfb13d1df5a1f66c2a3b0f84143.s3tc.ctex"
+path="res://.godot/imported/Ruins_arch.png-02247dfb13d1df5a1f66c2a3b0f84143.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://sprites/Ruins_arch.png"
-dest_files=["res://.godot/imported/Ruins_arch.png-02247dfb13d1df5a1f66c2a3b0f84143.s3tc.ctex"]
+dest_files=["res://.godot/imported/Ruins_arch.png-02247dfb13d1df5a1f66c2a3b0f84143.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

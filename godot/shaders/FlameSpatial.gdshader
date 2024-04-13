@@ -9,6 +9,7 @@ void vertex() {
 }
 
 void fragment() {
+	SPECULAR = 0.;
 	ALBEDO.rgb = rdrFlame((UV - 0.5)*vec2(1.,-1.)*.25, 0., iChannel1, TIME);
 }
 

@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3ycm1ipu73qj"
-path.s3tc="res://.godot/imported/Textures_droit.png-c3d24b57182c4abe624c72f9fa853e94.s3tc.ctex"
+path="res://.godot/imported/Textures_droit.png-c3d24b57182c4abe624c72f9fa853e94.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://sprites/Textures_droit.png"
-dest_files=["res://.godot/imported/Textures_droit.png-c3d24b57182c4abe624c72f9fa853e94.s3tc.ctex"]
+dest_files=["res://.godot/imported/Textures_droit.png-c3d24b57182c4abe624c72f9fa853e94.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5nev65l718qm"
-path.s3tc="res://.godot/imported/Test_dog_1_preversion.png-68cf98f5844f31a438a692af1aa6f3f6.s3tc.ctex"
+path="res://.godot/imported/Test_dog_1_preversion.png-68cf98f5844f31a438a692af1aa6f3f6.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://sprites/Test_dog_1_preversion.png"
-dest_files=["res://.godot/imported/Test_dog_1_preversion.png-68cf98f5844f31a438a692af1aa6f3f6.s3tc.ctex"]
+dest_files=["res://.godot/imported/Test_dog_1_preversion.png-68cf98f5844f31a438a692af1aa6f3f6.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

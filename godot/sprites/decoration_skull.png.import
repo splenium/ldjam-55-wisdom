@@ -3,19 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mh4heel4y7w"
-path="res://.godot/imported/decoration_skull.png-2de8cd1849c02f87660753112e486fef.ctex"
+path="res://.godot/imported/Decoration_skull.png-edc5d917a491c90c1d68056f11973163.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/decoration_skull.png"
-dest_files=["res://.godot/imported/decoration_skull.png-2de8cd1849c02f87660753112e486fef.ctex"]
+source_file="res://sprites/Decoration_skull.png"
+dest_files=["res://.godot/imported/Decoration_skull.png-edc5d917a491c90c1d68056f11973163.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

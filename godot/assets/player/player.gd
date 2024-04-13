@@ -18,6 +18,7 @@ var sheepList: Array[Sheep] = []
 func _ready() -> void:
 	assert(spawn_sheep_path != null, "spawn_sheep_path is null on " + self.name)
 	assert(spawnPointSheep != null, "spawnPointSheep is null on " + self.name)
+	GameManager.player = self
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

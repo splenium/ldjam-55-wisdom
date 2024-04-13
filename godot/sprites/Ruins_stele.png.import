@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://vhhxfxikeyec"
-path.s3tc="res://.godot/imported/Ruins_stele.png-d0adc89f128c23c3c429d9800b5bdbdc.s3tc.ctex"
+path="res://.godot/imported/Ruins_stele.png-d0adc89f128c23c3c429d9800b5bdbdc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://sprites/Ruins_stele.png"
-dest_files=["res://.godot/imported/Ruins_stele.png-d0adc89f128c23c3c429d9800b5bdbdc.s3tc.ctex"]
+dest_files=["res://.godot/imported/Ruins_stele.png-d0adc89f128c23c3c429d9800b5bdbdc.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

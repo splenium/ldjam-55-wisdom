@@ -1,7 +1,7 @@
 shader_type spatial;
 
-uniform vec4 colorA = vec4(1.,0.,0.,1.);
-uniform vec4 colorB = vec4(0.);
+uniform vec4 colorA  : source_color = vec4(1.,0.,0.,1.);
+uniform vec4 colorB : source_color = vec4(0.);
 render_mode blend_mix;
 
 void vertex() {

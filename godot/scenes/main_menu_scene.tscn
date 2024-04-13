@@ -6,7 +6,7 @@
 [ext_resource type="Shader" path="res://shaders/Pentacle.gdshader" id="3_uarck"]
 [ext_resource type="Theme" uid="uid://buyrdp78hirb6" path="res://buttons.tres" id="3_usu6j"]
 [ext_resource type="Texture2D" uid="uid://d0lt3lof2w31f" path="res://sprites/Voronoise.png" id="4_6vvnf"]
-[ext_resource type="Texture2D" uid="uid://mh4heel4y7w" path="res://sprites/decoration_skull.png" id="5_2jnbk"]
+[ext_resource type="Texture2D" uid="uid://mh4heel4y7w" path="res://sprites/Decoration_skull.png" id="5_2jnbk"]
 [ext_resource type="Shader" path="res://shaders/flame.gdshader" id="5_gqdw8"]
 [ext_resource type="AudioStream" uid="uid://bp2i67xcmwfis" path="res://music/menu/peritune_material_ominous.mp3" id="9_xycvm"]
 [ext_resource type="Texture2D" uid="uid://ceefh4m3b3r7g" path="res://sprites/menu/menu_selector.png" id="11_vry1g"]
@@ -109,13 +109,34 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="DecorationSkullLeft" type="Sprite2D" parent="UI"]
+[node name="ColorRect" type="ColorRect" parent="UI"]
+visible = false
+show_behind_parent = true
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BoxContainer2" type="BoxContainer" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -646.0
+offset_right = 1154.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DecorationSkullLeft" type="Sprite2D" parent="UI/BoxContainer2"]
 z_index = 1
-position = Vector2(46, 415)
+position = Vector2(46, 413)
 scale = Vector2(0.22, 0.208)
 texture = ExtResource("5_2jnbk")
 
-[node name="LeftFlame" type="ColorRect" parent="UI/DecorationSkullLeft"]
+[node name="LeftFlame" type="ColorRect" parent="UI/BoxContainer2/DecorationSkullLeft"]
 material = SubResource("ShaderMaterial_21wlp")
 anchors_preset = -1
 anchor_left = 0.4
@@ -127,7 +148,7 @@ offset_top = -1942.67
 offset_right = -789.036
 offset_bottom = -981.674
 
-[node name="MiddleFlame" type="ColorRect" parent="UI/DecorationSkullLeft"]
+[node name="MiddleFlame" type="ColorRect" parent="UI/BoxContainer2/DecorationSkullLeft"]
 material = SubResource("ShaderMaterial_21wlp")
 anchors_preset = -1
 anchor_left = 0.596
@@ -139,7 +160,7 @@ offset_top = -1739.99
 offset_right = -972.587
 offset_bottom = -1112.99
 
-[node name="RightFlame" type="ColorRect" parent="UI/DecorationSkullLeft"]
+[node name="RightFlame" type="ColorRect" parent="UI/BoxContainer2/DecorationSkullLeft"]
 material = SubResource("ShaderMaterial_21wlp")
 anchors_preset = -1
 anchor_left = 0.676
@@ -151,14 +172,29 @@ offset_top = -1650.31
 offset_right = -1057.12
 offset_bottom = -1170.31
 
-[node name="DecorationSkullRight" type="Sprite2D" parent="UI"]
+[node name="BoxContainer" type="BoxContainer" parent="UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1152.0
+offset_top = -648.0
+offset_right = 2.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DecorationSkullRight" type="Sprite2D" parent="UI/BoxContainer"]
 z_index = 1
 position = Vector2(1104, 410)
 scale = Vector2(0.22, 0.208)
 texture = ExtResource("5_2jnbk")
 flip_h = true
 
-[node name="LeftFlame" type="ColorRect" parent="UI/DecorationSkullRight"]
+[node name="LeftFlame" type="ColorRect" parent="UI/BoxContainer/DecorationSkullRight"]
 material = SubResource("ShaderMaterial_21wlp")
 anchors_preset = -1
 anchor_left = 0.599
@@ -170,7 +206,7 @@ offset_top = -1948.23
 offset_right = -802.542
 offset_bottom = -987.231
 
-[node name="MiddleFlame" type="ColorRect" parent="UI/DecorationSkullRight"]
+[node name="MiddleFlame" type="ColorRect" parent="UI/BoxContainer/DecorationSkullRight"]
 material = SubResource("ShaderMaterial_21wlp")
 anchors_preset = -1
 anchor_left = 0.404
@@ -182,7 +218,7 @@ offset_top = -1750.43
 offset_right = -947.382
 offset_bottom = -1123.43
 
-[node name="RightFlame" type="ColorRect" parent="UI/DecorationSkullRight"]
+[node name="RightFlame" type="ColorRect" parent="UI/BoxContainer/DecorationSkullRight"]
 material = SubResource("ShaderMaterial_21wlp")
 anchors_preset = -1
 anchor_left = 0.323
@@ -193,17 +229,6 @@ offset_left = -1724.5
 offset_top = -1670.5
 offset_right = -1061.6
 offset_bottom = -1193.28
-
-[node name="ColorRect" type="ColorRect" parent="UI"]
-visible = false
-show_behind_parent = true
-z_as_relative = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
 
 [node name="VBoxContainerBoutons" type="VBoxContainer" parent="UI"]
 top_level = true

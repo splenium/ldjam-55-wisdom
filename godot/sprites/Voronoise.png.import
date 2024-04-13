@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0lt3lof2w31f"
-path.s3tc="res://.godot/imported/Voronoise.png-dc04aab05619bce9a4f04d9a128c808e.s3tc.ctex"
+path="res://.godot/imported/Voronoise.png-dc04aab05619bce9a4f04d9a128c808e.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://sprites/Voronoise.png"
-dest_files=["res://.godot/imported/Voronoise.png-dc04aab05619bce9a4f04d9a128c808e.s3tc.ctex"]
+dest_files=["res://.godot/imported/Voronoise.png-dc04aab05619bce9a4f04d9a128c808e.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
