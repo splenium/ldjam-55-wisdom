@@ -7,7 +7,7 @@ var first_spawn_position := Vector3(0, 0, despawn_z)
 
 @export var speed := 4.0
 
-var paths: Array[Node3D] = []
+@export var paths: Array[Node3D] = []
 
 func _ready() -> void:
     var last_path: Node3D = null
