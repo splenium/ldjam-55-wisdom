@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody3D
 
-@export var speed: float = 0.75
+@export var speed: float = 0.75 # default 0.75
 @export var spawnPointSheep: Node3D
 @export var spawn_sheep_path: PackedScene
 @export var follow_point: Node3D
@@ -13,6 +13,7 @@ class_name Player extends CharacterBody3D
 @export var follow_sheep_number_per_step: int = 20
 
 var sheepList: Array[Sheep] = []
+var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,15 +24,23 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(d: float) -> void:
-	move(d)
 	attack(d)
 	pass
 	
+func _physics_process(delta: float) -> void:
+	move(delta)
+	pass
+	
 func move(d: float) -> void:
+	var direction: Vector3 = Vector3(0,0,0)
 	if Input.is_action_pressed("ui_left"):
-		move_and_collide(Vector3(-speed * d, 0, 0))
+		direction = Vector3(-speed * d, 0, 0)
 	if Input.is_action_pressed("ui_right"):
-		move_and_collide(Vector3(+speed * d, 0, 0))
+		direction = Vector3(+speed * d, 0, 0)
+	if not is_on_floor():
+		direction.y -= gravity * d
+	move_and_collide(direction) # do it better
+	move_and_slide()
 	pass
 
 func attack(d: float) -> void:

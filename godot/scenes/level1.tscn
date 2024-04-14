@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cqksnij425pe5" path="res://assets/modificator/additionator.tscn" id="3_gmkfp"]
 [ext_resource type="Script" path="res://scenes/death_zone.gd" id="4_nj52x"]
 [ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator/multiplicator.tscn" id="4_sk2gm"]
-[ext_resource type="PackedScene" uid="uid://c3m54rrn8clcr" path="res://assets/enemies/priest.tscn" id="6_tjstm"]
+[ext_resource type="PackedScene" uid="uid://bel8kmpokgkbo" path="res://assets/enemies/priest.tscn" id="6_tjstm"]
 [ext_resource type="AudioStream" uid="uid://bk3wdsgfre3v6" path="res://music/Level_PerituneMaterial_Fear.mp3" id="7_sw7ch"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y6wkv"]
@@ -66,6 +66,7 @@ modificator = 3
 
 [node name="DEATH" type="Area3D" parent="."]
 collision_layer = 0
+collision_mask = 129
 script = ExtResource("4_nj52x")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH"]
