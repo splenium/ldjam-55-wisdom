@@ -10,6 +10,7 @@ height = 0.339722
 [node name="Priest" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.140052, 428.374)
 collision_layer = 4
+collision_mask = 9
 script = ExtResource("1_onlpv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

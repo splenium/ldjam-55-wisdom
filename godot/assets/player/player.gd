@@ -7,7 +7,7 @@ class_name Player extends CharacterBody3D
 
 @export var spawn_x_offset: float = 0.5
 @export var spawn_y_offset: float = 0.5
-@export var spawn_sheep_line: int = 3.0
+@export var spawn_sheep_line: int = 3
 
 @export var follow_step_size: float = 0.025
 @export var follow_sheep_number_per_step: int = 20
@@ -24,6 +24,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(d: float) -> void:
 	move(d)
+	attack(d)
 	pass
 	
 func move(d: float) -> void:
@@ -32,7 +33,19 @@ func move(d: float) -> void:
 	if Input.is_action_pressed("ui_right"):
 		self.position.x += speed * d
 	pass
-	
+
+func attack(d: float) -> void:
+	if Input.is_action_just_pressed("attack_kamikaze"):
+			summon_kamikaze()
+	pass
+
+func summon_kamikaze() -> void:
+	apply_sheep_addition(-1)
+	var kamikaze: KamikazeSheep = preload("res://assets/sheep/kamikaze_sheep.tscn").instantiate()
+	get_parent().add_child(kamikaze)
+	kamikaze.global_position = follow_point.position
+	kamikaze.target = GameManager.find_ennemy(get_parent())
+
 func update_follow_point() -> void:
 	follow_point.position.z = -floor(get_sheep_number() / follow_sheep_number_per_step) * follow_step_size - 0.55
 	print_debug('update')
@@ -45,7 +58,7 @@ func instantiate_sheep() -> Sheep:
 	var instance: Sheep = spawn_sheep_path.instantiate()
 	instance.target = follow_point
 	return instance
-	
+
 func add_sheep(sheep: Sheep) -> void:
 	spawnPointSheep.add_child(sheep)
 	sheepList.append(sheep)
