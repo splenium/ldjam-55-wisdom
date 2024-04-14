@@ -1,18 +1,19 @@
 class_name Player extends CharacterBody3D
 
-@export var speed: float = 0.75
+@export var speed: float = 0.75 # default 0.75
 @export var spawnPointSheep: Node3D
 @export var spawn_sheep_path: PackedScene
 @export var follow_point: Node3D
 
 @export var spawn_x_offset: float = 0.5
 @export var spawn_y_offset: float = 0.5
-@export var spawn_sheep_line: int = 3.0
+@export var spawn_sheep_line: int = 3
 
 @export var follow_step_size: float = 0.025
 @export var follow_sheep_number_per_step: int = 20
 
 var sheepList: Array[Sheep] = []
+var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,16 +24,37 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(d: float) -> void:
-	move(d)
+	attack(d)
+	pass
+	
+func _physics_process(delta: float) -> void:
+	move(delta)
 	pass
 	
 func move(d: float) -> void:
+	var direction: Vector3 = Vector3(0,0,0)
 	if Input.is_action_pressed("ui_left"):
-		move_and_collide(Vector3(-speed * d, 0, 0))
+		direction = Vector3(-speed * d, 0, 0)
 	if Input.is_action_pressed("ui_right"):
-		move_and_collide(Vector3(+speed * d, 0, 0))
+		direction = Vector3(+speed * d, 0, 0)
+	if not is_on_floor():
+		direction.y -= gravity * d
+	move_and_collide(direction) # do it better
+	move_and_slide()
 	pass
-	
+
+func attack(d: float) -> void:
+	if Input.is_action_just_pressed("attack_kamikaze"):
+			summon_kamikaze()
+	pass
+
+func summon_kamikaze() -> void:
+	apply_sheep_addition(-1)
+	var kamikaze: KamikazeSheep = preload("res://assets/sheep/kamikaze_sheep.tscn").instantiate()
+	get_parent().add_child(kamikaze)
+	kamikaze.global_position = follow_point.position
+	kamikaze.target = GameManager.find_ennemy(get_parent())
+
 func update_follow_point() -> void:
 	follow_point.position.z = -floor(get_sheep_number() / follow_sheep_number_per_step) * follow_step_size - 0.55
 	pass
@@ -41,7 +63,7 @@ func instantiate_sheep() -> Sheep:
 	var instance: Sheep = spawn_sheep_path.instantiate()
 	instance.target = follow_point
 	return instance
-	
+
 func add_sheep(sheep: Sheep) -> void:
 	spawnPointSheep.add_child(sheep)
 	sheepList.append(sheep)

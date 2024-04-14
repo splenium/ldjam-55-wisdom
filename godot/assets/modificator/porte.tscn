@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://diuccyat7u51j"]
+[gd_scene load_steps=13 format=3 uid="uid://co0ewf1xiqeg8"]
 
 [ext_resource type="Texture2D" uid="uid://cbxbr1lgi0ci3" path="res://sprites/Decoration_pillier_torches.png" id="1_way4i"]
 [ext_resource type="Shader" path="res://shaders/FlameSpatial.gdshader" id="2_5issg"]

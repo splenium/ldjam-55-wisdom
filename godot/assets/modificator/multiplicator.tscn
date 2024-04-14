@@ -1,13 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://btd0ynwce5qb6"]
 
 [ext_resource type="Script" path="res://assets/modificator/multiplicator.gd" id="1_ajt7i"]
-[ext_resource type="PackedScene" uid="uid://diuccyat7u51j" path="res://assets/modificator/porte.tscn" id="2_mrscy"]
+[ext_resource type="PackedScene" uid="uid://co0ewf1xiqeg8" path="res://assets/modificator/porte.tscn" id="2_mrscy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_43yud"]
 size = Vector3(1.23535, 1.11437, 0.416077)
 
 [node name="Multiplicator" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 0, 0)
+collision_layer = 2
 script = ExtResource("1_ajt7i")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

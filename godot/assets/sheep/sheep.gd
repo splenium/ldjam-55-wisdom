@@ -13,7 +13,7 @@ func look_follow(state: PhysicsDirectBodyState3D, current_transform: Transform3D
 	state.apply_force(target_dir * speed)
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
-	if target:
+	if target && is_instance_valid(target):
 		# Calculer la direction vers la cible
 		#var direction = (target.transform.origin - state.transform.origin).normalized()
 		# Appliquer une force vers la cible
