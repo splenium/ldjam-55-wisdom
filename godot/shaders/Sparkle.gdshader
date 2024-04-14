@@ -8,7 +8,7 @@ void vertex() {
 void fragment() {
 	vec2 uv = (UV-.5);
 	float shape = length(uv)-.1;
-	ALBEDO.rgb = COLOR.rgb*5.;
+	ALBEDO.rgb = COLOR.rgb*15.;
 	ALPHA = (1.-sat(shape*5.))*COLOR.a;
 }
 
