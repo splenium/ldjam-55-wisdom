@@ -102,15 +102,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -442.515)
 
 [node name="Priest" parent="Ennemies" instance=ExtResource("6_tjstm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 422.931)
+life = 5
 
 [node name="Priest2" parent="Ennemies" instance=ExtResource("6_tjstm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.371476, 0.409067, 422.573)
+life = 5
 
 [node name="Priest3" parent="Ennemies" instance=ExtResource("6_tjstm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 422.576)
+life = 5
 
 [node name="Priest4" parent="Ennemies" instance=ExtResource("6_tjstm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323375, 0.409067, 422.931)
+life = 5
+
+[node name="Priest5" parent="Ennemies" instance=ExtResource("6_tjstm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 435.973)
+life = 5
+
+[node name="Priest6" parent="Ennemies" instance=ExtResource("6_tjstm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.371476, 0.409067, 435.615)
+life = 5
+
+[node name="Priest7" parent="Ennemies" instance=ExtResource("6_tjstm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 435.618)
+life = 5
+
+[node name="Priest8" parent="Ennemies" instance=ExtResource("6_tjstm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323375, 0.409067, 435.973)
+life = 5
 
 [node name="AudioStreamPlayer_MainMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_sw7ch")
