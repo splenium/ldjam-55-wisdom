@@ -1,0 +1,566 @@
+[gd_scene load_steps=47 format=3 uid="uid://ck6sut8itw2vf"]
+
+[ext_resource type="Texture2D" uid="uid://d3ycm1ipu73qj" path="res://sprites/Textures_droit.png" id="1_notfa"]
+[ext_resource type="Texture2D" uid="uid://evkwkhhr3slj" path="res://sprites/Textures_full.png" id="2_5ua5w"]
+[ext_resource type="Texture2D" uid="uid://bq5hoa38fxad3" path="res://sprites/Textures_gauche.png" id="3_yo8kg"]
+[ext_resource type="Shader" path="res://shaders/SmokeFog.gdshader" id="4_hv511"]
+[ext_resource type="Texture2D" uid="uid://d0lt3lof2w31f" path="res://sprites/Voronoise.png" id="5_b40li"]
+[ext_resource type="Script" path="res://scripts/CloudUniform.gd" id="6_wmgai"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5c5ni"]
+transparency = 1
+albedo_texture = ExtResource("1_notfa")
+uv1_scale = Vector3(1, 10, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_fp7ce"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hs0jf"]
+albedo_texture = ExtResource("2_5ua5w")
+uv1_scale = Vector3(1, 10, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4pfk1"]
+transparency = 1
+albedo_texture = ExtResource("3_yo8kg")
+uv1_scale = Vector3(1, 10, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4hiu0"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="QuadMesh" id="QuadMesh_4yudp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v8207"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qnc51"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rx63x"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qf4jc"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1kb6j"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dlvys"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0gvr5"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4d61q"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xhepe"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ooab8"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iwlkk"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2jptr"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vkn88"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k2k2r"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jiedq"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ndbex"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hm8ge"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eieej"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k0q6g"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xh32q"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0b6ny"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c7dft"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i48g3"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_te4mc"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_idmye"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1s638"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1e2ib"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mdq0y"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m6khd"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j7ghp"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e8es8"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wvbvn"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mmwl4"]
+render_priority = 0
+shader = ExtResource("4_hv511")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("5_b40li")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m1evv"]
+
+[node name="StraightPath" type="Node3D"]
+
+[node name="BorderLeft" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, -1.99, 0, 0)
+sorting_offset = -10.0
+material_override = SubResource("StandardMaterial3D_5c5ni")
+mesh = SubResource("QuadMesh_fp7ce")
+
+[node name="Left" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, -1, 0, 0)
+material_override = SubResource("StandardMaterial3D_hs0jf")
+mesh = SubResource("QuadMesh_fp7ce")
+
+[node name="Center" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_hs0jf")
+mesh = SubResource("QuadMesh_fp7ce")
+
+[node name="Right" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 1, 0, 0)
+material_override = SubResource("StandardMaterial3D_hs0jf")
+mesh = SubResource("QuadMesh_fp7ce")
+
+[node name="BorderRight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 1.99, 0, 0)
+sorting_offset = -10.0
+material_override = SubResource("StandardMaterial3D_4pfk1")
+mesh = SubResource("QuadMesh_fp7ce")
+
+[node name="Smoke" type="Node3D" parent="."]
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -0.408325, -1.90868, -0.758031)
+material_override = SubResource("ShaderMaterial_4hiu0")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = -1.55
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -0.408325, -1.90868, -3.36375)
+material_override = SubResource("ShaderMaterial_v8207")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = 2.595
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -0.408325, -1.90868, 1.19941)
+material_override = SubResource("ShaderMaterial_qnc51")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = -1.57
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -0.408325, -1.90868, 3.10045)
+material_override = SubResource("ShaderMaterial_rx63x")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = 5.825
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.26676, -1.90868, -0.813131)
+material_override = SubResource("ShaderMaterial_qf4jc")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = -1.125
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.26676, -1.90868, -2.22321)
+material_override = SubResource("ShaderMaterial_1kb6j")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = -0.595
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.26676, -1.90868, 1.14431)
+material_override = SubResource("ShaderMaterial_dlvys")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = -6.25
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.26676, -1.90868, 3.04534)
+material_override = SubResource("ShaderMaterial_0gvr5")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = 5.65
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.40677, -0.969262, -0.144871)
+material_override = SubResource("ShaderMaterial_4d61q")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = 0.085
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.55022, -0.969262, -2.48315)
+material_override = SubResource("ShaderMaterial_xhepe")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = -3.13
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.90411, -0.969262, -3.67879)
+material_override = SubResource("ShaderMaterial_ooab8")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = 10.21
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.40677, -0.969262, 0.884369)
+material_override = SubResource("ShaderMaterial_iwlkk")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = -0.305
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.90411, -0.969262, 1.82109)
+material_override = SubResource("ShaderMaterial_2jptr")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = -2.41
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.76066, -0.969262, 2.7854)
+material_override = SubResource("ShaderMaterial_vkn88")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = -4.365
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.40677, -0.969262, -1.07307)
+material_override = SubResource("ShaderMaterial_k2k2r")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = 7.4
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.76066, -0.969262, -2.48315)
+material_override = SubResource("ShaderMaterial_jiedq")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = 2.505
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.55022, -0.969262, -3.67879)
+material_override = SubResource("ShaderMaterial_ndbex")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = 0.315
+
+[node name="MeshInstance3D53" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.55022, -0.969262, -1.44987)
+material_override = SubResource("ShaderMaterial_ndbex")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = -1.01
+
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.76066, -0.969262, 1.82109)
+material_override = SubResource("ShaderMaterial_hm8ge")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = 2.6
+
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, -0.349111)
+material_override = SubResource("ShaderMaterial_eieej")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = 6.2
+
+[node name="MeshInstance3D34" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 1.81146, -0.860144, 4.59536)
+material_override = SubResource("ShaderMaterial_k0q6g")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = -3.92
+
+[node name="MeshInstance3D35" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, -3.88303)
+material_override = SubResource("ShaderMaterial_xh32q")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = 0.15
+
+[node name="MeshInstance3D37" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, 1.61685)
+material_override = SubResource("ShaderMaterial_0b6ny")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = 4.58
+
+[node name="MeshInstance3D38" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, 2.58116)
+material_override = SubResource("ShaderMaterial_c7dft")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = -12.565
+
+[node name="MeshInstance3D40" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, -1.27731)
+material_override = SubResource("ShaderMaterial_i48g3")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = -1.03
+
+[node name="MeshInstance3D42" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, -3.88303)
+material_override = SubResource("ShaderMaterial_te4mc")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = 0.51
+
+[node name="MeshInstance3D43" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, 0.680129)
+material_override = SubResource("ShaderMaterial_idmye")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = 15.14
+
+[node name="MeshInstance3D45" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, 2.58116)
+material_override = SubResource("ShaderMaterial_1s638")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = -0.255
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -0.408325, -1.90868, 4.18743)
+material_override = SubResource("ShaderMaterial_1e2ib")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = -8.07
+
+[node name="MeshInstance3D47" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.40677, -0.969262, 2.47123)
+material_override = SubResource("ShaderMaterial_mdq0y")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = 22.73
+
+[node name="MeshInstance3D48" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, 2.40677, -0.969262, 3.40795)
+material_override = SubResource("ShaderMaterial_m6khd")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = 0.29
+
+[node name="MeshInstance3D50" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, 3.20371)
+material_override = SubResource("ShaderMaterial_j7ghp")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = 0.095
+
+[node name="MeshInstance3D51" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, 4.16802)
+material_override = SubResource("ShaderMaterial_e8es8")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = -3.035
+
+[node name="MeshInstance3D54" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -2.28981, -0.860145, 4.56345)
+material_override = SubResource("ShaderMaterial_wvbvn")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = 2.635
+
+[node name="MeshInstance3D52" type="MeshInstance3D" parent="Smoke"]
+transform = Transform3D(-4, -6.03983e-07, 0, 5.52667e-07, -3.66015, 0.40337, -2.43628e-07, 1.61348, 0.915037, -0.408325, -1.90868, 5.77429)
+material_override = SubResource("ShaderMaterial_mmwl4")
+mesh = SubResource("QuadMesh_4yudp")
+skeleton = NodePath("../..")
+script = ExtResource("6_wmgai")
+shader_seed = 14.365
+
+[node name="Light" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.66195)
+light_color = Color(0.494118, 0.756863, 0.388235, 1)
+light_energy = 8.403
+light_size = 0.053
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.37535)
+light_color = Color(0.721569, 0.2, 0.705882, 1)
+light_energy = 4.408
+light_size = 1.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(3.4, 0, 0, 0, 0.3, 0, 0, 0, 10, 0, 0, 0)
+collision_layer = 64
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_m1evv")

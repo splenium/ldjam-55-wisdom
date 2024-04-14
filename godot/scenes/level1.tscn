@@ -1,11 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://c686nh780bkhr"]
+[gd_scene load_steps=21 format=3 uid="uid://c686nh780bkhr"]
 
 [ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="1_dl0uc"]
 [ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_faqqn"]
 [ext_resource type="PackedScene" uid="uid://cqksnij425pe5" path="res://assets/modificator/additionator.tscn" id="3_gmkfp"]
 [ext_resource type="Script" path="res://scenes/death_zone.gd" id="4_nj52x"]
 [ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator/multiplicator.tscn" id="4_sk2gm"]
-[ext_resource type="PackedScene" uid="uid://bel8kmpokgkbo" path="res://assets/enemies/priest.tscn" id="6_tjstm"]
 [ext_resource type="AudioStream" uid="uid://bk3wdsgfre3v6" path="res://music/Level_PerituneMaterial_Fear.mp3" id="7_sw7ch"]
 [ext_resource type="PackedScene" uid="uid://dnc23auci4r2i" path="res://assets/sound_manager.tscn" id="8_13nc4"]
 [ext_resource type="AudioStream" uid="uid://cxmy7d633yd4m" path="res://music/sounds/51427__smcameron__synthetic_bomb.mp3" id="9_x8nws"]
@@ -100,33 +99,9 @@ shape = SubResource("BoxShape3D_y6wkv")
 [node name="Ennemies" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -442.515)
 
-[node name="Priest" parent="Ennemies" instance=ExtResource("6_tjstm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 422.931)
-
-[node name="Priest2" parent="Ennemies" instance=ExtResource("6_tjstm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.371476, 0.409067, 422.573)
-
-[node name="Priest3" parent="Ennemies" instance=ExtResource("6_tjstm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 422.576)
-
-[node name="Priest4" parent="Ennemies" instance=ExtResource("6_tjstm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323375, 0.409067, 422.931)
-
-[node name="Priest5" parent="Ennemies" instance=ExtResource("6_tjstm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 427.097)
-
-[node name="Priest6" parent="Ennemies" instance=ExtResource("6_tjstm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.371476, 0.409067, 426.739)
-
-[node name="Priest7" parent="Ennemies" instance=ExtResource("6_tjstm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 426.742)
-
-[node name="Priest8" parent="Ennemies" instance=ExtResource("6_tjstm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323375, 0.409067, 427.097)
-
 [node name="AudioStreamPlayer_MainMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_sw7ch")
-volume_db = -8.0
+volume_db = -30.0
 autoplay = true
 
 [node name="SoundManager" parent="." instance=ExtResource("8_13nc4")]
@@ -145,7 +120,6 @@ TentaclesSound = ExtResource("19_s6nei")
 environment = SubResource("Environment_n0yng")
 
 [node name="Camera3D" parent="." instance=ExtResource("20_6pe5b")]
-transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707106, 0.707106, 0, 2, 0)
 current = true
 
 [connection signal="body_entered" from="DEATH" to="DEATH" method="_on_body_entered"]
