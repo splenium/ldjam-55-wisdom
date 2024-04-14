@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c686nh780bkhr"]
+[gd_scene load_steps=22 format=3 uid="uid://c686nh780bkhr"]
 
 [ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="1_dl0uc"]
 [ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_faqqn"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator/multiplicator.tscn" id="4_sk2gm"]
 [ext_resource type="PackedScene" uid="uid://bel8kmpokgkbo" path="res://assets/enemies/priest.tscn" id="6_tjstm"]
 [ext_resource type="AudioStream" uid="uid://bk3wdsgfre3v6" path="res://music/Level_PerituneMaterial_Fear.mp3" id="7_sw7ch"]
-[ext_resource type="PackedScene" path="res://assets/sound_manager.tscn" id="8_13nc4"]
+[ext_resource type="PackedScene" uid="uid://dnc23auci4r2i" path="res://assets/sound_manager.tscn" id="8_13nc4"]
 [ext_resource type="AudioStream" uid="uid://cxmy7d633yd4m" path="res://music/sounds/51427__smcameron__synthetic_bomb.mp3" id="9_x8nws"]
 [ext_resource type="AudioStream" uid="uid://pax5ljjdl5i5" path="res://music/sounds/140726__j1987__tiny_rocket.mp3" id="10_tqw4s"]
 [ext_resource type="AudioStream" uid="uid://blncxfsxh8oix" path="res://music/sounds/162168__hunterscrossbow__aah2.wav" id="11_2c3y1"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://do5nmfj3birpe" path="res://music/sounds/NGTVST - Hit 3.wav" id="16_3s4ik"]
 [ext_resource type="AudioStream" uid="uid://b50b3hg6m3xii" path="res://music/sounds/Pass_Portal_396500__alonsotm__firespell3.wav" id="18_qwpog"]
 [ext_resource type="AudioStream" uid="uid://caa7j1asu832g" path="res://music/sounds/Tentacles_204025__duckduckpony__impacts_splatter_watermelon_002.mp3" id="19_s6nei"]
+[ext_resource type="PackedScene" uid="uid://xo63y6uf3jic" path="res://assets/camera.tscn" id="20_6pe5b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y6wkv"]
 
@@ -35,14 +36,9 @@ volumetric_fog_albedo = Color(0.14902, 0.282353, 0.321569, 1)
 
 [node name="Level1" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("1_faqqn")]
+[node name="Player" parent="." node_paths=PackedStringArray("spawnPointSheep") instance=ExtResource("1_faqqn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170473, -0.431916)
-follow_point = Object(Node3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.526574),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"script":null)
-
-PortalParticle = Object(CPUParticles3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0844512, 0.0369352),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"layers":1,"sorting_offset":0.0,"sorting_use_aabb_center":true,"material_override":null,"material_overlay":null,"transparency":0.0,"cast_shadow":1,"extra_cull_margin":0.0,"custom_aabb":AABB(0, 0, 0, 0, 0, 0),"lod_bias":1.0,"ignore_occlusion_culling":false,"gi_mode":1,"gi_lightmap_scale":0,"visibility_range_begin":0.0,"visibility_range_begin_margin":0.0,"visibility_range_end":0.0,"visibility_range_end_margin":0.0,"visibility_range_fade_mode":0,"emitting":false,"amount":30,"lifetime":2.0,"one_shot":true,"preprocess":0.0,"speed_scale":1.0,"explosiveness":0.51,"randomness":0.0,"lifetime_randomness":0.0,"fixed_fps":0,"fract_delta":true,"local_coords":false,"draw_order":0,"mesh":null,"emission_shape":0,"emission_colors":PackedColorArray(),"particle_flag_align_y":false,"particle_flag_rotate_y":true,"particle_flag_disable_z":false,"direction":Vector3(1, 1, 1),"spread":180.0,"flatness":0.0,"gravity":Vector3(0, 0, 0),"initial_velocity_min":0.1,"initial_velocity_max":0.2,"angular_velocity_min":-1.0,"angular_velocity_max":1.0,"angular_velocity_curve":null,"linear_accel_min":0.0,"linear_accel_max":0.0,"linear_accel_curve":null,"radial_accel_min":0.0,"radial_accel_max":0.0,"radial_accel_curve":null,"tangential_accel_min":0.0,"tangential_accel_max":0.0,"tangential_accel_curve":null,"damping_min":0.0,"damping_max":0.0,"damping_curve":null,"angle_min":0.0,"angle_max":0.0,"angle_curve":null,"scale_amount_min":0.1,"scale_amount_max":0.3,"scale_amount_curve":null,"split_scale":false,"color":Color(1, 1, 1, 1),"color_ramp":null,"color_initial_ramp":null,"hue_variation_min":0.0,"hue_variation_max":0.0,"hue_variation_curve":null,"anim_speed_min":0.0,"anim_speed_max":0.0,"anim_speed_curve":null,"anim_offset_min":0.0,"anim_offset_max":0.0,"anim_offset_curve":null,"script":null)
-
-spawnPointSheep = Object(Node3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.227706, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"script":null)
-
+spawnPointSheep = NodePath("../SpawnPoint")
 
 [node name="Path" parent="." instance=ExtResource("1_dl0uc")]
 unique_name_in_owner = true
@@ -147,5 +143,8 @@ TentaclesSound = ExtResource("19_s6nei")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n0yng")
+
+[node name="Camera3D" parent="." instance=ExtResource("20_6pe5b")]
+transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707106, 0.707106, 0, 2, 0)
 
 [connection signal="body_entered" from="DEATH" to="DEATH" method="_on_body_entered"]
