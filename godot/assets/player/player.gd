@@ -24,7 +24,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(d: float) -> void:
-	attack(d)
+	attack()
 	pass
 	
 func _physics_process(delta: float) -> void:
@@ -43,7 +43,7 @@ func move(d: float) -> void:
 	move_and_slide()
 	pass
 
-func attack(d: float) -> void:
+func attack() -> void:
 	if Input.is_action_just_pressed("attack_kamikaze"):
 		summon_kamikaze()
 	pass

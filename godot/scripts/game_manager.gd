@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func find_ennemy(parent: Node) -> Ennemy:
 	for child in parent.get_children():
-		if child is Ennemy:
+		if child is Priest:
 			return child
 		var grandchild := find_ennemy(child)
 		if grandchild != null:
