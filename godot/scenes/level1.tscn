@@ -13,6 +13,7 @@
 
 [node name="Player" parent="." node_paths=PackedStringArray("spawnPointSheep") instance=ExtResource("1_faqqn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170473, -0.431916)
+collision_mask = 68
 spawnPointSheep = NodePath("../SpawnPoint")
 
 [node name="Path" parent="." instance=ExtResource("1_dl0uc")]
