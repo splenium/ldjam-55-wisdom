@@ -29,9 +29,9 @@ func _process(d: float) -> void:
 	
 func move(d: float) -> void:
 	if Input.is_action_pressed("ui_left"):
-		self.position.x -= speed * d
+		move_and_collide(Vector3(-speed * d, 0, 0))
 	if Input.is_action_pressed("ui_right"):
-		self.position.x += speed * d
+		move_and_collide(Vector3(+speed * d, 0, 0))
 	pass
 
 func attack(d: float) -> void:
