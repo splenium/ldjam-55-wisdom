@@ -3,6 +3,7 @@ class_name Player extends CharacterBody3D
 @export var speed: float = 0.75 # default 0.75
 @export var spawnPointSheep: Node3D
 @export var spawn_sheep_path: PackedScene
+
 @export var follow_point: Node3D
 
 @export var spawn_x_offset: float = 0.5
@@ -13,6 +14,12 @@ class_name Player extends CharacterBody3D
 @export var follow_sheep_number_per_step: int = 20
 
 @export var PortalParticle: CPUParticles3D 
+@export var sheep_kamikaze: PackedScene
+@export var kamikaze_cost: int = 1
+
+@export var mega_sheep: PackedScene
+@export var mega_sheep_cost: int = 5
+@export var mega_sheep_spawn_z_offset := 1
 
 var sheepList: Array[Sheep] = []
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -20,6 +27,8 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(spawn_sheep_path != null, "spawn_sheep_path is null on " + self.name)
+	assert(sheep_kamikaze != null, "sheep_kamikaze is null on " + self.name)
+	assert(sheep_kamikaze != null, "sheep_kamikaze is null on " + self.name)
 	assert(spawnPointSheep != null, "spawnPointSheep is null on " + self.name)
 	GameManager.player = self
 	pass # Replace with function body.
@@ -48,15 +57,22 @@ func move(d: float) -> void:
 func attack() -> void:
 	if Input.is_action_just_pressed("attack_kamikaze"):
 		summon_kamikaze()
+		summon_mega_sheep()
 	pass
 
 func summon_kamikaze() -> void:
 	GameManager.PlaySound("Rocket")
-	apply_sheep_addition(-1)
-	var kamikaze: KamikazeSheep = preload("res://assets/sheep/kamikaze_sheep.tscn").instantiate()
+	apply_sheep_addition(kamikaze_cost)
+	var kamikaze: KamikazeSheep = sheep_kamikaze.instantiate()
 	get_parent().add_child(kamikaze)
 	kamikaze.global_position = follow_point.global_position
 	kamikaze.target = GameManager.find_ennemy(get_parent())
+	
+func summon_mega_sheep() -> void:
+	apply_sheep_addition(mega_sheep_cost)
+	var mega_sheep: MegaSheep = mega_sheep.instantiate()
+	mega_sheep.global_position.z += mega_sheep_spawn_z_offset
+	spawnPointSheep.add_child(mega_sheep)
 
 func update_follow_point() -> void:
 	follow_point.position.z = -floor(get_sheep_number() / follow_sheep_number_per_step) * follow_step_size - 0.55
