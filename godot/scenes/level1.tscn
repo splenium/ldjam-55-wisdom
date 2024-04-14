@@ -16,17 +16,33 @@
 [ext_resource type="AudioStream" uid="uid://dabiwk6qx0eux" path="res://music/sounds/MoutonDie.wav" id="14_xebih"]
 [ext_resource type="AudioStream" uid="uid://dbccs3hh736h5" path="res://music/sounds/NGTVST - Braam 3.wav" id="15_chnop"]
 [ext_resource type="AudioStream" uid="uid://do5nmfj3birpe" path="res://music/sounds/NGTVST - Hit 3.wav" id="16_3s4ik"]
-[ext_resource type="AudioStream" uid="uid://2uoexyjxu8s8" path="res://music/sounds/NGTVST - Riser 3.wav" id="17_pkm3v"]
 [ext_resource type="AudioStream" uid="uid://b50b3hg6m3xii" path="res://music/sounds/Pass_Portal_396500__alonsotm__firespell3.wav" id="18_qwpog"]
 [ext_resource type="AudioStream" uid="uid://caa7j1asu832g" path="res://music/sounds/Tentacles_204025__duckduckpony__impacts_splatter_watermelon_002.mp3" id="19_s6nei"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y6wkv"]
 
+[sub_resource type="Environment" id="Environment_n0yng"]
+ambient_light_source = 2
+ambient_light_color = Color(0, 0.721569, 0.572549, 1)
+ambient_light_energy = 0.1
+tonemap_mode = 2
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 6.06
+glow_strength = 0.75
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.14902, 0.282353, 0.321569, 1)
+
 [node name="Level1" type="Node3D"]
 
-[node name="Player" parent="." node_paths=PackedStringArray("spawnPointSheep") instance=ExtResource("1_faqqn")]
+[node name="Player" parent="." instance=ExtResource("1_faqqn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170473, -0.431916)
-spawnPointSheep = NodePath("../SpawnPoint")
+follow_point = Object(Node3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.526574),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"script":null)
+
+PortalParticle = Object(CPUParticles3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0844512, 0.0369352),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"layers":1,"sorting_offset":0.0,"sorting_use_aabb_center":true,"material_override":null,"material_overlay":null,"transparency":0.0,"cast_shadow":1,"extra_cull_margin":0.0,"custom_aabb":AABB(0, 0, 0, 0, 0, 0),"lod_bias":1.0,"ignore_occlusion_culling":false,"gi_mode":1,"gi_lightmap_scale":0,"visibility_range_begin":0.0,"visibility_range_begin_margin":0.0,"visibility_range_end":0.0,"visibility_range_end_margin":0.0,"visibility_range_fade_mode":0,"emitting":false,"amount":30,"lifetime":2.0,"one_shot":true,"preprocess":0.0,"speed_scale":1.0,"explosiveness":0.51,"randomness":0.0,"lifetime_randomness":0.0,"fixed_fps":0,"fract_delta":true,"local_coords":false,"draw_order":0,"mesh":null,"emission_shape":0,"emission_colors":PackedColorArray(),"particle_flag_align_y":false,"particle_flag_rotate_y":true,"particle_flag_disable_z":false,"direction":Vector3(1, 1, 1),"spread":180.0,"flatness":0.0,"gravity":Vector3(0, 0, 0),"initial_velocity_min":0.1,"initial_velocity_max":0.2,"angular_velocity_min":-1.0,"angular_velocity_max":1.0,"angular_velocity_curve":null,"linear_accel_min":0.0,"linear_accel_max":0.0,"linear_accel_curve":null,"radial_accel_min":0.0,"radial_accel_max":0.0,"radial_accel_curve":null,"tangential_accel_min":0.0,"tangential_accel_max":0.0,"tangential_accel_curve":null,"damping_min":0.0,"damping_max":0.0,"damping_curve":null,"angle_min":0.0,"angle_max":0.0,"angle_curve":null,"scale_amount_min":0.1,"scale_amount_max":0.3,"scale_amount_curve":null,"split_scale":false,"color":Color(1, 1, 1, 1),"color_ramp":null,"color_initial_ramp":null,"hue_variation_min":0.0,"hue_variation_max":0.0,"hue_variation_curve":null,"anim_speed_min":0.0,"anim_speed_max":0.0,"anim_speed_curve":null,"anim_offset_min":0.0,"anim_offset_max":0.0,"anim_offset_curve":null,"script":null)
+
+spawnPointSheep = Object(Node3D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.227706, 0),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"script":null)
+
 
 [node name="Path" parent="." instance=ExtResource("1_dl0uc")]
 unique_name_in_owner = true
@@ -100,6 +116,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 422.576)
 [node name="Priest4" parent="Ennemies" instance=ExtResource("6_tjstm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323375, 0.409067, 422.931)
 
+[node name="Priest5" parent="Ennemies" instance=ExtResource("6_tjstm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 427.097)
+
+[node name="Priest6" parent="Ennemies" instance=ExtResource("6_tjstm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.371476, 0.409067, 426.739)
+
+[node name="Priest7" parent="Ennemies" instance=ExtResource("6_tjstm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 426.742)
+
+[node name="Priest8" parent="Ennemies" instance=ExtResource("6_tjstm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323375, 0.409067, 427.097)
+
 [node name="AudioStreamPlayer_MainMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_sw7ch")
 volume_db = -8.0
@@ -114,10 +142,10 @@ BaiSound = ExtResource("13_w3c3g")
 DieSound = ExtResource("14_xebih")
 BraamSound = ExtResource("15_chnop")
 HitSound = ExtResource("16_3s4ik")
-RiserSound = ExtResource("17_pkm3v")
 PortalSound = ExtResource("18_qwpog")
 TentaclesSound = ExtResource("19_s6nei")
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n0yng")
 
 [connection signal="body_entered" from="DEATH" to="DEATH" method="_on_body_entered"]

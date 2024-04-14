@@ -12,6 +12,7 @@ class_name SoundManager extends Node
 @export var BraamSound : AudioStream;
 @export var HitSound : AudioStream;
 @export var RiserSound : AudioStream;
+@export var RiserSpeedySound : AudioStream;
 @export var PortalSound : AudioStream;
 @export var TentaclesSound : AudioStream;
 
@@ -26,6 +27,7 @@ class_name SoundManager extends Node
     "Braam": BraamSound,
     "Hit": HitSound,
     "Riser": RiserSound,
+    "RiserSpeedy": RiserSpeedySound,
     "PassPortal": PortalSound,
     "Tentacles": TentaclesSound	
 }
