@@ -1,4 +1,4 @@
-extends Node3D
+class_name Squeesh extends Node3D
 
 @export
 var seed: int = 0

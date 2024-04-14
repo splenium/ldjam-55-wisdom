@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://5a27ejr35453"]
+
+[ext_resource type="Script" path="res://assets/attacks/cthulhu.gd" id="1_ccsvx"]
+[ext_resource type="PackedScene" uid="uid://cd6jl1cqgr2uf" path="res://assets/attacks/tentacule.tscn" id="2_htyfm"]
+[ext_resource type="PackedScene" uid="uid://b5bg644nmo2tp" path="res://assets/attacks/kraken.tscn" id="3_l5kp5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_swf1c"]
+size = Vector3(3, 1, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjv1c"]
+transparency = 1
+albedo_color = Color(0.235294, 0.588235, 0, 0.47451)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mnc16"]
+size = Vector3(3, 0.1, 4)
+
+[node name="Cthulhu" type="Area3D" node_paths=PackedStringArray("timer", "krakenMesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170473, -0.431916)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_ccsvx")
+tentaculeScene = ExtResource("2_htyfm")
+timer = NodePath("AttackTimer")
+krakenMesh = NodePath("Kraken")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -2)
+shape = SubResource("BoxShape3D_swf1c")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_bjv1c")
+mesh = SubResource("BoxMesh_mnc16")
+skeleton = NodePath("../..")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="StopTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Kraken" parent="." instance=ExtResource("3_l5kp5")]
+transform = Transform3D(3.00673, 0, 0, 0, -1.2215e-07, 1, 0, -2.79448, -4.37114e-08, 0, 0, -0.832245)
+sorting_offset = 1000.0
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="StopTimer" to="." method="_on_stop_timer_timeout"]

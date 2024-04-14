@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://djrj5m0qgvpcn"]
+[gd_scene load_steps=58 format=3 uid="uid://djrj5m0qgvpcn"]
 
 [ext_resource type="Texture2D" uid="uid://dnxrxu217owfb" path="res://sprites/Decoration_pave_couleur test.png" id="1_7dyqr"]
 [ext_resource type="Texture2D" uid="uid://vhhxfxikeyec" path="res://sprites/Ruins_stele.png" id="3_apbid"]
@@ -20,9 +20,13 @@
 [ext_resource type="Shader" path="res://shaders/Gradient.gdshader" id="18_oh5xd"]
 [ext_resource type="PackedScene" uid="uid://c6pb7rq4ho2gu" path="res://assets/NoPosition_Audio/no_pos_audio_stream_player.tscn" id="19_vrc0v"]
 [ext_resource type="PackedScene" uid="uid://dnc23auci4r2i" path="res://assets/sound_manager.tscn" id="20_8jjxf"]
+[ext_resource type="Shader" path="res://shaders/Sparkle.gdshader" id="21_yft8x"]
+[ext_resource type="Shader" path="res://shaders/KrakenGame.gdshader" id="22_3lrj8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cid32"]
 shader = ExtResource("3_xwojd")
+shader_parameter/kraken = 1.0
+shader_parameter/Shake = -0.04
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cun3o"]
 albedo_texture = ExtResource("1_7dyqr")
@@ -110,10 +114,49 @@ shader_parameter/colorB = Color(0, 0, 0, 0)
 
 [sub_resource type="QuadMesh" id="QuadMesh_uo37s"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eckn2"]
+render_priority = 0
+shader = ExtResource("21_yft8x")
+
+[sub_resource type="QuadMesh" id="QuadMesh_5ojdy"]
+
+[sub_resource type="Curve" id="Curve_r1sxi"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_rkp4j"]
+offsets = PackedFloat32Array(0, 0.320513, 0.669231, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.392157, 0.768627, 0.701961, 1, 0.560784, 0.752941, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wcunt"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_doukr")
+uv1_scale = Vector3(2, 2, 2)
+uv1_triplanar = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_0bxd4"]
+
+[sub_resource type="Curve" id="Curve_4lta3"]
+_data = [Vector2(0, 0), 0.0, 1.05231, 0, 0, Vector2(1, 1), 0.861628, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_8echr"]
+offsets = PackedFloat32Array(0, 0.348718, 0.564103, 0.707692, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0.32549, 1, 1, 0.368627, 0.0745098, 1, 1, 0.0588235, 0.0745098, 1, 1, 0.0588235, 0.0745098, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ac71m"]
+render_priority = 0
+shader = ExtResource("22_3lrj8")
+shader_parameter/kraken = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_pxkq2"]
+
 [node name="Seb" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.654714, 0.755876, 0, -0.755876, 0.654714, 0, 0.743, -0.857)
+transform = Transform3D(1, 0, 0, 0, 0.654714, 0.755876, 0, -0.755876, 0.654714, 0, 0.743, 1.648)
 
 [node name="PostFXCanvasLayer" type="CanvasLayer" parent="Camera3D"]
 
@@ -522,3 +565,48 @@ mesh = SubResource("QuadMesh_uo37s")
 [node name="NoPos_AudioStreamPlayer" parent="." instance=ExtResource("19_vrc0v")]
 
 [node name="SoundManager" parent="." instance=ExtResource("20_8jjxf")]
+
+[node name="BonusParticle" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.189433, 0.258901)
+material_override = SubResource("ShaderMaterial_eckn2")
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("QuadMesh_5ojdy")
+emission_shape = 3
+emission_box_extents = Vector3(0.1, 0.1, 0.1)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.2
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_r1sxi")
+color = Color(1, 1, 1, 0.6)
+color_ramp = SubResource("Gradient_rkp4j")
+
+[node name="Explosion" type="CPUParticles3D" parent="."]
+sorting_offset = 10.0
+material_override = SubResource("StandardMaterial3D_wcunt")
+emitting = false
+amount = 3
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("SphereMesh_0bxd4")
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3(0, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_4lta3")
+color_ramp = SubResource("Gradient_8echr")
+
+[node name="Kraken" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.361473, 1.2009)
+material_override = SubResource("ShaderMaterial_ac71m")
+mesh = SubResource("QuadMesh_pxkq2")

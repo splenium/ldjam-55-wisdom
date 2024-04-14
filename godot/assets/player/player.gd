@@ -3,6 +3,7 @@ class_name Player extends CharacterBody3D
 @export var speed: float = 0.75 # default 0.75
 @export var spawnPointSheep: Node3D
 @export var spawn_sheep_path: PackedScene
+
 @export var follow_point: Node3D
 
 @export var spawn_x_offset: float = 0.5
@@ -12,12 +13,25 @@ class_name Player extends CharacterBody3D
 @export var follow_step_size: float = 0.025
 @export var follow_sheep_number_per_step: int = 20
 
+@export var PortalParticle: CPUParticles3D 
+@export var sheep_kamikaze: PackedScene
+@export var kamikaze_cost: int = 5
+
+@export var cthulhu_scene: PackedScene
+@export var cthulhu_cost: int = 20
+
+@export var mega_sheep: PackedScene
+@export var mega_sheep_cost: int = 5
+@export var mega_sheep_spawn_z_offset := 1
+
 var sheepList: Array[Sheep] = []
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(spawn_sheep_path != null, "spawn_sheep_path is null on " + self.name)
+	assert(sheep_kamikaze != null, "sheep_kamikaze is null on " + self.name)
+	assert(sheep_kamikaze != null, "sheep_kamikaze is null on " + self.name)
 	assert(spawnPointSheep != null, "spawnPointSheep is null on " + self.name)
 	GameManager.player = self
 	pass # Replace with function body.
@@ -44,17 +58,47 @@ func move(d: float) -> void:
 	pass
 
 func attack() -> void:
+	if Input.is_action_just_pressed("attack_cthulhu"):
+		summon_cthulhu()
 	if Input.is_action_just_pressed("attack_kamikaze"):
 		summon_kamikaze()
+	if Input.is_action_just_pressed("attack_mega_sheep"):
+		summon_mega_sheep()
 	pass
+	
+func can_i_launch_it(cost: int) -> bool:
+	return get_only_sacrificial_sheep() > cost
+
+func summon_cthulhu() -> void:
+	if !can_i_launch_it(cthulhu_cost):
+		GameManager.PlaySound("Bai")
+		return
+	apply_sheep_addition(-cthulhu_cost)
+	var cthulhu: Cthulhu = cthulhu_scene.instantiate()
+	get_parent().add_child(cthulhu)
 
 func summon_kamikaze() -> void:
-	GameManager.PlaySound("Rocket")
-	apply_sheep_addition(-1)
-	var kamikaze: KamikazeSheep = preload("res://assets/sheep/kamikaze_sheep.tscn").instantiate()
-	get_parent().add_child(kamikaze)
-	kamikaze.global_position = follow_point.global_position
-	kamikaze.target = GameManager.find_ennemy(get_parent())
+	if can_i_launch_it(kamikaze_cost):
+		GameManager.PlaySound("Rocket")
+		var futurKamikaze: Sheep = get_random_sacrifiable_sheep()
+		apply_sheep_addition(-(kamikaze_cost - 1))
+		var kamikaze: KamikazeSheep = sheep_kamikaze.instantiate()
+		kamikaze.global_position = futurKamikaze.global_position
+		remove_sheep(futurKamikaze)
+		get_parent().add_child(kamikaze)
+		kamikaze.target = GameManager.find_ennemy(get_parent())
+	else:
+		GameManager.PlaySound("Bai")
+	
+func summon_mega_sheep() -> void:
+	if can_i_launch_it(mega_sheep_cost):
+		GameManager.PlaySound("RiserSpeedy")
+		apply_sheep_addition(-mega_sheep_cost)
+		var mega_sheep: MegaSheep = mega_sheep.instantiate()
+		mega_sheep.global_position.z += mega_sheep_spawn_z_offset
+		spawnPointSheep.add_child(mega_sheep)
+	else:
+		GameManager.PlaySound("Bai")
 
 func update_follow_point() -> void:
 	follow_point.position.z = -floor(get_sheep_number() / follow_sheep_number_per_step) * follow_step_size - 0.55
@@ -78,11 +122,15 @@ func get_only_sacrificial_sheep() -> int:
 	return sheepList.size()
 
 func apply_sheep_addition(sheep_to_add: int) -> void:
+	PortalParticle.restart()
+	PortalParticle.emitting = true
 	var sheepDiff: int = sheep_to_add
 	apply_sheep_edition(sheepDiff)
 	pass
 
 func apply_sheep_multiplicator(multiplicator: int) -> void:
+	PortalParticle.restart()
+	PortalParticle.emitting = true
 	var sheepDiff := 0
 	if multiplicator < 0:
 		sheepDiff = get_only_sacrificial_sheep() / multiplicator		
@@ -122,3 +170,6 @@ func remove_all_sheep() -> void:
 		sheep.queue_free()
 	sheepList.clear()
 	pass
+	
+func get_random_sacrifiable_sheep() -> Sheep:
+	return sheepList.pick_random()

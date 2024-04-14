@@ -1,6 +1,9 @@
 shader_type canvas_item;
 uniform sampler2D screen_texture : hint_screen_texture, filter_linear_mipmap;
 
+uniform float kraken;
+uniform float Shake;
+
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
@@ -26,7 +29,7 @@ vec3 rdr(vec2 uv)
     uv.x = abs(uv.x);
     for (float i = 0.; i < 7.; ++i)
     {
-    vec2 p = uv*2.+vec2(-.2-.1*(sin(iTime)*.5+.5)-.1*sin(i*10.3+5.*sign(ouv.x)), -.7+i*.35);
+    vec2 p = uv*2.+vec2(-sat(1.-kraken)+-.2-.1*(sin(iTime)*.5+.5)-.1*sin(i*10.3+5.*sign(ouv.x)), -.7+i*.35);
     float shape = tentacle(p, i*sign(ouv.x)+3.3+sign(ouv.x), iTime);
     
     vec3 rgb = mix(vec3(.6, .2,.1), vec3(.1), sat(abs(uv.x*2.+.1)/*+pow(texture(iChannel1, uv).x, 4.)*/));
@@ -39,17 +42,20 @@ vec3 rdr(vec2 uv)
 
 vec3 rdrMain(vec2 uv)
 {
+		float t = TIME;
+	uv += (vec2(sin(t*23.), sin(t*27.3+1.))*.01
+	+vec2(sin(t*33.), sin(t*47.3+1.))*.005)*sat(Shake);
 		vec2 cuv = uv-.5;
 		vec3 col =  mix(textureLod(screen_texture, uv, 0).rgb, rdr(uv), 1.);
 		//col = vec3(1.);
-		col *= sat(1.-pow(sat(length(cuv)-.2), 2.)*3.);
+		col *= sat(1.-pow(sat(length(cuv)-.1), 2.)*3.);
 		return col;
 }
 
 vec3 rdrChroma(vec2 uv)
 {
 	vec3 col = vec3(0.);
-	vec2 off = vec2(0.001, 0.);
+	vec2 off = vec2(0.002, 0.);
 	col.x = rdrMain(uv+off).x;
 	col.y = rdrMain(uv).y;
 	col.z = rdrMain(uv-off).z;
@@ -69,7 +75,8 @@ vec3 rdrScene(vec2 uv)
 
 void fragment() {
 	
-	vec3 col =  rdrScene(SCREEN_UV);
+	vec3 col = vec3(0.);
+	col = mix(rdrChroma(SCREEN_UV), rdrScene(SCREEN_UV), kraken);
 	COLOR.rgb = col;
 }
 

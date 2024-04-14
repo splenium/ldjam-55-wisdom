@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bohqggmq4p1a2"]
+[gd_scene load_steps=10 format=3 uid="uid://bohqggmq4p1a2"]
 
 [ext_resource type="Script" path="res://assets/sheep/kamikaze_sheep.gd" id="1_fb5xn"]
-[ext_resource type="Texture2D" uid="uid://cud6d552tktox" path="res://sprites/sheep/bomberlamb_dos-4.png" id="2_ernn0"]
-[ext_resource type="Texture2D" uid="uid://b20rkmbf03btg" path="res://sprites/sheep/bomberlamb_face-1.png" id="3_4inrq"]
+[ext_resource type="Texture2D" uid="uid://donhksedhl7lv" path="res://sprites/kamikaze/Personnages_-3.png" id="2_7drvx"]
+[ext_resource type="Texture2D" uid="uid://wjd074kdn3se" path="res://sprites/kamikaze/Personnages_ 3.png" id="3_hnxbr"]
+[ext_resource type="Shader" path="res://shaders/Sparkle.gdshader" id="4_p8pqb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_54k4d"]
 friction = 0.0
@@ -10,6 +11,16 @@ friction = 0.0
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_stp56"]
 radius = 0.0790922
 height = 0.361455
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5m70e"]
+render_priority = 0
+shader = ExtResource("4_p8pqb")
+
+[sub_resource type="QuadMesh" id="QuadMesh_dd2hg"]
+
+[sub_resource type="Gradient" id="Gradient_guvci"]
+offsets = PackedFloat32Array(0.44359, 0.797436)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.564706, 0.0235294, 1)
 
 [node name="KamikazeSheep" type="RigidBody3D"]
 collision_mask = 117
@@ -27,17 +38,59 @@ shape = SubResource("CapsuleShape3D_stp56")
 
 [node name="BackSprite" type="Sprite3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, 0.00819152, 0.00573576, 0, -0.00573576, 0.00819152, 0, 0, 0)
-texture = ExtResource("2_ernn0")
+texture = ExtResource("2_7drvx")
 
 [node name="FrontSprite" type="Sprite3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, 0.00819152, 0.00573576, 0, -0.00573576, 0.00819152, 0, 0, 0)
 visible = false
-texture = ExtResource("3_4inrq")
+texture = ExtResource("3_hnxbr")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.0
 one_shot = true
 autostart = true
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, -0.0365989, 0.0433126)
+material_override = SubResource("ShaderMaterial_5m70e")
+lifetime = 0.05
+mesh = SubResource("QuadMesh_dd2hg")
+direction = Vector3(0, -1, 0)
+spread = 30.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+scale_amount_min = 0.01
+scale_amount_max = 0.1
+color_ramp = SubResource("Gradient_guvci")
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.0450253, -0.0480417, 0.0435473)
+material_override = SubResource("ShaderMaterial_5m70e")
+lifetime = 0.05
+mesh = SubResource("QuadMesh_dd2hg")
+direction = Vector3(0, -1, 0)
+spread = 30.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+scale_amount_min = 0.01
+scale_amount_max = 0.1
+color_ramp = SubResource("Gradient_guvci")
+
+[node name="CPUParticles3D3" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0.0434759, -0.0480417, 0.0435473)
+material_override = SubResource("ShaderMaterial_5m70e")
+lifetime = 0.05
+mesh = SubResource("QuadMesh_dd2hg")
+direction = Vector3(0, -1, 0)
+spread = 30.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+scale_amount_min = 0.01
+scale_amount_max = 0.1
+color_ramp = SubResource("Gradient_guvci")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="explode"]

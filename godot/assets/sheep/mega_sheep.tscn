@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7yhihwnw22hh"]
+
+[ext_resource type="Script" path="res://assets/sheep/mega_sheep.gd" id="1_tjqvt"]
+[ext_resource type="PackedScene" uid="uid://wpmn76raediv" path="res://assets/sheep/sheep_base_appareance.tscn" id="2_mk1mw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rbjdd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w5326"]
+radius = 1.55084
+height = 4.32231
+
+[node name="MegaSheep" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.0065)
+collision_layer = 0
+collision_mask = 68
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("1_tjqvt")
+speed = 10.0
+
+[node name="SheepBaseAppareance" parent="." instance=ExtResource("2_mk1mw")]
+transform = Transform3D(0.1, 0, 0, 0, 0.0819152, 0.0573576, 0, -0.0573576, 0.0819152, 0, -0.0217646, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20394, 0.664004)
+shape = SubResource("CapsuleShape3D_rbjdd")
+
+[node name="DamageArea" type="Area3D" parent="."]
+collision_mask = 20
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0722945, 1.21102, 0.33017)
+shape = SubResource("CapsuleShape3D_w5326")
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

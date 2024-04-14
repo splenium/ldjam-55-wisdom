@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5bg644nmo2tp"]
+
+[ext_resource type="Shader" path="res://shaders/KrakenGame.gdshader" id="1_mmhiu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ac71m"]
+render_priority = 0
+shader = ExtResource("1_mmhiu")
+shader_parameter/kraken = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_pxkq2"]
+
+[node name="Kraken" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.73, -1.59)
+material_override = SubResource("ShaderMaterial_ac71m")
+mesh = SubResource("QuadMesh_pxkq2")

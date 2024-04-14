@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd6jl1cqgr2uf"]
+
+[ext_resource type="Script" path="res://assets/attacks/tentacule.gd" id="1_js7k3"]
+[ext_resource type="Texture2D" uid="uid://buil6r4y4a8dh" path="res://sprites/particles/flame.png" id="2_j00y6"]
+
+[node name="Tentacule" type="Node3D"]
+script = ExtResource("1_js7k3")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.409576, 0.286788, 0, -0.286788, 0.409576, 0, 0.231, 0)
+visible = false
+modulate = Color(0.184314, 0.368627, 0.160784, 1)
+texture = ExtResource("2_j00y6")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
