@@ -118,4 +118,6 @@ RiserSound = ExtResource("17_pkm3v")
 PortalSound = ExtResource("18_qwpog")
 TentaclesSound = ExtResource("19_s6nei")
 
+[node name="Node3D" type="Node3D" parent="."]
+
 [connection signal="body_entered" from="DEATH" to="DEATH" method="_on_body_entered"]

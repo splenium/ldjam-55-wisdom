@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnm61dw75hodn"]
+[gd_scene load_steps=9 format=3 uid="uid://cnm61dw75hodn"]
 
 [ext_resource type="Script" path="res://assets/sheep/sheep.gd" id="1_q1yew"]
 [ext_resource type="Texture2D" uid="uid://cwkbedkxxuq8l" path="res://sprites/lamb_dos-5.png" id="2_8opr0"]
+[ext_resource type="Script" path="res://scripts/Squeesh.gd" id="3_dcqn3"]
 [ext_resource type="Texture2D" uid="uid://di4s5uy16omll" path="res://sprites/lamb_dos-4.png" id="3_q74og"]
 [ext_resource type="Texture2D" uid="uid://b3n8qnxblwfd1" path="res://sprites/lamb_dos-6.png" id="4_cws7g"]
 
@@ -32,7 +33,7 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="Sheep" type="RigidBody3D"]
+[node name="Sheep" type="RigidBody3D" node_paths=PackedStringArray("squeesh")]
 collision_layer = 128
 collision_mask = 244
 axis_lock_angular_x = true
@@ -40,6 +41,7 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 physics_material_override = SubResource("PhysicsMaterial_r7wxc")
 script = ExtResource("1_q1yew")
+squeesh = NodePath("Node3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_stp56")
@@ -49,7 +51,12 @@ transform = Transform3D(0.01, 0, 0, 0, 0.00819152, 0.00573576, 0, -0.00573576, 0
 visible = false
 texture = ExtResource("2_8opr0")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(0.01, 0, 0, 0, 0.00819152, 0.00573576, 0, -0.00573576, 0.00819152, 0, 0, 0)
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.00819152, 0.00573576, 0, -0.00573576, 0.00819152, 0, -0.142266, 0)
+script = ExtResource("3_dcqn3")
+speed = 4.0
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 11.2874, 7.90353)
 sprite_frames = SubResource("SpriteFrames_eu6hg")
 autoplay = "default"
