@@ -3,8 +3,6 @@
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_bvcwl"]
 [ext_resource type="PackedScene" uid="uid://cnm61dw75hodn" path="res://assets/sheep/sheep.tscn" id="2_wb6fe"]
 [ext_resource type="Shader" path="res://shaders/PentacleSpatial.gdshader" id="3_n2842"]
-[ext_resource type="PackedScene" uid="uid://bohqggmq4p1a2" path="res://assets/sheep/kamikaze_sheep.tscn" id="3_p0syr"]
-[ext_resource type="PackedScene" uid="uid://b7yhihwnw22hh" path="res://assets/sheep/mega_sheep.tscn" id="4_cr2on"]
 [ext_resource type="Texture2D" uid="uid://ccpxgt35wqxh8" path="res://sprites/Shadow.png" id="4_mvkny"]
 [ext_resource type="PackedScene" uid="uid://5a27ejr35453" path="res://assets/attacks/cthulhu.tscn" id="4_n450w"]
 [ext_resource type="Script" path="res://scripts/Squeesh.gd" id="5_foit1"]
