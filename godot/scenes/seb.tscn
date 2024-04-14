@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://djrj5m0qgvpcn"]
+[gd_scene load_steps=55 format=3 uid="uid://djrj5m0qgvpcn"]
 
 [ext_resource type="Texture2D" uid="uid://dnxrxu217owfb" path="res://sprites/Decoration_pave_couleur test.png" id="1_7dyqr"]
 [ext_resource type="Texture2D" uid="uid://vhhxfxikeyec" path="res://sprites/Ruins_stele.png" id="3_apbid"]
@@ -128,13 +128,20 @@ colors = PackedColorArray(0, 0, 0, 0, 0.392157, 0.768627, 0.701961, 1, 0.560784,
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wcunt"]
 transparency = 1
 blend_mode = 1
+vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("4_doukr")
+uv1_scale = Vector3(2, 2, 2)
+uv1_triplanar = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_0bxd4"]
 
 [sub_resource type="Curve" id="Curve_4lta3"]
 _data = [Vector2(0, 0), 0.0, 1.05231, 0, 0, Vector2(1, 1), 0.861628, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_8echr"]
+offsets = PackedFloat32Array(0, 0.348718, 0.564103, 0.707692, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0.32549, 1, 1, 0.368627, 0.0745098, 1, 1, 0.0588235, 0.0745098, 1, 1, 0.0588235, 0.0745098, 0)
 
 [node name="Seb" type="Node3D"]
 
@@ -570,10 +577,12 @@ scale_amount_curve = SubResource("Curve_r1sxi")
 color = Color(1, 1, 1, 0.6)
 color_ramp = SubResource("Gradient_rkp4j")
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+[node name="Explosion" type="CPUParticles3D" parent="."]
+sorting_offset = 10.0
 material_override = SubResource("StandardMaterial3D_wcunt")
 emitting = false
 amount = 3
+lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
 mesh = SubResource("SphereMesh_0bxd4")
@@ -585,3 +594,4 @@ gravity = Vector3(0, 0, 0)
 scale_amount_min = 0.5
 scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_4lta3")
+color_ramp = SubResource("Gradient_8echr")

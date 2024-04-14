@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7uk1amv1rk36"]
+
+[ext_resource type="Texture2D" uid="uid://d0lt3lof2w31f" path="res://sprites/Voronoise.png" id="1_2vbtw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wcunt"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_2vbtw")
+uv1_scale = Vector3(2, 2, 2)
+uv1_triplanar = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_0bxd4"]
+
+[sub_resource type="Curve" id="Curve_4lta3"]
+_data = [Vector2(0, 0), 0.0, 1.05231, 0, 0, Vector2(1, 1), 0.861628, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_8echr"]
+offsets = PackedFloat32Array(0, 0.348718, 0.564103, 0.707692, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0.32549, 1, 1, 0.368627, 0.0745098, 1, 1, 0.0588235, 0.0745098, 1, 1, 0.0588235, 0.0745098, 0)
+
+[node name="Explosion" type="CPUParticles3D"]
+sorting_offset = 10.0
+material_override = SubResource("StandardMaterial3D_wcunt")
+emitting = false
+amount = 3
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("SphereMesh_0bxd4")
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3(0, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_4lta3")
+color_ramp = SubResource("Gradient_8echr")

@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbv43q4ttr55w"]
+[gd_scene load_steps=6 format=3 uid="uid://bbv43q4ttr55w"]
 
 [ext_resource type="Script" path="res://assets/attacks/explosion.gd" id="1_vt5g8"]
+[ext_resource type="PackedScene" uid="uid://b7uk1amv1rk36" path="res://assets/explosion.tscn" id="2_5xn42"]
+[ext_resource type="Script" path="res://scripts/TriggerParticleOnLoad.gd" id="3_6uagl"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hc8wo"]
 
@@ -15,7 +17,13 @@ script = ExtResource("1_vt5g8")
 shape = SubResource("SphereShape3D_hc8wo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("SphereMesh_7xmk2")
+
+[node name="Explosion" parent="." instance=ExtResource("2_5xn42")]
+local_coords = true
+scale_amount_max = 1.0
+script = ExtResource("3_6uagl")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
