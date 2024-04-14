@@ -92,7 +92,6 @@ func summon_kamikaze() -> void:
 	
 func summon_mega_sheep() -> void:
 	if can_i_launch_it(mega_sheep_cost):
-		GameManager.PlaySound("RiserSpeedy")
 		apply_sheep_addition(-mega_sheep_cost)
 		var mega_sheep: MegaSheep = mega_sheep.instantiate()
 		mega_sheep.global_position.z += mega_sheep_spawn_z_offset

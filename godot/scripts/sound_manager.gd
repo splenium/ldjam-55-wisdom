@@ -15,6 +15,7 @@ class_name SoundManager extends Node
 @export var RiserSpeedySound : AudioStream;
 @export var PortalSound : AudioStream;
 @export var TentaclesSound : AudioStream;
+@export var BoomWalk : AudioStream;
 
 @onready var soundsMap : Dictionary = {
 	"Bomb": BombSound,
@@ -29,7 +30,8 @@ class_name SoundManager extends Node
 	"Riser": RiserSound,
 	"RiserSpeedy": RiserSpeedySound,
 	"PassPortal": PortalSound,
-	"Tentacles": TentaclesSound	
+	"Tentacles": TentaclesSound,
+	"BoomWalk": BoomWalk,
 }
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
