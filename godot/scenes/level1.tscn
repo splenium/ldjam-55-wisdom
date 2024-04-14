@@ -145,7 +145,6 @@ TentaclesSound = ExtResource("19_s6nei")
 environment = SubResource("Environment_n0yng")
 
 [node name="Camera3D" parent="." instance=ExtResource("20_6pe5b")]
-transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707106, 0.707106, 0, 2, 0)
 current = true
 
 [connection signal="body_entered" from="DEATH" to="DEATH" method="_on_body_entered"]

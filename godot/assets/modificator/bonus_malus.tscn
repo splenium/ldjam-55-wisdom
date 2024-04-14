@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh72seocv5dg2"]
+
+[ext_resource type="PackedScene" uid="uid://cqksnij425pe5" path="res://assets/modificator/additionator.tscn" id="1_5laov"]
+[ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator/multiplicator.tscn" id="2_rt3sm"]
+
+[node name="BonusMalus" type="Node3D"]
+
+[node name="Additionator" parent="." instance=ExtResource("1_5laov")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, 8.88948)
+sheep_to_add = 10
+
+[node name="Multiplicator" parent="." instance=ExtResource("2_rt3sm")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, 8.90369)
+modificator = 3
+
+[node name="Additionator2" parent="." instance=ExtResource("1_5laov")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, 6.54578)
+sheep_to_add = -10
+
+[node name="Multiplicator2" parent="." instance=ExtResource("2_rt3sm")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, 6.55998)
+modificator = -2
+
+[node name="Additionator4" parent="." instance=ExtResource("1_5laov")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -0.859851)
+sheep_to_add = 10
+
+[node name="Multiplicator4" parent="." instance=ExtResource("2_rt3sm")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -0.845651)
+modificator = 3
+
+[node name="Additionator5" parent="." instance=ExtResource("1_5laov")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -8.89525)
+sheep_to_add = 10
+
+[node name="Multiplicator5" parent="." instance=ExtResource("2_rt3sm")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -8.88095)
+modificator = 3
+
+[node name="Additionator3" parent="." instance=ExtResource("1_5laov")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -4.73875)
+sheep_to_add = 10
+
+[node name="Multiplicator3" parent="." instance=ExtResource("2_rt3sm")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -4.72455)
+modificator = 3

@@ -1,11 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://or2sm3cft7al"]
+[gd_scene load_steps=21 format=3 uid="uid://or2sm3cft7al"]
 
 [ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_e8ghl"]
 [ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="2_ix7ds"]
-[ext_resource type="PackedScene" uid="uid://cqksnij425pe5" path="res://assets/modificator/additionator.tscn" id="3_lp33y"]
-[ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator/multiplicator.tscn" id="4_0qbw3"]
+[ext_resource type="PackedScene" uid="uid://ck6sut8itw2vf" path="res://assets/level_tiles/basic.tscn" id="3_ehpsf"]
+[ext_resource type="PackedScene" uid="uid://bjjk6hjqv4nfh" path="res://assets/level_tiles/bonus1.tscn" id="3_p6rdf"]
+[ext_resource type="PackedScene" uid="uid://cfx0icvxfoj0r" path="res://assets/level_tiles/ennemy1.tscn" id="4_xthjj"]
 [ext_resource type="Script" path="res://scenes/death_zone.gd" id="5_88cbj"]
-[ext_resource type="PackedScene" uid="uid://bel8kmpokgkbo" path="res://assets/enemies/priest.tscn" id="6_ig540"]
 [ext_resource type="AudioStream" uid="uid://bk3wdsgfre3v6" path="res://music/Level_PerituneMaterial_Fear.mp3" id="7_75rpi"]
 [ext_resource type="PackedScene" uid="uid://dnc23auci4r2i" path="res://assets/sound_manager.tscn" id="8_27txq"]
 [ext_resource type="AudioStream" uid="uid://cxmy7d633yd4m" path="res://music/sounds/51427__smcameron__synthetic_bomb.mp3" id="9_5tly2"]
@@ -17,11 +17,13 @@
 [ext_resource type="AudioStream" uid="uid://dbccs3hh736h5" path="res://music/sounds/NGTVST - Braam 3.wav" id="15_4f3to"]
 [ext_resource type="AudioStream" uid="uid://do5nmfj3birpe" path="res://music/sounds/NGTVST - Hit 3.wav" id="16_yaqkq"]
 [ext_resource type="AudioStream" uid="uid://b50b3hg6m3xii" path="res://music/sounds/Pass_Portal_396500__alonsotm__firespell3.wav" id="18_a2aa6"]
+[ext_resource type="PackedScene" uid="uid://xo63y6uf3jic" path="res://assets/camera.tscn" id="19_n3tvp"]
 [ext_resource type="AudioStream" uid="uid://caa7j1asu832g" path="res://music/sounds/Tentacles_204025__duckduckpony__impacts_splatter_watermelon_002.mp3" id="19_vnfao"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y6wkv"]
+size = Vector3(100, 1, 1000)
 
-[node name="Level1" type="Node3D"]
+[node name="Level2" type="Node3D"]
 
 [node name="Player" parent="." node_paths=PackedStringArray("spawnPointSheep") instance=ExtResource("1_e8ghl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170473, -0.431916)
@@ -29,51 +31,10 @@ spawnPointSheep = NodePath("../SpawnPoint")
 
 [node name="Path" parent="." instance=ExtResource("2_ix7ds")]
 unique_name_in_owner = true
+level_tiles = Array[PackedScene]([ExtResource("3_p6rdf"), ExtResource("4_xthjj"), ExtResource("3_p6rdf"), ExtResource("3_ehpsf"), ExtResource("4_xthjj")])
 
 [node name="SpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.227706, 0)
-
-[node name="BonusMalus" type="Node3D" parent="."]
-
-[node name="Additionator" parent="BonusMalus" instance=ExtResource("3_lp33y")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -4.33437)
-sheep_to_add = 10
-
-[node name="Multiplicator" parent="BonusMalus" instance=ExtResource("4_0qbw3")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -4.32016)
-modificator = 3
-
-[node name="Additionator2" parent="BonusMalus" instance=ExtResource("3_lp33y")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -6.67807)
-sheep_to_add = -10
-
-[node name="Multiplicator2" parent="BonusMalus" instance=ExtResource("4_0qbw3")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -6.66387)
-modificator = -2
-
-[node name="Additionator4" parent="BonusMalus" instance=ExtResource("3_lp33y")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -14.0837)
-sheep_to_add = 10
-
-[node name="Multiplicator4" parent="BonusMalus" instance=ExtResource("4_0qbw3")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -14.0695)
-modificator = 3
-
-[node name="Additionator5" parent="BonusMalus" instance=ExtResource("3_lp33y")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -22.1191)
-sheep_to_add = 10
-
-[node name="Multiplicator5" parent="BonusMalus" instance=ExtResource("4_0qbw3")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -22.1048)
-modificator = 3
-
-[node name="Additionator3" parent="BonusMalus" instance=ExtResource("3_lp33y")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -17.9626)
-sheep_to_add = 10
-
-[node name="Multiplicator3" parent="BonusMalus" instance=ExtResource("4_0qbw3")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -17.9484)
-modificator = 3
 
 [node name="DEATH" type="Area3D" parent="."]
 collision_layer = 0
@@ -81,368 +42,8 @@ collision_mask = 133
 script = ExtResource("5_88cbj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH"]
-transform = Transform3D(10000, 0, 0, 0, 1, 0, 0, 0, 10000, 0, -4.28135, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.28135, 0)
 shape = SubResource("BoxShape3D_y6wkv")
-
-[node name="Ennemies" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.388419, 0, -21.1023)
-
-[node name="Priest" parent="Ennemies" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23372, 0, -21.1866)
-
-[node name="Priest" parent="Ennemies2" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies2" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies2" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies2" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22203, 0, -20.4364)
-
-[node name="Priest" parent="Ennemies3" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies3" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies3" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies3" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies4" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.439517, 0, -20.2992)
-
-[node name="Priest" parent="Ennemies4" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies4" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies4" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies4" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies5" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21808, 0, -20.9898)
-
-[node name="Priest" parent="Ennemies5" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies5" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies5" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies5" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies6" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.372771, 0, -21.0741)
-
-[node name="Priest" parent="Ennemies6" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies6" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies6" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies6" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies7" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.384463, 0, -20.3239)
-
-[node name="Priest" parent="Ennemies7" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies7" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies7" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies7" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies8" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16698, 0, -20.1867)
-
-[node name="Priest" parent="Ennemies8" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies8" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies8" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies8" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies9" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42106, 0, -19.607)
-
-[node name="Priest" parent="Ennemies9" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies9" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies9" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies9" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies10" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26636, 0, -19.6913)
-
-[node name="Priest" parent="Ennemies10" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies10" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies10" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies10" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies11" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25467, 0, -18.9411)
-
-[node name="Priest" parent="Ennemies11" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies11" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies11" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies11" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies12" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.472157, 0, -18.8039)
-
-[node name="Priest" parent="Ennemies12" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies12" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies12" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies12" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies13" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18543, 0, -19.4945)
-
-[node name="Priest" parent="Ennemies13" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies13" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies13" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies13" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies14" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.340131, 0, -19.5788)
-
-[node name="Priest" parent="Ennemies14" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies14" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies14" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies14" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies15" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.351823, 0, -18.8286)
-
-[node name="Priest" parent="Ennemies15" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies15" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies15" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies15" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies16" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13434, 0, -18.6914)
-
-[node name="Priest" parent="Ennemies16" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies16" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies16" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies16" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies17" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.351397, 0, -22.6994)
-
-[node name="Priest" parent="Ennemies17" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies17" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies17" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies17" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies18" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1967, 0, -22.7837)
-
-[node name="Priest" parent="Ennemies18" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies18" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies18" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies18" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies19" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18501, 0, -22.0335)
-
-[node name="Priest" parent="Ennemies19" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies19" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies19" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies19" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies20" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.402494, 0, -21.8963)
-
-[node name="Priest" parent="Ennemies20" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies20" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies20" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies20" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies21" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2551, 0, -22.5869)
-
-[node name="Priest" parent="Ennemies21" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies21" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies21" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies21" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies22" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.409793, 0, -22.6712)
-
-[node name="Priest" parent="Ennemies22" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies22" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies22" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies22" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies23" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.421486, 0, -21.921)
-
-[node name="Priest" parent="Ennemies23" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies23" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies23" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies23" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
-
-[node name="Ennemies24" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.204, 0, -21.7838)
-
-[node name="Priest" parent="Ennemies24" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, 0.226832)
-
-[node name="Priest2" parent="Ennemies24" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192592, 0.280548, 0.226832)
-
-[node name="Priest3" parent="Ennemies24" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.178884, 0.280548, -0.0813144)
-
-[node name="Priest4" parent="Ennemies24" instance=ExtResource("6_ig540")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144491, 0.280548, -0.0813144)
 
 [node name="AudioStreamPlayer_MainMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_75rpi")
@@ -461,6 +62,6 @@ HitSound = ExtResource("16_yaqkq")
 PortalSound = ExtResource("18_a2aa6")
 TentaclesSound = ExtResource("19_vnfao")
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Camera3D" parent="." instance=ExtResource("19_n3tvp")]
 
 [connection signal="body_entered" from="DEATH" to="DEATH" method="_on_body_entered"]
