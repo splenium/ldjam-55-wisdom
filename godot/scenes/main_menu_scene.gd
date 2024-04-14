@@ -7,6 +7,7 @@ extends Node2D
 var next_scene: PackedScene = game_scene;
 
 func _ready() -> void :
+	AudioMenuPlayer.play_music_level();
 	focus_button()
 	
 func _on_play_pressed() -> void:
@@ -33,3 +34,7 @@ func _on_play_focus_entered() -> void:
 func _on_play_focus_exited() -> void:
 	for child in get_node("UI/VBoxContainerBoutons/Play").get_children():
 		child.visible = false
+
+
+func _on_credits_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/ui/credit_scene.tscn")

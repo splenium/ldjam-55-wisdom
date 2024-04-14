@@ -1,0 +1,407 @@
+[gd_scene load_steps=9 format=3 uid="uid://dpck4mb0xulvo"]
+
+[ext_resource type="Texture2D" uid="uid://c2m1musnf18gp" path="res://sprites/credits/background_credits.png" id="1_hh10u"]
+[ext_resource type="Script" path="res://scenes/ui/credit_scene.gd" id="1_nr1v7"]
+[ext_resource type="Shader" path="res://shaders/flame.gdshader" id="2_xhr8x"]
+[ext_resource type="Theme" uid="uid://buyrdp78hirb6" path="res://buttons.tres" id="3_xdh4d"]
+[ext_resource type="Texture2D" uid="uid://b01r6ya20u2in" path="res://sprites/credits/sheep_icon.png" id="4_ahhdd"]
+[ext_resource type="Texture2D" uid="uid://c1ieomntxxtix" path="res://sprites/menu/bouton.png" id="6_twmog"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vqitg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a3p6k"]
+shader = ExtResource("2_xhr8x")
+
+[node name="CreditScene" type="Control"]
+material = SubResource("CanvasItemMaterial_vqitg")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nr1v7")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(535, 198)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_hh10u")
+
+[node name="RightFlame" type="ColorRect" parent="Background"]
+material = SubResource("ShaderMaterial_a3p6k")
+anchors_preset = -1
+anchor_left = 0.793
+anchor_top = 0.43
+anchor_right = 0.793
+anchor_bottom = 0.43
+offset_left = -1568.85
+offset_top = -1380.0
+offset_right = -1148.85
+offset_bottom = -701.998
+
+[node name="MiddleFlame" type="ColorRect" parent="Background"]
+material = SubResource("ShaderMaterial_a3p6k")
+anchors_preset = -1
+anchor_left = 0.668
+anchor_top = 0.684
+anchor_right = 0.668
+anchor_bottom = 0.684
+offset_left = -1526.16
+offset_top = -1258.61
+offset_right = -1199.16
+offset_bottom = -737.61
+
+[node name="LeftFlame" type="ColorRect" parent="Background"]
+material = SubResource("ShaderMaterial_a3p6k")
+anchors_preset = -1
+anchor_left = 0.615
+anchor_top = 0.78
+anchor_right = 0.615
+anchor_bottom = 0.78
+offset_left = -1497.57
+offset_top = -1256.11
+offset_right = -1241.57
+offset_bottom = -872.107
+
+[node name="BackgroundCredits" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(576, 324)
+scale = Vector2(0.421669, 0.316406)
+texture = ExtResource("1_hh10u")
+
+[node name="RightFlame" type="ColorRect" parent="BackgroundCredits"]
+material = SubResource("ShaderMaterial_a3p6k")
+anchors_preset = -1
+anchor_left = 0.793
+anchor_top = 0.43
+anchor_right = 0.793
+anchor_bottom = 0.43
+offset_left = -1568.85
+offset_top = -1380.0
+offset_right = -1148.85
+offset_bottom = -701.998
+
+[node name="MiddleFlame" type="ColorRect" parent="BackgroundCredits"]
+material = SubResource("ShaderMaterial_a3p6k")
+anchors_preset = -1
+anchor_left = 0.668
+anchor_top = 0.684
+anchor_right = 0.668
+anchor_bottom = 0.684
+offset_left = -1526.16
+offset_top = -1258.61
+offset_right = -1199.16
+offset_bottom = -737.61
+
+[node name="LeftFlame" type="ColorRect" parent="BackgroundCredits"]
+material = SubResource("ShaderMaterial_a3p6k")
+anchors_preset = -1
+anchor_left = 0.615
+anchor_top = 0.78
+anchor_right = 0.615
+anchor_bottom = 0.78
+offset_left = -1497.57
+offset_top = -1256.11
+offset_right = -1241.57
+offset_bottom = -872.107
+
+[node name="CreditTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.077
+anchor_right = 1.0
+anchor_bottom = 0.241
+offset_top = 0.103996
+offset_right = 4.0
+offset_bottom = 1.83199
+theme = ExtResource("3_xdh4d")
+bbcode_enabled = true
+text = "[center]Credits[/center]
+"
+fit_content = true
+tab_size = 10
+
+[node name="CreditTextLabel2" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.077
+anchor_right = 1.0
+anchor_bottom = 0.241
+offset_left = 2.0
+offset_top = 124.104
+offset_right = -545.0
+offset_bottom = 497.832
+theme = ExtResource("3_xdh4d")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Developers
+  - z0rg
+  - Nougatos
+  - Mottet
+
+Design
+  - KatanaJellyfish
+"
+fit_content = true
+tab_size = 10
+
+[node name="ZorgSheepIcon" type="Sprite2D" parent="."]
+position = Vector2(150, 215)
+scale = Vector2(0.0581289, 0.0643275)
+texture = ExtResource("4_ahhdd")
+
+[node name="RightFlame" type="ColorRect" parent="ZorgSheepIcon"]
+material = SubResource("ShaderMaterial_a3p6k")
+anchors_preset = -1
+anchor_left = 0.188
+anchor_top = 0.483
+anchor_right = 0.203
+anchor_bottom = 0.5
+offset_left = -1752.05
+offset_top = -458.653
+offset_right = -1373.02
+offset_bottom = 196.091
+rotation = -1.5708
+
+[node name="LeftFlame" type="ColorRect" parent="ZorgSheepIcon"]
+material = SubResource("ShaderMaterial_a3p6k")
+anchors_preset = -1
+anchor_left = 0.344
+anchor_top = 0.483
+anchor_right = 0.344
+anchor_bottom = 0.5
+offset_left = -973.87
+offset_top = -878.38
+offset_right = -553.87
+offset_bottom = -223.636
+rotation = 1.5708
+
+[node name="TextLabel" type="RichTextLabel" parent="ZorgSheepIcon"]
+anchors_preset = -1
+anchor_left = 0.506
+anchor_top = 0.239
+anchor_right = 5.119
+anchor_bottom = 0.676
+offset_left = -1295.87
+offset_top = -591.225
+offset_right = -1300.97
+offset_bottom = -754.041
+theme = ExtResource("3_xdh4d")
+theme_override_font_sizes/normal_font_size = 200
+text = "Z0rg - Developer & Artist"
+fit_content = true
+scroll_active = false
+tab_size = 1
+
+[node name="NougatoSheepIcon" type="Sprite2D" parent="."]
+position = Vector2(150, 300)
+scale = Vector2(0.0581289, 0.0643275)
+texture = ExtResource("4_ahhdd")
+
+[node name="RightFlame" type="ColorRect" parent="NougatoSheepIcon"]
+material = SubResource("ShaderMaterial_a3p6k")
+anchors_preset = -1
+anchor_left = 0.188
+anchor_top = 0.483
+anchor_right = 0.203
+anchor_bottom = 0.5
+offset_left = -1752.05
+offset_top = -458.653
+offset_right = -1373.02
+offset_bottom = 196.091
+rotation = -1.5708
+
+[node name="LeftFlame" type="ColorRect" parent="NougatoSheepIcon"]
+material = SubResource("ShaderMaterial_a3p6k")
+anchors_preset = -1
+anchor_left = 0.344
+anchor_top = 0.483
+anchor_right = 0.344
+anchor_bottom = 0.5
+offset_left = -973.87
+offset_top = -878.38
+offset_right = -553.87
+offset_bottom = -223.636
+rotation = 1.5708
+
+[node name="TextLabel" type="RichTextLabel" parent="NougatoSheepIcon"]
+anchors_preset = -1
+anchor_left = 0.506
+anchor_top = 0.239
+anchor_right = 5.119
+anchor_bottom = 0.676
+offset_left = -1295.87
+offset_top = -591.225
+offset_right = -1300.97
+offset_bottom = -754.041
+theme = ExtResource("3_xdh4d")
+theme_override_font_sizes/normal_font_size = 200
+text = "Nougato - Developer
+"
+scroll_active = false
+tab_size = 10
+
+[node name="MottetSheepIcon" type="Sprite2D" parent="."]
+position = Vector2(150, 380)
+scale = Vector2(0.0581289, 0.0643275)
+texture = ExtResource("4_ahhdd")
+
+[node name="RightFlame" type="ColorRect" parent="MottetSheepIcon"]
+material = SubResource("ShaderMaterial_a3p6k")
+anchors_preset = -1
+anchor_left = 0.188
+anchor_top = 0.483
+anchor_right = 0.203
+anchor_bottom = 0.5
+offset_left = -1752.05
+offset_top = -458.653
+offset_right = -1373.02
+offset_bottom = 196.091
+rotation = -1.5708
+
+[node name="LeftFlame" type="ColorRect" parent="MottetSheepIcon"]
+material = SubResource("ShaderMaterial_a3p6k")
+anchors_preset = -1
+anchor_left = 0.344
+anchor_top = 0.483
+anchor_right = 0.344
+anchor_bottom = 0.5
+offset_left = -973.87
+offset_top = -878.38
+offset_right = -553.87
+offset_bottom = -223.636
+rotation = 1.5708
+
+[node name="TextLabel" type="RichTextLabel" parent="MottetSheepIcon"]
+anchors_preset = -1
+anchor_left = 0.506
+anchor_top = 0.239
+anchor_right = 5.119
+anchor_bottom = 0.676
+offset_left = -1295.87
+offset_top = -591.225
+offset_right = -1300.97
+offset_bottom = -754.041
+theme = ExtResource("3_xdh4d")
+theme_override_font_sizes/normal_font_size = 200
+text = "Mottet - Developer"
+scroll_active = false
+tab_size = 10
+
+[node name="ShenoitSheepIcon" type="Sprite2D" parent="."]
+position = Vector2(150, 460)
+scale = Vector2(0.0581289, 0.0643275)
+texture = ExtResource("4_ahhdd")
+
+[node name="RightFlame" type="ColorRect" parent="ShenoitSheepIcon"]
+material = SubResource("ShaderMaterial_a3p6k")
+anchors_preset = -1
+anchor_left = 0.188
+anchor_top = 0.483
+anchor_right = 0.203
+anchor_bottom = 0.5
+offset_left = -1752.05
+offset_top = -458.653
+offset_right = -1373.02
+offset_bottom = 196.091
+rotation = -1.5708
+
+[node name="LeftFlame" type="ColorRect" parent="ShenoitSheepIcon"]
+material = SubResource("ShaderMaterial_a3p6k")
+anchors_preset = -1
+anchor_left = 0.344
+anchor_top = 0.483
+anchor_right = 0.344
+anchor_bottom = 0.5
+offset_left = -973.87
+offset_top = -878.38
+offset_right = -553.87
+offset_bottom = -223.636
+rotation = 1.5708
+
+[node name="TextLabel" type="RichTextLabel" parent="ShenoitSheepIcon"]
+anchors_preset = -1
+anchor_left = 0.506
+anchor_top = 0.239
+anchor_right = 5.119
+anchor_bottom = 0.676
+offset_left = -1295.87
+offset_top = -591.225
+offset_right = -1300.97
+offset_bottom = -754.041
+theme = ExtResource("3_xdh4d")
+theme_override_font_sizes/normal_font_size = 200
+text = "Shenoit - Developer
+"
+scroll_active = false
+tab_size = 10
+
+[node name="KatanaJellyfishSheepIcon" type="Sprite2D" parent="."]
+position = Vector2(150, 540)
+scale = Vector2(0.0581289, 0.0643275)
+texture = ExtResource("4_ahhdd")
+
+[node name="RightFlame" type="ColorRect" parent="KatanaJellyfishSheepIcon"]
+material = SubResource("ShaderMaterial_a3p6k")
+anchors_preset = -1
+anchor_left = 0.188
+anchor_top = 0.483
+anchor_right = 0.203
+anchor_bottom = 0.5
+offset_left = -1752.05
+offset_top = -458.653
+offset_right = -1373.02
+offset_bottom = 196.091
+rotation = -1.5708
+
+[node name="LeftFlame" type="ColorRect" parent="KatanaJellyfishSheepIcon"]
+material = SubResource("ShaderMaterial_a3p6k")
+anchors_preset = -1
+anchor_left = 0.344
+anchor_top = 0.483
+anchor_right = 0.344
+anchor_bottom = 0.5
+offset_left = -973.87
+offset_top = -878.38
+offset_right = -553.87
+offset_bottom = -223.636
+rotation = 1.5708
+
+[node name="TextLabel" type="RichTextLabel" parent="KatanaJellyfishSheepIcon"]
+anchors_preset = -1
+anchor_left = 0.506
+anchor_top = 0.239
+anchor_right = 5.119
+anchor_bottom = 0.676
+offset_left = -1295.87
+offset_top = -591.225
+offset_right = -1300.97
+offset_bottom = -754.041
+theme = ExtResource("3_xdh4d")
+theme_override_font_sizes/normal_font_size = 200
+text = "Katanajellyfish - Artist"
+scroll_active = false
+tab_size = 10
+
+[node name="BackButtonIcon" type="Sprite2D" parent="."]
+position = Vector2(140, 80)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_twmog")
+flip_h = true
+
+[node name="Button" type="Button" parent="BackButtonIcon"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -500.5
+offset_top = -201.5
+offset_right = -500.5
+offset_bottom = -201.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_xdh4d")
+theme_override_font_sizes/font_size = 100
+text = "Back"
+
+[connection signal="pressed" from="BackButtonIcon/Button" to="." method="_on_button_pressed"]

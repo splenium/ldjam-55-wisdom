@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dapwdbtp3twuv"]
+[gd_scene load_steps=17 format=3 uid="uid://dapwdbtp3twuv"]
 
 [ext_resource type="Script" path="res://scenes/main_menu_scene.gd" id="1_1foie"]
 [ext_resource type="PackedScene" uid="uid://c686nh780bkhr" path="res://scenes/level1.tscn" id="2_a0bjr"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://mh4heel4y7w" path="res://sprites/decoration_skull.png" id="5_2jnbk"]
 [ext_resource type="Shader" path="res://shaders/flame.gdshader" id="5_gqdw8"]
 [ext_resource type="Texture2D" uid="uid://c1ieomntxxtix" path="res://sprites/menu/bouton.png" id="9_pxm2y"]
-[ext_resource type="AudioStream" uid="uid://bp2i67xcmwfis" path="res://music/menu/peritune_material_ominous.mp3" id="9_xycvm"]
 [ext_resource type="Texture2D" uid="uid://jg6iyo3uxr1w" path="res://sprites/menu/background_pilone_element.png" id="11_n81iw"]
 [ext_resource type="Texture2D" uid="uid://ceefh4m3b3r7g" path="res://sprites/menu/menu_selector.png" id="11_vry1g"]
 
@@ -314,10 +313,6 @@ position = Vector2(140, 25)
 scale = Vector2(0.045, 0.05)
 texture = ExtResource("11_vry1g")
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_xycvm")
-autoplay = true
-
 [node name="BoutonUp" type="Sprite2D" parent="."]
 position = Vector2(580, 440)
 scale = Vector2(0.33, 0.25)
@@ -339,3 +334,4 @@ texture = ExtResource("9_pxm2y")
 [connection signal="pressed" from="UI/VBoxContainerBoutons/Play" to="." method="_on_play_pressed"]
 [connection signal="focus_entered" from="UI/VBoxContainerBoutons/Credits" to="." method="_on_credits_focus_entered"]
 [connection signal="focus_exited" from="UI/VBoxContainerBoutons/Credits" to="." method="_on_credits_focus_exited"]
+[connection signal="pressed" from="UI/VBoxContainerBoutons/Credits" to="." method="_on_credits_pressed"]
