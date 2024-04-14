@@ -1,0 +1,146 @@
+[gd_scene load_steps=21 format=3 uid="uid://ttiyrd34xvaf"]
+
+[ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_nf5p5"]
+[ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="2_0jywn"]
+[ext_resource type="PackedScene" uid="uid://cqksnij425pe5" path="res://assets/modificator/additionator.tscn" id="3_4hafo"]
+[ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator/multiplicator.tscn" id="4_p04gt"]
+[ext_resource type="Script" path="res://scenes/death_zone.gd" id="5_hhij6"]
+[ext_resource type="PackedScene" uid="uid://bel8kmpokgkbo" path="res://assets/enemies/priest.tscn" id="6_lmx3d"]
+[ext_resource type="AudioStream" uid="uid://bk3wdsgfre3v6" path="res://music/Level_PerituneMaterial_Fear.mp3" id="7_yt02l"]
+[ext_resource type="PackedScene" uid="uid://dnc23auci4r2i" path="res://assets/sound_manager.tscn" id="8_77tvr"]
+[ext_resource type="AudioStream" uid="uid://cxmy7d633yd4m" path="res://music/sounds/51427__smcameron__synthetic_bomb.mp3" id="9_a8hbg"]
+[ext_resource type="AudioStream" uid="uid://pax5ljjdl5i5" path="res://music/sounds/140726__j1987__tiny_rocket.mp3" id="10_6mfgk"]
+[ext_resource type="AudioStream" uid="uid://blncxfsxh8oix" path="res://music/sounds/162168__hunterscrossbow__aah2.wav" id="11_pss70"]
+[ext_resource type="AudioStream" uid="uid://cus6v0y80t4nd" path="res://music/sounds/533025__oldestmillennial__dark-teleport.wav" id="12_hgv2p"]
+[ext_resource type="AudioStream" uid="uid://w5vj2ci67rbw" path="res://music/sounds/baiiii.mp3" id="13_qryeu"]
+[ext_resource type="AudioStream" uid="uid://dabiwk6qx0eux" path="res://music/sounds/MoutonDie.wav" id="14_q6pxx"]
+[ext_resource type="AudioStream" uid="uid://dbccs3hh736h5" path="res://music/sounds/NGTVST - Braam 3.wav" id="15_7jt4y"]
+[ext_resource type="AudioStream" uid="uid://do5nmfj3birpe" path="res://music/sounds/NGTVST - Hit 3.wav" id="16_68wx6"]
+[ext_resource type="AudioStream" uid="uid://b50b3hg6m3xii" path="res://music/sounds/Pass_Portal_396500__alonsotm__firespell3.wav" id="17_aamhk"]
+[ext_resource type="AudioStream" uid="uid://caa7j1asu832g" path="res://music/sounds/Tentacles_204025__duckduckpony__impacts_splatter_watermelon_002.mp3" id="18_g64b4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y6wkv"]
+
+[sub_resource type="Environment" id="Environment_n0yng"]
+ambient_light_source = 2
+ambient_light_color = Color(0, 0.721569, 0.572549, 1)
+ambient_light_energy = 0.1
+tonemap_mode = 2
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 6.06
+glow_strength = 0.75
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.14902, 0.282353, 0.321569, 1)
+
+[node name="Level1" type="Node3D"]
+
+[node name="Player" parent="." node_paths=PackedStringArray("spawnPointSheep") instance=ExtResource("1_nf5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170473, -0.431916)
+spawnPointSheep = NodePath("../SpawnPoint")
+
+[node name="Path" parent="." instance=ExtResource("2_0jywn")]
+unique_name_in_owner = true
+
+[node name="SpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.227706, 0)
+
+[node name="BonusMalus" type="Node3D" parent="."]
+
+[node name="Additionator" parent="BonusMalus" instance=ExtResource("3_4hafo")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -4.33437)
+sheep_to_add = 10
+
+[node name="Multiplicator" parent="BonusMalus" instance=ExtResource("4_p04gt")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -4.32016)
+modificator = 3
+
+[node name="Additionator2" parent="BonusMalus" instance=ExtResource("3_4hafo")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -6.67807)
+sheep_to_add = -10
+
+[node name="Multiplicator2" parent="BonusMalus" instance=ExtResource("4_p04gt")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -6.66387)
+modificator = -2
+
+[node name="Additionator4" parent="BonusMalus" instance=ExtResource("3_4hafo")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -14.0837)
+sheep_to_add = 10
+
+[node name="Multiplicator4" parent="BonusMalus" instance=ExtResource("4_p04gt")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -14.0695)
+modificator = 3
+
+[node name="Additionator5" parent="BonusMalus" instance=ExtResource("3_4hafo")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -22.1191)
+sheep_to_add = 10
+
+[node name="Multiplicator5" parent="BonusMalus" instance=ExtResource("4_p04gt")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -22.1048)
+modificator = 3
+
+[node name="Additionator3" parent="BonusMalus" instance=ExtResource("3_4hafo")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -17.9626)
+sheep_to_add = 10
+
+[node name="Multiplicator3" parent="BonusMalus" instance=ExtResource("4_p04gt")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -17.9484)
+modificator = 3
+
+[node name="DEATH" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 133
+script = ExtResource("5_hhij6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH"]
+transform = Transform3D(10000, 0, 0, 0, 1, 0, 0, 0, 10000, 0, -4.28135, 0)
+shape = SubResource("BoxShape3D_y6wkv")
+
+[node name="Ennemies" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -442.515)
+
+[node name="Priest" parent="Ennemies" instance=ExtResource("6_lmx3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 422.931)
+
+[node name="Priest2" parent="Ennemies" instance=ExtResource("6_lmx3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.371476, 0.409067, 422.573)
+
+[node name="Priest3" parent="Ennemies" instance=ExtResource("6_lmx3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 422.576)
+
+[node name="Priest4" parent="Ennemies" instance=ExtResource("6_lmx3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323375, 0.409067, 422.931)
+
+[node name="Priest5" parent="Ennemies" instance=ExtResource("6_lmx3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 427.097)
+
+[node name="Priest6" parent="Ennemies" instance=ExtResource("6_lmx3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.371476, 0.409067, 426.739)
+
+[node name="Priest7" parent="Ennemies" instance=ExtResource("6_lmx3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 426.742)
+
+[node name="Priest8" parent="Ennemies" instance=ExtResource("6_lmx3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323375, 0.409067, 427.097)
+
+[node name="AudioStreamPlayer_MainMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_yt02l")
+volume_db = -8.0
+autoplay = true
+
+[node name="SoundManager" parent="." instance=ExtResource("8_77tvr")]
+BombSound = ExtResource("9_a8hbg")
+RocketSound = ExtResource("10_6mfgk")
+HolySound = ExtResource("11_pss70")
+TeleportSound = ExtResource("12_hgv2p")
+BaiSound = ExtResource("13_qryeu")
+DieSound = ExtResource("14_q6pxx")
+BraamSound = ExtResource("15_7jt4y")
+HitSound = ExtResource("16_68wx6")
+PortalSound = ExtResource("17_aamhk")
+TentaclesSound = ExtResource("18_g64b4")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n0yng")
+
+[connection signal="body_entered" from="DEATH" to="DEATH" method="_on_body_entered"]
