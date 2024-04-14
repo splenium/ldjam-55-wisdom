@@ -1,6 +1,6 @@
 extends Node
 
-var world_speed := 1.0
+var world_speed: float = 1.0 # default 1.0
 var player: Player
 var soundManager: SoundManager
 

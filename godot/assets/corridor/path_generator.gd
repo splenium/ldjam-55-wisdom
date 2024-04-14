@@ -13,9 +13,11 @@ func _ready() -> void:
 	while ((last_path == null || last_path.global_position.z > spawn_z) && level_tiles.size() > 0):
 		spawn_path()
 		last_path = displayed_paths[displayed_paths.size() - 1]
+		
+func _physics_process(delta: float) -> void:
+	shift_paths(delta)
 
 func _process(delta: float) -> void:
-	shift_paths(delta)
 	var last_path := displayed_paths[displayed_paths.size() - 1]
 	if last_path.global_position.z > spawn_z:
 		spawn_path()
