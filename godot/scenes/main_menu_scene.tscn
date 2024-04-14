@@ -1,9 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://dapwdbtp3twuv"]
+[gd_scene load_steps=15 format=3 uid="uid://dapwdbtp3twuv"]
 
 [ext_resource type="Script" path="res://scenes/main_menu_scene.gd" id="1_1foie"]
 [ext_resource type="PackedScene" uid="uid://c686nh780bkhr" path="res://scenes/level1.tscn" id="2_a0bjr"]
 [ext_resource type="Shader" path="res://shaders/2DFire.gdshader" id="3_hi5lo"]
-[ext_resource type="Shader" path="res://shaders/Pentacle.gdshader" id="3_uarck"]
+[ext_resource type="Texture2D" uid="uid://dlewjmwarc4ty" path="res://sprites/menu/logo.png" id="3_s7p6a"]
 [ext_resource type="Theme" uid="uid://buyrdp78hirb6" path="res://buttons.tres" id="3_usu6j"]
 [ext_resource type="Texture2D" uid="uid://d0lt3lof2w31f" path="res://sprites/Voronoise.png" id="4_6vvnf"]
 [ext_resource type="Texture2D" uid="uid://mh4heel4y7w" path="res://sprites/decoration_skull.png" id="5_2jnbk"]
@@ -29,9 +29,6 @@ shader_parameter/spread = 0.789
 shader_parameter/noise_tex = ExtResource("4_6vvnf")
 shader_parameter/gradient_tex = SubResource("GradientTexture2D_8shud")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wcc3m"]
-shader = ExtResource("3_uarck")
-
 [node name="MainMenuScene" type="Node2D"]
 script = ExtResource("1_1foie")
 game_scene = ExtResource("2_a0bjr")
@@ -39,54 +36,36 @@ game_scene = ExtResource("2_a0bjr")
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 3
 
-[node name="BoxContainer2" type="BoxContainer" parent="UI"]
-offset_top = -255.0
-offset_right = 1159.0
-offset_bottom = 647.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="Logo" type="Sprite2D" parent="UI"]
+position = Vector2(586, 256.5)
+scale = Vector2(0.196686, 0.184798)
+texture = ExtResource("3_s7p6a")
 
-[node name="DecorationSkullLeft" type="Sprite2D" parent="UI/BoxContainer2"]
-z_index = 1
-position = Vector2(52, 666)
-scale = Vector2(0.22, 0.208)
-texture = ExtResource("5_2jnbk")
-
-[node name="LeftFlame" type="ColorRect" parent="UI/BoxContainer2/DecorationSkullLeft"]
+[node name="LeftFlame" type="ColorRect" parent="UI/Logo"]
 material = SubResource("ShaderMaterial_21wlp")
 anchors_preset = -1
 anchor_left = 0.4
-anchor_top = 0.395
-anchor_right = 0.4
-anchor_bottom = 0.395
-offset_left = -1974.04
-offset_top = -1942.67
-offset_right = -789.036
-offset_bottom = -981.674
+anchor_top = 0.5
+anchor_right = 0.402
+anchor_bottom = 0.5
+offset_left = -2220.4
+offset_top = -818.0
+offset_right = -1045.95
+offset_bottom = 782.0
+rotation = -1.5708
 
-[node name="MiddleFlame" type="ColorRect" parent="UI/BoxContainer2/DecorationSkullLeft"]
+[node name="RightFlame" type="ColorRect" parent="UI/Logo"]
 material = SubResource("ShaderMaterial_21wlp")
 anchors_preset = -1
-anchor_left = 0.596
-anchor_top = 0.703
-anchor_right = 0.596
-anchor_bottom = 0.703
-offset_left = -1813.59
-offset_top = -1739.99
-offset_right = -972.587
-offset_bottom = -1112.99
-
-[node name="RightFlame" type="ColorRect" parent="UI/BoxContainer2/DecorationSkullLeft"]
-material = SubResource("ShaderMaterial_21wlp")
-anchors_preset = -1
-anchor_left = 0.676
-anchor_top = 0.785
-anchor_right = 0.676
-anchor_bottom = 0.785
-offset_left = -1731.12
-offset_top = -1650.31
-offset_right = -1057.12
-offset_bottom = -1170.31
+anchor_left = 0.565
+anchor_top = 0.488
+anchor_right = 0.565
+anchor_bottom = 0.488
+offset_left = -444.821
+offset_top = -1979.69
+offset_right = 735.179
+offset_bottom = -379.694
+rotation = 1.5708
 
 [node name="2DFireRight" type="ColorRect" parent="UI"]
 visible = false
@@ -117,15 +96,15 @@ rotation = 1.5708
 color = Color(0, 0, 0, 1)
 
 [node name="2DFireBottom" type="ColorRect" parent="UI"]
-visible = false
 material = SubResource("ShaderMaterial_xxsex")
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1.0
-offset_top = -349.0
+offset_top = -267.0
 offset_right = 2.0
+offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 1)
@@ -141,21 +120,6 @@ offset_right = 1151.0
 offset_bottom = 482.0
 grow_horizontal = 2
 rotation = 3.14159
-color = Color(0, 0, 0, 1)
-
-[node name="Pantacles" type="ColorRect" parent="UI"]
-material = SubResource("ShaderMaterial_wcc3m")
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -350.0
-offset_top = -324.0
-offset_right = 355.0
-offset_bottom = 322.0
-grow_horizontal = 2
-grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="UI"]
@@ -226,6 +190,56 @@ offset_left = -1724.5
 offset_top = -1670.5
 offset_right = -1061.6
 offset_bottom = -1193.28
+
+[node name="BoxContainer2" type="BoxContainer" parent="UI"]
+offset_left = -8.0
+offset_top = -238.0
+offset_right = 1151.0
+offset_bottom = 664.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DecorationSkullLeft" type="Sprite2D" parent="UI/BoxContainer2"]
+z_index = 1
+position = Vector2(52, 666)
+scale = Vector2(0.22, 0.208)
+texture = ExtResource("5_2jnbk")
+
+[node name="LeftFlame" type="ColorRect" parent="UI/BoxContainer2/DecorationSkullLeft"]
+material = SubResource("ShaderMaterial_21wlp")
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.395
+anchor_right = 0.4
+anchor_bottom = 0.395
+offset_left = -1974.04
+offset_top = -1942.67
+offset_right = -789.036
+offset_bottom = -981.674
+
+[node name="MiddleFlame" type="ColorRect" parent="UI/BoxContainer2/DecorationSkullLeft"]
+material = SubResource("ShaderMaterial_21wlp")
+anchors_preset = -1
+anchor_left = 0.596
+anchor_top = 0.703
+anchor_right = 0.596
+anchor_bottom = 0.703
+offset_left = -1813.59
+offset_top = -1739.99
+offset_right = -972.587
+offset_bottom = -1112.99
+
+[node name="RightFlame" type="ColorRect" parent="UI/BoxContainer2/DecorationSkullLeft"]
+material = SubResource("ShaderMaterial_21wlp")
+anchors_preset = -1
+anchor_left = 0.676
+anchor_top = 0.785
+anchor_right = 0.676
+anchor_bottom = 0.785
+offset_left = -1731.12
+offset_top = -1650.31
+offset_right = -1057.12
+offset_bottom = -1170.31
 
 [node name="VBoxContainerBoutons" type="VBoxContainer" parent="UI"]
 unique_name_in_owner = true
