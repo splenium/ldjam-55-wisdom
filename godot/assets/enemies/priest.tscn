@@ -15,7 +15,6 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("1_pnmm4")
 speed = 25.0
-speed = 25.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_fodk2")

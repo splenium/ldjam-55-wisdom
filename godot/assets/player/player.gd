@@ -44,9 +44,16 @@ func move(d: float) -> void:
     pass
 
 func attack() -> void:
+    if Input.is_action_just_pressed("attack_cthulhu"):
+        summon_cthulhu()
     if Input.is_action_just_pressed("attack_kamikaze"):
         summon_kamikaze()
     pass
+
+func summon_cthulhu() -> void:
+    apply_sheep_addition(-20)
+    var cthulhu: Cthulhu = preload("res://assets/attacks/cthulhu.tscn").instantiate()
+    get_parent().add_child(cthulhu)
 
 func summon_kamikaze() -> void:
     GameManager.PlaySound("Rocket")
