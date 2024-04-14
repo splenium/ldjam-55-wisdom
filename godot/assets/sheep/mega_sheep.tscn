@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7yhihwnw22hh"]
+[gd_scene load_steps=6 format=3 uid="uid://b7yhihwnw22hh"]
 
 [ext_resource type="Script" path="res://assets/sheep/mega_sheep.gd" id="1_tjqvt"]
+[ext_resource type="Script" path="res://assets/sheep/RotationMegaSheep.gd" id="2_7stx7"]
 [ext_resource type="PackedScene" uid="uid://wpmn76raediv" path="res://assets/sheep/sheep_base_appareance.tscn" id="2_mk1mw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rbjdd"]
@@ -19,7 +20,13 @@ axis_lock_angular_z = true
 script = ExtResource("1_tjqvt")
 speed = 10.0
 
-[node name="SheepBaseAppareance" parent="." instance=ExtResource("2_mk1mw")]
+[node name="RotationNode" type="Node3D" parent="."]
+script = ExtResource("2_7stx7")
+speed = 5.0
+amplitude = 0.1
+offsetTime = 1.87
+
+[node name="SheepBaseAppareance" parent="RotationNode" instance=ExtResource("2_mk1mw")]
 transform = Transform3D(0.1, 0, 0, 0, 0.0819152, 0.0573576, 0, -0.0573576, 0.0819152, 0, -0.0217646, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

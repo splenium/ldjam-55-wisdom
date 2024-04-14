@@ -12,6 +12,7 @@ func _ready() -> void :
 	
 func _on_play_pressed() -> void:
 	next_scene = game_scene;
+	AudioMenuPlayer.stop_menu_level();
 	get_tree().change_scene_to_packed(next_scene);
 
 func focus_button() -> void :
@@ -34,7 +35,6 @@ func _on_play_focus_entered() -> void:
 func _on_play_focus_exited() -> void:
 	for child in get_node("UI/VBoxContainerBoutons/Play").get_children():
 		child.visible = false
-
 
 func _on_credits_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/ui/credit_scene.tscn")
