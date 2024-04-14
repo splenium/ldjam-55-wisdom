@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnc23auci4r2i"]
+[gd_scene load_steps=6 format=3 uid="uid://dnc23auci4r2i"]
 
 [ext_resource type="Script" path="res://scripts/sound_manager.gd" id="1_8x57p"]
 [ext_resource type="PackedScene" uid="uid://c6pb7rq4ho2gu" path="res://assets/NoPosition_Audio/no_pos_audio_stream_player.tscn" id="2_8lmqu"]
 [ext_resource type="AudioStream" uid="uid://cams7io3kqnj7" path="res://music/sounds/falling.mp3" id="3_c2unv"]
+[ext_resource type="AudioStream" uid="uid://2uoexyjxu8s8" path="res://music/sounds/NGTVST - Riser 3.wav" id="4_p03d3"]
+[ext_resource type="AudioStream" uid="uid://d1sdpuo2vd8x6" path="res://music/sounds/NGTVST - Riser 3 SPEEDY.wav" id="5_vo52y"]
 
 [node name="SoundManager" type="Node"]
 script = ExtResource("1_8x57p")
 NoPositionSoundPrefab = ExtResource("2_8lmqu")
 FallingSound = ExtResource("3_c2unv")
+RiserSound = ExtResource("4_p03d3")
+RiserSpeedySound = ExtResource("5_vo52y")
