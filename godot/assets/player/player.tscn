@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cifvmg43nohbm"]
+[gd_scene load_steps=15 format=3 uid="uid://cifvmg43nohbm"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_bvcwl"]
 [ext_resource type="PackedScene" uid="uid://cnm61dw75hodn" path="res://assets/sheep/sheep.tscn" id="2_wb6fe"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ccpxgt35wqxh8" path="res://sprites/Shadow.png" id="4_mvkny"]
 [ext_resource type="Script" path="res://scripts/Squeesh.gd" id="5_foit1"]
 [ext_resource type="Texture2D" uid="uid://clh6phtr8gpvp" path="res://sprites/Dog/Dog_face.png" id="6_vvrw0"]
+[ext_resource type="PackedScene" uid="uid://bki4032nlh1n8" path="res://assets/bonus_particle.tscn" id="7_kdaiq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uupuj"]
 radius = 0.10516
@@ -30,7 +31,7 @@ albedo_texture = ExtResource("6_vvrw0")
 
 [sub_resource type="QuadMesh" id="QuadMesh_a2hbl"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("follow_point")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("follow_point", "PortalParticle")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 collision_mask = 64
 axis_lock_angular_x = true
@@ -39,6 +40,7 @@ axis_lock_angular_z = true
 script = ExtResource("1_bvcwl")
 spawn_sheep_path = ExtResource("2_wb6fe")
 follow_point = NodePath("FollowPoint")
+PortalParticle = NodePath("BonusParticle")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_uupuj")
@@ -72,3 +74,7 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0.304022, 0.229218)
 material_override = SubResource("StandardMaterial3D_vf0mc")
 mesh = SubResource("QuadMesh_a2hbl")
 skeleton = NodePath("../../..")
+
+[node name="BonusParticle" parent="." instance=ExtResource("7_kdaiq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0844512, 0.0369352)
+emission_box_extents = Vector3(0.2, 0.1, 0.1)

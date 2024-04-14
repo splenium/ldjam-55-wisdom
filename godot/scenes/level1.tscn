@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator/multiplicator.tscn" id="4_sk2gm"]
 [ext_resource type="PackedScene" uid="uid://bel8kmpokgkbo" path="res://assets/enemies/priest.tscn" id="6_tjstm"]
 [ext_resource type="AudioStream" uid="uid://bk3wdsgfre3v6" path="res://music/Level_PerituneMaterial_Fear.mp3" id="7_sw7ch"]
-[ext_resource type="PackedScene" path="res://assets/sound_manager.tscn" id="8_13nc4"]
+[ext_resource type="PackedScene" uid="uid://dnc23auci4r2i" path="res://assets/sound_manager.tscn" id="8_13nc4"]
 [ext_resource type="AudioStream" uid="uid://cxmy7d633yd4m" path="res://music/sounds/51427__smcameron__synthetic_bomb.mp3" id="9_x8nws"]
 [ext_resource type="AudioStream" uid="uid://pax5ljjdl5i5" path="res://music/sounds/140726__j1987__tiny_rocket.mp3" id="10_tqw4s"]
 [ext_resource type="AudioStream" uid="uid://blncxfsxh8oix" path="res://music/sounds/162168__hunterscrossbow__aah2.wav" id="11_2c3y1"]
@@ -117,7 +117,5 @@ HitSound = ExtResource("16_3s4ik")
 RiserSound = ExtResource("17_pkm3v")
 PortalSound = ExtResource("18_qwpog")
 TentaclesSound = ExtResource("19_s6nei")
-
-[node name="Node3D" type="Node3D" parent="."]
 
 [connection signal="body_entered" from="DEATH" to="DEATH" method="_on_body_entered"]
