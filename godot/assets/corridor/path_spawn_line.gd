@@ -12,7 +12,7 @@ func _ready() -> void:
         position_on_line.progress += path_width
 
 func spawn_path(spawn_transform: Transform3D) -> void:
-    var new_path := preload("res://assets/corridor/lower_path_tile.tscn").instantiate()
+    var new_path := preload("res://assets/corridor/path_tile.tscn").instantiate()
     add_child(new_path)
     new_path.global_transform = spawn_transform
     paths.append(new_path)

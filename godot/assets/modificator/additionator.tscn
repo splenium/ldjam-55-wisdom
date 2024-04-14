@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqksnij425pe5"]
+
+[ext_resource type="Script" path="res://assets/modificator/additionator.gd" id="1_1014t"]
+[ext_resource type="PackedScene" uid="uid://diuccyat7u51j" path="res://assets/modificator/porte.tscn" id="2_luxhc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_43yud"]
+size = Vector3(1.23535, 1.11437, 0.416077)
+
+[node name="Additionator" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 0, 0)
+script = ExtResource("1_1014t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_43yud")
+
+[node name="Porte" parent="." instance=ExtResource("2_luxhc")]
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+modulate = Color(0, 0.670588, 1, 1)
+text = "x5"
+font_size = 100
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

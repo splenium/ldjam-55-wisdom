@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c686nh780bkhr"]
+[gd_scene load_steps=8 format=3 uid="uid://c686nh780bkhr"]
 
 [ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="1_dl0uc"]
 [ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_faqqn"]
-[ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator.tscn" id="3_m4l32"]
+[ext_resource type="PackedScene" uid="uid://cqksnij425pe5" path="res://assets/modificator/additionator.tscn" id="3_gmkfp"]
 [ext_resource type="Script" path="res://scenes/death_zone.gd" id="4_nj52x"]
+[ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator/multiplicator.tscn" id="4_sk2gm"]
+[ext_resource type="PackedScene" uid="uid://c3m54rrn8clcr" path="res://assets/enemies/priest.tscn" id="6_tjstm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y6wkv"]
 
@@ -19,17 +21,47 @@ unique_name_in_owner = true
 [node name="SpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.227706, 0)
 
-[node name="Modificator" parent="." instance=ExtResource("3_m4l32")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.858046, 0.387622, -3.43839)
-modificator = 15
+[node name="BonusMalus" type="Node3D" parent="."]
 
-[node name="Modificator2" parent="." instance=ExtResource("3_m4l32")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -0.846058, 0.387622, -6.41096)
-modificator = 5
+[node name="Additionator" parent="BonusMalus" instance=ExtResource("3_gmkfp")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -4.33437)
+sheep_to_add = 10
 
-[node name="Modificator3" parent="." instance=ExtResource("3_m4l32")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -0.846058, 0.387622, -13.4967)
-modificator = 15
+[node name="Multiplicator" parent="BonusMalus" instance=ExtResource("4_sk2gm")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -4.32016)
+modificator = 3
+
+[node name="Additionator2" parent="BonusMalus" instance=ExtResource("3_gmkfp")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -6.67807)
+sheep_to_add = -10
+
+[node name="Multiplicator2" parent="BonusMalus" instance=ExtResource("4_sk2gm")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -6.66387)
+modificator = -2
+
+[node name="Additionator4" parent="BonusMalus" instance=ExtResource("3_gmkfp")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -9.65085)
+sheep_to_add = 10
+
+[node name="Multiplicator4" parent="BonusMalus" instance=ExtResource("4_sk2gm")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -9.63664)
+modificator = 3
+
+[node name="Additionator5" parent="BonusMalus" instance=ExtResource("3_gmkfp")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -13.2317)
+sheep_to_add = 10
+
+[node name="Multiplicator5" parent="BonusMalus" instance=ExtResource("4_sk2gm")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -13.2174)
+modificator = 3
+
+[node name="Additionator3" parent="BonusMalus" instance=ExtResource("3_gmkfp")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -17.9626)
+sheep_to_add = 10
+
+[node name="Multiplicator3" parent="BonusMalus" instance=ExtResource("4_sk2gm")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -17.9484)
+modificator = 3
 
 [node name="DEATH" type="Area3D" parent="."]
 collision_layer = 0
@@ -38,5 +70,20 @@ script = ExtResource("4_nj52x")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH"]
 transform = Transform3D(10000, 0, 0, 0, 1, 0, 0, 0, 10000, 0, -4.28135, 0)
 shape = SubResource("BoxShape3D_y6wkv")
+
+[node name="Ennemies" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -442.515)
+
+[node name="Priest" parent="Ennemies" instance=ExtResource("6_tjstm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 428.511)
+
+[node name="Priest2" parent="Ennemies" instance=ExtResource("6_tjstm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.371476, 0.409067, 428.152)
+
+[node name="Priest3" parent="Ennemies" instance=ExtResource("6_tjstm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 428.155)
+
+[node name="Priest4" parent="Ennemies" instance=ExtResource("6_tjstm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323375, 0.409067, 428.511)
 
 [connection signal="body_entered" from="DEATH" to="DEATH" method="_on_body_entered"]
