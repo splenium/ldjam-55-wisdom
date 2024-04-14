@@ -2,6 +2,7 @@ shader_type canvas_item;
 uniform sampler2D screen_texture : hint_screen_texture, filter_linear_mipmap;
 
 uniform float kraken;
+uniform float Shake;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
@@ -41,6 +42,9 @@ vec3 rdr(vec2 uv)
 
 vec3 rdrMain(vec2 uv)
 {
+		float t = TIME;
+	uv += (vec2(sin(t*23.), sin(t*27.3+1.))*.01
+	+vec2(sin(t*33.), sin(t*47.3+1.))*.005)*sat(Shake);
 		vec2 cuv = uv-.5;
 		vec3 col =  mix(textureLod(screen_texture, uv, 0).rgb, rdr(uv), 1.);
 		//col = vec3(1.);

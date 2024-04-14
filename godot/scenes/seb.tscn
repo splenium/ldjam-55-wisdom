@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://djrj5m0qgvpcn"]
+[gd_scene load_steps=58 format=3 uid="uid://djrj5m0qgvpcn"]
 
 [ext_resource type="Texture2D" uid="uid://dnxrxu217owfb" path="res://sprites/Decoration_pave_couleur test.png" id="1_7dyqr"]
 [ext_resource type="Texture2D" uid="uid://vhhxfxikeyec" path="res://sprites/Ruins_stele.png" id="3_apbid"]
@@ -21,10 +21,12 @@
 [ext_resource type="PackedScene" uid="uid://c6pb7rq4ho2gu" path="res://assets/NoPosition_Audio/no_pos_audio_stream_player.tscn" id="19_vrc0v"]
 [ext_resource type="PackedScene" uid="uid://dnc23auci4r2i" path="res://assets/sound_manager.tscn" id="20_8jjxf"]
 [ext_resource type="Shader" path="res://shaders/Sparkle.gdshader" id="21_yft8x"]
+[ext_resource type="Shader" path="res://shaders/KrakenGame.gdshader" id="22_3lrj8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cid32"]
 shader = ExtResource("3_xwojd")
-shader_parameter/kraken = 0.0
+shader_parameter/kraken = 1.0
+shader_parameter/Shake = -0.04
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cun3o"]
 albedo_texture = ExtResource("1_7dyqr")
@@ -144,10 +146,17 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.348718, 0.564103, 0.707692, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0.32549, 1, 1, 0.368627, 0.0745098, 1, 1, 0.0588235, 0.0745098, 1, 1, 0.0588235, 0.0745098, 0)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ac71m"]
+render_priority = 0
+shader = ExtResource("22_3lrj8")
+shader_parameter/kraken = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_pxkq2"]
+
 [node name="Seb" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.654714, 0.755876, 0, -0.755876, 0.654714, 0, 0.743, -0.857)
+transform = Transform3D(1, 0, 0, 0, 0.654714, 0.755876, 0, -0.755876, 0.654714, 0, 0.743, 1.648)
 
 [node name="PostFXCanvasLayer" type="CanvasLayer" parent="Camera3D"]
 
@@ -596,3 +605,8 @@ scale_amount_min = 0.5
 scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_4lta3")
 color_ramp = SubResource("Gradient_8echr")
+
+[node name="Kraken" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.361473, 1.2009)
+material_override = SubResource("ShaderMaterial_ac71m")
+mesh = SubResource("QuadMesh_pxkq2")
