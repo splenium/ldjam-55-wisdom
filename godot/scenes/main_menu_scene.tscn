@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dapwdbtp3twuv"]
+[gd_scene load_steps=18 format=3 uid="uid://dapwdbtp3twuv"]
 
 [ext_resource type="Script" path="res://scenes/main_menu_scene.gd" id="1_1foie"]
 [ext_resource type="PackedScene" uid="uid://c686nh780bkhr" path="res://scenes/level1.tscn" id="2_a0bjr"]
@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://d0lt3lof2w31f" path="res://sprites/Voronoise.png" id="4_6vvnf"]
 [ext_resource type="Texture2D" uid="uid://mh4heel4y7w" path="res://sprites/decoration_skull.png" id="5_2jnbk"]
 [ext_resource type="Shader" path="res://shaders/flame.gdshader" id="5_gqdw8"]
+[ext_resource type="Texture2D" uid="uid://c1ieomntxxtix" path="res://sprites/menu/bouton.png" id="9_pxm2y"]
 [ext_resource type="AudioStream" uid="uid://bp2i67xcmwfis" path="res://music/menu/peritune_material_ominous.mp3" id="9_xycvm"]
+[ext_resource type="Texture2D" uid="uid://jg6iyo3uxr1w" path="res://sprites/menu/background_pilone_element.png" id="11_n81iw"]
 [ext_resource type="Texture2D" uid="uid://ceefh4m3b3r7g" path="res://sprites/menu/menu_selector.png" id="11_vry1g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_21wlp"]
@@ -29,6 +31,9 @@ shader_parameter/spread = 0.789
 shader_parameter/noise_tex = ExtResource("4_6vvnf")
 shader_parameter/gradient_tex = SubResource("GradientTexture2D_8shud")
 
+[sub_resource type="Theme" id="Theme_aym8a"]
+BoxContainer/constants/separation = 50
+
 [node name="MainMenuScene" type="Node2D"]
 script = ExtResource("1_1foie")
 game_scene = ExtResource("2_a0bjr")
@@ -36,8 +41,37 @@ game_scene = ExtResource("2_a0bjr")
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 3
 
+[node name="BackgroundPiloneElement" type="Sprite2D" parent="UI"]
+position = Vector2(577, 303)
+scale = Vector2(0.422401, 0.327148)
+texture = ExtResource("11_n81iw")
+
+[node name="LeftFlame" type="ColorRect" parent="UI/BackgroundPiloneElement"]
+material = SubResource("ShaderMaterial_21wlp")
+anchors_preset = -1
+anchor_left = 0.206
+anchor_top = 0.289
+anchor_right = 0.206
+anchor_bottom = 0.289
+offset_left = -1474.25
+offset_top = -1145.14
+offset_right = -1263.25
+offset_bottom = -891.138
+
+[node name="RightFlame" type="ColorRect" parent="UI/BackgroundPiloneElement"]
+material = SubResource("ShaderMaterial_21wlp")
+anchors_preset = -1
+anchor_left = 0.79
+anchor_top = 0.289
+anchor_right = 0.79
+anchor_bottom = 0.289
+offset_left = -1471.73
+offset_top = -1154.31
+offset_right = -1260.73
+offset_bottom = -900.308
+
 [node name="Logo" type="Sprite2D" parent="UI"]
-position = Vector2(586, 256.5)
+position = Vector2(578, 209)
 scale = Vector2(0.196686, 0.184798)
 texture = ExtResource("3_s7p6a")
 
@@ -96,6 +130,7 @@ rotation = 1.5708
 color = Color(0, 0, 0, 1)
 
 [node name="2DFireBottom" type="ColorRect" parent="UI"]
+visible = false
 material = SubResource("ShaderMaterial_xxsex")
 anchors_preset = 12
 anchor_top = 1.0
@@ -133,79 +168,14 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="BoxContainer" type="BoxContainer" parent="UI"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1152.0
-offset_top = -648.0
-offset_right = 2.0
-offset_bottom = -2.0
-grow_horizontal = 0
-grow_vertical = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="DecorationSkullRight" type="Sprite2D" parent="UI/BoxContainer"]
+[node name="DecorationSkullLeft" type="Sprite2D" parent="UI"]
+visible = false
 z_index = 1
-position = Vector2(1104, 410)
-scale = Vector2(0.22, 0.208)
-texture = ExtResource("5_2jnbk")
-flip_h = true
-
-[node name="LeftFlame" type="ColorRect" parent="UI/BoxContainer/DecorationSkullRight"]
-material = SubResource("ShaderMaterial_21wlp")
-anchors_preset = -1
-anchor_left = 0.599
-anchor_top = 0.395
-anchor_right = 0.6
-anchor_bottom = 0.395
-offset_left = -1984.77
-offset_top = -1948.23
-offset_right = -802.542
-offset_bottom = -987.231
-
-[node name="MiddleFlame" type="ColorRect" parent="UI/BoxContainer/DecorationSkullRight"]
-material = SubResource("ShaderMaterial_21wlp")
-anchors_preset = -1
-anchor_left = 0.404
-anchor_top = 0.703
-anchor_right = 0.404
-anchor_bottom = 0.703
-offset_left = -1788.38
-offset_top = -1750.43
-offset_right = -947.382
-offset_bottom = -1123.43
-
-[node name="RightFlame" type="ColorRect" parent="UI/BoxContainer/DecorationSkullRight"]
-material = SubResource("ShaderMaterial_21wlp")
-anchors_preset = -1
-anchor_left = 0.323
-anchor_top = 0.785
-anchor_right = 0.327
-anchor_bottom = 0.786
-offset_left = -1724.5
-offset_top = -1670.5
-offset_right = -1061.6
-offset_bottom = -1193.28
-
-[node name="BoxContainer2" type="BoxContainer" parent="UI"]
-offset_left = -8.0
-offset_top = -238.0
-offset_right = 1151.0
-offset_bottom = 664.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="DecorationSkullLeft" type="Sprite2D" parent="UI/BoxContainer2"]
-z_index = 1
-position = Vector2(52, 666)
+position = Vector2(44, 428)
 scale = Vector2(0.22, 0.208)
 texture = ExtResource("5_2jnbk")
 
-[node name="LeftFlame" type="ColorRect" parent="UI/BoxContainer2/DecorationSkullLeft"]
+[node name="LeftFlame" type="ColorRect" parent="UI/DecorationSkullLeft"]
 material = SubResource("ShaderMaterial_21wlp")
 anchors_preset = -1
 anchor_left = 0.4
@@ -217,7 +187,7 @@ offset_top = -1942.67
 offset_right = -789.036
 offset_bottom = -981.674
 
-[node name="MiddleFlame" type="ColorRect" parent="UI/BoxContainer2/DecorationSkullLeft"]
+[node name="MiddleFlame" type="ColorRect" parent="UI/DecorationSkullLeft"]
 material = SubResource("ShaderMaterial_21wlp")
 anchors_preset = -1
 anchor_left = 0.596
@@ -229,7 +199,7 @@ offset_top = -1739.99
 offset_right = -972.587
 offset_bottom = -1112.99
 
-[node name="RightFlame" type="ColorRect" parent="UI/BoxContainer2/DecorationSkullLeft"]
+[node name="RightFlame" type="ColorRect" parent="UI/DecorationSkullLeft"]
 material = SubResource("ShaderMaterial_21wlp")
 anchors_preset = -1
 anchor_left = 0.676
@@ -240,6 +210,50 @@ offset_left = -1731.12
 offset_top = -1650.31
 offset_right = -1057.12
 offset_bottom = -1170.31
+
+[node name="DecorationSkullRight" type="Sprite2D" parent="UI"]
+visible = false
+z_index = 1
+position = Vector2(1104, 410)
+scale = Vector2(0.22, 0.208)
+texture = ExtResource("5_2jnbk")
+flip_h = true
+
+[node name="LeftFlame" type="ColorRect" parent="UI/DecorationSkullRight"]
+material = SubResource("ShaderMaterial_21wlp")
+anchors_preset = -1
+anchor_left = 0.599
+anchor_top = 0.395
+anchor_right = 0.6
+anchor_bottom = 0.395
+offset_left = -1984.77
+offset_top = -1948.23
+offset_right = -802.542
+offset_bottom = -987.231
+
+[node name="MiddleFlame" type="ColorRect" parent="UI/DecorationSkullRight"]
+material = SubResource("ShaderMaterial_21wlp")
+anchors_preset = -1
+anchor_left = 0.404
+anchor_top = 0.703
+anchor_right = 0.404
+anchor_bottom = 0.703
+offset_left = -1788.38
+offset_top = -1750.43
+offset_right = -947.382
+offset_bottom = -1123.43
+
+[node name="RightFlame" type="ColorRect" parent="UI/DecorationSkullRight"]
+material = SubResource("ShaderMaterial_21wlp")
+anchors_preset = -1
+anchor_left = 0.323
+anchor_top = 0.785
+anchor_right = 0.327
+anchor_bottom = 0.786
+offset_left = -1724.5
+offset_top = -1670.5
+offset_right = -1061.6
+offset_bottom = -1193.28
 
 [node name="VBoxContainerBoutons" type="VBoxContainer" parent="UI"]
 unique_name_in_owner = true
@@ -256,6 +270,7 @@ offset_right = 237.0
 offset_bottom = 261.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_aym8a")
 alignment = 1
 
 [node name="Play" type="Button" parent="UI/VBoxContainerBoutons"]
@@ -266,17 +281,16 @@ focus_next = NodePath("../Credits")
 focus_previous = NodePath("../Credits")
 theme = ExtResource("3_usu6j")
 action_mode = 0
-button_mask = 0
 text = "Play"
 
 [node name="MenuSelectorRight" type="Sprite2D" parent="UI/VBoxContainerBoutons/Play"]
-position = Vector2(330, 25)
-scale = Vector2(0.125, 0.148)
+position = Vector2(290, 25)
+scale = Vector2(0.04, 0.05)
 texture = ExtResource("11_vry1g")
 
 [node name="MenuSelectorLeft" type="Sprite2D" parent="UI/VBoxContainerBoutons/Play"]
-position = Vector2(120, 25)
-scale = Vector2(0.125369, 0.136943)
+position = Vector2(160, 25)
+scale = Vector2(0.04, 0.05)
 texture = ExtResource("11_vry1g")
 
 [node name="Credits" type="Button" parent="UI/VBoxContainerBoutons"]
@@ -286,24 +300,34 @@ focus_neighbor_bottom = NodePath("../Play")
 focus_next = NodePath("../Play")
 focus_previous = NodePath("../Play")
 theme = ExtResource("3_usu6j")
-button_mask = 0
 text = "Credits"
 
 [node name="MenuSelectorRight" type="Sprite2D" parent="UI/VBoxContainerBoutons/Credits"]
 visible = false
-position = Vector2(330, 25)
-scale = Vector2(0.125, 0.148)
+position = Vector2(310, 25)
+scale = Vector2(0.04, 0.05)
 texture = ExtResource("11_vry1g")
 
 [node name="MenuSelectorLeft" type="Sprite2D" parent="UI/VBoxContainerBoutons/Credits"]
 visible = false
-position = Vector2(120, 25)
-scale = Vector2(0.125369, 0.136943)
+position = Vector2(140, 25)
+scale = Vector2(0.045, 0.05)
 texture = ExtResource("11_vry1g")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_xycvm")
 autoplay = true
+
+[node name="BoutonUp" type="Sprite2D" parent="."]
+position = Vector2(580, 440)
+scale = Vector2(0.33, 0.25)
+texture = ExtResource("9_pxm2y")
+
+[node name="BoutonBottom" type="Sprite2D" parent="."]
+position = Vector2(600, 540)
+scale = Vector2(0.33, 0.25)
+texture = ExtResource("9_pxm2y")
+flip_h = true
 
 [connection signal="focus_entered" from="UI/VBoxContainerBoutons/Play" to="." method="_on_play_focus_entered"]
 [connection signal="focus_exited" from="UI/VBoxContainerBoutons/Play" to="." method="_on_play_focus_exited"]

@@ -14,7 +14,7 @@ func _on_play_pressed() -> void:
 	get_tree().change_scene_to_packed(next_scene);
 
 func focus_button() -> void :
-	var button: Button = button_v_box.get_child(0);
+	var button: Button = get_node("UI/VBoxContainerBoutons/Play");
 	if button is Button :
 		button.grab_focus()
 

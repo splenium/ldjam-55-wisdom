@@ -78,6 +78,7 @@ modificator = 3
 
 [node name="DEATH" type="Area3D" parent="."]
 collision_layer = 0
+collision_mask = 133
 script = ExtResource("4_nj52x")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH"]
