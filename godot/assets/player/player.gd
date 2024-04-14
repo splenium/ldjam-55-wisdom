@@ -48,10 +48,6 @@ func summon_kamikaze() -> void:
 
 func update_follow_point() -> void:
 	follow_point.position.z = -floor(get_sheep_number() / follow_sheep_number_per_step) * follow_step_size - 0.55
-	print_debug('update')
-	print_debug(follow_sheep_number_per_step)
-	print_debug(follow_step_size)
-	print_debug(follow_point.position.z)
 	pass
 	
 func instantiate_sheep() -> Sheep:

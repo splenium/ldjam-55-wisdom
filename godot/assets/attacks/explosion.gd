@@ -8,10 +8,3 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
     queue_free() # Replace with function body.
-
-func _on_area_entered(area: Node3D) -> void:
-    if area is Ennemy:
-        area.life -= damage
-        if area.life == 0:
-         area.queue_free()
-    pass

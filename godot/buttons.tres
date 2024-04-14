@@ -1,13 +1,24 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://buyrdp78hirb6"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://buyrdp78hirb6"]
 
 [ext_resource type="FontFile" uid="uid://cf8dib6qt5m14" path="res://fonts/Deutsch.ttf" id="1_k005u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_60hro"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwu82"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_70ic4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pl184"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hkmah"]
 
 [resource]
 default_font = ExtResource("1_k005u")
 default_font_size = 45
 Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
 Button/fonts/font = ExtResource("1_k005u")
-Button/styles/focus = null
-Button/styles/hover = null
-Button/styles/normal = null
-Button/styles/pressed = null
+Button/styles/disabled = SubResource("StyleBoxEmpty_60hro")
+Button/styles/focus = SubResource("StyleBoxEmpty_cwu82")
+Button/styles/hover = SubResource("StyleBoxEmpty_70ic4")
+Button/styles/normal = SubResource("StyleBoxEmpty_pl184")
+Button/styles/pressed = SubResource("StyleBoxEmpty_hkmah")
