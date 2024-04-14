@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bel8kmpokgkbo"]
 
-[ext_resource type="Script" path="res://assets/enemies/ennemy.gd" id="1_np6kq"]
+[ext_resource type="Script" path="res://assets/enemies/priest.gd" id="1_pnmm4"]
 [ext_resource type="Texture2D" uid="uid://c56kbvrnjk0jb" path="res://sprites/Priest_face.png" id="2_4hfwd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fodk2"]
@@ -13,8 +13,9 @@ collision_mask = 237
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
-script = ExtResource("1_np6kq")
+script = ExtResource("1_pnmm4")
 speed = 25.0
+life = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_fodk2")

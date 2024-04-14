@@ -24,13 +24,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(d: float) -> void:
-	attack(d)
+	attack()
 	pass
-	
+
 func _physics_process(delta: float) -> void:
 	move(delta)
 	pass
-	
+
 func move(d: float) -> void:
 	var direction: Vector3 = Vector3(0,0,0)
 	if Input.is_action_pressed("ui_left"):
@@ -43,7 +43,7 @@ func move(d: float) -> void:
 	move_and_slide()
 	pass
 
-func attack(d: float) -> void:
+func attack() -> void:
 	if Input.is_action_just_pressed("attack_kamikaze"):
 		summon_kamikaze()
 	pass
@@ -53,7 +53,7 @@ func summon_kamikaze() -> void:
 	apply_sheep_addition(-1)
 	var kamikaze: KamikazeSheep = preload("res://assets/sheep/kamikaze_sheep.tscn").instantiate()
 	get_parent().add_child(kamikaze)
-	kamikaze.global_position = follow_point.position
+	kamikaze.global_position = follow_point.global_position
 	kamikaze.target = GameManager.find_ennemy(get_parent())
 
 func update_follow_point() -> void:
@@ -76,12 +76,12 @@ func get_sheep_number() -> int:
 
 func get_only_sacrificial_sheep() -> int:
 	return sheepList.size()
-	
+
 func apply_sheep_addition(sheep_to_add: int) -> void:
 	var sheepDiff: int = sheep_to_add
 	apply_sheep_edition(sheepDiff)
 	pass
-	
+
 func apply_sheep_multiplicator(multiplicator: int) -> void:
 	var sheepDiff := 0
 	if multiplicator < 0:
@@ -90,7 +90,7 @@ func apply_sheep_multiplicator(multiplicator: int) -> void:
 		sheepDiff = get_only_sacrificial_sheep() * multiplicator
 	apply_sheep_edition(sheepDiff)
 	pass
-	
+
 func apply_sheep_edition(sheepDiff: int) -> void:
 	if sheepDiff > 0:
 		for i in range(0, sheepDiff):
