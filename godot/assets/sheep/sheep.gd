@@ -2,12 +2,15 @@ class_name Sheep extends RigidBody3D
 
 @export var target: Node3D
 @export var speed: float = 8.5
+@export var squeesh: Squeesh
 
 var isFalling:=false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+    if squeesh:
+        squeesh.seed = randf() * 100
     pass # Replace with function body.
-    
+
 func look_follow(state: PhysicsDirectBodyState3D, current_transform: Transform3D, target_position: Vector3) -> void:
     var target_dir: Vector3 = (target_position - current_transform.origin).normalized()
     target_dir.y = 0
