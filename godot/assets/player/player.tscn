@@ -77,4 +77,3 @@ skeleton = NodePath("../../..")
 
 [node name="BonusParticle" parent="." instance=ExtResource("7_kdaiq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0844512, 0.0369352)
-emission_box_extents = Vector3(0.2, 0.1, 0.1)

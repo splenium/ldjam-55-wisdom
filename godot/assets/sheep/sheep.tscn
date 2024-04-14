@@ -58,5 +58,6 @@ speed = 4.0
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 11.2874, 7.90353)
+shaded = true
 sprite_frames = SubResource("SpriteFrames_eu6hg")
 autoplay = "default"

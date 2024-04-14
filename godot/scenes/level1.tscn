@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c686nh780bkhr"]
+[gd_scene load_steps=22 format=3 uid="uid://c686nh780bkhr"]
 
 [ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="1_dl0uc"]
 [ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_faqqn"]
@@ -21,6 +21,18 @@
 [ext_resource type="AudioStream" uid="uid://caa7j1asu832g" path="res://music/sounds/Tentacles_204025__duckduckpony__impacts_splatter_watermelon_002.mp3" id="19_s6nei"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y6wkv"]
+
+[sub_resource type="Environment" id="Environment_n0yng"]
+ambient_light_source = 2
+ambient_light_color = Color(0, 0.721569, 0.572549, 1)
+ambient_light_energy = 0.1
+tonemap_mode = 2
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 6.06
+glow_strength = 0.75
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.14902, 0.282353, 0.321569, 1)
 
 [node name="Level1" type="Node3D"]
 
@@ -117,5 +129,8 @@ HitSound = ExtResource("16_3s4ik")
 RiserSound = ExtResource("17_pkm3v")
 PortalSound = ExtResource("18_qwpog")
 TentaclesSound = ExtResource("19_s6nei")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n0yng")
 
 [connection signal="body_entered" from="DEATH" to="DEATH" method="_on_body_entered"]

@@ -24,6 +24,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cid32"]
 shader = ExtResource("3_xwojd")
+shader_parameter/kraken = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cun3o"]
 albedo_texture = ExtResource("1_7dyqr")
