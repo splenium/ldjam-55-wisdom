@@ -1,4 +1,4 @@
-extends RigidBody3D
+class_name Ennemy extends RigidBody3D
 
 @export var speed: float = 15.0
 @export var life: int = 5
@@ -24,9 +24,13 @@ func look_follow(state: PhysicsDirectBodyState3D, current_transform: Transform3D
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Player:
 		print_debug("GAME OVER")
+	elif body is KamikazeSheep:
+		body.explode()
 	elif body is Sheep and GameManager.player != null:
 		GameManager.player.remove_sheep(body)
 		life -= 1
-		if life == 0:
+	elif body is Explosion:
+		life -= body.damage
+	if life == 0:
 			queue_free()
 	pass

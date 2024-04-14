@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bohqggmq4p1a2"]
+
+[ext_resource type="Script" path="res://assets/sheep/kamikaze_sheep.gd" id="1_fb5xn"]
+[ext_resource type="Texture2D" uid="uid://cud6d552tktox" path="res://sprites/sheep/bomberlamb_dos-4.png" id="2_ernn0"]
+[ext_resource type="Texture2D" uid="uid://b20rkmbf03btg" path="res://sprites/sheep/bomberlamb_face-1.png" id="3_4inrq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_54k4d"]
+friction = 0.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_stp56"]
+radius = 0.0790922
+height = 0.361455
+
+[node name="KamikazeSheep" type="RigidBody3D"]
+collision_mask = 117
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 30.0
+physics_material_override = SubResource("PhysicsMaterial_54k4d")
+linear_velocity = Vector3(0, 4, -2)
+script = ExtResource("1_fb5xn")
+speed = 100.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_stp56")
+
+[node name="BackSprite" type="Sprite3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.00819152, 0.00573576, 0, -0.00573576, 0.00819152, 0, 0, 0)
+texture = ExtResource("2_ernn0")
+
+[node name="FrontSprite" type="Sprite3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.00819152, 0.00573576, 0, -0.00573576, 0.00819152, 0, 0, 0)
+visible = false
+texture = ExtResource("3_4inrq")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="explode"]
