@@ -1,5 +1,4 @@
-extends Node
-
+class_name SoundManager extends Node
 
 @export var NoPositionSoundPrefab : PackedScene;
 
@@ -32,6 +31,7 @@ extends Node
 }
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameManager.soundManager = self
 	pass # Replace with function body.
 
 func PlaySound(key: String) -> void:
@@ -51,5 +51,6 @@ func PlaySound(key: String) -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_key_pressed(KEY_SPACE):
-		PlaySound("Bai");
+		# PlaySound("Bai");
+		pass
 	pass

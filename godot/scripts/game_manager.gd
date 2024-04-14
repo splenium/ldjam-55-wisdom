@@ -2,6 +2,12 @@ extends Node
 
 var world_speed := 1.0
 var player: Player
+var soundManager: SoundManager
+
+func PlaySound(key: String) -> void:
+	if soundManager:
+		soundManager.PlaySound(key)
+		
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

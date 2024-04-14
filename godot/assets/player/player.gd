@@ -36,10 +36,11 @@ func move(d: float) -> void:
 
 func attack(d: float) -> void:
 	if Input.is_action_just_pressed("attack_kamikaze"):
-			summon_kamikaze()
+		summon_kamikaze()
 	pass
 
 func summon_kamikaze() -> void:
+	GameManager.PlaySound("Rocket")
 	apply_sheep_addition(-1)
 	var kamikaze: KamikazeSheep = preload("res://assets/sheep/kamikaze_sheep.tscn").instantiate()
 	get_parent().add_child(kamikaze)

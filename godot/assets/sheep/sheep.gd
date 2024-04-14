@@ -3,6 +3,8 @@ class_name Sheep extends RigidBody3D
 @export var target: Node3D
 @export var speed: float = 8.5
 
+var isFalling: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -20,4 +22,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		#var force = direction * force_magnitude
 		#state.add_central_force(force)
 		look_follow(state, global_transform, target.global_transform.origin)
+	if global_position.y < 0.0 and state.linear_velocity.y < 0.0 and not isFalling:
+		GameManager.PlaySound("Falling")
+		isFalling = true
 	pass
