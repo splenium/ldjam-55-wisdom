@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="1_dvap6"]
 [ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="2_nl0qp"]
-[ext_resource type="Script" path="res://assets/Ennemy/ennemy.gd" id="3_7ob2i"]
+[ext_resource type="Script" path="res://assets/enemies/ennemy.gd" id="3_7ob2i"]
 [ext_resource type="Texture2D" uid="uid://c56kbvrnjk0jb" path="res://sprites/Priest_face.png" id="3_5586v"]
 [ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator/multiplicator.tscn" id="3_xk55x"]
 
