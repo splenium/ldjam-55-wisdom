@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnm61dw75hodn"]
+[gd_scene load_steps=8 format=3 uid="uid://cnm61dw75hodn"]
 
 [ext_resource type="Script" path="res://assets/sheep/sheep.gd" id="1_q1yew"]
 [ext_resource type="Texture2D" uid="uid://cwkbedkxxuq8l" path="res://sprites/lamb_dos-5.png" id="2_8opr0"]
+[ext_resource type="Texture2D" uid="uid://di4s5uy16omll" path="res://sprites/lamb_dos-4.png" id="3_q74og"]
+[ext_resource type="Texture2D" uid="uid://b3n8qnxblwfd1" path="res://sprites/lamb_dos-6.png" id="4_cws7g"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r7wxc"]
 friction = 0.5
@@ -9,6 +11,26 @@ friction = 0.5
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_stp56"]
 radius = 0.0790922
 height = 0.361455
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eu6hg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_q74og")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8opr0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cws7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8opr0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
 [node name="Sheep" type="RigidBody3D"]
 collision_layer = 128
@@ -24,4 +46,10 @@ shape = SubResource("CapsuleShape3D_stp56")
 
 [node name="SheepSprite" type="Sprite3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, 0.00819152, 0.00573576, 0, -0.00573576, 0.00819152, 0, 0, 0)
+visible = false
 texture = ExtResource("2_8opr0")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.00819152, 0.00573576, 0, -0.00573576, 0.00819152, 0, 0, 0)
+sprite_frames = SubResource("SpriteFrames_eu6hg")
+autoplay = "default"
