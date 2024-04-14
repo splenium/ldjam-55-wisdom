@@ -16,7 +16,6 @@
 [ext_resource type="AudioStream" uid="uid://dabiwk6qx0eux" path="res://music/sounds/MoutonDie.wav" id="14_xebih"]
 [ext_resource type="AudioStream" uid="uid://dbccs3hh736h5" path="res://music/sounds/NGTVST - Braam 3.wav" id="15_chnop"]
 [ext_resource type="AudioStream" uid="uid://do5nmfj3birpe" path="res://music/sounds/NGTVST - Hit 3.wav" id="16_3s4ik"]
-[ext_resource type="AudioStream" uid="uid://2uoexyjxu8s8" path="res://music/sounds/NGTVST - Riser 3.wav" id="17_pkm3v"]
 [ext_resource type="AudioStream" uid="uid://b50b3hg6m3xii" path="res://music/sounds/Pass_Portal_396500__alonsotm__firespell3.wav" id="18_qwpog"]
 [ext_resource type="AudioStream" uid="uid://caa7j1asu832g" path="res://music/sounds/Tentacles_204025__duckduckpony__impacts_splatter_watermelon_002.mp3" id="19_s6nei"]
 
@@ -112,6 +111,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 422.576)
 [node name="Priest4" parent="Ennemies" instance=ExtResource("6_tjstm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323375, 0.409067, 422.931)
 
+[node name="Priest5" parent="Ennemies" instance=ExtResource("6_tjstm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 427.097)
+
+[node name="Priest6" parent="Ennemies" instance=ExtResource("6_tjstm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.371476, 0.409067, 426.739)
+
+[node name="Priest7" parent="Ennemies" instance=ExtResource("6_tjstm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 426.742)
+
+[node name="Priest8" parent="Ennemies" instance=ExtResource("6_tjstm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323375, 0.409067, 427.097)
+
 [node name="AudioStreamPlayer_MainMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_sw7ch")
 volume_db = -8.0
@@ -126,7 +137,6 @@ BaiSound = ExtResource("13_w3c3g")
 DieSound = ExtResource("14_xebih")
 BraamSound = ExtResource("15_chnop")
 HitSound = ExtResource("16_3s4ik")
-RiserSound = ExtResource("17_pkm3v")
 PortalSound = ExtResource("18_qwpog")
 TentaclesSound = ExtResource("19_s6nei")
 
