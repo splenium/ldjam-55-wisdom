@@ -12,6 +12,7 @@ func _ready() -> void :
 	
 func _on_play_pressed() -> void:
 	next_scene = game_scene;
+	AudioMenuPlayer.play_baiiii_sound();
 	AudioMenuPlayer.stop_menu_level();
 	get_tree().change_scene_to_packed(next_scene);
 
@@ -37,4 +38,5 @@ func _on_play_focus_exited() -> void:
 		child.visible = false
 
 func _on_credits_pressed() -> void:
+	AudioMenuPlayer.play_baiiii_sound();
 	get_tree().change_scene_to_file("res://scenes/ui/credit_scene.tscn")
