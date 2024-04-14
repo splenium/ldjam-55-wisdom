@@ -235,6 +235,7 @@ shader_parameter/voronoise = ExtResource("3_vgucn")
 
 [node name="BorderLeft" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, -1.99, 0, 0)
+sorting_offset = -10.0
 material_override = SubResource("StandardMaterial3D_5c5ni")
 mesh = SubResource("QuadMesh_fp7ce")
 
@@ -255,6 +256,7 @@ mesh = SubResource("QuadMesh_fp7ce")
 
 [node name="BorderRight" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 1.99, 0, 0)
+sorting_offset = -10.0
 material_override = SubResource("StandardMaterial3D_4pfk1")
 mesh = SubResource("QuadMesh_fp7ce")
 
