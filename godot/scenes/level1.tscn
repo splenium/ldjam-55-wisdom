@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c686nh780bkhr"]
+[gd_scene load_steps=21 format=3 uid="uid://c686nh780bkhr"]
 
 [ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="1_dl0uc"]
 [ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_faqqn"]
@@ -7,6 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator/multiplicator.tscn" id="4_sk2gm"]
 [ext_resource type="PackedScene" uid="uid://bel8kmpokgkbo" path="res://assets/enemies/priest.tscn" id="6_tjstm"]
 [ext_resource type="AudioStream" uid="uid://bk3wdsgfre3v6" path="res://music/Level_PerituneMaterial_Fear.mp3" id="7_sw7ch"]
+[ext_resource type="PackedScene" uid="uid://dnc23auci4r2i" path="res://assets/sound_manager.tscn" id="8_13nc4"]
+[ext_resource type="AudioStream" uid="uid://cxmy7d633yd4m" path="res://music/sounds/51427__smcameron__synthetic_bomb.mp3" id="9_x8nws"]
+[ext_resource type="AudioStream" uid="uid://pax5ljjdl5i5" path="res://music/sounds/140726__j1987__tiny_rocket.mp3" id="10_tqw4s"]
+[ext_resource type="AudioStream" uid="uid://blncxfsxh8oix" path="res://music/sounds/162168__hunterscrossbow__aah2.wav" id="11_2c3y1"]
+[ext_resource type="AudioStream" uid="uid://cus6v0y80t4nd" path="res://music/sounds/533025__oldestmillennial__dark-teleport.wav" id="12_dgjhs"]
+[ext_resource type="AudioStream" uid="uid://w5vj2ci67rbw" path="res://music/sounds/baiiii.mp3" id="13_w3c3g"]
+[ext_resource type="AudioStream" uid="uid://dabiwk6qx0eux" path="res://music/sounds/MoutonDie.wav" id="14_xebih"]
+[ext_resource type="AudioStream" uid="uid://dbccs3hh736h5" path="res://music/sounds/NGTVST - Braam 3.wav" id="15_chnop"]
+[ext_resource type="AudioStream" uid="uid://do5nmfj3birpe" path="res://music/sounds/NGTVST - Hit 3.wav" id="16_3s4ik"]
+[ext_resource type="AudioStream" uid="uid://2uoexyjxu8s8" path="res://music/sounds/NGTVST - Riser 3.wav" id="17_pkm3v"]
+[ext_resource type="AudioStream" uid="uid://b50b3hg6m3xii" path="res://music/sounds/Pass_Portal_396500__alonsotm__firespell3.wav" id="18_qwpog"]
+[ext_resource type="AudioStream" uid="uid://caa7j1asu832g" path="res://music/sounds/Tentacles_204025__duckduckpony__impacts_splatter_watermelon_002.mp3" id="19_s6nei"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y6wkv"]
 
@@ -66,7 +78,7 @@ modificator = 3
 
 [node name="DEATH" type="Area3D" parent="."]
 collision_layer = 0
-collision_mask = 129
+collision_mask = 133
 script = ExtResource("4_nj52x")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH"]
@@ -92,5 +104,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323375, 0.409067, 422.931)
 stream = ExtResource("7_sw7ch")
 volume_db = -8.0
 autoplay = true
+
+[node name="SoundManager" parent="." instance=ExtResource("8_13nc4")]
+BombSound = ExtResource("9_x8nws")
+RocketSound = ExtResource("10_tqw4s")
+HolySound = ExtResource("11_2c3y1")
+TeleportSound = ExtResource("12_dgjhs")
+BaiSound = ExtResource("13_w3c3g")
+DieSound = ExtResource("14_xebih")
+BraamSound = ExtResource("15_chnop")
+HitSound = ExtResource("16_3s4ik")
+RiserSound = ExtResource("17_pkm3v")
+PortalSound = ExtResource("18_qwpog")
+TentaclesSound = ExtResource("19_s6nei")
 
 [connection signal="body_entered" from="DEATH" to="DEATH" method="_on_body_entered"]

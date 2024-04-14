@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://djrj5m0qgvpcn"]
+[gd_scene load_steps=46 format=3 uid="uid://djrj5m0qgvpcn"]
 
 [ext_resource type="Texture2D" uid="uid://dnxrxu217owfb" path="res://sprites/Decoration_pave_couleur test.png" id="1_7dyqr"]
 [ext_resource type="Texture2D" uid="uid://vhhxfxikeyec" path="res://sprites/Ruins_stele.png" id="3_apbid"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://cc06nqixdst0h" path="res://sprites/Decoration_pillier_torches_2.png" id="15_j7qps"]
 [ext_resource type="Texture2D" uid="uid://bjcl0740a7xel" path="res://sprites/Noise.png" id="16_nq3kr"]
 [ext_resource type="Shader" path="res://shaders/Gradient.gdshader" id="18_oh5xd"]
+[ext_resource type="PackedScene" uid="uid://c6pb7rq4ho2gu" path="res://assets/NoPosition_Audio/no_pos_audio_stream_player.tscn" id="19_vrc0v"]
+[ext_resource type="PackedScene" uid="uid://dnc23auci4r2i" path="res://assets/sound_manager.tscn" id="20_8jjxf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cid32"]
 shader = ExtResource("3_xwojd")
@@ -103,8 +105,8 @@ albedo_texture = ExtResource("15_j7qps")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wnle0"]
 render_priority = 0
 shader = ExtResource("18_oh5xd")
-shader_parameter/colorA = Vector4(1, 0, 0, 1)
-shader_parameter/colorB = Vector4(0, 0, 0, 0)
+shader_parameter/colorA = Color(1, 0, 0, 1)
+shader_parameter/colorB = Color(0, 0, 0, 0)
 
 [sub_resource type="QuadMesh" id="QuadMesh_uo37s"]
 
@@ -516,3 +518,7 @@ skeleton = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16411, 0, 0)
 material_override = SubResource("ShaderMaterial_wnle0")
 mesh = SubResource("QuadMesh_uo37s")
+
+[node name="NoPos_AudioStreamPlayer" parent="." instance=ExtResource("19_vrc0v")]
+
+[node name="SoundManager" parent="." instance=ExtResource("20_8jjxf")]
