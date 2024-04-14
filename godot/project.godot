@@ -50,6 +50,7 @@ texture={
 2d_physics/layer_6="obstacle"
 3d_physics/layer_6="obstacle"
 3d_physics/layer_7="floor"
+3d_physics/layer_8="sheep"
 
 [rendering]
 

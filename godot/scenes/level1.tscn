@@ -40,19 +40,19 @@ transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 
 modificator = -2
 
 [node name="Additionator4" parent="BonusMalus" instance=ExtResource("3_gmkfp")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -9.65085)
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -14.0837)
 sheep_to_add = 10
 
 [node name="Multiplicator4" parent="BonusMalus" instance=ExtResource("4_sk2gm")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -9.63664)
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -14.0695)
 modificator = 3
 
 [node name="Additionator5" parent="BonusMalus" instance=ExtResource("3_gmkfp")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -13.2317)
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -22.1191)
 sheep_to_add = 10
 
 [node name="Multiplicator5" parent="BonusMalus" instance=ExtResource("4_sk2gm")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -13.2174)
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -22.1048)
 modificator = 3
 
 [node name="Additionator3" parent="BonusMalus" instance=ExtResource("3_gmkfp")]
@@ -75,15 +75,15 @@ shape = SubResource("BoxShape3D_y6wkv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -442.515)
 
 [node name="Priest" parent="Ennemies" instance=ExtResource("6_tjstm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 428.511)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 422.931)
 
 [node name="Priest2" parent="Ennemies" instance=ExtResource("6_tjstm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.371476, 0.409067, 428.152)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.371476, 0.409067, 422.573)
 
 [node name="Priest3" parent="Ennemies" instance=ExtResource("6_tjstm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 428.155)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.409067, 422.576)
 
 [node name="Priest4" parent="Ennemies" instance=ExtResource("6_tjstm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323375, 0.409067, 428.511)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323375, 0.409067, 422.931)
 
 [connection signal="body_entered" from="DEATH" to="DEATH" method="_on_body_entered"]

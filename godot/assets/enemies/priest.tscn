@@ -8,7 +8,7 @@ radius = 0.0968226
 height = 0.32113
 
 [node name="Priest" type="RigidBody3D"]
-collision_mask = 65
+collision_mask = 193
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
@@ -23,6 +23,7 @@ transform = Transform3D(0.01, 0, 0, 0, 0.00819152, 0.00573576, 0, -0.00573576, 0
 texture = ExtResource("2_4hfwd")
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_mask = 129
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("CapsuleShape3D_fodk2")
