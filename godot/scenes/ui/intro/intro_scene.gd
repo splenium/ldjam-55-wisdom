@@ -16,6 +16,9 @@ func _ready() -> void:
 	next_button = get_node('Bouton/Button')	
 	pass # Replace with function body.
 
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		_on_button_pressed()
 
 func _on_button_pressed() -> void :
 	AudioMenuPlayer.play_baiiii_sound();
