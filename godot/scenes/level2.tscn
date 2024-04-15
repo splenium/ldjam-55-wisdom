@@ -14,4 +14,4 @@
 
 [node name="Path" parent="." instance=ExtResource("2_ix7ds")]
 unique_name_in_owner = true
-level_tiles = Array[PackedScene]([ExtResource("3_4bgau"), ExtResource("3_0lvj1"), ExtResource("5_n01so"), ExtResource("5_hle8k"), ExtResource("3_0lvj1"), ExtResource("3_esn2r"), ExtResource("5_hle8k"), ExtResource("3_esn2r")])
+level_tiles = Array[PackedScene]([ExtResource("3_4bgau"), ExtResource("3_0lvj1"), ExtResource("5_n01so"), ExtResource("5_hle8k"), ExtResource("3_0lvj1"), ExtResource("3_esn2r"), ExtResource("5_hle8k"), ExtResource("3_esn2r"), ExtResource("3_esn2r")])

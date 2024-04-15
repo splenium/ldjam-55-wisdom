@@ -7,6 +7,6 @@
 
 [node name="GameManager" type="Node3D"]
 script = ExtResource("1_gdck8")
-levels = Array[PackedScene]([ExtResource("2_npctk"), ExtResource("3_cp6it")])
+levels = Array[PackedScene]([ExtResource("3_cp6it"), ExtResource("2_npctk")])
 startManu = ExtResource("4_jmq1k")
 endGame = ExtResource("4_jmq1k")
