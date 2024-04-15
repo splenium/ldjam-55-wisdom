@@ -5,7 +5,7 @@ extends Node3D
 @export var offsetTime: float = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 var totalTime: = 0.
 var triggeredSound : bool = false
@@ -16,10 +16,8 @@ func _process(delta: float) -> void:
 	if abs(factor) > 1.5 and not triggeredSound:
 		GameManager.PlaySound("BoomWalk")
 		triggeredSound = true
-		print("Sound")
 	if abs(factor) < 0.1:
 		triggeredSound = false
-	#print(abs(factor), triggeredSound)
 	set_rotation(Vector3(rotation.x, rotation.y, factor*amplitude))
 	totalTime += delta
 	pass

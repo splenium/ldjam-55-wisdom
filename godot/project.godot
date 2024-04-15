@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*res://scripts/game_manager.gd"
+GameManager="*res://scenes/GameManager.tscn"
 AudioMenuPlayer="*res://scenes/ui/audio_menu_player.tscn"
 
 [debug]
@@ -70,6 +70,8 @@ attack_mega_sheep={
 3d_physics/layer_6="obstacle"
 3d_physics/layer_7="floor"
 3d_physics/layer_8="sheep"
+3d_physics/layer_9="sheep_norris"
+3d_physics/layer_10="despawner"
 
 [rendering]
 

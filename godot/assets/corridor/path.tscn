@@ -13,9 +13,12 @@ script = ExtResource("1_5xhq5")
 spawn_z = -25.0
 despawn_z = 25.0
 level_end_tiles = ExtResource("2_prhw4")
-displayed_paths = [NodePath("StraightPath")]
+displayed_paths = [NodePath("BackPath"), NodePath("StartingPath")]
 
-[node name="StraightPath" parent="." instance=ExtResource("3_7ofc5")]
+[node name="StartingPath" parent="." instance=ExtResource("3_7ofc5")]
+
+[node name="BackPath" parent="." instance=ExtResource("3_7ofc5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
 
 [node name="DEATH" type="Area3D" parent="."]
 collision_layer = 0

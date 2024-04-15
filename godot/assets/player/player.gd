@@ -31,10 +31,12 @@ func _ready() -> void:
 	assert(sheep_kamikaze != null, "sheep_kamikaze is null on " + self.name)
 	assert(spawnPointSheep != null, "spawnPointSheep is null on " + self.name)
 	GameManager.player = self
-	pass # Replace with function body.
+	apply_sheep_edition(GameManager.number_of_sheep)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_d: float) -> void:
+	GameManager.number_of_sheep = get_only_sacrificial_sheep()
 	attack()
 	pass
 
@@ -160,7 +162,7 @@ func remove_sheep(sheep: Sheep) -> void:
 	var idx: int = sheepList.find(sheep)
 	if idx != -1:
 		sheepList.remove_at(idx)
-		sheep.queue_free()
+		sheep.die()
 		update_follow_point()
 	pass
 

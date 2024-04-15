@@ -9,6 +9,9 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 
 func died() -> void:
 	queue_free()
+	
+func _exit_tree() -> void:
+	pass
 
 func _on_damage_area_body_entered(body: Node3D) -> void:
 	if body is Ennemy:

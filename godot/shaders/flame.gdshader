@@ -1,11 +1,8 @@
 shader_type canvas_item;
-uniform sampler2D iChannel1;
 render_mode blend_add;
+uniform sampler2D iChannel1;
 
-void vertex() {
-	// Called for every vertex the material is visible on.
-	
-}
+
 #define sat(a) clamp(a, 0., 1.)
 vec3 rdrFlame(vec2 uv, float seed, float iTime)
 {
