@@ -8,4 +8,4 @@
 [node name="BaseFloor" parent="." instance=ExtResource("1_w2ta2")]
 
 [node name="Portal" parent="." instance=ExtResource("2_c4dn0")]
-transform = Transform3D(2.995, 0, 0, 0, 2.995, 0, 0, 0, 2.995, -0.0954231, 1.49012e-07, -1.02395)
+transform = Transform3D(2.995, 0, 0, 0, 2.995, 0, 0, 0, 2.995, -0.0954231, 1.49012e-07, 4.06632)

@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://c686nh780bkhr"]
+[gd_scene load_steps=8 format=3 uid="uid://c686nh780bkhr"]
 
 [ext_resource type="PackedScene" uid="uid://dlfhg1wj5wgsq" path="res://assets/level_builder/level_base.tscn" id="1_8t4op"]
 [ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="1_dl0uc"]
-[ext_resource type="PackedScene" uid="uid://bjjk6hjqv4nfh" path="res://assets/level_builder/level_tiles/bonus1.tscn" id="3_0675t"]
-[ext_resource type="PackedScene" uid="uid://cfx0icvxfoj0r" path="res://assets/level_builder/level_tiles/ennemy1.tscn" id="4_83uss"]
+[ext_resource type="PackedScene" uid="uid://bd3g47m0nnr4v" path="res://assets/level_builder/level_tiles/small_bonus.tscn" id="3_omgyf"]
+[ext_resource type="PackedScene" uid="uid://cs2bsnb0wt3rt" path="res://assets/level_builder/level_tiles/medium_bonus.tscn" id="4_cw6qf"]
+[ext_resource type="PackedScene" uid="uid://ddp4lehdrgocr" path="res://assets/level_builder/level_tiles/small_malus.tscn" id="5_f2rw7"]
+[ext_resource type="PackedScene" uid="uid://cj0afdyikxdv8" path="res://assets/level_builder/level_tiles/medium_bonus_2.tscn" id="6_nhjvm"]
+[ext_resource type="PackedScene" uid="uid://ceqdkpch2uvko" path="res://assets/level_builder/level_tiles/forced_malus.tscn" id="7_r84a1"]
 
 [node name="Level1" type="Node3D"]
 
@@ -11,7 +14,4 @@
 
 [node name="Path" parent="." instance=ExtResource("1_dl0uc")]
 unique_name_in_owner = true
-level_tiles = Array[PackedScene]([ExtResource("3_0675t"), ExtResource("4_83uss")])
-
-[editable path="LevelBase"]
-[editable path="LevelBase/Camera3D"]
+level_tiles = Array[PackedScene]([ExtResource("3_omgyf"), ExtResource("4_cw6qf"), ExtResource("5_f2rw7"), ExtResource("6_nhjvm"), ExtResource("7_r84a1")])

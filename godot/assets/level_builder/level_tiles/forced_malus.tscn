@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceqdkpch2uvko"]
+
+[ext_resource type="PackedScene" uid="uid://c2jwls8paont4" path="res://assets/level_builder/level_tiles/level_elements/base_floor.tscn" id="1_1ockd"]
+[ext_resource type="PackedScene" uid="uid://bel8kmpokgkbo" path="res://assets/enemies/priest.tscn" id="2_o3iuj"]
+[ext_resource type="PackedScene" uid="uid://cqksnij425pe5" path="res://assets/modificator/additionator.tscn" id="3_qrrrw"]
+
+[node name="Bonus1" type="Node3D"]
+
+[node name="BaseFloor" parent="." instance=ExtResource("1_1ockd")]
+
+[node name="Priest" parent="." instance=ExtResource("2_o3iuj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0080087, 0.201404, -2.0039)
+
+[node name="Priest2" parent="." instance=ExtResource("2_o3iuj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.589978, 0.201404, -2.44667)
+
+[node name="Priest3" parent="." instance=ExtResource("2_o3iuj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.590375, 0.201404, -2.47165)
+
+[node name="Priest4" parent="." instance=ExtResource("2_o3iuj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75492, 0.201404, -1.23642)
+
+[node name="Priest5" parent="." instance=ExtResource("2_o3iuj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.577591, 0.201404, -1.561)
+
+[node name="Remove5" parent="." instance=ExtResource("3_qrrrw")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.08994, 0.348536, 3.55978)
+sheep_to_add = -5
+
+[node name="Remove15" parent="." instance=ExtResource("3_qrrrw")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -0.00481093, 0.348536, 3.03207)
+sheep_to_add = -15
+
+[node name="Remove10" parent="." instance=ExtResource("3_qrrrw")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.985414, 0.348536, 3.55978)
+sheep_to_add = -10
