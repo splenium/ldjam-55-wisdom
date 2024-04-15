@@ -3,23 +3,22 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cud6d552tktox"
-path.s3tc="res://.godot/imported/bomberlamb_dos-4.png-5116c96968aa584aa36f2d8aecc2a360.s3tc.ctex"
+path="res://.godot/imported/bomberlamb_dos-4.png-5116c96968aa584aa36f2d8aecc2a360.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://sprites/sheep/bomberlamb_dos-4.png"
-dest_files=["res://.godot/imported/bomberlamb_dos-4.png-5116c96968aa584aa36f2d8aecc2a360.s3tc.ctex"]
+dest_files=["res://.godot/imported/bomberlamb_dos-4.png-5116c96968aa584aa36f2d8aecc2a360.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
-compress/hdr_compression=1
+compress/lossy_quality=0.3
+compress/hdr_compression=2
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true

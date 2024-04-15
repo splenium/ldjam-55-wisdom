@@ -17,7 +17,7 @@ dest_files=["res://.godot/imported/Dog_face.png-dd2600147a2c935b8f74f99331816c06
 
 compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.3
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0

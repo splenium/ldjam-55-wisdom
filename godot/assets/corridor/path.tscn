@@ -1,12 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyajm1prw0hg3"]
+[gd_scene load_steps=4 format=3 uid="uid://cyajm1prw0hg3"]
 
 [ext_resource type="Script" path="res://assets/corridor/path_generator.gd" id="1_5xhq5"]
 [ext_resource type="PackedScene" uid="uid://bi751otrfnsdt" path="res://assets/level_builder/level_tiles/end_level.tscn" id="2_prhw4"]
 [ext_resource type="PackedScene" uid="uid://c0rhyf1dgeapl" path="res://assets/corridor/path_tile.tscn" id="3_7ofc5"]
-[ext_resource type="Script" path="res://scenes/death_zone.gd" id="3_pu3ug"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_bc2l5"]
-size = Vector3(100, 1, 1000)
 
 [node name="Path" type="Node3D" node_paths=PackedStringArray("displayed_paths")]
 script = ExtResource("1_5xhq5")
@@ -19,14 +15,3 @@ displayed_paths = [NodePath("BackPath"), NodePath("StartingPath")]
 
 [node name="BackPath" parent="." instance=ExtResource("3_7ofc5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
-
-[node name="DEATH" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 133
-script = ExtResource("3_pu3ug")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.28135, 0)
-shape = SubResource("BoxShape3D_bc2l5")
-
-[connection signal="body_entered" from="DEATH" to="DEATH" method="_on_body_entered"]

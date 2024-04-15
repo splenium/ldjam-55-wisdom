@@ -66,7 +66,7 @@ func attack() -> void:
 	pass
 	
 func can_i_launch_it(cost: int) -> bool:
-	return get_only_sacrificial_sheep() > cost
+	return get_only_sacrificial_sheep() >= cost
 
 func summon_cthulhu() -> void:
 	if !can_i_launch_it(GameManager.cthulhu_cost):
@@ -85,7 +85,7 @@ func summon_kamikaze() -> void:
 		get_parent().add_child(kamikaze)
 		kamikaze.global_position = futurKamikaze.global_position
 		remove_sheep(futurKamikaze)
-		kamikaze.target = GameManager.find_ennemy(get_parent())
+		kamikaze.target = GameManager.find_nearest_of_player_ennemy()
 	else:
 		GameManager.PlaySound("Bai")
 	
