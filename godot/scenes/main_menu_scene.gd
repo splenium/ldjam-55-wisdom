@@ -10,8 +10,7 @@ func _ready() -> void :
 	
 func _on_play_pressed() -> void:
 	AudioMenuPlayer.play_baiiii_sound();
-	AudioMenuPlayer.stop_menu_level();
-	GameManager.next_level()
+	get_tree().change_scene_to_file("res://scenes/ui/intro/intro_scene.tscn")
 
 func focus_button() -> void :
 	var button: Button = get_node("UI/VBoxContainerBoutons/Play");

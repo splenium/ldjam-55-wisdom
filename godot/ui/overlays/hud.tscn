@@ -53,6 +53,9 @@ offset_left = -422.44
 offset_top = -594.97
 offset_right = -414.56
 offset_bottom = -594.7
+theme = ExtResource("4_4xmhp")
+bbcode_enabled = true
+text = "[center]2[/center]"
 tab_size = 1
 
 [node name="SacrificeLabel" type="RichTextLabel" parent="Powers/Bomberlamb"]
@@ -101,6 +104,9 @@ offset_left = -422.44
 offset_top = -594.97
 offset_right = -414.56
 offset_bottom = -594.7
+theme = ExtResource("4_4xmhp")
+bbcode_enabled = true
+text = "[center]20[/center]"
 tab_size = 1
 
 [node name="SacrificeLabel" type="RichTextLabel" parent="Powers/Sheepnorris"]
@@ -149,6 +155,9 @@ offset_left = -422.44
 offset_top = -594.97
 offset_right = -414.56
 offset_bottom = -594.7
+theme = ExtResource("4_4xmhp")
+bbcode_enabled = true
+text = "[center]100[/center]"
 tab_size = 1
 
 [node name="SacrificeLabel" type="RichTextLabel" parent="Powers/Kraken"]
