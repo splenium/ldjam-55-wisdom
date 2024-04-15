@@ -29,18 +29,19 @@ jobs:
           path: .godot/imported/
           key: import-assets-${{ runner.os }}-${{ github.sha }}
       - name: Export Game using Godot
+        id: export
         uses: firebelley/godot-export@v5.2.1
         with:
           godot_executable_download_url: "https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION }}-${{ env.GODOT_STATUS }}/Godot_v${{ env.GODOT_VERSION }}-${{ env.GODOT_STATUS }}_linux.x86_64.zip"
           godot_export_templates_download_url: "https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION }}-${{ env.GODOT_STATUS }}/Godot_v${{ env.GODOT_VERSION }}-${{ env.GODOT_STATUS }}_export_templates.tpz"
           relative_project_path: "./godot"
           archive_output: true
-          cache: false
-      - name: Upload HTML5
+          cache: true
+      - name: Upload Web
         uses: actions/upload-artifact@v4
         with:
-          name: HTML5
-          path: /home/runner/.local/share/godot/archives/HTML5.zip
+          name: Web
+          path: ${{ steps.export.outputs.archive_directory }}/HTML5.zip
 
   deploy-to-itchio-web:
     runs-on: ubuntu-latest
@@ -49,8 +50,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          name: HTML5
-      - name: Deploy to Itch.io (HTML5)
+          name: Web
+      - name: Deploy to itch.io (Web)
         uses: manleydev/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
