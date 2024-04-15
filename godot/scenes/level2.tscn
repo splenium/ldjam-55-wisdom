@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://or2sm3cft7al"]
+[gd_scene load_steps=7 format=3 uid="uid://or2sm3cft7al"]
 
 [ext_resource type="PackedScene" uid="uid://dlfhg1wj5wgsq" path="res://assets/level_builder/level_base.tscn" id="1_w7ml6"]
 [ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="2_ix7ds"]
 [ext_resource type="PackedScene" uid="uid://ck6sut8itw2vf" path="res://assets/level_builder/level_tiles/basic.tscn" id="3_ehpsf"]
 [ext_resource type="PackedScene" uid="uid://bjjk6hjqv4nfh" path="res://assets/level_builder/level_tiles/bonus1.tscn" id="3_p6rdf"]
 [ext_resource type="PackedScene" uid="uid://cfx0icvxfoj0r" path="res://assets/level_builder/level_tiles/ennemy1.tscn" id="4_xthjj"]
+[ext_resource type="PackedScene" uid="uid://dxouwlv2udh8p" path="res://ui/overlays/hud.tscn" id="6_j1grx"]
 
 [node name="Level2" type="Node3D"]
 
@@ -13,3 +14,5 @@
 [node name="Path" parent="." instance=ExtResource("2_ix7ds")]
 unique_name_in_owner = true
 level_tiles = Array[PackedScene]([ExtResource("3_p6rdf"), ExtResource("4_xthjj"), ExtResource("3_p6rdf"), ExtResource("3_ehpsf"), ExtResource("4_xthjj")])
+
+[node name="HUD" parent="." instance=ExtResource("6_j1grx")]
