@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfv0ln741acud"]
+
+[ext_resource type="Texture2D" uid="uid://bukrsjyvdr6lv" path="res://sprites/Mobilier_tonneau_1.png" id="1_ja5gr"]
+[ext_resource type="PackedScene" uid="uid://co7g8ev2npv3a" path="res://assets/level_builder/level_tiles/level_decoration/skull.tscn" id="2_ictwu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a1ivx"]
+radius = 0.0909318
+height = 0.347989
+
+[node name="SkullOnBaril" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.265969, 0.08255, -3.14965)
+collision_layer = 1056
+collision_mask = 133
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.00819152, 0.00573576, 0, -0.00573576, 0.00819152, 0, 0, 0)
+texture = ExtResource("1_ja5gr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_a1ivx")
+
+[node name="Skull3" parent="." instance=ExtResource("2_ictwu")]
+transform = Transform3D(0.008, 0, 0, 0, 0.00655322, 0.00458861, 0, -0.00458861, 0.00655322, 0.00151303, 0.162584, -0.0927942)
+sorting_offset = 0.5

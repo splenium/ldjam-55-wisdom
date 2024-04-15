@@ -1,0 +1,29 @@
+[gd_scene load_steps=8 format=3 uid="uid://dtgct3wbusy2w"]
+
+[ext_resource type="Texture2D" uid="uid://cbxbr1lgi0ci3" path="res://sprites/Decoration_pillier_torches.png" id="1_d872g"]
+[ext_resource type="Shader" path="res://shaders/FlameSpatial.gdshader" id="2_mvsbo"]
+[ext_resource type="Texture2D" uid="uid://bjcl0740a7xel" path="res://sprites/Noise.png" id="3_ocw7y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o141r"]
+transparency = 1
+albedo_texture = ExtResource("1_d872g")
+
+[sub_resource type="QuadMesh" id="QuadMesh_5ri7v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_je3x2"]
+render_priority = 0
+shader = ExtResource("2_mvsbo")
+shader_parameter/iChannel1 = ExtResource("3_ocw7y")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ivoo2"]
+
+[node name="Pillier1" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.719706, -3.72529e-09, 0.10543)
+material_override = SubResource("StandardMaterial3D_o141r")
+mesh = SubResource("QuadMesh_5ri7v")
+
+[node name="Flame" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00843656, 0.162783, 0.0128758)
+material_override = SubResource("ShaderMaterial_je3x2")
+mesh = SubResource("QuadMesh_ivoo2")
+skeleton = NodePath("../../..")

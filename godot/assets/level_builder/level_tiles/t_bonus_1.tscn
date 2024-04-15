@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://di77thvim6kmt"]
+[gd_scene load_steps=11 format=3 uid="uid://di77thvim6kmt"]
 
 [ext_resource type="PackedScene" uid="uid://c2jwls8paont4" path="res://assets/level_builder/level_tiles/level_elements/base_floor.tscn" id="1_56a8g"]
 [ext_resource type="PackedScene" uid="uid://cqksnij425pe5" path="res://assets/modificator/additionator.tscn" id="2_5g222"]
 [ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator/multiplicator.tscn" id="3_s08vu"]
+[ext_resource type="PackedScene" uid="uid://18n0ni4qtpqy" path="res://assets/level_builder/level_tiles/level_decoration/moutain.tscn" id="4_odipy"]
+[ext_resource type="PackedScene" uid="uid://bk1uhcgb30l1d" path="res://assets/level_builder/level_tiles/level_decoration/pentacle.tscn" id="5_ojjpv"]
+[ext_resource type="PackedScene" uid="uid://bfv0ln741acud" path="res://assets/level_builder/level_tiles/level_decoration/skull_on_baril.tscn" id="6_e5huo"]
+[ext_resource type="PackedScene" uid="uid://8q3fvwgwvaft" path="res://assets/level_builder/level_tiles/level_decoration/vegetation_2.tscn" id="7_mhsi6"]
+[ext_resource type="PackedScene" uid="uid://c5r2klwuoj3pi" path="res://assets/level_builder/level_tiles/level_decoration/vegetation_1.tscn" id="7_mw6ng"]
+[ext_resource type="PackedScene" uid="uid://b4nq4x0gs1tac" path="res://assets/level_builder/level_tiles/level_decoration/panel.tscn" id="9_em4of"]
+[ext_resource type="PackedScene" uid="uid://vshd8okqc3wc" path="res://assets/level_builder/level_tiles/level_elements/baril_2.tscn" id="10_v3755"]
 
 [node name="Bonus1" type="Node3D"]
 
@@ -22,3 +29,26 @@ sheep_to_add = -10
 [node name="Multiplicator2" parent="." instance=ExtResource("3_s08vu")]
 transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -0.272253)
 modificator = -2
+
+[node name="Moutain" parent="." instance=ExtResource("4_odipy")]
+transform = Transform3D(0.201544, 0.0848432, -0.121168, 7.65844e-09, 0.204788, 0.143394, 0.147919, -0.115601, 0.165095, 4.10893, -1.93655, 1.57717)
+sorting_offset = -30.0
+
+[node name="Pentacle" parent="." instance=ExtResource("5_ojjpv")]
+transform = Transform3D(0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0, 0.011, 4.13869)
+
+[node name="SkullOnBaril" parent="." instance=ExtResource("6_e5huo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.436379, 0.0880744, 0.173874)
+
+[node name="Vegetation1" parent="." instance=ExtResource("7_mhsi6")]
+transform = Transform3D(0.03, 0, 0, 0, 0.0245746, 0.0172073, 0, -0.0172073, 0.0245746, -0.633457, 0.132401, 1.73313)
+
+[node name="Vegetation2" parent="." instance=ExtResource("7_mw6ng")]
+transform = Transform3D(0.03, 0, 0, 0, 0.00951914, 0.0284497, 0, -0.0284497, 0.00951914, 1.36267, 0.150878, 3.61668)
+
+[node name="PanelVegetation" parent="." instance=ExtResource("9_em4of")]
+transform = Transform3D(0.03, 0, 0, 0, 0.0245746, 0.0172073, 0, -0.0172073, 0.0245746, -0.312984, 0.200076, 0.015339)
+sorting_offset = -1.0
+
+[node name="baril_2" parent="." instance=ExtResource("10_v3755")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.896485, 0.0911286, 1.64358)
