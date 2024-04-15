@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://d03pofgmqm7ti"]
+
+[ext_resource type="PackedScene" uid="uid://c2jwls8paont4" path="res://assets/level_builder/level_tiles/level_elements/base_floor.tscn" id="1_u580m"]
+[ext_resource type="PackedScene" uid="uid://bmwr18mufr03" path="res://assets/level_builder/level_tiles/level_elements/barrier_4.tscn" id="2_21msv"]
+[ext_resource type="PackedScene" uid="uid://bwk6q6suvxjh5" path="res://assets/level_builder/level_tiles/level_elements/antibump.tscn" id="3_qdtma"]
+[ext_resource type="PackedScene" uid="uid://cqksnij425pe5" path="res://assets/modificator/additionator.tscn" id="4_tn2ht"]
+[ext_resource type="PackedScene" uid="uid://cmtviertr1kmf" path="res://assets/level_builder/level_tiles/level_elements/baril_1.tscn" id="6_rj41y"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i4h1q"]
+radius = 0.199323
+height = 0.796286
+
+[node name="Bonus1" type="Node3D"]
+
+[node name="BaseFloor" parent="." instance=ExtResource("1_u580m")]
+
+[node name="barrier4" parent="." instance=ExtResource("2_21msv")]
+transform = Transform3D(-4.37114e-08, -0.5, -0.866025, 0, 0.866025, -0.5, 1, -2.18557e-08, -3.78552e-08, 0.0199838, 0.259, 0.868942)
+collision_layer = 1056
+collision_mask = 133
+
+[node name="antibump" parent="." instance=ExtResource("3_qdtma")]
+
+[node name="antibump2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30252e-08, 0.259, 1.80846)
+collision_layer = 1056
+collision_mask = 129
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="antibump2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0521259)
+shape = SubResource("CapsuleShape3D_i4h1q")
+
+[node name="barrier5" parent="." instance=ExtResource("2_21msv")]
+transform = Transform3D(-4.37114e-08, 0.5, -0.866025, 0, 0.866025, 0.5, 1, 2.18557e-08, -3.78552e-08, 0, 0.259, 2.88533)
+collision_layer = 1056
+collision_mask = 133
+
+[node name="barrier" type="Node3D" parent="."]
+
+[node name="Additionator" parent="." instance=ExtResource("4_tn2ht")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -0.876289, 0.348536, 3.29501)
+sheep_to_add = 50
+
+[node name="Additionator3" parent="." instance=ExtResource("4_tn2ht")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.87543, 0.348536, -0.249491)
+sheep_to_add = 40
+
+[node name="Additionator4" parent="." instance=ExtResource("4_tn2ht")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -0.896644, 0.348536, -0.249491)
+sheep_to_add = -5
+
+[node name="baril_1" parent="." instance=ExtResource("6_rj41y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115596, 0.108361, -4.47768)
+
+[node name="baril_2" parent="." instance=ExtResource("6_rj41y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.359854, 0.108361, -3.78394)
+
+[node name="baril_3" parent="." instance=ExtResource("6_rj41y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.777434, 0.108361, -3.2777)
+
+[node name="baril_4" parent="." instance=ExtResource("6_rj41y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.80215, 0.108361, -3.97826)
+
+[node name="baril_5" parent="." instance=ExtResource("6_rj41y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.603279, 0.108361, -3.24522)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cghvqlms3ilnj"]
+[gd_scene load_steps=8 format=3 uid="uid://cghvqlms3ilnj"]
 
 [ext_resource type="PackedScene" uid="uid://c2jwls8paont4" path="res://assets/level_builder/level_tiles/level_elements/base_floor.tscn" id="1_gchgn"]
 [ext_resource type="PackedScene" uid="uid://bmwr18mufr03" path="res://assets/level_builder/level_tiles/level_elements/barrier_4.tscn" id="2_330kx"]
 [ext_resource type="PackedScene" uid="uid://cqksnij425pe5" path="res://assets/modificator/additionator.tscn" id="2_ha6aq"]
+[ext_resource type="PackedScene" uid="uid://bwk6q6suvxjh5" path="res://assets/level_builder/level_tiles/level_elements/antibump.tscn" id="3_5r5jy"]
 [ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator/multiplicator.tscn" id="3_7mi2m"]
 [ext_resource type="PackedScene" uid="uid://cmtviertr1kmf" path="res://assets/level_builder/level_tiles/level_elements/baril_1.tscn" id="5_uhe1n"]
 
@@ -19,14 +20,7 @@ transform = Transform3D(-4.37114e-08, -0.5, -0.866025, 0, 0.866025, -0.5, 1, -2.
 collision_layer = 1056
 collision_mask = 133
 
-[node name="antibump" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30252e-08, 0.259, 3.88038)
-collision_layer = 1056
-collision_mask = 129
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="antibump"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0521259)
-shape = SubResource("CapsuleShape3D_i4h1q")
+[node name="antibump" parent="." instance=ExtResource("3_5r5jy")]
 
 [node name="antibump2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30252e-08, 0.259, 1.80846)
