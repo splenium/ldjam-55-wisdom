@@ -6,7 +6,7 @@ var next_button: Button;
 var second_text: String = "That's where our true power lies, in the darkness that resides in our hearts, in the madness that fuels our minds.";
 var last_text: String = "Together, we shall overturn kingdoms! Let us march together, my little lambs, and fear nothing and no one! Let us bring hell to earth!";
 
-var last_button_text: String = "Let's quick ass !"
+var last_button_text: String = "Let's kick ass !"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

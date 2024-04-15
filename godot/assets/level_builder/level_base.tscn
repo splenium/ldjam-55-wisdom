@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dlfhg1wj5wgsq"]
+[gd_scene load_steps=21 format=3 uid="uid://dlfhg1wj5wgsq"]
 
 [ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_1h3mj"]
 [ext_resource type="PackedScene" uid="uid://dxouwlv2udh8p" path="res://ui/overlays/hud.tscn" id="1_vjd1n"]
@@ -18,19 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://xo63y6uf3jic" path="res://assets/camera.tscn" id="17_krd6c"]
 [ext_resource type="Script" path="res://scripts/despawner_ennemy_only.gd" id="17_rdn21"]
 [ext_resource type="Script" path="res://scripts/despawner_sheep_norris.gd" id="18_uvyoh"]
-
-[sub_resource type="Environment" id="Environment_n0yng"]
-ambient_light_source = 2
-ambient_light_color = Color(0, 0.721569, 0.572549, 1)
-ambient_light_energy = 0.1
-tonemap_mode = 2
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 8.0
-glow_strength = 2.0
-glow_bloom = 1.0
-volumetric_fog_enabled = true
-volumetric_fog_albedo = Color(0.14902, 0.282353, 0.321569, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d7c4s"]
 size = Vector3(100, 1, 1000)
@@ -65,9 +52,6 @@ BraamSound = ExtResource("13_8u5jr")
 HitSound = ExtResource("14_01hlo")
 PortalSound = ExtResource("15_vo2ro")
 TentaclesSound = ExtResource("16_yqnr3")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_n0yng")
 
 [node name="Camera3D" parent="." instance=ExtResource("17_krd6c")]
 current = true

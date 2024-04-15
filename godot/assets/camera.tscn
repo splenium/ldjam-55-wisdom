@@ -6,6 +6,7 @@
 shader = ExtResource("1_udbp2")
 shader_parameter/kraken = null
 shader_parameter/Shake = null
+shader_parameter/factor = null
 
 [node name="Camera3D" type="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707106, 0.707106, 0, 2, 0)

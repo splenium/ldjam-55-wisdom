@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmtviertr1kmf"]
+
+[ext_resource type="Texture2D" uid="uid://k63kcuqteveo" path="res://sprites/Mobilier_tonneau_2.png" id="1_iy2ms"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a1ivx"]
+radius = 0.0909318
+height = 0.347989
+
+[node name="baril_1" type="StaticBody3D"]
+collision_layer = 1056
+collision_mask = 133
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0.00819152, 0.00573576, 0, -0.00573576, 0.00819152, 0, 0, 0)
+texture = ExtResource("1_iy2ms")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_a1ivx")

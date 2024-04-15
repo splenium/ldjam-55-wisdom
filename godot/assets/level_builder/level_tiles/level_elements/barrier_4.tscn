@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmwr18mufr03"]
+
+[ext_resource type="Texture2D" uid="uid://bh0orq8woj00q" path="res://sprites/Barriers/Barière_bois_1.png" id="1_b0608"]
+[ext_resource type="Texture2D" uid="uid://c3wu2i1moy1qn" path="res://sprites/Barriers/Barière_bois_2.png" id="2_8pxh4"]
+[ext_resource type="Texture2D" uid="uid://bt2yhfxv81rj3" path="res://sprites/Barriers/Barière_bois_3.png" id="3_ndewl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_asv5f"]
+size = Vector3(2.03381, 0.404297, 0.0899048)
+
+[node name="barrier4" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0177612, -0.0449219, -0.00576782)
+shape = SubResource("BoxShape3D_asv5f")
+
+[node name="Sprite3D6" type="Sprite3D" parent="."]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -0.811465, 0, 0)
+texture = ExtResource("1_b0608")
+
+[node name="Sprite3D5" type="Sprite3D" parent="."]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -0.279298, 0, 0)
+texture = ExtResource("2_8pxh4")
+
+[node name="Sprite3D4" type="Sprite3D" parent="."]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0.249789, 0, 0)
+texture = ExtResource("3_ndewl")
+
+[node name="Sprite3D7" type="Sprite3D" parent="."]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0.782291, 0, 0)
+texture = ExtResource("1_b0608")
