@@ -1,6 +1,6 @@
 class_name MegaSheep extends Sheep
 
-@export var life := 20
+@export var life := 100
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	var fake_target_far: Vector3 = Vector3(0, 0, -1000)
