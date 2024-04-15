@@ -31,10 +31,12 @@ func _ready() -> void:
 	assert(sheep_kamikaze != null, "sheep_kamikaze is null on " + self.name)
 	assert(spawnPointSheep != null, "spawnPointSheep is null on " + self.name)
 	GameManager.player = self
-	pass # Replace with function body.
+	apply_sheep_edition(GameManager.number_of_sheep)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_d: float) -> void:
+	GameManager.number_of_sheep = get_only_sacrificial_sheep()
 	attack()
 	pass
 
@@ -64,7 +66,7 @@ func attack() -> void:
 	pass
 	
 func can_i_launch_it(cost: int) -> bool:
-	return get_only_sacrificial_sheep() > cost
+	return get_only_sacrificial_sheep() >= cost
 
 func summon_cthulhu() -> void:
 	if !can_i_launch_it(GameManager.cthulhu_cost):
@@ -80,10 +82,10 @@ func summon_kamikaze() -> void:
 		var futurKamikaze: Sheep = get_random_sacrifiable_sheep()
 		apply_sheep_addition(-(GameManager.kamikaze_cost - 1))
 		var kamikaze: KamikazeSheep = sheep_kamikaze.instantiate()
-		get_parent().add_child(kamikaze)
 		kamikaze.global_position = futurKamikaze.global_position
 		remove_sheep(futurKamikaze)
-		kamikaze.target = GameManager.find_ennemy(get_parent())
+		kamikaze.target = GameManager.find_nearest_of_player_ennemy()
+		get_parent().add_child(kamikaze)
 	else:
 		GameManager.PlaySound("Bai")
 	
@@ -160,7 +162,7 @@ func remove_sheep(sheep: Sheep) -> void:
 	var idx: int = sheepList.find(sheep)
 	if idx != -1:
 		sheepList.remove_at(idx)
-		sheep.queue_free()
+		sheep.die()
 		update_follow_point()
 	pass
 

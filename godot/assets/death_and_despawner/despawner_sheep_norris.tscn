@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ws1pu7kmy550"]
+
+[ext_resource type="Script" path="res://scripts/despawner_sheep_norris.gd" id="1_86w5l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rny48"]
+size = Vector3(12.0732, 13.0117, 1)
+
+[node name="DespawnerSheepNorris" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.1983)
+collision_layer = 512
+collision_mask = 256
+script = ExtResource("1_86w5l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0122986, 0.0507813, 0)
+shape = SubResource("BoxShape3D_rny48")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+visible = false
+size = Vector3(12.108, 13.0972, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

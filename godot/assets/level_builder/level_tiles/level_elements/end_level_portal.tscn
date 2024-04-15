@@ -19,7 +19,7 @@ shader_parameter/mask = ExtResource("3_b8joj")
 shader_parameter/noise = ExtResource("4_bgg5s")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jynt5"]
-size = Vector3(1, 1.12, 0.1)
+size = Vector3(10, 1, 0.1)
 
 [node name="Portal" type="Node3D"]
 script = ExtResource("1_xq2fx")
@@ -39,7 +39,7 @@ collision_layer = 0
 collision_mask = 129
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.535, 0.10604)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.106)
 shape = SubResource("BoxShape3D_jynt5")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyajm1prw0hg3"]
+[gd_scene load_steps=4 format=3 uid="uid://cyajm1prw0hg3"]
 
 [ext_resource type="Script" path="res://assets/corridor/path_generator.gd" id="1_5xhq5"]
 [ext_resource type="PackedScene" uid="uid://bi751otrfnsdt" path="res://assets/level_builder/level_tiles/end_level.tscn" id="2_prhw4"]
@@ -9,6 +9,9 @@ script = ExtResource("1_5xhq5")
 spawn_z = -25.0
 despawn_z = 25.0
 level_end_tiles = ExtResource("2_prhw4")
-displayed_paths = [NodePath("StraightPath")]
+displayed_paths = [NodePath("BackPath"), NodePath("StartingPath")]
 
-[node name="StraightPath" parent="." instance=ExtResource("3_7ofc5")]
+[node name="StartingPath" parent="." instance=ExtResource("3_7ofc5")]
+
+[node name="BackPath" parent="." instance=ExtResource("3_7ofc5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)

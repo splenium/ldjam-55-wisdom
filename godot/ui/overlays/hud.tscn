@@ -34,21 +34,150 @@ offset_bottom = -1521.04
 theme = ExtResource("4_4xmhp")
 theme_override_font_sizes/normal_font_size = 150
 bbcode_enabled = true
-text = "[center]12[/center]"
+text = "[center]0[/center]"
 
 [node name="Powers" type="Node2D" parent="."]
 
 [node name="Bomberlamb" type="Sprite2D" parent="Powers"]
-position = Vector2(50, 580)
-scale = Vector2(0.1, 0.1)
+position = Vector2(70, 530)
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("3_rl6tn")
 
-[node name="Kraken" type="Sprite2D" parent="Powers"]
-position = Vector2(140, 580)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_andbv")
+[node name="PowerLabel" type="RichTextLabel" parent="Powers/Bomberlamb"]
+anchors_preset = -1
+anchor_left = 0.241
+anchor_top = 0.063
+anchor_right = 0.434
+anchor_bottom = 0.13
+offset_left = -422.44
+offset_top = -594.97
+offset_right = -414.56
+offset_bottom = -594.7
+tab_size = 1
+
+[node name="SacrificeLabel" type="RichTextLabel" parent="Powers/Bomberlamb"]
+anchors_preset = -1
+anchor_left = 0.712
+anchor_top = 0.063
+anchor_right = 0.905
+anchor_bottom = 0.13
+offset_left = -418.08
+offset_top = -594.97
+offset_right = -413.2
+offset_bottom = -594.7
+theme = ExtResource("4_4xmhp")
+bbcode_enabled = true
+text = "[center]1[/center]"
+tab_size = 1
+
+[node name="KeyLabel" type="RichTextLabel" parent="Powers/Bomberlamb"]
+anchors_preset = -1
+anchor_left = 0.832
+anchor_top = 0.861
+anchor_right = 0.917
+anchor_bottom = 0.929
+offset_left = -418.88
+offset_top = -594.59
+offset_right = -420.28
+offset_bottom = -595.51
+theme = ExtResource("4_4xmhp")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]1[/center]
+"
 
 [node name="Sheepnorris" type="Sprite2D" parent="Powers"]
-position = Vector2(230, 580)
-scale = Vector2(0.1, 0.1)
+position = Vector2(200, 530)
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("5_1k0ji")
+
+[node name="PowerLabel" type="RichTextLabel" parent="Powers/Sheepnorris"]
+anchors_preset = -1
+anchor_left = 0.241
+anchor_top = 0.063
+anchor_right = 0.434
+anchor_bottom = 0.13
+offset_left = -422.44
+offset_top = -594.97
+offset_right = -414.56
+offset_bottom = -594.7
+tab_size = 1
+
+[node name="SacrificeLabel" type="RichTextLabel" parent="Powers/Sheepnorris"]
+anchors_preset = -1
+anchor_left = 0.712
+anchor_top = 0.063
+anchor_right = 0.905
+anchor_bottom = 0.13
+offset_left = -418.08
+offset_top = -594.97
+offset_right = -420.2
+offset_bottom = -594.7
+theme = ExtResource("4_4xmhp")
+bbcode_enabled = true
+text = "[center]10[/center]"
+tab_size = 1
+
+[node name="KeyLabel" type="RichTextLabel" parent="Powers/Sheepnorris"]
+anchors_preset = -1
+anchor_left = 0.832
+anchor_top = 0.861
+anchor_right = 0.917
+anchor_bottom = 0.929
+offset_left = -418.88
+offset_top = -594.59
+offset_right = -420.28
+offset_bottom = -595.51
+theme = ExtResource("4_4xmhp")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]2[/center]
+"
+
+[node name="Kraken" type="Sprite2D" parent="Powers"]
+position = Vector2(330, 530)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("4_andbv")
+
+[node name="PowerLabel" type="RichTextLabel" parent="Powers/Kraken"]
+anchors_preset = -1
+anchor_left = 0.241
+anchor_top = 0.063
+anchor_right = 0.434
+anchor_bottom = 0.13
+offset_left = -422.44
+offset_top = -594.97
+offset_right = -414.56
+offset_bottom = -594.7
+tab_size = 1
+
+[node name="SacrificeLabel" type="RichTextLabel" parent="Powers/Kraken"]
+anchors_preset = -1
+anchor_left = 0.712
+anchor_top = 0.063
+anchor_right = 0.905
+anchor_bottom = 0.13
+offset_left = -418.08
+offset_top = -594.97
+offset_right = -420.2
+offset_bottom = -594.7
+theme = ExtResource("4_4xmhp")
+bbcode_enabled = true
+text = "[center]40[/center]"
+tab_size = 1
+
+[node name="KeyLabel" type="RichTextLabel" parent="Powers/Kraken"]
+anchors_preset = -1
+anchor_left = 0.832
+anchor_top = 0.861
+anchor_right = 0.917
+anchor_bottom = 0.929
+offset_left = -418.88
+offset_top = -594.59
+offset_right = -420.28
+offset_bottom = -595.51
+theme = ExtResource("4_4xmhp")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]3[/center]
+"
