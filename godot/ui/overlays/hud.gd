@@ -23,5 +23,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(d: float) -> void:
-	#sheep_counter.text = "[center]" + str(GameManager.player.get_only_sacrificial_sheep()) + "[/center]";
+	sheep_counter.text = "[center]" + str(GameManager.player.get_only_sacrificial_sheep()) + "[/center]";
 	pass
