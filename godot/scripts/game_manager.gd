@@ -4,7 +4,7 @@ var world_speed: float = 1.0 # default 1.0
 var player: Player
 var soundManager: SoundManager
 
-var kamikaze_cost: int = 1
+var kamikaze_cost: int = 5
 var mega_sheep_cost: int = 10
 var cthulhu_cost: int = 40
 
