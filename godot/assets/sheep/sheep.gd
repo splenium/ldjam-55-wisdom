@@ -1,7 +1,7 @@
 class_name Sheep extends RigidBody3D
 
 @export var target: Node3D
-@export var speed: float = 10
+@export var speed: float = 8.5
 @export var squeesh: Squeesh
 
 var isFalling:=false
