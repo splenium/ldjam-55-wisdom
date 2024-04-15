@@ -1,12 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjklky86yb7y6"]
+[gd_scene load_steps=7 format=3 uid="uid://cjklky86yb7y6"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_gdck8"]
 [ext_resource type="PackedScene" uid="uid://c686nh780bkhr" path="res://scenes/level1.tscn" id="2_npctk"]
 [ext_resource type="PackedScene" uid="uid://or2sm3cft7al" path="res://scenes/level2.tscn" id="3_cp6it"]
+[ext_resource type="PackedScene" uid="uid://c5ggue5vgqip1" path="res://scenes/ui/victory.tscn" id="4_agdoy"]
 [ext_resource type="PackedScene" uid="uid://dapwdbtp3twuv" path="res://scenes/main_menu_scene.tscn" id="4_jmq1k"]
+[ext_resource type="PackedScene" uid="uid://gfbvhnpxjiok" path="res://scenes/ui/game_over.tscn" id="5_hgphx"]
 
 [node name="GameManager" type="Node3D"]
 script = ExtResource("1_gdck8")
-levels = Array[PackedScene]([ExtResource("3_cp6it"), ExtResource("2_npctk")])
+levels = Array[PackedScene]([ExtResource("2_npctk"), ExtResource("3_cp6it")])
 startManu = ExtResource("4_jmq1k")
-endGame = ExtResource("4_jmq1k")
+victoryMenu = ExtResource("4_agdoy")
+gameOver = ExtResource("5_hgphx")

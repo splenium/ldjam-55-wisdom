@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://gfbvhnpxjiok"]
+
+[ext_resource type="Script" path="res://scenes/ui/game_over.gd" id="1_fy71r"]
+[ext_resource type="Texture2D" uid="uid://fglbk0md86cw" path="res://sprites/ui/game over.png" id="2_ccu4a"]
+[ext_resource type="Shader" path="res://shaders/flame.gdshader" id="3_512ua"]
+[ext_resource type="Texture2D" uid="uid://c1ieomntxxtix" path="res://sprites/menu/bouton.png" id="7_txed2"]
+[ext_resource type="Theme" uid="uid://buyrdp78hirb6" path="res://buttons.tres" id="8_k5o8k"]
+[ext_resource type="FontFile" uid="uid://m3r5eastx02g" path="res://fonts/Dungeon Depths.ttf" id="9_xnhr3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8vecj"]
+shader = ExtResource("3_512ua")
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_fy71r")
+
+[node name="UiSpeachIntro" type="Sprite2D" parent="."]
+position = Vector2(576, 325.5)
+scale = Vector2(0.42, 0.42)
+texture = ExtResource("2_ccu4a")
+
+[node name="RightFlame" type="ColorRect" parent="UiSpeachIntro"]
+material = SubResource("ShaderMaterial_8vecj")
+anchors_preset = -1
+anchor_left = 0.717
+anchor_top = 0.523
+anchor_right = 0.717
+anchor_bottom = 0.523
+offset_left = -1798.72
+offset_top = -704.518
+offset_right = -890.72
+offset_bottom = -346.518
+metadata/_edit_use_anchors_ = true
+
+[node name="Bouton" type="Sprite2D" parent="."]
+position = Vector2(978, 566)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_txed2")
+
+[node name="Button" type="Button" parent="Bouton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -236.0
+offset_right = -500.0
+offset_bottom = -236.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_k5o8k")
+theme_override_fonts/font = ExtResource("9_xnhr3")
+theme_override_font_sizes/font_size = 50
+text = "Try Again"
+
+[connection signal="pressed" from="Bouton/Button" to="." method="_on_button_pressed"]

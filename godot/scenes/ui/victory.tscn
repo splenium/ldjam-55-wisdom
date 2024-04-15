@@ -1,0 +1,113 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5ggue5vgqip1"]
+
+[ext_resource type="Script" path="res://scenes/ui/victory.gd" id="1_omc5q"]
+[ext_resource type="Texture2D" uid="uid://kwo1c3spxemc" path="res://sprites/ui/victory.png" id="2_g1as3"]
+[ext_resource type="Shader" path="res://shaders/flame.gdshader" id="3_5frwx"]
+[ext_resource type="Texture2D" uid="uid://c1ieomntxxtix" path="res://sprites/menu/bouton.png" id="4_oqycm"]
+[ext_resource type="Theme" uid="uid://buyrdp78hirb6" path="res://buttons.tres" id="5_g7hc8"]
+[ext_resource type="FontFile" uid="uid://m3r5eastx02g" path="res://fonts/Dungeon Depths.ttf" id="6_qhcfi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eoxcq"]
+shader = ExtResource("3_5frwx")
+
+[node name="Victory" type="Node2D"]
+script = ExtResource("1_omc5q")
+
+[node name="UiVictory" type="Sprite2D" parent="."]
+position = Vector2(576, 325.5)
+scale = Vector2(0.42, 0.42)
+texture = ExtResource("2_g1as3")
+
+[node name="Flame" type="ColorRect" parent="UiVictory"]
+material = SubResource("ShaderMaterial_eoxcq")
+anchors_preset = -1
+anchor_left = 4.00785
+anchor_top = 1.05399
+anchor_right = 4.00785
+anchor_bottom = 1.05399
+offset_left = -8502.2
+offset_top = -1717.74
+offset_right = -8352.2
+offset_bottom = -1588.74
+
+[node name="Flame2" type="ColorRect" parent="UiVictory"]
+material = SubResource("ShaderMaterial_eoxcq")
+anchors_preset = -1
+anchor_left = 4.00785
+anchor_top = 1.05399
+anchor_right = 4.00785
+anchor_bottom = 1.05399
+offset_left = -7985.53
+offset_top = -1608.22
+offset_right = -7878.53
+offset_bottom = -1519.22
+
+[node name="Flame3" type="ColorRect" parent="UiVictory"]
+material = SubResource("ShaderMaterial_eoxcq")
+anchors_preset = -1
+anchor_left = 4.00785
+anchor_top = 1.05399
+anchor_right = 4.00785
+anchor_bottom = 1.05399
+offset_left = -8518.86
+offset_top = -1593.93
+offset_right = -8449.86
+offset_bottom = -1509.93
+
+[node name="Flame4" type="ColorRect" parent="UiVictory"]
+material = SubResource("ShaderMaterial_eoxcq")
+anchors_preset = -1
+anchor_left = 4.00785
+anchor_top = 1.05399
+anchor_right = 4.00785
+anchor_bottom = 1.05399
+offset_left = -8528.39
+offset_top = -1551.08
+offset_right = -8485.39
+offset_bottom = -1498.08
+
+[node name="Flame5" type="ColorRect" parent="UiVictory"]
+material = SubResource("ShaderMaterial_eoxcq")
+anchors_preset = -1
+anchor_left = 4.00785
+anchor_top = 1.05399
+anchor_right = 4.00785
+anchor_bottom = 1.05399
+offset_left = -7916.48
+offset_top = -1527.27
+offset_right = -7873.48
+offset_bottom = -1474.27
+
+[node name="Flame6" type="ColorRect" parent="UiVictory"]
+material = SubResource("ShaderMaterial_eoxcq")
+anchors_preset = -1
+anchor_left = 4.00785
+anchor_top = 1.05399
+anchor_right = 4.00785
+anchor_bottom = 1.05399
+offset_left = -7902.2
+offset_top = -1510.6
+offset_right = -7859.2
+offset_bottom = -1457.6
+
+[node name="Bouton" type="Sprite2D" parent="."]
+position = Vector2(978, 566)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_oqycm")
+
+[node name="Button" type="Button" parent="Bouton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -236.0
+offset_right = -500.0
+offset_bottom = -236.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_g7hc8")
+theme_override_fonts/font = ExtResource("6_qhcfi")
+theme_override_font_sizes/font_size = 50
+text = "Back to menu"
+
+[connection signal="pressed" from="Bouton/Button" to="." method="_on_button_pressed"]
