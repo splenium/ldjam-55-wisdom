@@ -15,9 +15,27 @@ func _process(delta: float) -> void:
 	
 	if abs(factor) > 1.5 and not triggeredSound:
 		GameManager.PlaySound("BoomWalk")
+		shakeScreen()
 		triggeredSound = true
 	if abs(factor) < 0.1:
 		triggeredSound = false
 	set_rotation(Vector3(rotation.x, rotation.y, factor*amplitude))
 	totalTime += delta
 	pass
+
+func shakeScreen() -> void:
+	var step: = 1. /30.
+	var duration: = 0.3
+	var curTime: = 0.
+	var PostFXRect:ColorRect = get_tree().get_nodes_in_group("PostFXRect")[0]
+	while true:
+		PostFXRect.material.set("shader_parameter/Shake", 1 - curTime / duration) 
+		curTime += step
+		await get_tree().create_timer(step).timeout
+		if curTime > duration:
+			break
+	PostFXRect.material.set("shader_parameter/Shake", 0.) 
+	
+func _exit_tree() -> void:
+	var PostFXRect:ColorRect = get_tree().get_nodes_in_group("PostFXRect")[0]
+	PostFXRect.material.set("shader_parameter/Shake", 0.) 
