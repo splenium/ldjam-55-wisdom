@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxouwlv2udh8p"]
+[gd_scene load_steps=14 format=3 uid="uid://dxouwlv2udh8p"]
 
 [ext_resource type="Script" path="res://ui/overlays/hud.gd" id="1_aapbt"]
 [ext_resource type="Texture2D" uid="uid://jg6iyo3uxr1w" path="res://sprites/menu/background_pilone_element.png" id="1_r1kff"]
@@ -7,6 +7,12 @@
 [ext_resource type="Theme" uid="uid://buyrdp78hirb6" path="res://buttons.tres" id="4_4xmhp"]
 [ext_resource type="Texture2D" uid="uid://bmi7ny3aeesf6" path="res://sprites/ui/powers/kraken.png" id="4_andbv"]
 [ext_resource type="Texture2D" uid="uid://pihm6kdlux0p" path="res://sprites/ui/powers/sheepnorris.png" id="5_1k0ji"]
+[ext_resource type="Script" path="res://ui/scripts/Bomberlamb.gd" id="6_2w8ht"]
+[ext_resource type="Texture2D" uid="uid://mhwmllwimxkp" path="res://sprites/ui/powers/bomberman_disable.png" id="7_8505w"]
+[ext_resource type="Script" path="res://ui/scripts/Sheepnorris.gd" id="9_5lxti"]
+[ext_resource type="Texture2D" uid="uid://yuk5tut853cq" path="res://sprites/ui/powers/sheepnorris_disable.png" id="10_iscf8"]
+[ext_resource type="Script" path="res://ui/scripts/Kraken.gd" id="12_5bfwo"]
+[ext_resource type="Texture2D" uid="uid://bvycogdrnjn1t" path="res://sprites/ui/powers/kraken_disable.png" id="13_hjljl"]
 
 [node name="HUD" type="Node2D"]
 script = ExtResource("1_aapbt")
@@ -42,6 +48,9 @@ text = "[center]0[/center]"
 position = Vector2(70, 530)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("3_rl6tn")
+script = ExtResource("6_2w8ht")
+texture_available = ExtResource("3_rl6tn")
+texture_not_available = ExtResource("7_8505w")
 
 [node name="PowerLabel" type="RichTextLabel" parent="Powers/Bomberlamb"]
 anchors_preset = -1
@@ -81,8 +90,8 @@ anchor_right = 0.917
 anchor_bottom = 0.929
 offset_left = -418.88
 offset_top = -594.59
-offset_right = -420.28
-offset_bottom = -595.51
+offset_right = -417.88
+offset_bottom = -594.59
 theme = ExtResource("4_4xmhp")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
@@ -93,6 +102,9 @@ text = "[center]1[/center]
 position = Vector2(200, 530)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("5_1k0ji")
+script = ExtResource("9_5lxti")
+texture_available = ExtResource("5_1k0ji")
+texture_not_available = ExtResource("10_iscf8")
 
 [node name="PowerLabel" type="RichTextLabel" parent="Powers/Sheepnorris"]
 anchors_preset = -1
@@ -144,6 +156,9 @@ text = "[center]2[/center]
 position = Vector2(330, 530)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("4_andbv")
+script = ExtResource("12_5bfwo")
+texture_available = ExtResource("4_andbv")
+texture_not_available = ExtResource("13_hjljl")
 
 [node name="PowerLabel" type="RichTextLabel" parent="Powers/Kraken"]
 anchors_preset = -1
