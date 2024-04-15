@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5ggue5vgqip1"]
+[gd_scene load_steps=10 format=3 uid="uid://c5ggue5vgqip1"]
 
 [ext_resource type="Script" path="res://scenes/ui/victory.gd" id="1_omc5q"]
 [ext_resource type="Texture2D" uid="uid://kwo1c3spxemc" path="res://sprites/ui/victory.png" id="2_g1as3"]
 [ext_resource type="Shader" path="res://shaders/flame.gdshader" id="3_5frwx"]
+[ext_resource type="Shader" path="res://shaders/PostFX.gdshader" id="4_c72nf"]
 [ext_resource type="Texture2D" uid="uid://c1ieomntxxtix" path="res://sprites/menu/bouton.png" id="4_oqycm"]
 [ext_resource type="Theme" uid="uid://buyrdp78hirb6" path="res://buttons.tres" id="5_g7hc8"]
 [ext_resource type="FontFile" uid="uid://m3r5eastx02g" path="res://fonts/Dungeon Depths.ttf" id="6_qhcfi"]
@@ -10,12 +11,18 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eoxcq"]
 shader = ExtResource("3_5frwx")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ntrx5"]
+shader = ExtResource("4_c72nf")
+shader_parameter/kraken = null
+shader_parameter/Shake = null
+shader_parameter/factor = null
+
 [node name="Victory" type="Node2D"]
 script = ExtResource("1_omc5q")
 
 [node name="UiVictory" type="Sprite2D" parent="."]
-position = Vector2(576, 325.5)
-scale = Vector2(0.42, 0.42)
+position = Vector2(574.594, 324.5)
+scale = Vector2(0.542318, 0.542318)
 texture = ExtResource("2_g1as3")
 
 [node name="Flame" type="ColorRect" parent="UiVictory"]
@@ -89,6 +96,18 @@ offset_left = -7902.2
 offset_top = -1510.6
 offset_right = -7859.2
 offset_bottom = -1457.6
+
+[node name="PostFX" type="ColorRect" parent="UiVictory"]
+material = SubResource("ShaderMaterial_ntrx5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1080.0
+offset_top = -768.0
+offset_right = -1080.0
+offset_bottom = -768.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Bouton" type="Sprite2D" parent="."]
 position = Vector2(978, 566)

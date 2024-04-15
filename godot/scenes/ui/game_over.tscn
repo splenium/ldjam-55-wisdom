@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://gfbvhnpxjiok"]
+[gd_scene load_steps=10 format=3 uid="uid://gfbvhnpxjiok"]
 
 [ext_resource type="Script" path="res://scenes/ui/game_over.gd" id="1_fy71r"]
 [ext_resource type="Texture2D" uid="uid://fglbk0md86cw" path="res://sprites/ui/game over.png" id="2_ccu4a"]
 [ext_resource type="Shader" path="res://shaders/flame.gdshader" id="3_512ua"]
+[ext_resource type="Shader" path="res://shaders/PostFX.gdshader" id="4_6lkp0"]
 [ext_resource type="Texture2D" uid="uid://c1ieomntxxtix" path="res://sprites/menu/bouton.png" id="7_txed2"]
 [ext_resource type="Theme" uid="uid://buyrdp78hirb6" path="res://buttons.tres" id="8_k5o8k"]
 [ext_resource type="FontFile" uid="uid://m3r5eastx02g" path="res://fonts/Dungeon Depths.ttf" id="9_xnhr3"]
@@ -10,12 +11,18 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8vecj"]
 shader = ExtResource("3_512ua")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k863a"]
+shader = ExtResource("4_6lkp0")
+shader_parameter/kraken = null
+shader_parameter/Shake = null
+shader_parameter/factor = null
+
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_fy71r")
 
 [node name="UiSpeachIntro" type="Sprite2D" parent="."]
-position = Vector2(576, 325.5)
-scale = Vector2(0.42, 0.42)
+position = Vector2(577, 300.5)
+scale = Vector2(0.534259, 0.539714)
 texture = ExtResource("2_ccu4a")
 
 [node name="RightFlame" type="ColorRect" parent="UiSpeachIntro"]
@@ -30,6 +37,18 @@ offset_top = -704.518
 offset_right = -890.72
 offset_bottom = -346.518
 metadata/_edit_use_anchors_ = true
+
+[node name="PostFX" type="ColorRect" parent="UiSpeachIntro"]
+material = SubResource("ShaderMaterial_k863a")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1080.0
+offset_top = -768.0
+offset_right = -1080.0
+offset_bottom = -768.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Bouton" type="Sprite2D" parent="."]
 position = Vector2(978, 566)
