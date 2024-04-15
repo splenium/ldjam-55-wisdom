@@ -11,7 +11,6 @@ var cthulhu_cost: int = 40
 func PlaySound(key: String) -> void:
 	if soundManager:
 		soundManager.PlaySound(key)
-		
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
