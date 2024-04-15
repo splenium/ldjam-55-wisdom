@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ciacalxsekx22"]
+[gd_scene load_steps=6 format=3 uid="uid://dxouwlv2udh8p"]
 
 [ext_resource type="Texture2D" uid="uid://jg6iyo3uxr1w" path="res://sprites/menu/background_pilone_element.png" id="1_r1kff"]
 [ext_resource type="Texture2D" uid="uid://dvstsgle1ntq8" path="res://sprites/ui/powers/sheep_counter_green_shadow.png" id="2_g7dy6"]
@@ -17,6 +17,17 @@ texture = ExtResource("1_r1kff")
 position = Vector2(997, 81)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_g7dy6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SheepCounterGreenShadow"]
+anchors_preset = -1
+anchor_right = 0.922
+anchor_bottom = 0.682
+offset_left = -120.0
+offset_top = -190.0
+offset_right = -1705.65
+offset_bottom = -1765.33
+bbcode_enabled = true
+text = "[center]12[/center]"
 
 [node name="Powers" type="Node2D" parent="."]
 

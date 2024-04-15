@@ -15,13 +15,10 @@ class_name Player extends CharacterBody3D
 
 @export var PortalParticle: CPUParticles3D 
 @export var sheep_kamikaze: PackedScene
-@export var kamikaze_cost: int = 5
 
 @export var cthulhu_scene: PackedScene
-@export var cthulhu_cost: int = 20
 
 @export var mega_sheep: PackedScene
-@export var mega_sheep_cost: int = 5
 @export var mega_sheep_spawn_z_offset := 1
 
 var sheepList: Array[Sheep] = []
@@ -70,18 +67,18 @@ func can_i_launch_it(cost: int) -> bool:
 	return get_only_sacrificial_sheep() > cost
 
 func summon_cthulhu() -> void:
-	if !can_i_launch_it(cthulhu_cost):
+	if !can_i_launch_it(GameManager.cthulhu_cost):
 		GameManager.PlaySound("Bai")
 		return
-	apply_sheep_addition(-cthulhu_cost)
+	apply_sheep_addition(-GameManager.cthulhu_cost)
 	var cthulhu: Cthulhu = cthulhu_scene.instantiate()
 	get_parent().add_child(cthulhu)
 
 func summon_kamikaze() -> void:
-	if can_i_launch_it(kamikaze_cost):
+	if can_i_launch_it(GameManager.kamikaze_cost):
 		GameManager.PlaySound("Rocket")
 		var futurKamikaze: Sheep = get_random_sacrifiable_sheep()
-		apply_sheep_addition(-(kamikaze_cost - 1))
+		apply_sheep_addition(-(GameManager.kamikaze_cost - 1))
 		var kamikaze: KamikazeSheep = sheep_kamikaze.instantiate()
 		get_parent().add_child(kamikaze)
 		kamikaze.global_position = futurKamikaze.global_position
@@ -91,8 +88,8 @@ func summon_kamikaze() -> void:
 		GameManager.PlaySound("Bai")
 	
 func summon_mega_sheep() -> void:
-	if can_i_launch_it(mega_sheep_cost):
-		apply_sheep_addition(-mega_sheep_cost)
+	if can_i_launch_it(GameManager.mega_sheep_cost):
+		apply_sheep_addition(-GameManager.mega_sheep_cost)
 		var mega_sheep_instance: MegaSheep = mega_sheep.instantiate()
 		spawnPointSheep.add_child(mega_sheep_instance)
 		mega_sheep_instance.global_position.z += mega_sheep_spawn_z_offset

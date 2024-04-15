@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://djrj5m0qgvpcn"]
+[gd_scene load_steps=53 format=3 uid="uid://djrj5m0qgvpcn"]
 
 [ext_resource type="Texture2D" uid="uid://dnxrxu217owfb" path="res://sprites/Decoration_pave_couleur test.png" id="1_7dyqr"]
 [ext_resource type="Texture2D" uid="uid://vhhxfxikeyec" path="res://sprites/Ruins_stele.png" id="3_apbid"]
@@ -10,9 +10,7 @@
 [ext_resource type="Shader" path="res://shaders/SmokeFog.gdshader" id="5_vgngx"]
 [ext_resource type="Texture2D" uid="uid://clh6phtr8gpvp" path="res://sprites/Dog/Dog_face.png" id="6_j48sq"]
 [ext_resource type="Script" path="res://scripts/CloudUniform.gd" id="8_gi4av"]
-[ext_resource type="Texture2D" uid="uid://0xnpumhdc3b7" path="res://sprites/Ruins_arch.png" id="10_j8g35"]
-[ext_resource type="Shader" path="res://shaders/Portal.gdshader" id="11_j48y2"]
-[ext_resource type="Texture2D" uid="uid://ct30bbbeqqxqp" path="res://sprites/Ruins_arc_mask.png" id="12_ngccs"]
+[ext_resource type="PackedScene" uid="uid://dekn557aq1gbn" path="res://assets/level_builder/level_tiles/level_elements/end_level_portal.tscn" id="11_701as"]
 [ext_resource type="Texture2D" uid="uid://cbxbr1lgi0ci3" path="res://sprites/Decoration_pillier_torches.png" id="14_jxi58"]
 [ext_resource type="Shader" path="res://shaders/FlameSpatial.gdshader" id="15_bwfm1"]
 [ext_resource type="Texture2D" uid="uid://cc06nqixdst0h" path="res://sprites/Decoration_pillier_torches_2.png" id="15_j7qps"]
@@ -76,18 +74,6 @@ render_priority = 0
 shader = ExtResource("5_vgngx")
 shader_parameter/seed = null
 shader_parameter/voronoise = ExtResource("4_doukr")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cawar"]
-transparency = 1
-albedo_texture = ExtResource("10_j8g35")
-
-[sub_resource type="QuadMesh" id="QuadMesh_ia88e"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_22ls7"]
-render_priority = 0
-shader = ExtResource("11_j48y2")
-shader_parameter/mask = ExtResource("12_ngccs")
-shader_parameter/noise = ExtResource("4_doukr")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jh8cv"]
 transparency = 1
@@ -497,17 +483,7 @@ material_override = SubResource("ShaderMaterial_3eamf")
 mesh = SubResource("QuadMesh_uxur8")
 skeleton = NodePath("../..")
 
-[node name="Portal" type="Node3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Portal"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.431654, 0)
-material_override = SubResource("StandardMaterial3D_cawar")
-mesh = SubResource("QuadMesh_ia88e")
-
-[node name="Shader" type="MeshInstance3D" parent="Portal"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.431654, -0.0311421)
-material_override = SubResource("ShaderMaterial_22ls7")
-mesh = SubResource("QuadMesh_ia88e")
+[node name="Portal" parent="." instance=ExtResource("11_701as")]
 
 [node name="Piliers" type="Node3D" parent="."]
 

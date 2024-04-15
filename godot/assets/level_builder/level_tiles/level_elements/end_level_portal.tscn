@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://dekn557aq1gbn"]
+
+[ext_resource type="Texture2D" uid="uid://0xnpumhdc3b7" path="res://sprites/Ruins_arch.png" id="1_1b4y7"]
+[ext_resource type="Script" path="res://assets/level_builder/level_tiles/level_elements/end_level_portal.gd" id="1_xq2fx"]
+[ext_resource type="Shader" path="res://shaders/Portal.gdshader" id="2_p0af3"]
+[ext_resource type="Texture2D" uid="uid://ct30bbbeqqxqp" path="res://sprites/Ruins_arc_mask.png" id="3_b8joj"]
+[ext_resource type="Texture2D" uid="uid://d0lt3lof2w31f" path="res://sprites/Voronoise.png" id="4_bgg5s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cawar"]
+transparency = 1
+albedo_texture = ExtResource("1_1b4y7")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ia88e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_22ls7"]
+render_priority = 0
+shader = ExtResource("2_p0af3")
+shader_parameter/mask = ExtResource("3_b8joj")
+shader_parameter/noise = ExtResource("4_bgg5s")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jynt5"]
+size = Vector3(1, 1.12, 0.1)
+
+[node name="Portal" type="Node3D"]
+script = ExtResource("1_xq2fx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 0.348121, 0)
+material_override = SubResource("StandardMaterial3D_cawar")
+mesh = SubResource("QuadMesh_ia88e")
+
+[node name="Shader" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 0.348121, -0.0311421)
+material_override = SubResource("ShaderMaterial_22ls7")
+mesh = SubResource("QuadMesh_ia88e")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 129
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.535, 0.10604)
+shape = SubResource("BoxShape3D_jynt5")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

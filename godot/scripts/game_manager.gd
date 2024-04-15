@@ -4,6 +4,10 @@ var world_speed: float = 1.0 # default 1.0
 var player: Player
 var soundManager: SoundManager
 
+var kamikaze_cost: int = 1
+var mega_sheep_cost: int = 10
+var cthulhu_cost: int = 40
+
 func PlaySound(key: String) -> void:
 	if soundManager:
 		soundManager.PlaySound(key)
