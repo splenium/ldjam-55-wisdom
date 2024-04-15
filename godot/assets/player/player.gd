@@ -110,12 +110,14 @@ func instantiate_sheep() -> Sheep:
 	instance.target = follow_point
 	return instance
 
-func add_sheep(sheepPositionNumber: int = 0) -> void:
+func add_sheep(sheepPositionNumber: int = 0, withRandomOffset: bool = false) -> void:
 	var sheep: Sheep = instantiate_sheep()
 	var middle_offset: float = ((spawn_sheep_line * spawn_x_offset) / 5)
 	sheep.position.x = sheep.position.x + (sheepPositionNumber % spawn_sheep_line) * spawn_x_offset - middle_offset
 	@warning_ignore("integer_division")
 	sheep.position.z += ceil(sheepPositionNumber / spawn_sheep_line) * spawn_y_offset
+	if withRandomOffset:
+		sheep.position.z += randf_range(0.0, 5.0)
 	spawnPointSheep.add_child(sheep)
 	sheepList.append(sheep)
 	pass
@@ -158,7 +160,6 @@ func apply_sheep_edition(sheepDiff: int) -> void:
 			not_spawned_sheep += sheepDiff - sheepToSpawn
 		else:
 			sheepToSpawn = sheepDiff
-		print("sheepToSpawn " + str(sheepToSpawn))
 		for i in range(0, sheepToSpawn):
 			add_sheep(i)
 	elif sheepDiff < 0:
@@ -173,29 +174,27 @@ func apply_sheep_edition(sheepDiff: int) -> void:
 					not_spawned_sheep = 0
 		else:
 			for i in range(0, numsToDelete):
-				remove_sheep(sheepList[0])
+				remove_sheep(sheepList[0], false)
 		spawn_reserviste_sheep()
 	update_follow_point()
 	pass
 	
-func spawn_reserviste_sheep() -> void:
+func spawn_reserviste_sheep(withRandomOffset: bool = false) -> void:
 	var maximumSheepToSpawn: int = GameManager.maximum_visisble_sheep - get_spawned_sheep_number()
-	var j: int = 0
 	for i in range(0, not_spawned_sheep):
 		if i > maximumSheepToSpawn:
 			break
-		add_sheep(i)
+		add_sheep(i, withRandomOffset)
 		not_spawned_sheep -= 1
-		j = i
-	print("spawned " + str(j) + " sheep")
 
-func remove_sheep(sheep: Sheep) -> void:
+func remove_sheep(sheep: Sheep, withRespawnFromReserviste: bool = true) -> void:
 	var idx: int = sheepList.find(sheep)
 	if idx != -1:
 		sheepList.remove_at(idx)
 		sheep.die()
 		update_follow_point()
-	spawn_reserviste_sheep()
+	if withRespawnFromReserviste:
+		spawn_reserviste_sheep(true)
 
 func remove_all_spawned_sheep() -> void:
 	for sheep in sheepList:
