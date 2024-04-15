@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c686nh780bkhr"]
+[gd_scene load_steps=5 format=3 uid="uid://c686nh780bkhr"]
 
 [ext_resource type="PackedScene" uid="uid://dlfhg1wj5wgsq" path="res://assets/level_builder/level_base.tscn" id="1_8t4op"]
 [ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="1_dl0uc"]
 [ext_resource type="PackedScene" uid="uid://bjjk6hjqv4nfh" path="res://assets/level_builder/level_tiles/bonus1.tscn" id="3_0675t"]
 [ext_resource type="PackedScene" uid="uid://cfx0icvxfoj0r" path="res://assets/level_builder/level_tiles/ennemy1.tscn" id="4_83uss"]
-[ext_resource type="PackedScene" uid="uid://dxouwlv2udh8p" path="res://ui/overlays/hud.tscn" id="5_dnpbq"]
 
 [node name="Level1" type="Node3D"]
 
@@ -13,5 +12,3 @@
 [node name="Path" parent="." instance=ExtResource("1_dl0uc")]
 unique_name_in_owner = true
 level_tiles = Array[PackedScene]([ExtResource("3_0675t"), ExtResource("4_83uss")])
-
-[node name="HUD" parent="." instance=ExtResource("5_dnpbq")]
