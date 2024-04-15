@@ -12,6 +12,9 @@ var levelIndex := -1
 @export var levels: Array[PackedScene] = []
 @export var startManu: PackedScene
 @export var endGame: PackedScene
+@export var gameOver: PackedScene
+
+var currentLevel: PackedScene
 
 var number_of_sheep := 0
 
@@ -22,10 +25,18 @@ func PlaySound(key: String) -> void:
 func next_level() -> void:
 	levelIndex += 1
 	if (levelIndex < levels.size()):
-		get_tree().change_scene_to_packed(levels[levelIndex])
+		currentLevel = levels[levelIndex]
+		get_tree().change_scene_to_packed(levels[levelIndex].duplicate(true))
 	else:
+		currentLevel = endGame
 		get_tree().change_scene_to_packed(endGame)
 		levelIndex = -1
+
+func game_over() -> void:
+	reload_level()
+
+func reload_level() -> void:
+	get_tree().change_scene_to_packed(currentLevel.duplicate(true))
 
 func find_nearest_of_player_ennemy() -> Ennemy:
 	var all_enemy: Array[Node] = get_tree().get_nodes_in_group("ennemy")

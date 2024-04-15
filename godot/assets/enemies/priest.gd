@@ -21,7 +21,7 @@ func look_follow(state: PhysicsDirectBodyState3D, current_transform: Transform3D
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Player:
-		print_debug("GAME OVER killed by " + self.name + " hitted " + body.name)
+		body.die()
 	elif body is KamikazeSheep:
 		body.explode()
 	elif body is Sheep and GameManager.player != null:

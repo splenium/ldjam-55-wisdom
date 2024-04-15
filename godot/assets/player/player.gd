@@ -171,6 +171,11 @@ func remove_all_sheep() -> void:
 		sheep.queue_free()
 	sheepList.clear()
 	pass
-	
+
+func die() -> void:
+	remove_all_sheep()
+	GameManager.game_over()
+	pass
+
 func get_random_sacrifiable_sheep() -> Sheep:
 	return sheepList.pick_random()

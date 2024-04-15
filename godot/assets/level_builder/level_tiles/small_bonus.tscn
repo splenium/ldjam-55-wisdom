@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd3g47m0nnr4v"]
+
+[ext_resource type="PackedScene" uid="uid://c2jwls8paont4" path="res://assets/level_builder/level_tiles/level_elements/base_floor.tscn" id="1_j3tjf"]
+[ext_resource type="PackedScene" uid="uid://bel8kmpokgkbo" path="res://assets/enemies/priest.tscn" id="2_i17i6"]
+[ext_resource type="PackedScene" uid="uid://cqksnij425pe5" path="res://assets/modificator/additionator.tscn" id="2_x43yg"]
+
+[node name="Bonus1" type="Node3D"]
+
+[node name="BaseFloor" parent="." instance=ExtResource("1_j3tjf")]
+
+[node name="Priest" parent="." instance=ExtResource("2_i17i6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0199406, 0.201404, -0.654121)
+
+[node name="Add10" parent="." instance=ExtResource("2_x43yg")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, 3.29501)
+sheep_to_add = 10
+
+[node name="Add5" parent="." instance=ExtResource("2_x43yg")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.888778, 0.348536, 3.29501)
+sheep_to_add = 5
