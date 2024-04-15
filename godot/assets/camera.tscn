@@ -11,6 +11,7 @@ shader_parameter/Shake = null
 transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707106, 0.707106, 0, 2, 0)
 
 [node name="PostFXCanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
 
 [node name="PostFXRect" type="ColorRect" parent="PostFXCanvasLayer" groups=["PostFXRect"]]
 unique_name_in_owner = true
