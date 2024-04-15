@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn8uqlfx5q12a"]
+
+[ext_resource type="PackedScene" uid="uid://c2jwls8paont4" path="res://assets/level_builder/level_tiles/level_elements/base_floor.tscn" id="1_ibega"]
+[ext_resource type="PackedScene" uid="uid://txbo77svy3n8" path="res://assets/level_builder/level_tiles/level_elements/barrier_2.tscn" id="3_8gtgf"]
+[ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator/multiplicator.tscn" id="3_p3it6"]
+[ext_resource type="PackedScene" uid="uid://cmtviertr1kmf" path="res://assets/level_builder/level_tiles/level_elements/baril_1.tscn" id="4_vswxc"]
+
+[node name="Bonus1" type="Node3D"]
+
+[node name="BaseFloor" parent="." instance=ExtResource("1_ibega")]
+
+[node name="Multiplicator" parent="." instance=ExtResource("3_p3it6")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, 3.30922)
+modificator = -2
+
+[node name="Multiplicator2" parent="." instance=ExtResource("3_p3it6")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.0816253, 0.320138, 2.91772)
+modificator = -5
+
+[node name="Multiplicator3" parent="." instance=ExtResource("3_p3it6")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.04984, 0.320138, 3.25552)
+modificator = -2
+
+[node name="Multiplicator4" parent="." instance=ExtResource("3_p3it6")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.03824, 0.320138, -1.33956)
+modificator = -2
+
+[node name="Multiplicator5" parent="." instance=ExtResource("3_p3it6")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.0816253, 0.320138, -1.73106)
+modificator = -5
+
+[node name="barrier2" parent="." instance=ExtResource("3_8gtgf")]
+transform = Transform3D(0.787634, -0.353405, 0.504714, 6.37463e-09, 0.819152, 0.573577, -0.616143, -0.451769, 0.645192, 0.957014, 0.24468, -1.72896)
+
+[node name="baril_1" parent="." instance=ExtResource("4_vswxc")]
+transform = Transform3D(1.39, 0, 0, 0, 1.39, 0, 0, 0, 1.39, 0.657049, 0.144857, -1.38965)

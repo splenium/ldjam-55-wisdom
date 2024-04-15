@@ -1,8 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://2b7nyqa0a2qv"]
+[gd_scene load_steps=17 format=3 uid="uid://2b7nyqa0a2qv"]
 
 [ext_resource type="PackedScene" uid="uid://c2jwls8paont4" path="res://assets/level_builder/level_tiles/level_elements/base_floor.tscn" id="1_f0f8m"]
 [ext_resource type="PackedScene" uid="uid://bel8kmpokgkbo" path="res://assets/enemies/priest.tscn" id="2_52r41"]
 [ext_resource type="PackedScene" uid="uid://c1ycwx32qcao3" path="res://assets/level_builder/level_tiles/level_elements/base_floor_without_effect.tscn" id="2_wedc2"]
+[ext_resource type="PackedScene" uid="uid://18n0ni4qtpqy" path="res://assets/level_builder/level_tiles/level_decoration/moutain.tscn" id="4_kk225"]
+[ext_resource type="PackedScene" uid="uid://dj5nn1xhqw5qt" path="res://assets/level_builder/level_tiles/level_decoration/ground_stele.tscn" id="5_yxdks"]
+[ext_resource type="PackedScene" uid="uid://bk1uhcgb30l1d" path="res://assets/level_builder/level_tiles/level_decoration/pentacle.tscn" id="6_fdny6"]
+[ext_resource type="PackedScene" uid="uid://dxj074h5fn67m" path="res://assets/level_builder/level_tiles/level_elements/box_and_panel.tscn" id="6_pfu8p"]
+[ext_resource type="PackedScene" uid="uid://bdlpiyx1tp3ws" path="res://assets/level_builder/level_tiles/level_decoration/pillier_vegetation.tscn" id="7_rwpqf"]
+[ext_resource type="PackedScene" uid="uid://c5r2klwuoj3pi" path="res://assets/level_builder/level_tiles/level_decoration/vegetation_1.tscn" id="7_wyf8n"]
+[ext_resource type="Texture2D" uid="uid://cbyfl16patehd" path="res://sprites/Vegetation_2.png" id="8_28j5d"]
+[ext_resource type="PackedScene" uid="uid://dtgct3wbusy2w" path="res://assets/level_builder/level_tiles/level_decoration/pillier.tscn" id="8_lhqi4"]
+[ext_resource type="PackedScene" uid="uid://cmtviertr1kmf" path="res://assets/level_builder/level_tiles/level_elements/baril_1.tscn" id="9_c2g3y"]
+[ext_resource type="Texture2D" uid="uid://hb5ih0jyu4xg" path="res://sprites/Vegetation_3.png" id="9_d6sv7"]
+[ext_resource type="PackedScene" uid="uid://vshd8okqc3wc" path="res://assets/level_builder/level_tiles/level_elements/baril_2.tscn" id="10_573xe"]
+[ext_resource type="PackedScene" uid="uid://bfv0ln741acud" path="res://assets/level_builder/level_tiles/level_decoration/skull_on_baril.tscn" id="11_m41gt"]
+[ext_resource type="PackedScene" uid="uid://co7g8ev2npv3a" path="res://assets/level_builder/level_tiles/level_decoration/skull.tscn" id="12_8d5cu"]
 
 [node name="Ennemy1" type="Node3D"]
 
@@ -365,3 +378,52 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.653247, 0.158752, 0.367866
 
 [node name="Priest24" parent="Left/GRP7" instance=ExtResource("2_52r41")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.31999, 0.158752, 0.441038)
+
+[node name="Moutain" parent="." instance=ExtResource("4_kk225")]
+
+[node name="GroundStele" parent="." instance=ExtResource("5_yxdks")]
+
+[node name="Pentacle" parent="." instance=ExtResource("6_fdny6")]
+transform = Transform3D(0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0, 0.011, 3.60627)
+
+[node name="Vegetation1" parent="." instance=ExtResource("7_wyf8n")]
+
+[node name="Vegetation3" parent="." instance=ExtResource("7_wyf8n")]
+transform = Transform3D(0.03, 0, 0, 0, 0.00951914, 0.0284497, 0, -0.0284497, 0.00951914, 0.536642, 0.0641137, 2.784)
+texture = ExtResource("8_28j5d")
+
+[node name="Vegetation4" parent="." instance=ExtResource("7_wyf8n")]
+transform = Transform3D(0.03, 0, 0, 0, 0.00951914, 0.0284497, 0, -0.0284497, 0.00951914, -1.31389, 0.0641137, 4.76141)
+texture = ExtResource("8_28j5d")
+
+[node name="baril_1" parent="." instance=ExtResource("9_c2g3y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61311, 0.08255, -1.80068)
+
+[node name="baril_2" parent="." instance=ExtResource("10_573xe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57397, 0.0825501, -2.47768)
+
+[node name="SkullOnBaril" parent="." instance=ExtResource("11_m41gt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46422, 0.08255, -2.2815)
+
+[node name="Vegetation2" type="Sprite3D" parent="."]
+transform = Transform3D(-0.03, 0, 0, 0, 0.00951914, -0.0284497, 0, -0.0284497, -0.00951914, 0.975309, 0.0899216, 4.58782)
+texture = ExtResource("9_d6sv7")
+
+[node name="Skull" parent="." instance=ExtResource("12_8d5cu")]
+
+[node name="BoxAndPanel" parent="." instance=ExtResource("6_pfu8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75723, 0.46093, -0.624682)
+
+[node name="Pillier3" parent="." instance=ExtResource("7_rwpqf")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.73966, 0.336474, -1.86244)
+skeleton = NodePath("../Pillier1")
+
+[node name="Pillier4" parent="." instance=ExtResource("7_rwpqf")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 1.60151, 0.336474, 1.50826)
+skeleton = NodePath("../Pillier1")
+
+[node name="Pillier1" parent="." instance=ExtResource("8_lhqi4")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.7392, 0.386021, 1.39756)
+
+[node name="Pillier2" parent="." instance=ExtResource("8_lhqi4")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 1.68329, 0.376454, -1.876)

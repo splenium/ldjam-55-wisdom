@@ -8,3 +8,5 @@ func _on_body_entered(body: Node3D) -> void:
 		body.died()
 	if body is Ennemy:
 		body.died()
+	if body is Player:
+		body.die()

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://txbo77svy3n8"]
+
+[ext_resource type="Texture2D" uid="uid://bh0orq8woj00q" path="res://sprites/Barriers/Barière_bois_1.png" id="1_0w10m"]
+[ext_resource type="Texture2D" uid="uid://c3wu2i1moy1qn" path="res://sprites/Barriers/Barière_bois_2.png" id="2_irogm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_asv5f"]
+size = Vector3(1.01544, 0.404297, 0.0899048)
+
+[node name="barrier2" type="StaticBody3D"]
+collision_layer = 1056
+collision_mask = 133
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_asv5f")
+
+[node name="Sprite3D6" type="Sprite3D" parent="."]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0.237031, 0.024971, 0)
+texture = ExtResource("1_0w10m")
+
+[node name="Sprite3D5" type="Sprite3D" parent="."]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -0.261687, 0.0124116, 0)
+texture = ExtResource("2_irogm")

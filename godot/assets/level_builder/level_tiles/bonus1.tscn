@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjjk6hjqv4nfh"]
+[gd_scene load_steps=5 format=3 uid="uid://bjjk6hjqv4nfh"]
 
 [ext_resource type="PackedScene" uid="uid://c2jwls8paont4" path="res://assets/level_builder/level_tiles/level_elements/base_floor.tscn" id="1_txnvw"]
 [ext_resource type="PackedScene" uid="uid://cqksnij425pe5" path="res://assets/modificator/additionator.tscn" id="2_wo4dd"]
 [ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator/multiplicator.tscn" id="3_qpvet"]
+[ext_resource type="PackedScene" uid="uid://dxj074h5fn67m" path="res://assets/level_builder/level_tiles/level_elements/box_and_panel.tscn" id="4_jbckx"]
 
 [node name="Bonus1" type="Node3D"]
 
@@ -31,3 +32,5 @@ sheep_to_add = 10
 [node name="Multiplicator4" parent="." instance=ExtResource("3_qpvet")]
 transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -3.18197)
 modificator = 3
+
+[node name="BoxAndPanel" parent="." instance=ExtResource("4_jbckx")]

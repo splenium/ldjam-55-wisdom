@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4nq4x0gs1tac"]
+
+[ext_resource type="Texture2D" uid="uid://cfi8d2p7xy6oo" path="res://sprites/Vegetation_4.png" id="1_kakst"]
+
+[node name="PanelVegetation" type="Sprite3D"]
+transform = Transform3D(0.03, 0, 0, 0, 0.0245746, 0.0172073, 0, -0.0172073, 0.0245746, 0, 0, 0)
+texture = ExtResource("1_kakst")

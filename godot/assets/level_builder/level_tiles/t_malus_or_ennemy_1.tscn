@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cw2g67svu7ksf"]
+[gd_scene load_steps=7 format=3 uid="uid://cw2g67svu7ksf"]
 
 [ext_resource type="PackedScene" uid="uid://c2jwls8paont4" path="res://assets/level_builder/level_tiles/level_elements/base_floor.tscn" id="1_cxxck"]
 [ext_resource type="PackedScene" uid="uid://bmwr18mufr03" path="res://assets/level_builder/level_tiles/level_elements/barrier_4.tscn" id="2_lbg5k"]
 [ext_resource type="PackedScene" uid="uid://bel8kmpokgkbo" path="res://assets/enemies/priest.tscn" id="3_2x1gp"]
+[ext_resource type="PackedScene" uid="uid://bwk6q6suvxjh5" path="res://assets/level_builder/level_tiles/level_elements/antibump.tscn" id="3_c5xnq"]
 [ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator/multiplicator.tscn" id="4_ef7eu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i4h1q"]
@@ -33,6 +34,9 @@ collision_layer = 1056
 collision_mask = 133
 
 [node name="barrier" type="Node3D" parent="."]
+
+[node name="antibump2" parent="." instance=ExtResource("3_c5xnq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30252e-08, 0.259, 1.84433)
 
 [node name="GRP5" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69888, 0.000771135, 0.741138)

@@ -87,7 +87,7 @@ visible = false
 size = Vector3(3.28784, 2.92035, 1)
 
 [node name="GroundBehindPlayer" parent="." instance=ExtResource("18_5r108")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.362)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.36956)
 
 [node name="SheepNorrisDespawner" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.6626)

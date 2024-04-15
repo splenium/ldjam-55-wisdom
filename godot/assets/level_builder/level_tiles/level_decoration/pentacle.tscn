@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk1uhcgb30l1d"]
+
+[ext_resource type="Texture2D" uid="uid://dop43dfwauqk7" path="res://sprites/pentacle.png" id="1_xvudt"]
+
+[node name="Pentacle" type="Sprite3D"]
+transform = Transform3D(0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0, 0.011, 3.012)
+texture = ExtResource("1_xvudt")

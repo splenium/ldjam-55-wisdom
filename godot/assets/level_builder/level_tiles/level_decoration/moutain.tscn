@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://18n0ni4qtpqy"]
+
+[ext_resource type="Texture2D" uid="uid://bqhfluym5erf5" path="res://sprites/Vegetation_1.png" id="1_ua8h1"]
+
+[node name="Moutain" type="Sprite3D"]
+transform = Transform3D(0.195042, -0.089703, 0.128109, 0, 0.204788, 0.143394, -0.156392, -0.111872, 0.159769, -13.0333, 1.08387, -0.133651)
+texture = ExtResource("1_ua8h1")

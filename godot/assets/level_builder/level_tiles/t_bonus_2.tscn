@@ -1,10 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://cghvqlms3ilnj"]
+[gd_scene load_steps=12 format=3 uid="uid://cghvqlms3ilnj"]
 
 [ext_resource type="PackedScene" uid="uid://c2jwls8paont4" path="res://assets/level_builder/level_tiles/level_elements/base_floor.tscn" id="1_gchgn"]
 [ext_resource type="PackedScene" uid="uid://bmwr18mufr03" path="res://assets/level_builder/level_tiles/level_elements/barrier_4.tscn" id="2_330kx"]
 [ext_resource type="PackedScene" uid="uid://cqksnij425pe5" path="res://assets/modificator/additionator.tscn" id="2_ha6aq"]
+[ext_resource type="PackedScene" uid="uid://bwk6q6suvxjh5" path="res://assets/level_builder/level_tiles/level_elements/antibump.tscn" id="3_5r5jy"]
 [ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator/multiplicator.tscn" id="3_7mi2m"]
 [ext_resource type="PackedScene" uid="uid://cmtviertr1kmf" path="res://assets/level_builder/level_tiles/level_elements/baril_1.tscn" id="5_uhe1n"]
+[ext_resource type="PackedScene" uid="uid://b4nq4x0gs1tac" path="res://assets/level_builder/level_tiles/level_decoration/panel.tscn" id="7_t1c83"]
+[ext_resource type="PackedScene" uid="uid://bk1uhcgb30l1d" path="res://assets/level_builder/level_tiles/level_decoration/pentacle.tscn" id="8_1dg6g"]
+[ext_resource type="PackedScene" uid="uid://bfv0ln741acud" path="res://assets/level_builder/level_tiles/level_decoration/skull_on_baril.tscn" id="9_2axo7"]
+[ext_resource type="PackedScene" uid="uid://18n0ni4qtpqy" path="res://assets/level_builder/level_tiles/level_decoration/moutain.tscn" id="10_ynhqh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i4h1q"]
 radius = 0.199323
@@ -19,14 +24,7 @@ transform = Transform3D(-4.37114e-08, -0.5, -0.866025, 0, 0.866025, -0.5, 1, -2.
 collision_layer = 1056
 collision_mask = 133
 
-[node name="antibump" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30252e-08, 0.259, 3.88038)
-collision_layer = 1056
-collision_mask = 129
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="antibump"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0521259)
-shape = SubResource("CapsuleShape3D_i4h1q")
+[node name="antibump" parent="." instance=ExtResource("3_5r5jy")]
 
 [node name="antibump2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30252e-08, 0.259, 1.80846)
@@ -74,3 +72,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.80215, 0.108361, -3.97826)
 
 [node name="baril_5" parent="." instance=ExtResource("5_uhe1n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.603279, 0.108361, -3.24522)
+
+[node name="PanelVegetation" parent="." instance=ExtResource("7_t1c83")]
+transform = Transform3D(0.03, 0, 0, 0, 0.0245746, 0.0172073, 0, -0.0172073, 0.0245746, 0.0268726, 0.246842, 3.93184)
+
+[node name="Pentacle" parent="." instance=ExtResource("8_1dg6g")]
+transform = Transform3D(0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0.0968442, 0.0111057, 3.67618)
+
+[node name="SkullOnBaril" parent="." instance=ExtResource("9_2axo7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46857, 0.129202, 0.173264)
+
+[node name="Moutain" parent="." instance=ExtResource("10_ynhqh")]
+transform = Transform3D(0.195042, -0.089703, 0.128109, 0, 0.204788, 0.143394, -0.156392, -0.111872, 0.159769, -4.70066, -3.62028, -5.28088)
