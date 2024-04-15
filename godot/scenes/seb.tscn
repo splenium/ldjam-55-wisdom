@@ -1,7 +1,6 @@
-[gd_scene load_steps=55 format=3 uid="uid://djrj5m0qgvpcn"]
+[gd_scene load_steps=53 format=3 uid="uid://djrj5m0qgvpcn"]
 
 [ext_resource type="Texture2D" uid="uid://dnxrxu217owfb" path="res://sprites/Decoration_pave_couleur test.png" id="1_7dyqr"]
-[ext_resource type="Shader" path="res://shaders/Bloom.gdshader" id="2_5j5o2"]
 [ext_resource type="Texture2D" uid="uid://vhhxfxikeyec" path="res://sprites/Ruins_stele.png" id="3_apbid"]
 [ext_resource type="Shader" path="res://shaders/PostFX.gdshader" id="3_xwojd"]
 [ext_resource type="Texture2D" uid="uid://d0lt3lof2w31f" path="res://sprites/Voronoise.png" id="4_doukr"]
@@ -24,11 +23,9 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cid32"]
 shader = ExtResource("3_xwojd")
-shader_parameter/kraken = 1.0
-shader_parameter/Shake = -0.04
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5v5l0"]
-shader = ExtResource("2_5j5o2")
+shader_parameter/kraken = 0.0
+shader_parameter/Shake = 0.0
+shader_parameter/factor = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cun3o"]
 albedo_texture = ExtResource("1_7dyqr")
@@ -152,14 +149,6 @@ transform = Transform3D(1, 0, 0, 0, 0.654714, 0.755876, 0, -0.755876, 0.654714, 
 
 [node name="ColorRect" type="ColorRect" parent="Camera3D/PostFXCanvasLayer"]
 material = SubResource("ShaderMaterial_cid32")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect2" type="ColorRect" parent="Camera3D/PostFXCanvasLayer"]
-material = SubResource("ShaderMaterial_5v5l0")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -596,5 +585,6 @@ color_ramp = SubResource("Gradient_8echr")
 
 [node name="Kraken" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.361473, 1.2009)
+visible = false
 material_override = SubResource("ShaderMaterial_ac71m")
 mesh = SubResource("QuadMesh_pxkq2")

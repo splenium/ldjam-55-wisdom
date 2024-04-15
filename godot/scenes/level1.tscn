@@ -12,3 +12,6 @@
 [node name="Path" parent="." instance=ExtResource("1_dl0uc")]
 unique_name_in_owner = true
 level_tiles = Array[PackedScene]([ExtResource("3_0675t"), ExtResource("4_83uss")])
+
+[editable path="LevelBase"]
+[editable path="LevelBase/Camera3D"]
