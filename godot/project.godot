@@ -31,7 +31,9 @@ window/stretch/mode="canvas_items"
 [importer_defaults]
 
 texture={
-"compress/mode": 1
+"compress/lossy_quality": 0.3,
+"compress/mode": 1,
+"detect_3d/compress_to": 0
 }
 
 [input]
@@ -75,4 +77,5 @@ attack_mega_sheep={
 
 [rendering]
 
+renderer/rendering_method.web="forward_plus"
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)

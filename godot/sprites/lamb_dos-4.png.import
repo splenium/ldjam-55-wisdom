@@ -3,26 +3,25 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://di4s5uy16omll"
-path.s3tc="res://.godot/imported/lamb_dos-4.png-ed0888d0a8222403f356884f4cd888b3.s3tc.ctex"
+path="res://.godot/imported/lamb_dos-4.png-ed0888d0a8222403f356884f4cd888b3.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://sprites/lamb_dos-4.png"
-dest_files=["res://.godot/imported/lamb_dos-4.png-ed0888d0a8222403f356884f4cd888b3.s3tc.ctex"]
+dest_files=["res://.godot/imported/lamb_dos-4.png-ed0888d0a8222403f356884f4cd888b3.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.3
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

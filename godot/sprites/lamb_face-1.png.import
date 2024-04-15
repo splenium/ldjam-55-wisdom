@@ -17,7 +17,7 @@ dest_files=["res://.godot/imported/lamb_face-1.png-e2ac843d1f2ac50f0e222c95d45d9
 
 compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.3
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0
