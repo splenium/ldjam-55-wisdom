@@ -6,7 +6,10 @@ var first_spawn_position := Vector3(0, 0, despawn_z)
 @export var path_width := 10.0
 
 @export var level_tiles: Array[PackedScene] = []
+@export var level_end_tiles: PackedScene
 @export var displayed_paths: Array[Node3D] = []
+
+var is_level_ending := false
 
 func _ready() -> void:
 	var last_path: Node3D = null
@@ -26,9 +29,11 @@ func _process(_delta: float) -> void:
 		displayed_paths.pop_front()
 
 func spawn_path() -> void:
-	if level_tiles.size() == 0:
+	if is_level_ending:
 		return
-	var new_path: Node3D = level_tiles.pop_front().instantiate()
+	if level_tiles.size() == 0 :
+		is_level_ending = true
+	var new_path: Node3D = level_end_tiles.instantiate() if is_level_ending else level_tiles.pop_front().instantiate()
 	add_child(new_path)
 	if displayed_paths.size() == 0:
 		new_path.global_position = first_spawn_position

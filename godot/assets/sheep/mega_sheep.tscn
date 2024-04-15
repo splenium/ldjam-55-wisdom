@@ -1,8 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7yhihwnw22hh"]
+[gd_scene load_steps=10 format=3 uid="uid://b7yhihwnw22hh"]
 
 [ext_resource type="Script" path="res://assets/sheep/mega_sheep.gd" id="1_tjqvt"]
 [ext_resource type="Script" path="res://assets/sheep/RotationMegaSheep.gd" id="2_7stx7"]
-[ext_resource type="PackedScene" uid="uid://wpmn76raediv" path="res://assets/sheep/sheep_base_appareance.tscn" id="2_mk1mw"]
+[ext_resource type="Script" path="res://scripts/Squeesh.gd" id="3_dheyl"]
+[ext_resource type="Texture2D" uid="uid://dywgl58g742oh" path="res://sprites/sheep/Sheepnorris_dos_2.png" id="4_4ecsy"]
+[ext_resource type="Texture2D" uid="uid://c11wv7po2rlfr" path="res://sprites/sheep/Sheepnorris_dos_1.png" id="5_4keur"]
+[ext_resource type="Texture2D" uid="uid://dbsknb3704ti5" path="res://sprites/sheep/Sheepnorris_dos_3.png" id="6_p5edt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yt3c4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_p5edt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4keur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4ecsy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4keur")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rbjdd"]
 
@@ -26,8 +49,16 @@ speed = 5.0
 amplitude = 0.1
 offsetTime = 1.87
 
-[node name="SheepBaseAppareance" parent="RotationNode" instance=ExtResource("2_mk1mw")]
+[node name="SheepBaseAppareance" type="Node3D" parent="RotationNode"]
 transform = Transform3D(0.1, 0, 0, 0, 0.0819152, 0.0573576, 0, -0.0573576, 0.0819152, 0, -0.0217646, 0)
+script = ExtResource("3_dheyl")
+speed = 4.0
+
+[node name="AnimatedSheep2" type="AnimatedSprite3D" parent="RotationNode/SheepBaseAppareance"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 11.2874, 7.90353)
+sprite_frames = SubResource("SpriteFrames_yt3c4")
+autoplay = "default"
+speed_scale = 0.2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20394, 0.664004)
