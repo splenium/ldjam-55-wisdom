@@ -82,10 +82,10 @@ func summon_kamikaze() -> void:
 		var futurKamikaze: Sheep = get_random_sacrifiable_sheep()
 		apply_sheep_addition(-(GameManager.kamikaze_cost - 1))
 		var kamikaze: KamikazeSheep = sheep_kamikaze.instantiate()
+		get_parent().add_child(kamikaze)
 		kamikaze.global_position = futurKamikaze.global_position
 		remove_sheep(futurKamikaze)
 		kamikaze.target = GameManager.find_nearest_of_player_ennemy()
-		get_parent().add_child(kamikaze)
 	else:
 		GameManager.PlaySound("Bai")
 	
