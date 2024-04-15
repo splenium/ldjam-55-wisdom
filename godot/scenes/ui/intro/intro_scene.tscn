@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=3 uid="uid://8cjtb4ij7p7i"]
+
+[ext_resource type="Script" path="res://scenes/ui/intro/intro_scene.gd" id="1_63y4v"]
+[ext_resource type="Texture2D" uid="uid://cwr6u6ph8qihh" path="res://sprites/ui/speach_intro/Ui_speach_intro.png" id="2_r5sbt"]
+[ext_resource type="Shader" path="res://shaders/flame.gdshader" id="3_1626q"]
+[ext_resource type="Texture2D" uid="uid://mc431u3a0xcn" path="res://sprites/ui/speach_intro/bulle text.png" id="4_j8ej2"]
+[ext_resource type="FontFile" uid="uid://cf8dib6qt5m14" path="res://fonts/Deutsch.ttf" id="5_qxeal"]
+[ext_resource type="Texture2D" uid="uid://vxeb2n5bacyt" path="res://sprites/ui/speach_intro/Dog_face.png" id="6_riyth"]
+[ext_resource type="Texture2D" uid="uid://c1ieomntxxtix" path="res://sprites/menu/bouton.png" id="7_wi3kn"]
+[ext_resource type="Theme" uid="uid://buyrdp78hirb6" path="res://buttons.tres" id="8_ilbyu"]
+[ext_resource type="FontFile" uid="uid://m3r5eastx02g" path="res://fonts/Dungeon Depths.ttf" id="9_ecbws"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8vecj"]
+shader = ExtResource("3_1626q")
+
+[node name="IntroScene" type="Node2D"]
+script = ExtResource("1_63y4v")
+
+[node name="UiSpeachIntro" type="Sprite2D" parent="."]
+position = Vector2(576, 325.5)
+scale = Vector2(0.4, 0.317871)
+texture = ExtResource("2_r5sbt")
+
+[node name="LeftFlame" type="ColorRect" parent="UiSpeachIntro"]
+material = SubResource("ShaderMaterial_8vecj")
+anchors_preset = -1
+anchor_left = 0.244
+anchor_top = 0.523
+anchor_right = 0.244
+anchor_bottom = 0.523
+offset_left = -2110.22
+offset_top = -1550.86
+offset_right = -772.22
+offset_bottom = -663.858
+
+[node name="RightFlame" type="ColorRect" parent="UiSpeachIntro"]
+material = SubResource("ShaderMaterial_8vecj")
+anchors_preset = -1
+anchor_left = 0.717
+anchor_top = 0.523
+anchor_right = 0.717
+anchor_bottom = 0.523
+offset_left = -2114.96
+offset_top = -1541.42
+offset_right = -776.96
+offset_bottom = -654.42
+
+[node name="BulleText" type="Sprite2D" parent="."]
+position = Vector2(641.75, 101.625)
+scale = Vector2(0.423387, 0.447168)
+texture = ExtResource("4_j8ej2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BulleText"]
+anchors_preset = -1
+anchor_left = 0.092
+anchor_top = 0.234
+anchor_right = 0.866
+anchor_bottom = 0.691
+offset_left = -806.685
+offset_top = -229.564
+offset_right = -805.373
+offset_bottom = -229.327
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_qxeal")
+theme_override_font_sizes/normal_font_size = 50
+text = "Brothers and sisters, look around you, do you see the darkness that surrounds us? Do you feel the burning of the infernal fire that consumes our souls?"
+tab_size = 5
+
+[node name="DogFace" type="Sprite2D" parent="."]
+position = Vector2(549, 240)
+scale = Vector2(0.0516931, 0.0545749)
+texture = ExtResource("6_riyth")
+
+[node name="Bouton" type="Sprite2D" parent="."]
+position = Vector2(978, 566)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_wi3kn")
+
+[node name="Button" type="Button" parent="Bouton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -236.0
+offset_right = -500.0
+offset_bottom = -236.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_ilbyu")
+theme_override_fonts/font = ExtResource("9_ecbws")
+theme_override_font_sizes/font_size = 50
+text = "Next"
+
+[connection signal="pressed" from="Bouton/Button" to="." method="_on_button_pressed"]

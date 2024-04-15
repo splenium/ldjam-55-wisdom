@@ -315,19 +315,14 @@ texture = ExtResource("11_vry1g")
 
 [node name="BoutonUp" type="Sprite2D" parent="."]
 position = Vector2(580, 440)
-scale = Vector2(0.33, 0.25)
+scale = Vector2(0.3, 0.227)
 texture = ExtResource("9_pxm2y")
 
 [node name="BoutonBottom" type="Sprite2D" parent="."]
 position = Vector2(600, 540)
-scale = Vector2(0.33, 0.25)
+scale = Vector2(0.3, 0.227)
 texture = ExtResource("9_pxm2y")
 flip_h = true
-
-[node name="Bouton" type="Sprite2D" parent="."]
-position = Vector2(589.063, 454.938)
-scale = Vector2(0.367507, 0.332816)
-texture = ExtResource("9_pxm2y")
 
 [connection signal="focus_entered" from="UI/VBoxContainerBoutons/Play" to="." method="_on_play_focus_entered"]
 [connection signal="focus_exited" from="UI/VBoxContainerBoutons/Play" to="." method="_on_play_focus_exited"]
