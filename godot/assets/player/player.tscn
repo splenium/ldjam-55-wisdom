@@ -36,7 +36,8 @@ albedo_texture = ExtResource("6_vvrw0")
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("follow_point", "PortalParticle")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
-collision_mask = 64
+collision_mask = 1088
+axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true

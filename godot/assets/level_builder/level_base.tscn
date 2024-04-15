@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dlfhg1wj5wgsq"]
+[gd_scene load_steps=22 format=3 uid="uid://dlfhg1wj5wgsq"]
 
 [ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_1h3mj"]
 [ext_resource type="PackedScene" uid="uid://dxouwlv2udh8p" path="res://ui/overlays/hud.tscn" id="1_vjd1n"]
@@ -13,20 +13,18 @@
 [ext_resource type="AudioStream" uid="uid://dbccs3hh736h5" path="res://music/sounds/NGTVST - Braam 3.wav" id="13_8u5jr"]
 [ext_resource type="AudioStream" uid="uid://do5nmfj3birpe" path="res://music/sounds/NGTVST - Hit 3.wav" id="14_01hlo"]
 [ext_resource type="AudioStream" uid="uid://b50b3hg6m3xii" path="res://music/sounds/Pass_Portal_396500__alonsotm__firespell3.wav" id="15_vo2ro"]
+[ext_resource type="Script" path="res://scenes/death_zone.gd" id="16_fjlkl"]
 [ext_resource type="AudioStream" uid="uid://caa7j1asu832g" path="res://music/sounds/Tentacles_204025__duckduckpony__impacts_splatter_watermelon_002.mp3" id="16_yqnr3"]
 [ext_resource type="PackedScene" uid="uid://xo63y6uf3jic" path="res://assets/camera.tscn" id="17_krd6c"]
+[ext_resource type="Script" path="res://scripts/despawner_ennemy_only.gd" id="17_rdn21"]
+[ext_resource type="PackedScene" uid="uid://bbxopes73c3ub" path="res://assets/ground_behind_player.tscn" id="18_5r108"]
+[ext_resource type="Script" path="res://scripts/despawner_sheep_norris.gd" id="18_uvyoh"]
 
-[sub_resource type="Environment" id="Environment_n0yng"]
-ambient_light_source = 2
-ambient_light_color = Color(0, 0.721569, 0.572549, 1)
-ambient_light_energy = 0.1
-tonemap_mode = 2
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 6.06
-glow_strength = 0.75
-volumetric_fog_enabled = true
-volumetric_fog_albedo = Color(0.14902, 0.282353, 0.321569, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_d7c4s"]
+size = Vector3(100, 1, 1000)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0g5gy"]
+size = Vector3(11.2458, 5.71014, 1)
 
 [node name="LevelBase" type="Node3D"]
 
@@ -56,9 +54,6 @@ HitSound = ExtResource("14_01hlo")
 PortalSound = ExtResource("15_vo2ro")
 TentaclesSound = ExtResource("16_yqnr3")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_n0yng")
-
 [node name="Camera3D" parent="." instance=ExtResource("17_krd6c")]
 current = true
 
@@ -66,3 +61,49 @@ current = true
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.49433, 0)
 light_color = Color(0.65098, 0.643137, 0.776471, 1)
 light_energy = 0.3
+
+[node name="DEATH" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 133
+script = ExtResource("16_fjlkl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.28135, 0)
+shape = SubResource("BoxShape3D_d7c4s")
+
+[node name="EnnemyDespawner" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.06003)
+collision_layer = 512
+collision_mask = 4
+script = ExtResource("17_rdn21")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnnemyDespawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0480747, 0.256622, 0)
+shape = SubResource("BoxShape3D_0g5gy")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="EnnemyDespawner"]
+transform = Transform3D(3.40466, 0, 0, 0, 1.95502, 0, 0, 0, 1, 0.0660818, 0.255177, 0)
+visible = false
+size = Vector3(3.28784, 2.92035, 1)
+
+[node name="GroundBehindPlayer" parent="." instance=ExtResource("18_5r108")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.362)
+
+[node name="SheepNorrisDespawner" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.6626)
+collision_layer = 512
+collision_mask = 256
+script = ExtResource("18_uvyoh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SheepNorrisDespawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0480747, 0.256622, 0)
+shape = SubResource("BoxShape3D_0g5gy")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="SheepNorrisDespawner"]
+transform = Transform3D(3.40466, 0, 0, 0, 1.95502, 0, 0, 0, 1, 0.0660818, 0.255177, 0)
+visible = false
+size = Vector3(3.28784, 2.92035, 1)
+
+[connection signal="body_entered" from="DEATH" to="DEATH" method="_on_body_entered"]
+[connection signal="body_entered" from="EnnemyDespawner" to="EnnemyDespawner" method="_on_body_entered"]
+[connection signal="body_entered" from="SheepNorrisDespawner" to="SheepNorrisDespawner" method="_on_body_entered"]

@@ -41,7 +41,7 @@ vec3 rdr(vec2 uv, float iTime)
 
 void fragment() {
 	vec2 off = texture(noise, UV).xx;
-	ALBEDO.rgb = rdr(UV-.5+off*.1, TIME);
+	ALBEDO.rgb = rdr(UV-.5+off*.1, TIME)*3.0;
 	// Called for every pixel the material is visible on.
 	ALPHA = texture(mask, UV).x;
 }

@@ -1,0 +1,16 @@
+[gd_scene load_steps=7 format=3 uid="uid://c40yqoeuflpnt"]
+
+[ext_resource type="PackedScene" uid="uid://dlfhg1wj5wgsq" path="res://assets/level_builder/level_base.tscn" id="1_nktvd"]
+[ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="2_ednq2"]
+[ext_resource type="PackedScene" uid="uid://e0e0tpy6napv" path="res://assets/level_builder/level_tiles/t_bonus_cheat_1.tscn" id="3_c3uo1"]
+[ext_resource type="PackedScene" uid="uid://cghvqlms3ilnj" path="res://assets/level_builder/level_tiles/t_bonus_2.tscn" id="4_ae8kr"]
+[ext_resource type="PackedScene" uid="uid://87j3t3i5pr27" path="res://assets/level_builder/level_tiles/t_ennemy_1.tscn" id="6_wxixl"]
+[ext_resource type="PackedScene" uid="uid://2b7nyqa0a2qv" path="res://assets/level_builder/level_tiles/t_ennemy_2.tscn" id="7_7uqs2"]
+
+[node name="Level2" type="Node3D"]
+
+[node name="LevelBase" parent="." instance=ExtResource("1_nktvd")]
+
+[node name="Path" parent="." instance=ExtResource("2_ednq2")]
+unique_name_in_owner = true
+level_tiles = Array[PackedScene]([ExtResource("3_c3uo1"), ExtResource("4_ae8kr"), ExtResource("7_7uqs2"), ExtResource("6_wxixl"), ExtResource("7_7uqs2"), ExtResource("7_7uqs2")])
