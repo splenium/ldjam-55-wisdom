@@ -1,72 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://c686nh780bkhr"]
+[gd_scene load_steps=5 format=3 uid="uid://c686nh780bkhr"]
 
+[ext_resource type="PackedScene" uid="uid://dlfhg1wj5wgsq" path="res://assets/level_builder/level_base.tscn" id="1_8t4op"]
 [ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="1_dl0uc"]
-[ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_faqqn"]
 [ext_resource type="PackedScene" uid="uid://bjjk6hjqv4nfh" path="res://assets/level_builder/level_tiles/bonus1.tscn" id="3_0675t"]
 [ext_resource type="PackedScene" uid="uid://cfx0icvxfoj0r" path="res://assets/level_builder/level_tiles/ennemy1.tscn" id="4_83uss"]
-[ext_resource type="AudioStream" uid="uid://bk3wdsgfre3v6" path="res://music/Level_PerituneMaterial_Fear.mp3" id="7_sw7ch"]
-[ext_resource type="PackedScene" uid="uid://dnc23auci4r2i" path="res://assets/sound_manager.tscn" id="8_13nc4"]
-[ext_resource type="AudioStream" uid="uid://cxmy7d633yd4m" path="res://music/sounds/51427__smcameron__synthetic_bomb.mp3" id="9_x8nws"]
-[ext_resource type="AudioStream" uid="uid://pax5ljjdl5i5" path="res://music/sounds/140726__j1987__tiny_rocket.mp3" id="10_tqw4s"]
-[ext_resource type="AudioStream" uid="uid://blncxfsxh8oix" path="res://music/sounds/162168__hunterscrossbow__aah2.wav" id="11_2c3y1"]
-[ext_resource type="AudioStream" uid="uid://cus6v0y80t4nd" path="res://music/sounds/533025__oldestmillennial__dark-teleport.wav" id="12_dgjhs"]
-[ext_resource type="AudioStream" uid="uid://w5vj2ci67rbw" path="res://music/sounds/baiiii.mp3" id="13_w3c3g"]
-[ext_resource type="AudioStream" uid="uid://dabiwk6qx0eux" path="res://music/sounds/MoutonDie.wav" id="14_xebih"]
-[ext_resource type="AudioStream" uid="uid://dbccs3hh736h5" path="res://music/sounds/NGTVST - Braam 3.wav" id="15_chnop"]
-[ext_resource type="AudioStream" uid="uid://do5nmfj3birpe" path="res://music/sounds/NGTVST - Hit 3.wav" id="16_3s4ik"]
-[ext_resource type="AudioStream" uid="uid://b50b3hg6m3xii" path="res://music/sounds/Pass_Portal_396500__alonsotm__firespell3.wav" id="18_qwpog"]
-[ext_resource type="AudioStream" uid="uid://caa7j1asu832g" path="res://music/sounds/Tentacles_204025__duckduckpony__impacts_splatter_watermelon_002.mp3" id="19_s6nei"]
-[ext_resource type="PackedScene" uid="uid://xo63y6uf3jic" path="res://assets/camera.tscn" id="20_6pe5b"]
-
-[sub_resource type="Environment" id="Environment_n0yng"]
-ambient_light_source = 2
-ambient_light_color = Color(0, 0.721569, 0.572549, 1)
-ambient_light_energy = 0.1
-tonemap_mode = 2
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 6.06
-glow_strength = 0.75
-volumetric_fog_enabled = true
-volumetric_fog_albedo = Color(0.14902, 0.282353, 0.321569, 1)
 
 [node name="Level1" type="Node3D"]
 
-[node name="Player" parent="." node_paths=PackedStringArray("spawnPointSheep") instance=ExtResource("1_faqqn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170473, -0.431916)
-spawnPointSheep = NodePath("../SpawnPoint")
+[node name="LevelBase" parent="." instance=ExtResource("1_8t4op")]
 
 [node name="Path" parent="." instance=ExtResource("1_dl0uc")]
 unique_name_in_owner = true
-level_tiles = Array[PackedScene]([ExtResource("3_0675t"), ExtResource("4_83uss"), ExtResource("3_0675t"), ExtResource("4_83uss"), ExtResource("4_83uss")])
-
-[node name="SpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.227706, 0)
-
-[node name="AudioStreamPlayer_MainMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_sw7ch")
-volume_db = -30.0
-autoplay = true
-
-[node name="SoundManager" parent="." instance=ExtResource("8_13nc4")]
-BombSound = ExtResource("9_x8nws")
-RocketSound = ExtResource("10_tqw4s")
-HolySound = ExtResource("11_2c3y1")
-TeleportSound = ExtResource("12_dgjhs")
-BaiSound = ExtResource("13_w3c3g")
-DieSound = ExtResource("14_xebih")
-BraamSound = ExtResource("15_chnop")
-HitSound = ExtResource("16_3s4ik")
-PortalSound = ExtResource("18_qwpog")
-TentaclesSound = ExtResource("19_s6nei")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_n0yng")
-
-[node name="Camera3D" parent="." instance=ExtResource("20_6pe5b")]
-current = true
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.49433, 0)
-light_color = Color(0.65098, 0.643137, 0.776471, 1)
-light_energy = 0.3
+level_tiles = Array[PackedScene]([ExtResource("3_0675t"), ExtResource("4_83uss")])
