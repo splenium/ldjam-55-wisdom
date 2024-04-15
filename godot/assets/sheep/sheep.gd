@@ -29,5 +29,6 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 			isFalling = true
 	pass
 
-func _exit_tree() -> void:
+func die() -> void:
 	GameManager.PlaySound("Die")
+	queue_free()

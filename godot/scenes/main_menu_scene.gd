@@ -4,17 +4,14 @@ extends Node2D
 
 @onready var button_v_box: VBoxContainer = %VBoxContainerBoutons;
 
-var next_scene: PackedScene = game_scene;
-
 func _ready() -> void :
 	AudioMenuPlayer.play_music_level();
 	focus_button()
 	
 func _on_play_pressed() -> void:
-	next_scene = game_scene;
 	AudioMenuPlayer.play_baiiii_sound();
 	AudioMenuPlayer.stop_menu_level();
-	get_tree().change_scene_to_packed(next_scene);
+	GameManager.next_level()
 
 func focus_button() -> void :
 	var button: Button = get_node("UI/VBoxContainerBoutons/Play");
