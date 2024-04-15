@@ -230,6 +230,7 @@ shader_parameter/seed = null
 shader_parameter/voronoise = ExtResource("5_f7h5n")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m1evv"]
+size = Vector3(3.27895, 0.39502, 10.0049)
 
 [node name="BaseFloor" type="Node3D"]
 
@@ -557,10 +558,9 @@ light_energy = 4.408
 light_size = 1.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(3.4, 0, 0, 0, 0.3, 0, 0, 0, 10, 0, 0, 0)
 collision_layer = 64
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0452499, -0.19751, -0.000488281)
 shape = SubResource("BoxShape3D_m1evv")

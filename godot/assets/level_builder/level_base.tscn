@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dlfhg1wj5wgsq"]
+[gd_scene load_steps=22 format=3 uid="uid://dlfhg1wj5wgsq"]
 
 [ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_1h3mj"]
 [ext_resource type="PackedScene" uid="uid://dxouwlv2udh8p" path="res://ui/overlays/hud.tscn" id="1_vjd1n"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://caa7j1asu832g" path="res://music/sounds/Tentacles_204025__duckduckpony__impacts_splatter_watermelon_002.mp3" id="16_yqnr3"]
 [ext_resource type="PackedScene" uid="uid://xo63y6uf3jic" path="res://assets/camera.tscn" id="17_krd6c"]
 [ext_resource type="Script" path="res://scripts/despawner_ennemy_only.gd" id="17_rdn21"]
+[ext_resource type="PackedScene" uid="uid://bbxopes73c3ub" path="res://assets/ground_behind_player.tscn" id="18_5r108"]
 [ext_resource type="Script" path="res://scripts/despawner_sheep_norris.gd" id="18_uvyoh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d7c4s"]
@@ -84,6 +85,9 @@ shape = SubResource("BoxShape3D_0g5gy")
 transform = Transform3D(3.40466, 0, 0, 0, 1.95502, 0, 0, 0, 1, 0.0660818, 0.255177, 0)
 visible = false
 size = Vector3(3.28784, 2.92035, 1)
+
+[node name="GroundBehindPlayer" parent="." instance=ExtResource("18_5r108")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.362)
 
 [node name="SheepNorrisDespawner" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.6626)
