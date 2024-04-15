@@ -22,6 +22,7 @@ class_name Player extends CharacterBody3D
 @export var mega_sheep_spawn_z_offset := 1
 
 var sheepList: Array[Sheep] = []
+var not_spawned_sheep: int = 0
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 # Called when the node enters the scene tree for the first time.
@@ -38,6 +39,7 @@ func _ready() -> void:
 func _process(_d: float) -> void:
 	GameManager.number_of_sheep = get_only_sacrificial_sheep()
 	attack()
+	#print("actual sheep: " + str(get_spawned_sheep_number()))
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -108,7 +110,12 @@ func instantiate_sheep() -> Sheep:
 	instance.target = follow_point
 	return instance
 
-func add_sheep(sheep: Sheep) -> void:
+func add_sheep(sheepPositionNumber: int = 0) -> void:
+	var sheep: Sheep = instantiate_sheep()
+	var middle_offset: float = ((spawn_sheep_line * spawn_x_offset) / 5)
+	sheep.position.x = sheep.position.x + (sheepPositionNumber % spawn_sheep_line) * spawn_x_offset - middle_offset
+	@warning_ignore("integer_division")
+	sheep.position.z += ceil(sheepPositionNumber / spawn_sheep_line) * spawn_y_offset
 	spawnPointSheep.add_child(sheep)
 	sheepList.append(sheep)
 	pass
@@ -116,9 +123,12 @@ func add_sheep(sheep: Sheep) -> void:
 func get_sheep_number() -> int:
 	# Take in account the player
 	return sheepList.size() + 1
+	
+func get_spawned_sheep_number() -> int:
+	return sheepList.size()
 
 func get_only_sacrificial_sheep() -> int:
-	return sheepList.size()
+	return sheepList.size() + not_spawned_sheep
 
 func apply_sheep_addition(sheep_to_add: int) -> void:
 	PortalParticle.restart()
@@ -141,22 +151,43 @@ func apply_sheep_multiplicator(multiplicator: int) -> void:
 
 func apply_sheep_edition(sheepDiff: int) -> void:
 	if sheepDiff > 0:
-		for i in range(0, sheepDiff):
-			var sheep: Sheep = instantiate_sheep()
-			var middle_offset: float = ((spawn_sheep_line * spawn_x_offset) / 2)
-			sheep.position.x = sheep.position.x + (i % spawn_sheep_line) * spawn_x_offset - middle_offset
-			@warning_ignore("integer_division")
-			sheep.position.z += ceil(i / spawn_sheep_line) * spawn_y_offset
-			add_sheep(sheep)
+		var maximumSheepToSpawn: int = GameManager.maximum_visisble_sheep - get_spawned_sheep_number()
+		var sheepToSpawn: int = 0
+		if sheepDiff > maximumSheepToSpawn:
+			sheepToSpawn = maximumSheepToSpawn
+			not_spawned_sheep += sheepDiff - sheepToSpawn
+		else:
+			sheepToSpawn = sheepDiff
+		print("sheepToSpawn " + str(sheepToSpawn))
+		for i in range(0, sheepToSpawn):
+			add_sheep(i)
 	elif sheepDiff < 0:
 		var numsToDelete: int = abs(sheepDiff)
-		if(numsToDelete >= get_only_sacrificial_sheep()):
-			remove_all_sheep()
+		var spawnedSheepNumber: int = get_spawned_sheep_number()
+		if(numsToDelete >= spawnedSheepNumber):
+			remove_all_spawned_sheep()
+			numsToDelete -= spawnedSheepNumber 
+			if numsToDelete > 0:
+				not_spawned_sheep -= numsToDelete
+				if not_spawned_sheep < 0:
+					not_spawned_sheep = 0
 		else:
 			for i in range(0, numsToDelete):
 				remove_sheep(sheepList[0])
+		spawn_reserviste_sheep()
 	update_follow_point()
 	pass
+	
+func spawn_reserviste_sheep() -> void:
+	var maximumSheepToSpawn: int = GameManager.maximum_visisble_sheep - get_spawned_sheep_number()
+	var j: int = 0
+	for i in range(0, not_spawned_sheep):
+		if i > maximumSheepToSpawn:
+			break
+		add_sheep(i)
+		not_spawned_sheep -= 1
+		j = i
+	print("spawned " + str(j) + " sheep")
 
 func remove_sheep(sheep: Sheep) -> void:
 	var idx: int = sheepList.find(sheep)
@@ -164,16 +195,17 @@ func remove_sheep(sheep: Sheep) -> void:
 		sheepList.remove_at(idx)
 		sheep.die()
 		update_follow_point()
-	pass
+	spawn_reserviste_sheep()
 
-func remove_all_sheep() -> void:
+func remove_all_spawned_sheep() -> void:
 	for sheep in sheepList:
 		sheep.queue_free()
 	sheepList.clear()
 	pass
 
 func die() -> void:
-	remove_all_sheep()
+	remove_all_spawned_sheep()
+	not_spawned_sheep = 0
 	GameManager.game_over()
 	pass
 
