@@ -1,0 +1,100 @@
+[gd_scene load_steps=3 format=3 uid="uid://87j3t3i5pr27"]
+
+[ext_resource type="PackedScene" uid="uid://c2jwls8paont4" path="res://assets/level_builder/level_tiles/level_elements/base_floor.tscn" id="1_vdbvb"]
+[ext_resource type="PackedScene" uid="uid://bel8kmpokgkbo" path="res://assets/enemies/priest.tscn" id="2_wusnc"]
+
+[node name="Ennemy1" type="Node3D"]
+
+[node name="BaseFloor" parent="." instance=ExtResource("1_vdbvb")]
+
+[node name="GRP" type="Node3D" parent="."]
+
+[node name="Priest3" parent="GRP" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.448562, 0.158752, 0.528715)
+
+[node name="Priest4" parent="GRP" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.666688, 0.158752, 0.884706)
+
+[node name="Priest6" parent="GRP" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0680604, 0.158752, 0.721616)
+
+[node name="Priest17" parent="GRP" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.351821, 0.158752, 0.572758)
+
+[node name="Priest18" parent="GRP" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.108911, 0.158752, 0.572758)
+
+[node name="Priest19" parent="GRP" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.138866, 0.158752, 0.572758)
+
+[node name="Priest20" parent="GRP" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701342, 0.158752, 0.572758)
+
+[node name="Priest21" parent="GRP" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02661, 0.158752, 0.572758)
+
+[node name="Priest22" parent="GRP" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.719342, 0.158752, 0.572758)
+
+[node name="Priest23" parent="GRP" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0422, 0.158752, 0.441038)
+
+[node name="Priest24" parent="GRP" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.31999, 0.158752, 0.441038)
+
+[node name="GRP2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.05473)
+
+[node name="Priest3" parent="GRP2" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.448562, 0.158752, 0.528715)
+
+[node name="Priest4" parent="GRP2" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08586, 0.158752, 0.884706)
+
+[node name="Priest5" parent="GRP2" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.805808, 0.158752, 0.884706)
+
+[node name="Priest7" parent="GRP2" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46859, 0.158752, 0.884706)
+
+[node name="Priest8" parent="GRP2" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110401, 0.158752, 0.884706)
+
+[node name="Priest9" parent="GRP2" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.255985, 0.158752, 0.884706)
+
+[node name="Priest10" parent="GRP2" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.618659, 0.158752, 0.884706)
+
+[node name="Priest11" parent="GRP2" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.618659, 0.158752, 0.698903)
+
+[node name="Priest6" parent="GRP2" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0680604, 0.158752, 0.721616)
+
+[node name="Priest17" parent="GRP2" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.351821, 0.158752, 0.572758)
+
+[node name="Priest18" parent="GRP2" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.108911, 0.158752, 0.572758)
+
+[node name="Priest19" parent="GRP2" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.138866, 0.158752, 0.572758)
+
+[node name="Priest20" parent="GRP2" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701342, 0.158752, 0.572758)
+
+[node name="Priest21" parent="GRP2" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02661, 0.158752, 0.572758)
+
+[node name="Priest22" parent="GRP2" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.719342, 0.158752, 0.572758)
+
+[node name="Priest23" parent="GRP2" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0422, 0.158752, 0.441038)
+
+[node name="Priest25" parent="GRP2" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.653247, 0.158752, 0.367866)
+
+[node name="Priest24" parent="GRP2" instance=ExtResource("2_wusnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.31999, 0.158752, 0.441038)

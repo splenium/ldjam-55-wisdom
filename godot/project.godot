@@ -74,6 +74,7 @@ attack_mega_sheep={
 3d_physics/layer_8="sheep"
 3d_physics/layer_9="sheep_norris"
 3d_physics/layer_10="despawner"
+3d_physics/layer_11="player_obstacle"
 
 [rendering]
 

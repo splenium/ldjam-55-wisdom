@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://cw2g67svu7ksf"]
+
+[ext_resource type="PackedScene" uid="uid://c2jwls8paont4" path="res://assets/level_builder/level_tiles/level_elements/base_floor.tscn" id="1_cxxck"]
+[ext_resource type="PackedScene" uid="uid://bmwr18mufr03" path="res://assets/level_builder/level_tiles/level_elements/barrier_4.tscn" id="2_lbg5k"]
+[ext_resource type="PackedScene" uid="uid://bel8kmpokgkbo" path="res://assets/enemies/priest.tscn" id="3_2x1gp"]
+[ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator/multiplicator.tscn" id="4_ef7eu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i4h1q"]
+radius = 0.199323
+height = 0.796286
+
+[node name="Bonus1" type="Node3D"]
+
+[node name="BaseFloor" parent="." instance=ExtResource("1_cxxck")]
+
+[node name="barrier4" parent="." instance=ExtResource("2_lbg5k")]
+transform = Transform3D(-4.37114e-08, -0.5, -0.866025, 0, 0.866025, -0.5, 1, -2.18557e-08, -3.78552e-08, 0.0199838, 0.259, 0.868942)
+collision_layer = 1056
+collision_mask = 133
+
+[node name="antibump" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30252e-08, 0.259, 3.88038)
+collision_layer = 1056
+collision_mask = 129
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="antibump"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0521259)
+shape = SubResource("CapsuleShape3D_i4h1q")
+
+[node name="barrier5" parent="." instance=ExtResource("2_lbg5k")]
+transform = Transform3D(-4.37114e-08, 0.5, -0.866025, 0, 0.866025, 0.5, 1, 2.18557e-08, -3.78552e-08, 0, 0.259, 2.88533)
+collision_layer = 1056
+collision_mask = 133
+
+[node name="barrier" type="Node3D" parent="."]
+
+[node name="GRP5" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69888, 0.000771135, 0.741138)
+
+[node name="Priest3" parent="GRP5" instance=ExtResource("3_2x1gp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35534, 0.158752, 1.33983)
+
+[node name="Priest4" parent="GRP5" instance=ExtResource("3_2x1gp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08586, 0.158752, 0.884706)
+
+[node name="Priest5" parent="GRP5" instance=ExtResource("3_2x1gp")]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -0.805808, 0.158752, 0.884706)
+
+[node name="Priest7" parent="GRP5" instance=ExtResource("3_2x1gp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46859, 0.158752, 0.884706)
+
+[node name="Priest8" parent="GRP5" instance=ExtResource("3_2x1gp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.352762, 0.158752, 0.548062)
+
+[node name="Priest9" parent="GRP5" instance=ExtResource("3_2x1gp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.550619, 0.158752, 1.13541)
+
+[node name="Priest10" parent="GRP5" instance=ExtResource("3_2x1gp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.991473, 0.158752, 1.09937)
+
+[node name="Priest11" parent="GRP5" instance=ExtResource("3_2x1gp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04489, 0.158752, 0.0444534)
+
+[node name="Priest20" parent="GRP5" instance=ExtResource("3_2x1gp")]
+transform = Transform3D(0.999961, 0, 0.00886616, 0, 1, 0, -0.00886615, 0, 0.99996, -0.117018, 0.158752, 0.12715)
+
+[node name="Priest21" parent="GRP5" instance=ExtResource("3_2x1gp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.524401, 0.158752, 0.0122083)
+
+[node name="Priest22" parent="GRP5" instance=ExtResource("3_2x1gp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.719342, 0.158752, 0.572758)
+
+[node name="Priest23" parent="GRP5" instance=ExtResource("3_2x1gp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0422, 0.158752, 0.441038)
+
+[node name="Priest25" parent="GRP5" instance=ExtResource("3_2x1gp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.653247, 0.158752, 0.367866)
+
+[node name="Priest24" parent="GRP5" instance=ExtResource("3_2x1gp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.31999, 0.158752, 0.441038)
+
+[node name="Multiplicator3" parent="." instance=ExtResource("4_ef7eu")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -0.847548, 0.320138, 1.60512)
+modificator = -2
