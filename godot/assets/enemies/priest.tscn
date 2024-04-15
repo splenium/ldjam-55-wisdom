@@ -7,14 +7,13 @@
 radius = 0.0968226
 height = 0.32113
 
-[node name="Priest" type="RigidBody3D"]
+[node name="Priest" type="RigidBody3D" groups=["ennemy"]]
 collision_layer = 4
 collision_mask = 237
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("1_pnmm4")
-speed = 25.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_fodk2")

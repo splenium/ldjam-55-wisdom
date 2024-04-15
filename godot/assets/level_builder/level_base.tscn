@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dlfhg1wj5wgsq"]
+[gd_scene load_steps=20 format=3 uid="uid://dlfhg1wj5wgsq"]
 
 [ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_1h3mj"]
 [ext_resource type="PackedScene" uid="uid://dxouwlv2udh8p" path="res://ui/overlays/hud.tscn" id="1_vjd1n"]
@@ -13,8 +13,11 @@
 [ext_resource type="AudioStream" uid="uid://dbccs3hh736h5" path="res://music/sounds/NGTVST - Braam 3.wav" id="13_8u5jr"]
 [ext_resource type="AudioStream" uid="uid://do5nmfj3birpe" path="res://music/sounds/NGTVST - Hit 3.wav" id="14_01hlo"]
 [ext_resource type="AudioStream" uid="uid://b50b3hg6m3xii" path="res://music/sounds/Pass_Portal_396500__alonsotm__firespell3.wav" id="15_vo2ro"]
+[ext_resource type="PackedScene" uid="uid://dokuxl7pslgf0" path="res://assets/death_and_despawner/death.tscn" id="16_uw77w"]
 [ext_resource type="AudioStream" uid="uid://caa7j1asu832g" path="res://music/sounds/Tentacles_204025__duckduckpony__impacts_splatter_watermelon_002.mp3" id="16_yqnr3"]
+[ext_resource type="PackedScene" uid="uid://djp5wt2770tbf" path="res://assets/death_and_despawner/despawner_ennemy.tscn" id="17_i6d71"]
 [ext_resource type="PackedScene" uid="uid://xo63y6uf3jic" path="res://assets/camera.tscn" id="17_krd6c"]
+[ext_resource type="PackedScene" uid="uid://ws1pu7kmy550" path="res://assets/death_and_despawner/despawner_sheep_norris.tscn" id="18_vds7t"]
 
 [sub_resource type="Environment" id="Environment_n0yng"]
 ambient_light_source = 2
@@ -66,3 +69,9 @@ current = true
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.49433, 0)
 light_color = Color(0.65098, 0.643137, 0.776471, 1)
 light_energy = 0.3
+
+[node name="DEATH" parent="." instance=ExtResource("16_uw77w")]
+
+[node name="DespawnerEnnemy" parent="." instance=ExtResource("17_i6d71")]
+
+[node name="DespawnerSheepNorris" parent="." instance=ExtResource("18_vds7t")]

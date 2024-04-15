@@ -27,11 +27,18 @@ func next_level() -> void:
 		get_tree().change_scene_to_packed(endGame)
 		levelIndex = -1
 
-func find_ennemy(parent: Node) -> Ennemy:
-	for child in parent.get_children():
-		if child is Priest:
-			return child
-		var grandchild := find_ennemy(child)
-		if grandchild != null:
-			return grandchild
-	return null
+func find_nearest_of_player_ennemy() -> Ennemy:
+	var all_enemy: Array[Node] = get_tree().get_nodes_in_group("ennemy")
+	var closet_ennemy: Ennemy = null
+	var closet_distance: float = -1.0
+	if player:
+		for enemy in all_enemy:
+			var distance_between_player_and_ennemy: float = player.global_position.distance_to(enemy.global_position)
+			if closet_distance < 0 or distance_between_player_and_ennemy < closet_distance:
+				closet_distance = distance_between_player_and_ennemy
+				closet_ennemy = enemy
+	#if closet_ennemy:
+		#print("finded ennemy: " + closet_ennemy.name)
+	#else:
+		#print("no ennemies found " + str(all_enemy.size()))
+	return closet_ennemy
