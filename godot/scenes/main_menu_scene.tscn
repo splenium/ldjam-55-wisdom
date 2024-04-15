@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dapwdbtp3twuv"]
+[gd_scene load_steps=22 format=3 uid="uid://dapwdbtp3twuv"]
 
 [ext_resource type="Script" path="res://scenes/main_menu_scene.gd" id="1_1foie"]
 [ext_resource type="PackedScene" uid="uid://c686nh780bkhr" path="res://scenes/level1.tscn" id="2_a0bjr"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c1ieomntxxtix" path="res://sprites/menu/bouton.png" id="9_pxm2y"]
 [ext_resource type="Texture2D" uid="uid://jg6iyo3uxr1w" path="res://sprites/menu/background_pilone_element.png" id="11_n81iw"]
 [ext_resource type="Texture2D" uid="uid://ceefh4m3b3r7g" path="res://sprites/menu/menu_selector.png" id="11_vry1g"]
+[ext_resource type="Shader" path="res://shaders/PostFX.gdshader" id="12_j21xm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tucv2"]
 shader = ExtResource("3_qm1xq")
@@ -45,6 +46,12 @@ shader_parameter/gradient_tex = SubResource("GradientTexture2D_8shud")
 
 [sub_resource type="Theme" id="Theme_aym8a"]
 BoxContainer/constants/separation = 50
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a527u"]
+shader = ExtResource("12_j21xm")
+shader_parameter/kraken = null
+shader_parameter/Shake = null
+shader_parameter/factor = null
 
 [node name="MainMenuScene" type="Node2D"]
 script = ExtResource("1_1foie")
@@ -341,6 +348,14 @@ visible = false
 position = Vector2(140, 25)
 scale = Vector2(0.045, 0.05)
 texture = ExtResource("11_vry1g")
+
+[node name="PostFX" type="ColorRect" parent="UI"]
+material = SubResource("ShaderMaterial_a527u")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="BoutonUp" type="Sprite2D" parent="."]
 position = Vector2(580, 440)
