@@ -37,7 +37,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(d: float) -> void:
+func _process(_d: float) -> void:
 	attack()
 	pass
 
@@ -83,9 +83,9 @@ func summon_kamikaze() -> void:
 		var futurKamikaze: Sheep = get_random_sacrifiable_sheep()
 		apply_sheep_addition(-(kamikaze_cost - 1))
 		var kamikaze: KamikazeSheep = sheep_kamikaze.instantiate()
+		get_parent().add_child(kamikaze)
 		kamikaze.global_position = futurKamikaze.global_position
 		remove_sheep(futurKamikaze)
-		get_parent().add_child(kamikaze)
 		kamikaze.target = GameManager.find_ennemy(get_parent())
 	else:
 		GameManager.PlaySound("Bai")
@@ -93,13 +93,14 @@ func summon_kamikaze() -> void:
 func summon_mega_sheep() -> void:
 	if can_i_launch_it(mega_sheep_cost):
 		apply_sheep_addition(-mega_sheep_cost)
-		var mega_sheep: MegaSheep = mega_sheep.instantiate()
-		mega_sheep.global_position.z += mega_sheep_spawn_z_offset
-		spawnPointSheep.add_child(mega_sheep)
+		var mega_sheep_instance: MegaSheep = mega_sheep.instantiate()
+		spawnPointSheep.add_child(mega_sheep_instance)
+		mega_sheep_instance.global_position.z += mega_sheep_spawn_z_offset
 	else:
 		GameManager.PlaySound("Bai")
 
 func update_follow_point() -> void:
+	@warning_ignore("integer_division")
 	follow_point.position.z = -floor(get_sheep_number() / follow_sheep_number_per_step) * follow_step_size - 0.55
 	pass
 	
@@ -132,6 +133,7 @@ func apply_sheep_multiplicator(multiplicator: int) -> void:
 	PortalParticle.emitting = true
 	var sheepDiff := 0
 	if multiplicator < 0:
+		@warning_ignore("integer_division")
 		sheepDiff = get_only_sacrificial_sheep() / multiplicator		
 	else:
 		sheepDiff = get_only_sacrificial_sheep() * multiplicator
@@ -144,14 +146,15 @@ func apply_sheep_edition(sheepDiff: int) -> void:
 			var sheep: Sheep = instantiate_sheep()
 			var middle_offset: float = ((spawn_sheep_line * spawn_x_offset) / 2)
 			sheep.position.x = sheep.position.x + (i % spawn_sheep_line) * spawn_x_offset - middle_offset
+			@warning_ignore("integer_division")
 			sheep.position.z += ceil(i / spawn_sheep_line) * spawn_y_offset
 			add_sheep(sheep)
 	elif sheepDiff < 0:
 		var numsToDelete: int = abs(sheepDiff)
-		if(abs(sheepDiff) >= get_only_sacrificial_sheep()):
+		if(numsToDelete >= get_only_sacrificial_sheep()):
 			remove_all_sheep()
 		else:
-			for i in range(0, abs(sheepDiff)):
+			for i in range(0, numsToDelete):
 				remove_sheep(sheepList[0])
 	update_follow_point()
 	pass

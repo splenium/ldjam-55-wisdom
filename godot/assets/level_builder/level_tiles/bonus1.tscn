@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjjk6hjqv4nfh"]
+
+[ext_resource type="PackedScene" uid="uid://c2jwls8paont4" path="res://assets/level_builder/level_tiles/level_elements/base_floor.tscn" id="1_txnvw"]
+[ext_resource type="PackedScene" uid="uid://cqksnij425pe5" path="res://assets/modificator/additionator.tscn" id="2_wo4dd"]
+[ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator/multiplicator.tscn" id="3_qpvet"]
+
+[node name="Bonus1" type="Node3D"]
+
+[node name="BaseFloor" parent="." instance=ExtResource("1_txnvw")]
+
+[node name="Additionator" parent="." instance=ExtResource("2_wo4dd")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, 3.29501)
+sheep_to_add = 10
+
+[node name="Multiplicator" parent="." instance=ExtResource("3_qpvet")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, 3.30922)
+modificator = 3
+
+[node name="Additionator2" parent="." instance=ExtResource("2_wo4dd")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, 0.951306)
+sheep_to_add = -10
+
+[node name="Multiplicator2" parent="." instance=ExtResource("3_qpvet")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, 0.965507)
+modificator = -2
+
+[node name="Additionator4" parent="." instance=ExtResource("2_wo4dd")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -3.19617)
+sheep_to_add = 10
+
+[node name="Multiplicator4" parent="." instance=ExtResource("3_qpvet")]
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -3.18197)
+modificator = 3

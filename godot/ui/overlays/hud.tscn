@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://ciacalxsekx22"]
+
+[ext_resource type="Texture2D" uid="uid://jg6iyo3uxr1w" path="res://sprites/menu/background_pilone_element.png" id="1_r1kff"]
+[ext_resource type="Texture2D" uid="uid://dvstsgle1ntq8" path="res://sprites/ui/powers/sheep_counter_green_shadow.png" id="2_g7dy6"]
+[ext_resource type="Texture2D" uid="uid://cnyr1jvegcs02" path="res://sprites/ui/powers/bomberlamb.png" id="3_rl6tn"]
+[ext_resource type="Texture2D" uid="uid://bmi7ny3aeesf6" path="res://sprites/ui/powers/kraken.png" id="4_andbv"]
+[ext_resource type="Texture2D" uid="uid://pihm6kdlux0p" path="res://sprites/ui/powers/sheepnorris.png" id="5_1k0ji"]
+
+[node name="HUD" type="Node2D"]
+
+[node name="BackgroundPiloneElement" type="Sprite2D" parent="."]
+position = Vector2(610, 528)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_r1kff")
+
+[node name="SheepCounterGreenShadow" type="Sprite2D" parent="."]
+position = Vector2(997, 81)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_g7dy6")
+
+[node name="Powers" type="Node2D" parent="."]
+
+[node name="Bomberlamb" type="Sprite2D" parent="Powers"]
+position = Vector2(50, 580)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_rl6tn")
+
+[node name="Kraken" type="Sprite2D" parent="Powers"]
+position = Vector2(140, 580)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_andbv")
+
+[node name="Sheepnorris" type="Sprite2D" parent="Powers"]
+position = Vector2(230, 580)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_1k0ji")

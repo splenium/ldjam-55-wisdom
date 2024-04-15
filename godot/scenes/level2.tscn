@@ -1,101 +1,15 @@
-[gd_scene load_steps=26 format=3 uid="uid://or2sm3cft7al"]
+[gd_scene load_steps=6 format=3 uid="uid://or2sm3cft7al"]
 
-[ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_e8ghl"]
+[ext_resource type="PackedScene" uid="uid://dlfhg1wj5wgsq" path="res://assets/level_builder/level_base.tscn" id="1_w7ml6"]
 [ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="2_ix7ds"]
-[ext_resource type="Texture2D" uid="uid://dvstsgle1ntq8" path="res://sprites/ui/powers/sheep_counter_green_shadow.png" id="2_rvhn8"]
-[ext_resource type="Texture2D" uid="uid://cnyr1jvegcs02" path="res://sprites/ui/powers/bomberlamb.png" id="3_7uw8y"]
-[ext_resource type="PackedScene" uid="uid://ck6sut8itw2vf" path="res://assets/level_tiles/basic.tscn" id="3_ehpsf"]
-[ext_resource type="PackedScene" uid="uid://bjjk6hjqv4nfh" path="res://assets/level_tiles/bonus1.tscn" id="3_p6rdf"]
-[ext_resource type="Texture2D" uid="uid://bmi7ny3aeesf6" path="res://sprites/ui/powers/kraken.png" id="4_f8sh3"]
-[ext_resource type="PackedScene" uid="uid://cfx0icvxfoj0r" path="res://assets/level_tiles/ennemy1.tscn" id="4_xthjj"]
-[ext_resource type="Script" path="res://scenes/death_zone.gd" id="5_88cbj"]
-[ext_resource type="Texture2D" uid="uid://pihm6kdlux0p" path="res://sprites/ui/powers/sheepnorris.png" id="5_jkrsa"]
-[ext_resource type="AudioStream" uid="uid://bk3wdsgfre3v6" path="res://music/Level_PerituneMaterial_Fear.mp3" id="7_75rpi"]
-[ext_resource type="PackedScene" uid="uid://dnc23auci4r2i" path="res://assets/sound_manager.tscn" id="8_27txq"]
-[ext_resource type="AudioStream" uid="uid://cxmy7d633yd4m" path="res://music/sounds/51427__smcameron__synthetic_bomb.mp3" id="9_5tly2"]
-[ext_resource type="AudioStream" uid="uid://pax5ljjdl5i5" path="res://music/sounds/140726__j1987__tiny_rocket.mp3" id="10_u16il"]
-[ext_resource type="AudioStream" uid="uid://blncxfsxh8oix" path="res://music/sounds/162168__hunterscrossbow__aah2.wav" id="11_7115c"]
-[ext_resource type="AudioStream" uid="uid://cus6v0y80t4nd" path="res://music/sounds/533025__oldestmillennial__dark-teleport.wav" id="12_qe4vm"]
-[ext_resource type="AudioStream" uid="uid://w5vj2ci67rbw" path="res://music/sounds/baiiii.mp3" id="13_cmpvf"]
-[ext_resource type="AudioStream" uid="uid://dabiwk6qx0eux" path="res://music/sounds/MoutonDie.wav" id="14_e4r35"]
-[ext_resource type="AudioStream" uid="uid://dbccs3hh736h5" path="res://music/sounds/NGTVST - Braam 3.wav" id="15_4f3to"]
-[ext_resource type="AudioStream" uid="uid://do5nmfj3birpe" path="res://music/sounds/NGTVST - Hit 3.wav" id="16_yaqkq"]
-[ext_resource type="AudioStream" uid="uid://b50b3hg6m3xii" path="res://music/sounds/Pass_Portal_396500__alonsotm__firespell3.wav" id="18_a2aa6"]
-[ext_resource type="PackedScene" uid="uid://xo63y6uf3jic" path="res://assets/camera.tscn" id="19_n3tvp"]
-[ext_resource type="AudioStream" uid="uid://caa7j1asu832g" path="res://music/sounds/Tentacles_204025__duckduckpony__impacts_splatter_watermelon_002.mp3" id="19_vnfao"]
-[ext_resource type="Texture2D" uid="uid://jg6iyo3uxr1w" path="res://sprites/menu/background_pilone_element.png" id="20_8b0tc"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_y6wkv"]
-size = Vector3(100, 1, 1000)
+[ext_resource type="PackedScene" uid="uid://ck6sut8itw2vf" path="res://assets/level_builder/level_tiles/basic.tscn" id="3_ehpsf"]
+[ext_resource type="PackedScene" uid="uid://bjjk6hjqv4nfh" path="res://assets/level_builder/level_tiles/bonus1.tscn" id="3_p6rdf"]
+[ext_resource type="PackedScene" uid="uid://cfx0icvxfoj0r" path="res://assets/level_builder/level_tiles/ennemy1.tscn" id="4_xthjj"]
 
 [node name="Level2" type="Node3D"]
 
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="BackgroundPiloneElement" type="Sprite2D" parent="Node2D"]
-position = Vector2(610, 528)
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("20_8b0tc")
-
-[node name="SheepCounterGreenShadow" type="Sprite2D" parent="Node2D"]
-position = Vector2(997, 81)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_rvhn8")
-
-[node name="Powers" type="Node2D" parent="Node2D"]
-
-[node name="Bomberlamb" type="Sprite2D" parent="Node2D/Powers"]
-position = Vector2(50, 580)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_7uw8y")
-
-[node name="Kraken" type="Sprite2D" parent="Node2D/Powers"]
-position = Vector2(140, 580)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_f8sh3")
-
-[node name="Sheepnorris" type="Sprite2D" parent="Node2D/Powers"]
-position = Vector2(230, 580)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("5_jkrsa")
-
-[node name="Player" parent="." node_paths=PackedStringArray("spawnPointSheep") instance=ExtResource("1_e8ghl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170473, -0.431916)
-spawnPointSheep = NodePath("../SpawnPoint")
+[node name="LevelBase" parent="." instance=ExtResource("1_w7ml6")]
 
 [node name="Path" parent="." instance=ExtResource("2_ix7ds")]
 unique_name_in_owner = true
 level_tiles = Array[PackedScene]([ExtResource("3_p6rdf"), ExtResource("4_xthjj"), ExtResource("3_p6rdf"), ExtResource("3_ehpsf"), ExtResource("4_xthjj")])
-
-[node name="SpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.227706, 0)
-
-[node name="DEATH" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 133
-script = ExtResource("5_88cbj")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.28135, 0)
-shape = SubResource("BoxShape3D_y6wkv")
-
-[node name="AudioStreamPlayer_MainMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_75rpi")
-volume_db = -8.0
-autoplay = true
-
-[node name="SoundManager" parent="." instance=ExtResource("8_27txq")]
-BombSound = ExtResource("9_5tly2")
-RocketSound = ExtResource("10_u16il")
-HolySound = ExtResource("11_7115c")
-TeleportSound = ExtResource("12_qe4vm")
-BaiSound = ExtResource("13_cmpvf")
-DieSound = ExtResource("14_e4r35")
-BraamSound = ExtResource("15_4f3to")
-HitSound = ExtResource("16_yaqkq")
-PortalSound = ExtResource("18_a2aa6")
-TentaclesSound = ExtResource("19_vnfao")
-
-[node name="Camera3D" parent="." instance=ExtResource("19_n3tvp")]
-
-[connection signal="body_entered" from="DEATH" to="DEATH" method="_on_body_entered"]

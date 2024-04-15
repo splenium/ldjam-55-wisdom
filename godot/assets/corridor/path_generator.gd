@@ -17,7 +17,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	shift_paths(delta)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var last_path := displayed_paths[displayed_paths.size() - 1]
 	if last_path.global_position.z > spawn_z:
 		spawn_path()

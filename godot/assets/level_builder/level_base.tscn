@@ -1,0 +1,68 @@
+[gd_scene load_steps=17 format=3 uid="uid://dlfhg1wj5wgsq"]
+
+[ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_1h3mj"]
+[ext_resource type="PackedScene" uid="uid://ciacalxsekx22" path="res://ui/overlays/hud.tscn" id="1_vjd1n"]
+[ext_resource type="AudioStream" uid="uid://bk3wdsgfre3v6" path="res://music/Level_PerituneMaterial_Fear.mp3" id="5_dkncg"]
+[ext_resource type="PackedScene" uid="uid://dnc23auci4r2i" path="res://assets/sound_manager.tscn" id="6_jyma2"]
+[ext_resource type="AudioStream" uid="uid://cxmy7d633yd4m" path="res://music/sounds/51427__smcameron__synthetic_bomb.mp3" id="7_rvu8o"]
+[ext_resource type="AudioStream" uid="uid://pax5ljjdl5i5" path="res://music/sounds/140726__j1987__tiny_rocket.mp3" id="8_eu3lx"]
+[ext_resource type="AudioStream" uid="uid://blncxfsxh8oix" path="res://music/sounds/162168__hunterscrossbow__aah2.wav" id="9_0b501"]
+[ext_resource type="AudioStream" uid="uid://cus6v0y80t4nd" path="res://music/sounds/533025__oldestmillennial__dark-teleport.wav" id="10_f80da"]
+[ext_resource type="AudioStream" uid="uid://w5vj2ci67rbw" path="res://music/sounds/baiiii.mp3" id="11_3nktl"]
+[ext_resource type="AudioStream" uid="uid://dabiwk6qx0eux" path="res://music/sounds/MoutonDie.wav" id="12_pq4a8"]
+[ext_resource type="AudioStream" uid="uid://dbccs3hh736h5" path="res://music/sounds/NGTVST - Braam 3.wav" id="13_8u5jr"]
+[ext_resource type="AudioStream" uid="uid://do5nmfj3birpe" path="res://music/sounds/NGTVST - Hit 3.wav" id="14_01hlo"]
+[ext_resource type="AudioStream" uid="uid://b50b3hg6m3xii" path="res://music/sounds/Pass_Portal_396500__alonsotm__firespell3.wav" id="15_vo2ro"]
+[ext_resource type="AudioStream" uid="uid://caa7j1asu832g" path="res://music/sounds/Tentacles_204025__duckduckpony__impacts_splatter_watermelon_002.mp3" id="16_yqnr3"]
+[ext_resource type="PackedScene" uid="uid://xo63y6uf3jic" path="res://assets/camera.tscn" id="17_krd6c"]
+
+[sub_resource type="Environment" id="Environment_n0yng"]
+ambient_light_source = 2
+ambient_light_color = Color(0, 0.721569, 0.572549, 1)
+ambient_light_energy = 0.1
+tonemap_mode = 2
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 6.06
+glow_strength = 0.75
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.14902, 0.282353, 0.321569, 1)
+
+[node name="LevelBase" type="Node3D"]
+
+[node name="HUD" parent="." instance=ExtResource("1_vjd1n")]
+
+[node name="Player" parent="." node_paths=PackedStringArray("spawnPointSheep") instance=ExtResource("1_1h3mj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.170473, -0.431916)
+spawnPointSheep = NodePath("../SpawnPoint")
+
+[node name="SpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.227706, 0)
+
+[node name="AudioStreamPlayer_MainMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_dkncg")
+volume_db = -30.0
+autoplay = true
+
+[node name="SoundManager" parent="." instance=ExtResource("6_jyma2")]
+BombSound = ExtResource("7_rvu8o")
+RocketSound = ExtResource("8_eu3lx")
+HolySound = ExtResource("9_0b501")
+TeleportSound = ExtResource("10_f80da")
+BaiSound = ExtResource("11_3nktl")
+DieSound = ExtResource("12_pq4a8")
+BraamSound = ExtResource("13_8u5jr")
+HitSound = ExtResource("14_01hlo")
+PortalSound = ExtResource("15_vo2ro")
+TentaclesSound = ExtResource("16_yqnr3")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n0yng")
+
+[node name="Camera3D" parent="." instance=ExtResource("17_krd6c")]
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.49433, 0)
+light_color = Color(0.65098, 0.643137, 0.776471, 1)
+light_energy = 0.3

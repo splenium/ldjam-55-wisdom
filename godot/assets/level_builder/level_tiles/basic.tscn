@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck6sut8itw2vf"]
+
+[ext_resource type="PackedScene" uid="uid://c2jwls8paont4" path="res://assets/level_builder/level_tiles/level_elements/base_floor.tscn" id="1_g47nd"]
+
+[node name="Basic" type="Node3D"]
+
+[node name="BaseFloor" parent="." instance=ExtResource("1_g47nd")]

@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfx0icvxfoj0r"]
+
+[ext_resource type="PackedScene" uid="uid://c2jwls8paont4" path="res://assets/level_builder/level_tiles/level_elements/base_floor.tscn" id="1_b33mw"]
+[ext_resource type="PackedScene" uid="uid://bel8kmpokgkbo" path="res://assets/enemies/priest.tscn" id="2_qi55a"]
+
+[node name="Ennemy1" type="Node3D"]
+
+[node name="BaseFloor" parent="." instance=ExtResource("1_b33mw")]
+
+[node name="Priest" parent="." instance=ExtResource("2_qi55a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.561432, 0.158752, -0.483239)
+
+[node name="Priest2" parent="." instance=ExtResource("2_qi55a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520996, 0.158752, -0.693429)
+
+[node name="Priest3" parent="." instance=ExtResource("2_qi55a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.448562, 0.158752, 0.528715)
+
+[node name="Priest4" parent="." instance=ExtResource("2_qi55a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.666688, 0.158752, 0.884706)
+
+[node name="Priest5" parent="." instance=ExtResource("2_qi55a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.205896, 0.158752, -0.772592)
+
+[node name="Priest6" parent="." instance=ExtResource("2_qi55a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0680604, 0.158752, 0.721616)
+
+[node name="Priest7" parent="." instance=ExtResource("2_qi55a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.97018, 0.158752, -1.09512)
+
+[node name="Priest8" parent="." instance=ExtResource("2_qi55a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.353163, 0.158752, 0.0585847)
+
+[node name="Priest9" parent="." instance=ExtResource("2_qi55a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.561432, 0.158752, -2.8589)
+
+[node name="Priest10" parent="." instance=ExtResource("2_qi55a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520996, 0.158752, -3.06909)
+
+[node name="Priest11" parent="." instance=ExtResource("2_qi55a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.448562, 0.158752, -1.84695)
+
+[node name="Priest12" parent="." instance=ExtResource("2_qi55a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.666688, 0.158752, -1.49096)
+
+[node name="Priest13" parent="." instance=ExtResource("2_qi55a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.205896, 0.158752, -3.14826)
+
+[node name="Priest14" parent="." instance=ExtResource("2_qi55a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0680604, 0.158752, -1.65405)
+
+[node name="Priest15" parent="." instance=ExtResource("2_qi55a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.97018, 0.158752, -3.47078)
+
+[node name="Priest16" parent="." instance=ExtResource("2_qi55a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.353163, 0.158752, -2.31708)

@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyajm1prw0hg3"]
+[gd_scene load_steps=5 format=3 uid="uid://cyajm1prw0hg3"]
 
 [ext_resource type="Script" path="res://assets/corridor/path_generator.gd" id="1_5xhq5"]
 [ext_resource type="PackedScene" uid="uid://c0rhyf1dgeapl" path="res://assets/corridor/path_tile.tscn" id="3_7ofc5"]
+[ext_resource type="Script" path="res://scenes/death_zone.gd" id="3_pu3ug"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bc2l5"]
+size = Vector3(100, 1, 1000)
 
 [node name="Path" type="Node3D" node_paths=PackedStringArray("displayed_paths")]
 script = ExtResource("1_5xhq5")
@@ -9,8 +13,15 @@ spawn_z = -25.0
 despawn_z = 25.0
 displayed_paths = [NodePath("StraightPath")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.49433, 0)
-light_color = Color(0.65098, 0.643137, 0.776471, 1)
-
 [node name="StraightPath" parent="." instance=ExtResource("3_7ofc5")]
+
+[node name="DEATH" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 133
+script = ExtResource("3_pu3ug")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.28135, 0)
+shape = SubResource("BoxShape3D_bc2l5")
+
+[connection signal="body_entered" from="DEATH" to="DEATH" method="_on_body_entered"]

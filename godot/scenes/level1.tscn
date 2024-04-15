@@ -1,10 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://c686nh780bkhr"]
+[gd_scene load_steps=19 format=3 uid="uid://c686nh780bkhr"]
 
 [ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="1_dl0uc"]
 [ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_faqqn"]
-[ext_resource type="PackedScene" uid="uid://cqksnij425pe5" path="res://assets/modificator/additionator.tscn" id="3_gmkfp"]
-[ext_resource type="Script" path="res://scenes/death_zone.gd" id="4_nj52x"]
-[ext_resource type="PackedScene" uid="uid://btd0ynwce5qb6" path="res://assets/modificator/multiplicator.tscn" id="4_sk2gm"]
+[ext_resource type="PackedScene" uid="uid://bjjk6hjqv4nfh" path="res://assets/level_builder/level_tiles/bonus1.tscn" id="3_0675t"]
+[ext_resource type="PackedScene" uid="uid://cfx0icvxfoj0r" path="res://assets/level_builder/level_tiles/ennemy1.tscn" id="4_83uss"]
 [ext_resource type="AudioStream" uid="uid://bk3wdsgfre3v6" path="res://music/Level_PerituneMaterial_Fear.mp3" id="7_sw7ch"]
 [ext_resource type="PackedScene" uid="uid://dnc23auci4r2i" path="res://assets/sound_manager.tscn" id="8_13nc4"]
 [ext_resource type="AudioStream" uid="uid://cxmy7d633yd4m" path="res://music/sounds/51427__smcameron__synthetic_bomb.mp3" id="9_x8nws"]
@@ -18,8 +17,6 @@
 [ext_resource type="AudioStream" uid="uid://b50b3hg6m3xii" path="res://music/sounds/Pass_Portal_396500__alonsotm__firespell3.wav" id="18_qwpog"]
 [ext_resource type="AudioStream" uid="uid://caa7j1asu832g" path="res://music/sounds/Tentacles_204025__duckduckpony__impacts_splatter_watermelon_002.mp3" id="19_s6nei"]
 [ext_resource type="PackedScene" uid="uid://xo63y6uf3jic" path="res://assets/camera.tscn" id="20_6pe5b"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_y6wkv"]
 
 [sub_resource type="Environment" id="Environment_n0yng"]
 ambient_light_source = 2
@@ -41,63 +38,10 @@ spawnPointSheep = NodePath("../SpawnPoint")
 
 [node name="Path" parent="." instance=ExtResource("1_dl0uc")]
 unique_name_in_owner = true
+level_tiles = Array[PackedScene]([ExtResource("3_0675t"), ExtResource("4_83uss"), ExtResource("3_0675t"), ExtResource("4_83uss"), ExtResource("4_83uss")])
 
 [node name="SpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.227706, 0)
-
-[node name="BonusMalus" type="Node3D" parent="."]
-
-[node name="Additionator" parent="BonusMalus" instance=ExtResource("3_gmkfp")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -4.33437)
-sheep_to_add = 10
-
-[node name="Multiplicator" parent="BonusMalus" instance=ExtResource("4_sk2gm")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -4.32016)
-modificator = 3
-
-[node name="Additionator2" parent="BonusMalus" instance=ExtResource("3_gmkfp")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -6.67807)
-sheep_to_add = -10
-
-[node name="Multiplicator2" parent="BonusMalus" instance=ExtResource("4_sk2gm")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -6.66387)
-modificator = -2
-
-[node name="Additionator4" parent="BonusMalus" instance=ExtResource("3_gmkfp")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -14.0837)
-sheep_to_add = 10
-
-[node name="Multiplicator4" parent="BonusMalus" instance=ExtResource("4_sk2gm")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -14.0695)
-modificator = 3
-
-[node name="Additionator5" parent="BonusMalus" instance=ExtResource("3_gmkfp")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -22.1191)
-sheep_to_add = 10
-
-[node name="Multiplicator5" parent="BonusMalus" instance=ExtResource("4_sk2gm")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -22.1048)
-modificator = 3
-
-[node name="Additionator3" parent="BonusMalus" instance=ExtResource("3_gmkfp")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, -1.02979, 0.348536, -17.9626)
-sheep_to_add = 10
-
-[node name="Multiplicator3" parent="BonusMalus" instance=ExtResource("4_sk2gm")]
-transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0.994842, 0.320138, -17.9484)
-modificator = 3
-
-[node name="DEATH" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 133
-script = ExtResource("4_nj52x")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DEATH"]
-transform = Transform3D(10000, 0, 0, 0, 1, 0, 0, 0, 10000, 0, -4.28135, 0)
-shape = SubResource("BoxShape3D_y6wkv")
-
-[node name="Ennemies" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -442.515)
 
 [node name="AudioStreamPlayer_MainMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_sw7ch")
@@ -122,4 +66,7 @@ environment = SubResource("Environment_n0yng")
 [node name="Camera3D" parent="." instance=ExtResource("20_6pe5b")]
 current = true
 
-[connection signal="body_entered" from="DEATH" to="DEATH" method="_on_body_entered"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.49433, 0)
+light_color = Color(0.65098, 0.643137, 0.776471, 1)
+light_energy = 0.3

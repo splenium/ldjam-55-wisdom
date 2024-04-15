@@ -51,10 +51,3 @@ func PlaySound(key: String) -> void:
 	await get_tree().create_timer(streamLen + 1.0).timeout
 	soundComp.queue_free()
 	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Input.is_key_pressed(KEY_SPACE):
-		# PlaySound("Bai");
-		pass
-	pass
