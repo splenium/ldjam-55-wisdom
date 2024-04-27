@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c40yqoeuflpnt"]
+[gd_scene load_steps=5 format=3 uid="uid://c40yqoeuflpnt"]
 
 [ext_resource type="PackedScene" uid="uid://dlfhg1wj5wgsq" path="res://assets/level_builder/level_base.tscn" id="1_nktvd"]
 [ext_resource type="PackedScene" uid="uid://cyajm1prw0hg3" path="res://assets/corridor/path.tscn" id="2_ednq2"]
-[ext_resource type="PackedScene" uid="uid://e0e0tpy6napv" path="res://assets/level_builder/level_tiles/t_bonus_cheat_1.tscn" id="3_c3uo1"]
-[ext_resource type="PackedScene" uid="uid://cghvqlms3ilnj" path="res://assets/level_builder/level_tiles/t_bonus_2.tscn" id="4_ae8kr"]
-[ext_resource type="PackedScene" uid="uid://87j3t3i5pr27" path="res://assets/level_builder/level_tiles/t_ennemy_1.tscn" id="6_wxixl"]
-[ext_resource type="PackedScene" uid="uid://2b7nyqa0a2qv" path="res://assets/level_builder/level_tiles/t_ennemy_2.tscn" id="7_7uqs2"]
+[ext_resource type="PackedScene" uid="uid://cf3mfthkjoq5e" path="res://assets/level_builder/level_tiles/t_bonus_cheat_2.tscn" id="3_jxb6x"]
+[ext_resource type="Script" path="res://scripts/fps_counter.gd" id="4_6ky40"]
 
 [node name="Level2" type="Node3D"]
 
@@ -13,4 +11,33 @@
 
 [node name="Path" parent="." instance=ExtResource("2_ednq2")]
 unique_name_in_owner = true
-level_tiles = Array[PackedScene]([ExtResource("3_c3uo1"), ExtResource("4_ae8kr"), ExtResource("7_7uqs2"), ExtResource("6_wxixl"), ExtResource("7_7uqs2"), ExtResource("7_7uqs2")])
+level_tiles = Array[PackedScene]([ExtResource("3_jxb6x"), ExtResource("3_jxb6x"), ExtResource("3_jxb6x"), ExtResource("3_jxb6x"), ExtResource("3_jxb6x"), ExtResource("3_jxb6x"), ExtResource("3_jxb6x"), ExtResource("3_jxb6x"), ExtResource("3_jxb6x"), ExtResource("3_jxb6x")])
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.930481, -0.493415, -1.78979)
+use_collision = true
+collision_layer = 64
+collision_mask = 453
+size = Vector3(536.33, 1, 1081.67)
+
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("label")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_6ky40")
+label = NodePath("Label")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 185.0
+offset_bottom = 92.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 121.0
+offset_bottom = 49.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "FPS             :
+FPS_Physic: "

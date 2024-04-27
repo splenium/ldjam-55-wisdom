@@ -13,7 +13,7 @@ var levelIndex := -1
 @export var startManu: PackedScene
 @export var victoryMenu: PackedScene
 @export var gameOver: PackedScene
-@export var maximum_visisble_sheep: int = 100
+@export var maximum_visisble_sheep: int = 10000000
 
 var currentLevel: PackedScene
 
