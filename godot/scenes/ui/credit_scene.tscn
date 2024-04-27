@@ -95,10 +95,10 @@ material = SubResource("ShaderMaterial_f3wji")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1366.0
-offset_top = -1024.0
-offset_right = -1366.0
-offset_bottom = -1024.0
+offset_left = -1371.11
+offset_top = -1028.89
+offset_right = -1285.11
+offset_bottom = -754.889
 grow_horizontal = 2
 grow_vertical = 2
 
