@@ -45,7 +45,7 @@ autostart = true
 
 [node name="Kraken" parent="." instance=ExtResource("3_l5kp5")]
 transform = Transform3D(3.00673, 0, 0, 0, -1.2215e-07, 1, 0, -2.79448, -4.37114e-08, 0, 0, -0.832245)
-sorting_offset = 1000.0
+sorting_offset = 2.0
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="StopTimer" to="." method="_on_stop_timer_timeout"]

@@ -46,11 +46,6 @@ squeesh = NodePath("Node3D")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_stp56")
 
-[node name="SheepSprite" type="Sprite3D" parent="."]
-transform = Transform3D(0.01, 0, 0, 0, 0.00819152, 0.00573576, 0, -0.00573576, 0.00819152, 0, 0, 0)
-visible = false
-texture = ExtResource("2_8opr0")
-
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, 0.00819152, 0.00573576, 0, -0.00573576, 0.00819152, 0, -0.142266, 0)
 script = ExtResource("3_dcqn3")
@@ -58,6 +53,7 @@ speed = 4.0
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 11.2874, 7.90353)
+sorting_offset = 15.0
 shaded = true
 sprite_frames = SubResource("SpriteFrames_eu6hg")
 autoplay = "default"

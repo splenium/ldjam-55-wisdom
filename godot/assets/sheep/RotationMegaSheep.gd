@@ -10,7 +10,8 @@ func _ready() -> void:
 var totalTime: = 0.
 var triggeredSound : bool = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
+#func _process(delta: float) -> void:
 	var factor: = asin(sin(totalTime*speed+offsetTime))
 	
 	if abs(factor) > 1.5 and not triggeredSound:

@@ -1,5 +1,10 @@
 class_name KamikazeSheep extends Sheep
 
+var explosion: PackedScene
+
+func _ready() -> void:
+	explosion = preload("res://assets/attacks/explosion.tscn")
+
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	if target && !is_instance_valid(target):
 		target = GameManager.find_nearest_of_player_ennemy()
@@ -11,7 +16,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		look_follow(state, global_transform, fake_target_far)
 
 func explode() -> void:
-	var explosion: Explosion = preload("res://assets/attacks/explosion.tscn").instantiate()
+	var explosion: Explosion = explosion.instantiate()
 	get_parent().add_child(explosion)
 	explosion.global_transform = global_transform
 	queue_free()

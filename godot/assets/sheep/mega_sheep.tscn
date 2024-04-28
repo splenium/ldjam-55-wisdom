@@ -56,6 +56,7 @@ speed = 4.0
 
 [node name="AnimatedSheep2" type="AnimatedSprite3D" parent="RotationNode/SheepBaseAppareance"]
 transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 11.2874, 7.90353)
+sorting_offset = 16.0
 sprite_frames = SubResource("SpriteFrames_yt3c4")
 autoplay = "default"
 speed_scale = 0.2

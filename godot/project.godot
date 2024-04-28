@@ -76,10 +76,6 @@ attack_mega_sheep={
 3d_physics/layer_10="despawner"
 3d_physics/layer_11="player_obstacle"
 
-[physics]
-
-3d/physics_engine="JoltPhysics3D"
-
 [rendering]
 
 renderer/rendering_method.web="forward_plus"

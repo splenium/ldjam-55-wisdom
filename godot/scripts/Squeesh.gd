@@ -18,7 +18,8 @@ func _ready() -> void:
 var totalTime: float = 0.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
+#func _process(delta: float) -> void:
 	scale.y = originalYScale * lerp(1.,scaleFactor, sin(totalTime+seed)*0.5+0.5)
 	totalTime += delta*speed
 

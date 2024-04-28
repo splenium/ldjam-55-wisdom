@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjwva71b4anmr"
-path="res://.godot/imported/bomberlamb_disable.png-88f0bf37fffb273f9db11f3e4ca54108.ctex"
+uid="uid://clmulbxxxkpwu"
+path="res://.godot/imported/bomberlamb.png-4d2c944e5d3c9ecf99a9bd430f00f50b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ui/powers/bomberlamb_disable.png"
-dest_files=["res://.godot/imported/bomberlamb_disable.png-88f0bf37fffb273f9db11f3e4ca54108.ctex"]
+source_file="res://sprites/ui/powers/old/bomberlamb.png"
+dest_files=["res://.godot/imported/bomberlamb.png-4d2c944e5d3c9ecf99a9bd430f00f50b.ctex"]
 
 [params]
 

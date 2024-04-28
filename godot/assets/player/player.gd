@@ -71,7 +71,7 @@ func can_i_launch_it(cost: int) -> bool:
 	return get_only_sacrificial_sheep() >= cost
 
 func summon_cthulhu() -> void:
-	if !can_i_launch_it(GameManager.cthulhu_cost):
+	if !can_i_launch_it(GameManager.cthulhu_cost) or GameManager.cthulu_already_launched:
 		GameManager.PlaySound("Bai")
 		return
 	apply_sheep_addition(-GameManager.cthulhu_cost)

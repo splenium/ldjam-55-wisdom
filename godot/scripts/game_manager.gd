@@ -4,20 +4,21 @@ var world_speed: float = 1.0 # default 1.0
 var player: Player
 var soundManager: SoundManager
 
-var kamikaze_cost: int = 1
-var mega_sheep_cost: int = 10
-var cthulhu_cost: int = 40
+var kamikaze_cost: int = 1 # Default 1
+var mega_sheep_cost: int = 10 # Default 10
+var cthulhu_cost: int = 40 # Default 40
 
 var levelIndex := -1
 @export var levels: Array[PackedScene] = []
 @export var startManu: PackedScene
 @export var victoryMenu: PackedScene
 @export var gameOver: PackedScene
-@export var maximum_visisble_sheep: int = 10000000
+@export var maximum_visisble_sheep: int = 100
 
 var currentLevel: PackedScene
 
 var number_of_sheep := 0
+var cthulu_already_launched := false
 
 func _ready() -> void:
 	pass

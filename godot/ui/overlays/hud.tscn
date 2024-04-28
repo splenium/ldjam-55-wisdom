@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://dxouwlv2udh8p"]
+[gd_scene load_steps=16 format=3 uid="uid://dxouwlv2udh8p"]
 
 [ext_resource type="Script" path="res://ui/overlays/hud.gd" id="1_aapbt"]
 [ext_resource type="Texture2D" uid="uid://jg6iyo3uxr1w" path="res://sprites/menu/background_pilone_element.png" id="1_r1kff"]
 [ext_resource type="Texture2D" uid="uid://dvstsgle1ntq8" path="res://sprites/ui/powers/sheep_counter_green_shadow.png" id="2_g7dy6"]
+[ext_resource type="Shader" path="res://shaders/flame.gdshader" id="3_jgcwk"]
 [ext_resource type="Texture2D" uid="uid://cnyr1jvegcs02" path="res://sprites/ui/powers/bomberlamb.png" id="3_rl6tn"]
 [ext_resource type="Theme" uid="uid://buyrdp78hirb6" path="res://buttons.tres" id="4_4xmhp"]
 [ext_resource type="Texture2D" uid="uid://bmi7ny3aeesf6" path="res://sprites/ui/powers/kraken.png" id="4_andbv"]
@@ -14,13 +15,40 @@
 [ext_resource type="Script" path="res://ui/scripts/Kraken.gd" id="12_5bfwo"]
 [ext_resource type="Texture2D" uid="uid://bvycogdrnjn1t" path="res://sprites/ui/powers/kraken_disable.png" id="13_hjljl"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qnnnm"]
+shader = ExtResource("3_jgcwk")
+
 [node name="HUD" type="Node2D"]
 script = ExtResource("1_aapbt")
 
 [node name="BackgroundPiloneElement" type="Sprite2D" parent="."]
-position = Vector2(610, 528)
+position = Vector2(579, 559)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_r1kff")
+
+[node name="LeftFlame" type="ColorRect" parent="BackgroundPiloneElement"]
+material = SubResource("ShaderMaterial_qnnnm")
+anchors_preset = -1
+anchor_left = 0.206
+anchor_top = 0.289
+anchor_right = 0.206
+anchor_bottom = 0.289
+offset_left = -1474.25
+offset_top = -1145.14
+offset_right = -1263.25
+offset_bottom = -891.138
+
+[node name="RightFlame" type="ColorRect" parent="BackgroundPiloneElement"]
+material = SubResource("ShaderMaterial_qnnnm")
+anchors_preset = -1
+anchor_left = 0.79
+anchor_top = 0.289
+anchor_right = 0.79
+anchor_bottom = 0.289
+offset_left = -1471.73
+offset_top = -1154.31
+offset_right = -1260.73
+offset_bottom = -900.308
 
 [node name="SheepCounterGreenShadow" type="Sprite2D" parent="."]
 position = Vector2(997, 81)
@@ -43,10 +71,11 @@ bbcode_enabled = true
 text = "[center]0[/center]"
 
 [node name="Powers" type="Node2D" parent="."]
+position = Vector2(0, -438)
 
 [node name="Bomberlamb" type="Sprite2D" parent="Powers"]
 position = Vector2(70, 530)
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.12, 0.12)
 texture = ExtResource("3_rl6tn")
 script = ExtResource("6_2w8ht")
 texture_available = ExtResource("3_rl6tn")
@@ -88,10 +117,11 @@ anchor_left = 0.832
 anchor_top = 0.861
 anchor_right = 0.917
 anchor_bottom = 0.929
-offset_left = -418.88
-offset_top = -594.59
-offset_right = -417.88
-offset_bottom = -594.59
+offset_left = -440.547
+offset_top = -624.59
+offset_right = -439.547
+offset_bottom = -624.59
+scale = Vector2(1.2, 1.2)
 theme = ExtResource("4_4xmhp")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
@@ -99,8 +129,8 @@ text = "[center]1[/center]
 "
 
 [node name="Sheepnorris" type="Sprite2D" parent="Powers"]
-position = Vector2(200, 530)
-scale = Vector2(0.15, 0.15)
+position = Vector2(183, 530)
+scale = Vector2(0.12, 0.12)
 texture = ExtResource("5_1k0ji")
 script = ExtResource("9_5lxti")
 texture_available = ExtResource("5_1k0ji")
@@ -142,10 +172,11 @@ anchor_left = 0.832
 anchor_top = 0.861
 anchor_right = 0.917
 anchor_bottom = 0.929
-offset_left = -418.88
-offset_top = -594.59
-offset_right = -420.28
-offset_bottom = -595.51
+offset_left = -440.547
+offset_top = -624.59
+offset_right = -441.947
+offset_bottom = -625.51
+scale = Vector2(1.2, 1.2)
 theme = ExtResource("4_4xmhp")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
@@ -153,8 +184,8 @@ text = "[center]2[/center]
 "
 
 [node name="Kraken" type="Sprite2D" parent="Powers"]
-position = Vector2(330, 530)
-scale = Vector2(0.15, 0.15)
+position = Vector2(297, 530)
+scale = Vector2(0.12, 0.12)
 texture = ExtResource("4_andbv")
 script = ExtResource("12_5bfwo")
 texture_available = ExtResource("4_andbv")
@@ -196,10 +227,11 @@ anchor_left = 0.832
 anchor_top = 0.861
 anchor_right = 0.917
 anchor_bottom = 0.929
-offset_left = -418.88
-offset_top = -594.59
-offset_right = -420.28
-offset_bottom = -595.51
+offset_left = -440.547
+offset_top = -624.59
+offset_right = -441.947
+offset_bottom = -625.51
+scale = Vector2(1.2, 1.2)
 theme = ExtResource("4_4xmhp")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true

@@ -95,7 +95,7 @@ vec3 rdrScene(vec2 uv)
 
 vec3 rdr1(vec2 uv)
 {
-	return mix(rdrChroma(uv), rdrScene(uv), kraken);
+	return mix(rdrChroma(uv), rdrScene(uv), kraken / 1.7);
 }
 
 vec3 rdrFinal(vec2 uv)

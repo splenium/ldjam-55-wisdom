@@ -60,12 +60,14 @@ transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 
 
 [node name="Pentacle" type="MeshInstance3D" parent="CharacterAppearance"]
 transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 1, 0, 0.365113, 0.229218)
+sorting_offset = 20.0
 material_override = SubResource("ShaderMaterial_1878v")
 mesh = SubResource("QuadMesh_0m303")
 skeleton = NodePath("../OffsetSqueesh/MainCharacter")
 
 [node name="Shadow" type="MeshInstance3D" parent="CharacterAppearance"]
 transform = Transform3D(0.408926, 0, 0, 0, -9.36146e-09, 1, 0, -0.214165, -4.37114e-08, 0, 0.0147998, 0.229218)
+sorting_offset = 20.0
 material_override = SubResource("StandardMaterial3D_rni1n")
 mesh = SubResource("QuadMesh_j2fnt")
 skeleton = NodePath("../OffsetSqueesh/MainCharacter")
@@ -78,6 +80,7 @@ scaleFactor = 1.02
 
 [node name="MainCharacter" type="MeshInstance3D" parent="CharacterAppearance/OffsetSqueesh"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0.304022, 0.229218)
+sorting_offset = 20.0
 material_override = SubResource("StandardMaterial3D_vf0mc")
 mesh = SubResource("QuadMesh_a2hbl")
 skeleton = NodePath("../../..")
