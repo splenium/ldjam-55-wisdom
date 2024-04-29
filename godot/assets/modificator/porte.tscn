@@ -16,11 +16,13 @@ shader_parameter/colorB = Color(1, 1, 1, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16113, 0, 0)
 
 [node name="Pillier1" parent="." instance=ExtResource("1_l6ukf")]
+sorting_offset = 11.0
 
 [node name="Pillier2" parent="." instance=ExtResource("2_dfyb6")]
+sorting_offset = 11.0
 
 [node name="Gradient" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.780329, -2.98023e-08, 0, 2.68221e-07, 0.846185, -1.16411, -0.0590503, 0.111647)
-sorting_offset = -1.0
+sorting_offset = 10.0
 material_override = SubResource("ShaderMaterial_x71yx")
 mesh = SubResource("QuadMesh_ja0hs")

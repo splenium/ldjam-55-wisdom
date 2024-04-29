@@ -15,8 +15,10 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		var fake_target_far: Vector3 = Vector3(0, 0, -1000)
 		look_follow(state, global_transform, fake_target_far)
 
-func explode() -> void:
-	var explosion: Explosion = explosion.instantiate()
-	get_parent().add_child(explosion)
-	explosion.global_transform = global_transform
+func explode(ennemy: Ennemy = null) -> void:
+	var explosionInstance: Explosion = explosion.instantiate()
+	if ennemy is Ennemy:
+		explosionInstance.apply_damage(ennemy)
+	get_parent().add_child(explosionInstance)
+	explosionInstance.global_transform = global_transform
 	queue_free()

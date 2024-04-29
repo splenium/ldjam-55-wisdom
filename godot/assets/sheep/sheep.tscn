@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnm61dw75hodn"]
+[gd_scene load_steps=11 format=3 uid="uid://cnm61dw75hodn"]
 
 [ext_resource type="Script" path="res://assets/sheep/sheep.gd" id="1_q1yew"]
 [ext_resource type="Texture2D" uid="uid://cwkbedkxxuq8l" path="res://sprites/lamb_dos-5.png" id="2_8opr0"]
@@ -33,6 +33,14 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riykw"]
+transparency = 1
+albedo_texture = ExtResource("2_8opr0")
+
+[sub_resource type="QuadMesh" id="QuadMesh_lwucp"]
+material = SubResource("StandardMaterial3D_riykw")
+size = Vector2(27, 27)
+
 [node name="Sheep" type="RigidBody3D" node_paths=PackedStringArray("squeesh")]
 collision_layer = 128
 collision_mask = 244
@@ -53,7 +61,13 @@ speed = 4.0
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 11.2874, 7.90353)
+visible = false
 sorting_offset = 15.0
 shaded = true
 sprite_frames = SubResource("SpriteFrames_eu6hg")
 autoplay = "default"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 5.36442e-07, 0, -5.36442e-07, 1, 0, 11.2794, 7.9091)
+sorting_offset = 10.0
+mesh = SubResource("QuadMesh_lwucp")

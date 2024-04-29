@@ -1,7 +1,7 @@
 class_name Squeesh extends Node3D
 
 @export
-var seed: int = 0
+var squeesh_seed: int = 0
 
 @export
 var speed: float = 1.0
@@ -18,8 +18,8 @@ func _ready() -> void:
 var totalTime: float = 0.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
-#func _process(delta: float) -> void:
-	scale.y = originalYScale * lerp(1.,scaleFactor, sin(totalTime+seed)*0.5+0.5)
+#func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
+	scale.y = originalYScale * lerp(1.,scaleFactor, sin(totalTime+squeesh_seed)*0.5+0.5)
 	totalTime += delta*speed
 

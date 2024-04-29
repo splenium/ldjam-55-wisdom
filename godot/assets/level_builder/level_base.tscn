@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dlfhg1wj5wgsq"]
+[gd_scene load_steps=26 format=3 uid="uid://dlfhg1wj5wgsq"]
 
 [ext_resource type="PackedScene" uid="uid://cifvmg43nohbm" path="res://assets/player/player.tscn" id="1_1h3mj"]
 [ext_resource type="PackedScene" uid="uid://dxouwlv2udh8p" path="res://ui/overlays/hud.tscn" id="1_vjd1n"]
@@ -14,11 +14,15 @@
 [ext_resource type="AudioStream" uid="uid://do5nmfj3birpe" path="res://music/sounds/NGTVST - Hit 3.wav" id="14_01hlo"]
 [ext_resource type="AudioStream" uid="uid://b50b3hg6m3xii" path="res://music/sounds/Pass_Portal_396500__alonsotm__firespell3.wav" id="15_vo2ro"]
 [ext_resource type="Script" path="res://scenes/death_zone.gd" id="16_fjlkl"]
+[ext_resource type="Script" path="res://scripts/ShaderCache.gd" id="16_ji6sh"]
 [ext_resource type="AudioStream" uid="uid://caa7j1asu832g" path="res://music/sounds/Tentacles_204025__duckduckpony__impacts_splatter_watermelon_002.mp3" id="16_yqnr3"]
 [ext_resource type="PackedScene" uid="uid://xo63y6uf3jic" path="res://assets/camera.tscn" id="17_krd6c"]
 [ext_resource type="Script" path="res://scripts/despawner_ennemy_only.gd" id="17_rdn21"]
+[ext_resource type="PackedScene" uid="uid://b7uk1amv1rk36" path="res://assets/explosion.tscn" id="17_uusxh"]
 [ext_resource type="PackedScene" uid="uid://bbxopes73c3ub" path="res://assets/ground_behind_player.tscn" id="18_5r108"]
+[ext_resource type="PackedScene" uid="uid://bki4032nlh1n8" path="res://assets/bonus_particle.tscn" id="18_gv1m6"]
 [ext_resource type="Script" path="res://scripts/despawner_sheep_norris.gd" id="18_uvyoh"]
+[ext_resource type="PackedScene" uid="uid://b5bg644nmo2tp" path="res://assets/attacks/kraken.tscn" id="19_gdh5o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d7c4s"]
 size = Vector3(100, 1, 1000)
@@ -56,6 +60,17 @@ TentaclesSound = ExtResource("16_yqnr3")
 
 [node name="Camera3D" parent="." instance=ExtResource("17_krd6c")]
 current = true
+
+[node name="ShaderCache" type="Node3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9307, 7.01178)
+script = ExtResource("16_ji6sh")
+
+[node name="Explosion" parent="Camera3D/ShaderCache" instance=ExtResource("17_uusxh")]
+
+[node name="BonusParticle" parent="Camera3D/ShaderCache" instance=ExtResource("18_gv1m6")]
+
+[node name="Kraken" parent="Camera3D/ShaderCache" instance=ExtResource("19_gdh5o")]
+transform = Transform3D(1, 0, 0, 0, -8.9407e-08, 1, 0, -1, -8.9407e-08, 0, -0.0612439, -0.146512)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.49433, 0)

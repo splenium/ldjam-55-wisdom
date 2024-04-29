@@ -76,6 +76,12 @@ attack_mega_sheep={
 3d_physics/layer_10="despawner"
 3d_physics/layer_11="player_obstacle"
 
+[physics]
+
+3d/run_on_separate_thread=true
+common/physics_ticks_per_second=45
+3d/solver/solver_iterations=8
+
 [rendering]
 
 renderer/rendering_method.web="forward_plus"

@@ -22,13 +22,13 @@ func look_follow(state: PhysicsDirectBodyState3D, current_transform: Transform3D
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Player:
 		body.die()
-	elif body is KamikazeSheep:
-		body.explode()
+	elif body is KamikazeSheep or body is KamikazeDetectorArea:
+		body.explode(self)
 	elif body is Sheep and GameManager.player != null:
 		GameManager.player.remove_sheep(body)
 		life -= 1
 	elif body is Explosion:
-		life -= body.damage
+		body.apply_damage(self)
 	if life <= 0:
 		queue_free()
 	pass

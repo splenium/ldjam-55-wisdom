@@ -41,7 +41,7 @@ axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("1_tjqvt")
-speed = 10.0
+speed = Vector3(10, 0, 10)
 
 [node name="RotationNode" type="Node3D" parent="."]
 script = ExtResource("2_7stx7")
