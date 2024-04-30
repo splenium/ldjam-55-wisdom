@@ -1,36 +1,23 @@
-[gd_scene load_steps=18 format=3 uid="uid://cifvmg43nohbm"]
+[gd_scene load_steps=15 format=3 uid="uid://cifvmg43nohbm"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_bvcwl"]
 [ext_resource type="PackedScene" uid="uid://cnm61dw75hodn" path="res://assets/sheep/sheep.tscn" id="2_wb6fe"]
-[ext_resource type="Shader" path="res://shaders/PentacleSpatial.gdshader" id="3_n2842"]
 [ext_resource type="PackedScene" uid="uid://bohqggmq4p1a2" path="res://assets/sheep/kamikaze_sheep.tscn" id="3_p0syr"]
 [ext_resource type="PackedScene" uid="uid://b7yhihwnw22hh" path="res://assets/sheep/mega_sheep.tscn" id="4_cr2on"]
-[ext_resource type="Texture2D" uid="uid://ccpxgt35wqxh8" path="res://sprites/Shadow.png" id="4_mvkny"]
 [ext_resource type="PackedScene" uid="uid://5a27ejr35453" path="res://assets/attacks/cthulhu.tscn" id="4_n450w"]
 [ext_resource type="Script" path="res://scripts/Squeesh.gd" id="5_foit1"]
-[ext_resource type="Texture2D" uid="uid://clh6phtr8gpvp" path="res://sprites/Dog/Dog_face.png" id="6_vvrw0"]
+[ext_resource type="Material" uid="uid://b55sf1wx7g40v" path="res://materials/player_pentacle.tres" id="6_2nvk4"]
+[ext_resource type="Material" uid="uid://d34ljjoo17f1w" path="res://materials/player_shadow.tres" id="7_b8akt"]
 [ext_resource type="PackedScene" uid="uid://bki4032nlh1n8" path="res://assets/bonus_particle.tscn" id="7_kdaiq"]
+[ext_resource type="Material" uid="uid://cgggyva5g6yh8" path="res://materials/player.tres" id="9_i44en"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uupuj"]
 radius = 0.10516
 height = 0.385756
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1878v"]
-render_priority = 0
-shader = ExtResource("3_n2842")
-
 [sub_resource type="QuadMesh" id="QuadMesh_0m303"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rni1n"]
-transparency = 1
-albedo_color = Color(0.180392, 0.933333, 0, 0.576471)
-albedo_texture = ExtResource("4_mvkny")
-
 [sub_resource type="QuadMesh" id="QuadMesh_j2fnt"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vf0mc"]
-transparency = 1
-albedo_texture = ExtResource("6_vvrw0")
 
 [sub_resource type="QuadMesh" id="QuadMesh_a2hbl"]
 
@@ -61,14 +48,14 @@ transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 
 [node name="Pentacle" type="MeshInstance3D" parent="CharacterAppearance"]
 transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 1, 0, 0.365113, 0.229218)
 sorting_offset = 20.0
-material_override = SubResource("ShaderMaterial_1878v")
+material_override = ExtResource("6_2nvk4")
 mesh = SubResource("QuadMesh_0m303")
 skeleton = NodePath("../OffsetSqueesh/MainCharacter")
 
 [node name="Shadow" type="MeshInstance3D" parent="CharacterAppearance"]
 transform = Transform3D(0.408926, 0, 0, 0, -9.36146e-09, 1, 0, -0.214165, -4.37114e-08, 0, 0.0147998, 0.229218)
 sorting_offset = 20.0
-material_override = SubResource("StandardMaterial3D_rni1n")
+material_override = ExtResource("7_b8akt")
 mesh = SubResource("QuadMesh_j2fnt")
 skeleton = NodePath("../OffsetSqueesh/MainCharacter")
 
@@ -81,7 +68,7 @@ scaleFactor = 1.02
 [node name="MainCharacter" type="MeshInstance3D" parent="CharacterAppearance/OffsetSqueesh"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0.304022, 0.229218)
 sorting_offset = 20.0
-material_override = SubResource("StandardMaterial3D_vf0mc")
+material_override = ExtResource("9_i44en")
 mesh = SubResource("QuadMesh_a2hbl")
 skeleton = NodePath("../../..")
 

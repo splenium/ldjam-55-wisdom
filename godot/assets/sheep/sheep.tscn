@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnm61dw75hodn"]
+[gd_scene load_steps=7 format=3 uid="uid://cnm61dw75hodn"]
 
 [ext_resource type="Script" path="res://assets/sheep/sheep.gd" id="1_q1yew"]
-[ext_resource type="Texture2D" uid="uid://cwkbedkxxuq8l" path="res://sprites/lamb_dos-5.png" id="2_8opr0"]
 [ext_resource type="Script" path="res://scripts/Squeesh.gd" id="3_dcqn3"]
-[ext_resource type="Texture2D" uid="uid://di4s5uy16omll" path="res://sprites/lamb_dos-4.png" id="3_q74og"]
-[ext_resource type="Texture2D" uid="uid://b3n8qnxblwfd1" path="res://sprites/lamb_dos-6.png" id="4_cws7g"]
+[ext_resource type="Material" uid="uid://bnnaskkfeo4sg" path="res://materials/sheep.tres" id="3_n6cyg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r7wxc"]
 friction = 0.5
@@ -13,32 +11,8 @@ friction = 0.5
 radius = 0.0790922
 height = 0.361455
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_eu6hg"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_q74og")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_8opr0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_cws7g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_8opr0")
-}],
-"loop": true,
-"name": &"default",
-"speed": 15.0
-}]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riykw"]
-transparency = 1
-albedo_texture = ExtResource("2_8opr0")
-
 [sub_resource type="QuadMesh" id="QuadMesh_lwucp"]
-material = SubResource("StandardMaterial3D_riykw")
+material = ExtResource("3_n6cyg")
 size = Vector2(27, 27)
 
 [node name="Sheep" type="RigidBody3D" node_paths=PackedStringArray("squeesh")]
@@ -58,14 +32,6 @@ shape = SubResource("CapsuleShape3D_stp56")
 transform = Transform3D(0.01, 0, 0, 0, 0.00819152, 0.00573576, 0, -0.00573576, 0.00819152, 0, -0.142266, 0)
 script = ExtResource("3_dcqn3")
 speed = 4.0
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 11.2874, 7.90353)
-visible = false
-sorting_offset = 15.0
-shaded = true
-sprite_frames = SubResource("SpriteFrames_eu6hg")
-autoplay = "default"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 5.36442e-07, 0, -5.36442e-07, 1, 0, 11.2794, 7.9091)

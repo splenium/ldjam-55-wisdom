@@ -1,12 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://xo63y6uf3jic"]
+[gd_scene load_steps=2 format=3 uid="uid://xo63y6uf3jic"]
 
-[ext_resource type="Shader" path="res://shaders/PostFX.gdshader" id="1_udbp2"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cid32"]
-shader = ExtResource("1_udbp2")
-shader_parameter/kraken = null
-shader_parameter/Shake = null
-shader_parameter/factor = null
+[ext_resource type="Material" uid="uid://bitrtn3mbxjvl" path="res://materials/camera.tres" id="1_0g6uy"]
 
 [node name="Camera3D" type="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707106, 0.707106, 0, 2, 0)
@@ -16,7 +10,7 @@ layer = -1
 
 [node name="PostFXRect" type="ColorRect" parent="PostFXCanvasLayer" groups=["PostFXRect"]]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_cid32")
+material = ExtResource("1_0g6uy")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

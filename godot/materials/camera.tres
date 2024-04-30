@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bitrtn3mbxjvl"]
+
+[ext_resource type="Shader" path="res://shaders/PostFX.gdshader" id="1_jja0b"]
+
+[resource]
+shader = ExtResource("1_jja0b")
+shader_parameter/kraken = null
+shader_parameter/Shake = null
+shader_parameter/factor = null

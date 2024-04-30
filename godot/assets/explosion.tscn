@@ -1,14 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7uk1amv1rk36"]
+[gd_scene load_steps=5 format=3 uid="uid://b7uk1amv1rk36"]
 
-[ext_resource type="Texture2D" uid="uid://d0lt3lof2w31f" path="res://sprites/Voronoise.png" id="1_2vbtw"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wcunt"]
-transparency = 1
-blend_mode = 1
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_2vbtw")
-uv1_scale = Vector3(2, 2, 2)
-uv1_triplanar = true
+[ext_resource type="Material" uid="uid://brv0ap368jwqo" path="res://materials/explosion.tres" id="1_a8154"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_0bxd4"]
 
@@ -22,7 +14,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0.32549, 1, 1, 0.368627, 0.0745098, 
 
 [node name="Explosion" type="CPUParticles3D"]
 sorting_offset = 10.0
-material_override = SubResource("StandardMaterial3D_wcunt")
+material_override = ExtResource("1_a8154")
 emitting = false
 amount = 3
 lifetime = 0.5

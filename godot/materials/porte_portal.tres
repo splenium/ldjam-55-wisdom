@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://kik772kmkm16"]
+
+[ext_resource type="Shader" path="res://shaders/Gradient.gdshader" id="1_5rshb"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_5rshb")
+shader_parameter/colorA = Color(0.239216, 0.780392, 0.870588, 1)
+shader_parameter/colorB = Color(1, 1, 1, 0)

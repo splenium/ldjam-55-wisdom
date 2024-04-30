@@ -1,0 +1,149 @@
+[gd_scene load_steps=31 format=3 uid="uid://xqemn8fo4upc"]
+
+[ext_resource type="Material" uid="uid://bitrtn3mbxjvl" path="res://materials/camera.tres" id="1_55c3p"]
+[ext_resource type="Script" path="res://scripts/ShaderCache.gd" id="2_fvl0v"]
+[ext_resource type="Material" uid="uid://b0sg86cv8i67j" path="res://materials/kraken.tres" id="3_cf0we"]
+[ext_resource type="Material" uid="uid://brv0ap368jwqo" path="res://materials/explosion.tres" id="4_qcuow"]
+[ext_resource type="Material" uid="uid://dx4xtdg0sumtw" path="res://materials/bonus_particle.tres" id="5_sxm3l"]
+[ext_resource type="Material" uid="uid://bnnaskkfeo4sg" path="res://materials/sheep.tres" id="6_k0ffq"]
+[ext_resource type="Material" uid="uid://coyalfatp35lh" path="res://materials/kamikaze_sheep.tres" id="7_58kel"]
+[ext_resource type="Material" uid="uid://dsv4bksyeg66k" path="res://materials/path_tile.tres" id="8_lp8js"]
+[ext_resource type="Material" uid="uid://crq3hlgdysbi3" path="res://materials/path_tile_border_left.tres" id="9_b5ryy"]
+[ext_resource type="Material" uid="uid://tnb4ry22ukcj" path="res://materials/path_tile_border_right.tres" id="10_vlp4k"]
+[ext_resource type="Material" uid="uid://dy36d80wbglhk" path="res://materials/pillier2.tres" id="11_7us0j"]
+[ext_resource type="Material" uid="uid://c7iwmbcby74y" path="res://materials/pillier2_fire.tres" id="12_0ncai"]
+[ext_resource type="Material" uid="uid://b07fj3bgia11n" path="res://materials/pillier.tres" id="13_rygvu"]
+[ext_resource type="Material" uid="uid://doekgahrcssfi" path="res://materials/pillier_fire.tres" id="14_kyi3i"]
+[ext_resource type="Material" uid="uid://kik772kmkm16" path="res://materials/porte_portal.tres" id="15_vylxx"]
+[ext_resource type="Material" uid="uid://c65gw5u7flt83" path="res://materials/smoke_fog.tres" id="16_0ho2q"]
+[ext_resource type="Material" uid="uid://ddnaagpw363yk" path="res://materials/hud_fire.tres" id="17_5bgfu"]
+[ext_resource type="Material" uid="uid://bye2aecmcbp4x" path="res://materials/intro_scene.tres" id="18_5gvv5"]
+[ext_resource type="Material" uid="uid://cgggyva5g6yh8" path="res://materials/player.tres" id="19_rywsg"]
+[ext_resource type="Material" uid="uid://b55sf1wx7g40v" path="res://materials/player_pentacle.tres" id="20_kc8up"]
+[ext_resource type="Material" uid="uid://d34ljjoo17f1w" path="res://materials/player_shadow.tres" id="21_7lrff"]
+[ext_resource type="Material" uid="uid://xcl7df8obwu2" path="res://materials/end_level_portal.tres" id="22_5cjt6"]
+[ext_resource type="Material" uid="uid://8vunym6727jb" path="res://materials/end_level_portal_shader.tres" id="23_sk8co"]
+[ext_resource type="Material" uid="uid://cdiscrq8g47yi" path="res://materials/cthulhu.tres" id="24_imkul"]
+[ext_resource type="Material" uid="uid://sg4vv8d0lec6" path="res://materials/kraken_attack.tres" id="25_tqfyu"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_xhk4o"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_2px63"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_6rxse"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_onafk"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_n6jc5"]
+
+[node name="Camera3D" type="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.707106, 0.707106, 0, -0.707106, 0.707106, 0, 2, 0)
+
+[node name="ShaderCache" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79736, -4.01226)
+script = ExtResource("2_fvl0v")
+count_down = 10
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_xhk4o")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_cf0we")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_2px63")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("1_55c3p")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_6rxse")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_qcuow")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_onafk")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("5_sxm3l")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("6_k0ffq")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("7_58kel")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("8_lp8js")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("9_b5ryy")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("10_vlp4k")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("11_7us0j")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("12_0ncai")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("13_rygvu")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("14_kyi3i")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("15_vylxx")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("16_0ho2q")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("17_5bgfu")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("18_5gvv5")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("19_rywsg")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("20_kc8up")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("21_7lrff")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("22_5cjt6")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("23_sk8co")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("23_sk8co")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("24_imkul")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="ShaderCache"]
+mesh = SubResource("QuadMesh_n6jc5")
+surface_material_override/0 = ExtResource("25_tqfyu")

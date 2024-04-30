@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://crq3hlgdysbi3"]
+
+[ext_resource type="Texture2D" uid="uid://d3ycm1ipu73qj" path="res://sprites/Textures_droit.png" id="1_oqn3m"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_oqn3m")
+uv1_scale = Vector3(1, 10, 1)

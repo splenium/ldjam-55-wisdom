@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://donhksedhl7lv"
-path="res://.godot/imported/Personnages_-3.png-5967f95447cf216c2c9de7a1dcd91e06.ctex"
+path="res://.godot/imported/kamikaze_back.png-dc8da4bcd9cd9f7bf0bb31a237c688de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/kamikaze/Personnages_-3.png"
-dest_files=["res://.godot/imported/Personnages_-3.png-5967f95447cf216c2c9de7a1dcd91e06.ctex"]
+source_file="res://sprites/kamikaze/kamikaze_back.png"
+dest_files=["res://.godot/imported/kamikaze_back.png-dc8da4bcd9cd9f7bf0bb31a237c688de.ctex"]
 
 [params]
 

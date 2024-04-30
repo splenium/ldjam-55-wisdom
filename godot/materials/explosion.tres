@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://brv0ap368jwqo"]
+
+[ext_resource type="Texture2D" uid="uid://d0lt3lof2w31f" path="res://sprites/Voronoise.png" id="1_3xbf7"]
+
+[resource]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_3xbf7")
+uv1_scale = Vector3(2, 2, 2)
+uv1_triplanar = true

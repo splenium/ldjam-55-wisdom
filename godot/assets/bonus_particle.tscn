@@ -1,10 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bki4032nlh1n8"]
+[gd_scene load_steps=5 format=3 uid="uid://bki4032nlh1n8"]
 
-[ext_resource type="Shader" path="res://shaders/Sparkle.gdshader" id="1_56ui2"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_eckn2"]
-render_priority = 0
-shader = ExtResource("1_56ui2")
+[ext_resource type="Material" uid="uid://dx4xtdg0sumtw" path="res://materials/bonus_particle.tres" id="1_1dmye"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5ojdy"]
 
@@ -18,7 +14,7 @@ colors = PackedColorArray(0, 0, 0, 0, 0.392157, 0.768627, 0.701961, 1, 0.560784,
 
 [node name="BonusParticle" type="CPUParticles3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.189433, 0.258901)
-material_override = SubResource("ShaderMaterial_eckn2")
+material_override = ExtResource("1_1dmye")
 emitting = false
 amount = 30
 lifetime = 2.0

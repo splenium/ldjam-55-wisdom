@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://sg4vv8d0lec6"]
+
+[ext_resource type="Shader" path="res://shaders/KrakenGame.gdshader" id="1_66a3d"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_66a3d")
+shader_parameter/kraken = 1.0

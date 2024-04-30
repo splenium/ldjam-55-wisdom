@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c65gw5u7flt83"]
+
+[ext_resource type="Shader" path="res://shaders/SmokeFog.gdshader" id="1_h1ie6"]
+[ext_resource type="Texture2D" uid="uid://d0lt3lof2w31f" path="res://sprites/Voronoise.png" id="2_dhwee"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_h1ie6")
+shader_parameter/seed = null
+shader_parameter/voronoise = ExtResource("2_dhwee")

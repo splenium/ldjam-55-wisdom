@@ -22,11 +22,9 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 15.545, 0)
 
 [node name="Modificator" parent="." instance=ExtResource("3_xk55x")]
 transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 4.2076, -194.243)
-modificator = 2
 
 [node name="Modificator3" parent="." instance=ExtResource("3_xk55x")]
 transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 4.2076, -354.267)
-modificator = 2
 
 [node name="Modificator2" parent="." instance=ExtResource("3_xk55x")]
 transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 4.2076, -46.9008)

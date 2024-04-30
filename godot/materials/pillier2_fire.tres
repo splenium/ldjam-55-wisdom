@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://c7iwmbcby74y"]
+
+[ext_resource type="Shader" path="res://shaders/FlameSpatial.gdshader" id="1_7giyp"]
+[ext_resource type="Texture2D" uid="uid://bjcl0740a7xel" path="res://sprites/Noise.png" id="2_m8xk8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_7giyp")
+shader_parameter/iChannel1 = ExtResource("2_m8xk8")

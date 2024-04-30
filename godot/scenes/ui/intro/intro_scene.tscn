@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://8cjtb4ij7p7i"]
+[gd_scene load_steps=12 format=3 uid="uid://8cjtb4ij7p7i"]
 
 [ext_resource type="Script" path="res://scenes/ui/intro/intro_scene.gd" id="1_63y4v"]
-[ext_resource type="Shader" path="res://shaders/PostFX.gdshader" id="2_f8jyb"]
 [ext_resource type="Texture2D" uid="uid://cwr6u6ph8qihh" path="res://sprites/ui/speach_intro/Ui_speach_intro.png" id="2_r5sbt"]
 [ext_resource type="Shader" path="res://shaders/flame.gdshader" id="3_1626q"]
 [ext_resource type="Texture2D" uid="uid://mc431u3a0xcn" path="res://sprites/ui/speach_intro/bulle text.png" id="4_j8ej2"]
+[ext_resource type="Material" uid="uid://bye2aecmcbp4x" path="res://materials/intro_scene.tres" id="4_ugvwv"]
 [ext_resource type="FontFile" uid="uid://cf8dib6qt5m14" path="res://fonts/Deutsch.ttf" id="5_qxeal"]
 [ext_resource type="Texture2D" uid="uid://vxeb2n5bacyt" path="res://sprites/ui/speach_intro/Dog_face.png" id="6_riyth"]
 [ext_resource type="Texture2D" uid="uid://c1ieomntxxtix" path="res://sprites/menu/bouton.png" id="7_wi3kn"]
@@ -13,12 +13,6 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8vecj"]
 shader = ExtResource("3_1626q")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lv6ny"]
-shader = ExtResource("2_f8jyb")
-shader_parameter/kraken = 0.4
-shader_parameter/Shake = 0.0
-shader_parameter/factor = 0.0
 
 [node name="IntroScene" type="Node2D"]
 script = ExtResource("1_63y4v")
@@ -53,7 +47,7 @@ offset_right = -776.96
 offset_bottom = -654.42
 
 [node name="PostFX" type="ColorRect" parent="UiSpeachIntro"]
-material = SubResource("ShaderMaterial_lv6ny")
+material = ExtResource("4_ugvwv")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
